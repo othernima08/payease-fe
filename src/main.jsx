@@ -5,10 +5,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 
 import './index.css'
-import Router from './Router.jsx';
+// import Router from './router.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router />
+    {/* <Router /> */}
   </React.StrictMode>,
 )
