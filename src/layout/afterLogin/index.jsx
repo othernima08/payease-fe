@@ -8,6 +8,8 @@ import './afterLogin.css'
 import blankPict from '../../assets/images/blank.jpg';
 
 import CustomNavbar from '../../components/navbar';
+import CustomSidebar from '../../components/sidebar';
+import CustomFooter from '../../components/footer';
 
 
 const AfterLoginLayout = (props) => {
@@ -20,16 +22,17 @@ const AfterLoginLayout = (props) => {
     }
 
     return (
-        <Container className="after-login-container" style={{maxWidth: "100vw", padding: 0}}>
-            <CustomNavbar user={user}/>
-            <Row style ={{ }}>
-                <Col>
-
+        <Container bsPrefix="after-login-container">
+            <CustomNavbar user={user} />
+            <Row style={{ height: "80%", margin: "32px 72px" }}>
+                <Col xs={4}>
+                    <CustomSidebar />
                 </Col>
-                <Col>
-
+                <Col xs={8}>
+                    {children}
                 </Col>
             </Row>
+            <CustomFooter />
         </Container>
     )
 }

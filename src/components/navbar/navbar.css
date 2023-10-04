@@ -1,14 +1,13 @@
 .navbar-container {
     background-color:#FFFFFF; 
-    z-index: 15;
     border-radius: 0px 0px 15px 15px;
-    height: 15%;
-    box-shadow: 0px 0px 16px 4px #d3d3d3d4;
+    height: 120px;
+    box-shadow: 0px 0px 20px 4px #ebebeb;
 }
 
 #logo {
     color: #6379F4;
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .profile-container {

@@ -1,0 +1,34 @@
+.sidebar-menu-container {
+    color: #626468;
+    display: flex;
+    align-items: center;
+    padding: 12px 24px; 
+    width: 100%;
+    font-family: 'Nunito-Regular', sans-serif;
+}
+
+.menu-icon {
+    font-size: 32px;
+    margin: 0;
+}
+
+.menu-title {
+    font-size: 18px;
+    margin: 0;
+    margin-left: 24px;
+}
+
+.sidebar-menu-container:hover {
+    color: #6379F4;
+}
+
+.sidebar-menu-container:active {
+    color: #6379F4;
+}
+
+.active-indicator {
+    height: 48px;
+    width: 10px;
+    background-color: #6379F4;
+
+}
