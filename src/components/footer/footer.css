@@ -1,0 +1,31 @@
+.footer-container {
+    background-color: #6379F4;
+    height: 60px;
+    color: #E1E3F0;
+    padding: 8px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Nunito-Regular', sans-serif;
+    font-size: 16px;
+}
+
+.company-info {
+    display: flex;
+}
+
+.company-num {
+    padding-right: 32px;
+}
+
+@media only screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        justify-content: center;
+        height: 100px;
+    }
+
+    .company-info {
+        flex-direction: column;
+    }
+}
