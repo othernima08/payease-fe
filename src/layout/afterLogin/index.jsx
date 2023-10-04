@@ -24,7 +24,7 @@ const AfterLoginLayout = (props) => {
     return (
         <Container bsPrefix="after-login-container">
             <CustomNavbar user={user} />
-            <Row style={{ height: "80%", margin: "32px 72px" }}>
+            <Row style={{ margin: "32px 72px" }}>
                 <Col xs={4}>
                     <CustomSidebar />
                 </Col>
