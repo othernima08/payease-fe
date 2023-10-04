@@ -14,7 +14,9 @@ const CreatePassword = () => {
         <LayoutAuth>
             <LeftLayoutAuth />
             <RightLayoutAuth>
-
+            <h3 className="title-mobile mt-5">Reset Password</h3>
+                <p className="title-mobile-grey">Enter your PayEase e-mail so we can send
+you a password reset link.</p>
                 <h6 className='mb-4'>Did You Forgot Your Password? Don’t Worry, You Can Reset Your Password In a Minutes.</h6>
                 <p className='p-auth opacity-75 mb-5'>Now you can create a new password for your Zwallet account. Type your password twice so we can confirm your new passsword.</p>
                 <Form>
