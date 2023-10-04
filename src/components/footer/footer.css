@@ -22,6 +22,7 @@
     .footer-container {
         flex-direction: column;
         justify-content: center;
+        height: 100px;
     }
 
     .company-info {
