@@ -7,7 +7,7 @@
     font-family: 'Nunito-Regular', sans-serif;
 }
 
-.sidebar-menu-container:active {
+.active-sidebar-menu-container {
     color: #6379F4;
     display: flex;
     align-items: center;
