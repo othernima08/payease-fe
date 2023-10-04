@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import PropTypes from "prop-types";
-import { Navbar, Container } from 'react-bootstrap';
+
+import { Navbar, Container, Button } from 'react-bootstrap';
+
+import { BsBell } from "react-icons/bs";
 
 import './navbar.css'
 
-import blankPict from '../../assets/images/blank.jpg';
-
 function CustomNavbar(props) {
-    const navigate =  useNavigate();
+    const navigate = useNavigate();
+
     const { user } = props;
 
     return (
@@ -16,19 +18,18 @@ function CustomNavbar(props) {
                 <Navbar.Brand onClick={() => navigate("/home")} id="logo">PayEase</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                    <Navbar.Text>
-                        <section className='profile-container'>
-                            <figure style={{margin: 0, paddingRight: 12}}>
-                                <img src={blankPict} alt="profile-pict" className='profile-picture'/>
-                            </figure>
-                            <section className="profile-text">
-                                <p className="fullName">
-
-                                </p>
-                            </section>
-                        </section>
-                        
-                    </Navbar.Text>
+                    <figure className='profile-container' style={{ margin: 0}}>
+                        <img src={user.profilePict} alt="profile-pict" className='profile-picture' />
+                    </figure>
+                    <section className="profile-text">
+                        <p className="fullName">
+                           {user.fullName}
+                        </p>
+                        <p className="phoneNumber">
+                            {user.phoneNum}
+                        </p>
+                    </section>
+                    <p className="icon"><BsBell /></p>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
@@ -36,13 +37,7 @@ function CustomNavbar(props) {
 }
 
 CustomNavbar.propTypes = {
-    user: PropTypes.object
-}
-
-CustomNavbar.defaultProps = {
-    user: {
-        profilePict: blankPict
-    }
+    user: PropTypes.objects
 }
 
 export default CustomNavbar;
