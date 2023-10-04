@@ -1,0 +1,42 @@
+.left {
+    width: 60%;
+    background-image: url(/src/assets/login-image/MaskGroup.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #6379F4;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
+
+.right {
+    padding:  20px;
+    justify-content: stretch;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background-color: white;
+}
+
+.left .image {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+img {
+    width: 70%;
+}
+
+.white-text {
+    color: white;
+  }
+

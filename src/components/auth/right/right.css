@@ -1,0 +1,30 @@
+
+.right {
+    padding:  20px;
+    justify-content: stretch;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background-color: white;
+}
+
+
+img {
+    width: 70%;
+}
+
+
+.form-container
+{
+    width: 80%;
+}
+
+.white-text {
+    color: white;
+  }
+
+.p-auth{
+  color:  #3A3D42
+  
+}
