@@ -16,8 +16,8 @@ const Pin = () => {
                 <div className="relative-top mb-5">
                 <h3 className="title-mobile mt-5">Create Security PIN</h3>
                 <p className="title-mobile-grey">Create a PIN that’s contain 6 digits number for security purpose in Zwallet.</p>
-                    <h6 className='mb-4'>Secure Your Account, Your Wallet, and Your Data With 6 Digits PIN That You Created Yourself.</h6>
-                    <p className='p-auth opacity-75 mb-5'>Create 6 digits pin to secure all your money and your data in PayEase app. Keep it secret and don’t tell anyone about your PayEase account password and the PIN.</p></div>
+                    <h6 className='mb-4 h6-login'>Secure Your Account, Your Wallet, and Your Data With 6 Digits PIN That You Created Yourself.</h6>
+                    <p className='p-auth opacity-75 mb-5 p-login'>Create 6 digits pin to secure all your money and your data in PayEase app. Keep it secret and don’t tell anyone about your PayEase account password and the PIN.</p></div>
                 <Form
 
                 >
