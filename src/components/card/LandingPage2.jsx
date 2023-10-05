@@ -15,7 +15,7 @@ const LandingPage2 = () => {
                 <img
                     src={imagePartner}
                     alt="Gambar Anda"
-                    className="img-fluid"
+                    className="img-fluid2"
                 />
             </Col>
         </Row>

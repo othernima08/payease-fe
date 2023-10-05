@@ -3,12 +3,18 @@
     justify-content: flex-end;
     /* position: absolute; */
     margin-bottom: 100px;
+    height: 440px;
+    margin-bottom: 200px;
 }
 
 .img-fluid{
     position: absolute !important;
     height: 90% !important;
     /* top: 70px */
+}
+
+.img-fluid2{
+    height: 100%;
 }
 
 .button-landing{
