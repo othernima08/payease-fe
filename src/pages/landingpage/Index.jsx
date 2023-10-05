@@ -25,7 +25,7 @@ const LandingPage = () => {
               <h2 className='tagline'>All The  <span style={{ color: "#6379F4" }}>Great </span> Zwallet Features</h2>
             </div>
             {/* Card dengan fitur-fitur */}
-            <Card>
+            <Card className="landing-page-card">
               <Card.Body>
                 <Card.Title> <span style={{ color: "#6379F4" }}>1. </span> Small Fee</Card.Title>
                 <Card.Text>
@@ -34,7 +34,7 @@ const LandingPage = () => {
                 </Card.Text>
               </Card.Body>
             </Card>
-            <Card>
+            <Card className="landing-page-card">
               <Card.Body>
                 <Card.Title><span style={{ color: "#6379F4" }}>2. </span>  Data Secured</Card.Title>
                 <Card.Text>
@@ -43,7 +43,7 @@ const LandingPage = () => {
                 </Card.Text>
               </Card.Body>
             </Card>
-            <Card>
+            <Card className="landing-page-card">
               <Card.Body>
                 <Card.Title><span style={{ color: "#6379F4" }}>3. </span> User Friendly</Card.Title>
                 <Card.Text>

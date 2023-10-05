@@ -45,7 +45,7 @@ body{
   }
   
   
-  .card {
+  .landing-page-card {
     margin-bottom: 20px;
     font-size: 20px !important;
     border-radius: 25px !important;
@@ -77,7 +77,7 @@ body{
   color: #3A3D42;
 }
 .testimonial-card {
-  border-radius: 10px;
+  border-radius: 20px;
   margin-bottom: 40px; 
 }
 

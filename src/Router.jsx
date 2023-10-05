@@ -9,20 +9,22 @@ import Pin from './pages/auth/register/pin'
 import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
+import LandingPage from './pages/landingpage/Index';
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route exact path="/" element={<AfterLoginLayout />} />
+                <Route exact path="/home" element={<LandingPage/>} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/pin-confirm" element={<Pin />} />
                 <Route exact path="/pin-success" element={<Success />} />
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
-                <Route path="/addPhone" element={<AddPhoneNumber/>}/>
-                <Route path="/managePhone" element={<ManagePhoneNumber/>}/>
+                <Route exact path="/addPhone" element={<AddPhoneNumber/>}/>
+                <Route exact path="/managePhone" element={<ManagePhoneNumber/>}/>
             </Routes>
         </BrowserRouter>
     )
