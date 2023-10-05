@@ -20,8 +20,8 @@ const Success = () => {
                     </div>
                     <h3 className="title-mobile">PIN Successfully Created</h3>
                     <p className="title-mobile-grey">Your PIN was successfully created and you can now access all the features in Zwallet. Login to your new account and start exploring!</p>
-                    <h6 className='mb-5'>Your PIN Was Successfully Created.</h6>
-                    <p className='p-auth opacity-75 mb-5'>Your PIN was successfully created and you can now access all the features in Zwallet. Login to your new account and start exploring!</p></div>
+                    <h6 className='mb-5 h6-login'>Your PIN Was Successfully Created.</h6>
+                    <p className='p-auth opacity-75 mb-5 p-login'>Your PIN was successfully created and you can now access all the features in Zwallet. Login to your new account and start exploring!</p></div>
                 <Form>
                     <div className="d-grid gap-4 mb-5">
                         <Button variant="primary" type="submit" size="lg" style={{ backgroundColor: "#6379F4" }}>

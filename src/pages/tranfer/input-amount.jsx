@@ -10,11 +10,11 @@ const InputAmount = () => {
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocus = () => {
-      setIsFocused(true);
+        setIsFocused(true);
     };
-  
+
     const handleBlur = () => {
-      setIsFocused(false);
+        setIsFocused(false);
     };
 
     return (
@@ -36,42 +36,41 @@ const InputAmount = () => {
 
                 <div className='p-auth opacity-75'>Type the amount you want to transfer and then</div>
                 <div className='p-auth opacity-75'>  press continue to the next steps.</div>
-                <div className='d-inline-flex  align-item-center justify-content-center'>
+                <div className='d-flex  align-item-center justify-content-center'>
 
+                <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+                    
 
-<div>
+                        <NumericFormat
+                            placeholder="0.00"
+                            thousandSeparator={true}
+                            prefix={'Rp.'}
+                            style={{
+                                maxWidth: '400px',
+                                height: '40px',
+                                marginTop: '50px',
+                                fontSize: '40px',
+                                marginBottom: '50px',
+                                border: 'none',
+                                textAlign: 'center',
+                            }}
+
+                            className={isFocused ? 'input-focus' : ''}
+                            onChange={handleFocus}
+                            onFocus={handleFocus}
+                            onBlur={handleFocus}
+                        />
+
                  
-                    <NumericFormat
-                        placeholder="0.00"
-                        thousandSeparator={true}
-                        prefix={'Rp.'}
-                        style={{
-                            width: '500px',
-                            height: '40px',
-                            marginTop: '50px',
-                            fontSize: '40px',
-                            marginBottom: '50px',
-                            border: 'none',
-                            textAlign: 'center',
-                        }}
 
-                        className={isFocused ? 'input-focus' : ''}
-                        onChange={handleFocus}
-                        onFocus={handleFocus}
-                        onBlur={handleFocus}
-                    />
 
 </div>
-
-
-
-
                 </div>
 
                 <center className='mb-5'><p>Rp. 120.000 Available</p></center>
                 <div className="d-flex align-time-center justify-content-center">
                     <div className="d-inline-flex w-50 flex-column " style={{
-                        marginBottom: '280px',
+                        marginBottom: '80px',
                         textAlign: 'center'
                     }}>
 
@@ -94,6 +93,7 @@ const InputAmount = () => {
 
 
                     </div>
+
                 </div>
 
                 <div className='d-flex flex-row-reverse'>
@@ -103,6 +103,7 @@ const InputAmount = () => {
                         </Button>
                     </div>
                 </div>
+
 
             </div>
 
