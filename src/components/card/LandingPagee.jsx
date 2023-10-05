@@ -8,12 +8,8 @@ const LandingPage = () => {
         <Row>
             
             <Col md={6} className="landing-page-text">
-                {/* Bagian kanan (teks) */}
-                <div>
-                    <h2 className='tagline'>All The  <span style={{ color: "#6379F4" }}>Great </span> Zwallet Features</h2>
-                </div>
-                {/* Card dengan fitur-fitur */}
-                
+                <h2 className='tagline'>Awesome App <br /> For Saving <span style={{ color: "#6379F4" }}>Great </span> Time.</h2>
+                <p>we bring you a mobile app for banking problems <br />that oftenly wasting much of your time</p>
             </Col>
             <Col md={6} className="landing-page-image">
                 {/* Bagian kiri (gambar) */}
