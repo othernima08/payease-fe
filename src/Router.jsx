@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import AfterLoginLayout from './layout/afterLogin'
 
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
@@ -11,11 +10,27 @@ import Success from './pages/auth/register/pinsuccess'
 import Transfer from './pages/tranfer'
 import InputAmount from './pages/tranfer/input-amount'
 
+import Home from './pages/home'
+// import Transfer from './pages/transfer'
+import TopUp from './pages/topUp'
+import Profile from './pages/profile'
+import ChangePinPage1 from './pages/changePin/changePinPage1'
+import ChangePinPage2 from './pages/changePin/changePinPage2'
+import ChangePassword from './pages/changePassword'
+
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path="/" element={<AfterLoginLayout />} />
+                <Route exact path="/profile/change-pin-1" element={<ChangePinPage1 />} />
+                <Route exact path="/profile/change-pin-2" element={<ChangePinPage2 />} />
+                <Route exact path="/profile/change-password" element={<ChangePassword />} />
+
+                <Route exact path="/home" element={<Home />} />
+                {/* <Route exact path="/transfer" element={<Transfer />} /> */}
+                <Route exact path="/top-up" element={<TopUp />} />
+                <Route exact path="/profile" element={<Profile />} />
+
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/pin-confirm" element={<Pin />} />
