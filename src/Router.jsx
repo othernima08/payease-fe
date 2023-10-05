@@ -8,6 +8,7 @@ import Pin from './pages/auth/register/pin'
 import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
+import Profile from './pages/profile/Index'
 
 const Router = () => {
     return (
@@ -20,6 +21,7 @@ const Router = () => {
                 <Route exact path="/pin-success" element={<Success />} />
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
+                <Route exact path="/profile" element={<Profile />} />
             </Routes>
         </BrowserRouter>
     )
