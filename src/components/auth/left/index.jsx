@@ -7,7 +7,7 @@ const LeftLayoutAuth = () => {
                 <h3 className='white-text'>PayEase</h3>
             </div>
             <div className="image">
-                <img src="/src/assets/login-image/phone.png" alt="" />
+                <img src="/src/assets/login-image/phone.png" alt="" className='img-left'/>
             </div>
             <div className="d-flex flex-column  w-75">
                 <h5 className='white-text'>Apps that covering banking needs</h5>

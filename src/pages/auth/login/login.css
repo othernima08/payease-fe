@@ -1,3 +1,63 @@
 img {
     width: 70%;
 }
+
+.title-mobile{
+    display: none;
+}
+.title-mobile-grey{
+    display: none;
+}
+
+@media (max-width: 639px) {
+    .left {
+        background-color: whitesmoke !important;
+        background-image: none !important;
+        width: 100% !important;
+        height: 30%;
+    }
+     
+   
+    h6 {
+        display: none;
+    }
+
+    h5 {
+        display: none;
+    }
+
+    h3 {
+        text-align: center;
+       
+    }
+    p {
+        display: none;
+    }
+
+    .white-text{
+        color: #6379F4 !important;
+    }
+
+    .title-mobile{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        color: black !important;
+        margin-bottom: 20px;
+    }
+    .title-mobile-grey{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        color: #3A3D42 !important;
+        opacity: 60%;
+        margin-bottom: 40px;
+    }
+
+    .img-success-mobile
+    {
+        display: flex ;
+        align-items: center;
+        justify-content: center;
+    }
+}

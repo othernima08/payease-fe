@@ -13,6 +13,9 @@ const ResetPassword = () => {
         <LayoutAuth>
             <LeftLayoutAuth />
             <RightLayoutAuth>
+            <h3 className="title-mobile mt-5">Reset Password</h3>
+                <p className="title-mobile-grey">Create and confirm your new password so
+you can login to PayEase.</p>
                 <h6 className='mb-4'>Did You Forgot Your Password? Don’t Worry, You Can Reset Your Password In a Minutes.</h6>
                 <p className='p-auth opacity-75 mb-5'>To reset your password, you must type your e-mail and we will send a link to your email and you will be directed to the reset password screens.</p>
                 <Form>
