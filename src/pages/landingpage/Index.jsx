@@ -5,11 +5,17 @@ import sherinaImage from "../../assets/images/th (1).jpeg"
 import jessicaImage from "../../assets/images/th (2).jpeg"
 import robertImage from "../../assets/images/th.jpeg"
 import "./landingPage.css";
+import LandingPage1 from '../../components/card/LandingPage1';
+import LandingPage2 from '../../components/card/LandingPage2';
+import LandingPages from '../../components/card/LandingPagee';
 
 const LandingPage = () => {
   return (
     <div>
-      <Container style={{ backgroundColor: "#fff" }}>
+      <LandingPages/>
+      <LandingPage1/>
+      <LandingPage2/>
+      <Container style={{ backgroundColor: "#473AD10F"}}>
         <Row>
           <Col md={6} className="landing-page-image">
             {/* Bagian kiri (gambar) */}
