@@ -8,7 +8,7 @@ const LandingPage2 = () => {
         <Row>
             <Col md={6} className="landing-page-text">
                     <h2 className='tagline'>100+  <span style={{ color: "#6379F4" }}>Trusted </span> <br /> Partners</h2>
-                    <p> We have reached global level and have 100+ brand partners around the globe.</p>
+                    <p> We have reached global level and have 100+<br /> brand partners around the globe.</p>
             </Col>
             <Col md={6} className="landing-page-image">
                 

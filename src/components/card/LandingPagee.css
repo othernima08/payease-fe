@@ -1,0 +1,21 @@
+.bg-img {
+    display: flex;
+    justify-content: flex-end;
+    /* position: absolute; */
+    margin-bottom: 100px;
+}
+
+.img-fluid{
+    position: absolute !important;
+    height: 90% !important;
+    /* top: 70px */
+}
+
+.button-landing{
+    position: absolute !important;
+    top: 20px;
+    right: 200px;
+}
+.paragraf {
+    
+}
