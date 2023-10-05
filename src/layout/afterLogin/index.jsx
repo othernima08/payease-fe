@@ -28,7 +28,7 @@ const AfterLoginLayout = (props) => {
                 <Col xs={12} md={4}>
                     <CustomSidebar />
                 </Col>
-                <Col xs={12} md={4}>
+                <Col xs={12} md={8}>
                     {children}
                 </Col>
             </Row>

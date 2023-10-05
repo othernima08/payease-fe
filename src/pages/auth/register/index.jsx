@@ -4,7 +4,7 @@ import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
 import "./register.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputGroupText from 'react-bootstrap/esm/InputGroupText';
-import LayoutAuth from '../../../layouts/auth';
+import LayoutAuth from '../../../layout/auth';
 import LeftLayoutAuth from '../../../components/auth/left';
 import RightLayoutAuth from '../../../components/auth/right';
 const Register = () => {
