@@ -6,7 +6,7 @@ const ChangePinPage1 = () => {
     return (
         <ChagePinLayout
             buttonText={"Continue"}
-            description={<>Enter your current 6 digits Zwallet PIN below to <br></br> continue to the next steps.</>}
+            description={"Enter your current 6 digits Zwallet PIN below to continue to the next steps."}
             handleClick={() => { }}
         />
     )

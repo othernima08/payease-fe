@@ -17,6 +17,7 @@
     font-family: 'Nunito-Regular', sans-serif;
     font-size: 16px;
     margin-top: 24px;
+    width: 50%;
 }
 
 .change-pin-form-container {
@@ -24,4 +25,69 @@
     align-items:center;
     justify-content: center;
     height:80%;
+}
+
+.back-icon {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .change-pin-container {
+        padding: 40px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        background-color: #FAFCFF;
+    }
+
+    .back-icon {
+        display: block;
+        position: absolute;
+        width: fit-content;
+        margin-left: -20px;
+        cursor: pointer;
+        font-size: 24px;
+    }
+
+    .change-pin-title {
+        margin-left: 20px;
+        padding-top: 10px;
+    }
+
+    .change-pin-description {
+        margin-left: -16px;
+        margin-right: -16px;
+        width: 100%;
+    }
+
+    .change-pin-form-container{
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+
+    .change-pin-form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .change-pin-head-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 20%;
+    }
+
+    .change-pin-input-container {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 45%;
+    }
 }

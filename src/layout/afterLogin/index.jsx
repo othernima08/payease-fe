@@ -25,10 +25,10 @@ const AfterLoginLayout = (props) => {
         <Container bsPrefix="after-login-container">
             <CustomNavbar user={user} />
             <Row style={{ margin: "32px 64px" }}>
-                <Col xs={12} md={3}>
+                <Col xs={12} md={4}>
                     <CustomSidebar />
                 </Col>
-                <Col xs={12} md={9}>
+                <Col xs={12} md={8}>
                     {children}
                 </Col>
             </Row>

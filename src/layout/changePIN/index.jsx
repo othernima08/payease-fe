@@ -1,51 +1,34 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Container, Button, Form } from 'react-bootstrap'
+import React from 'react'
+import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import PinInput from 'react-pin-input';
 
 import AfterLoginLayout from '../afterLogin'
+import { IoArrowBackSharp } from "react-icons/io5";
+
 import './changePin.css'
 
 const ChagePinLayout = (props) => {
   const { buttonText, handleClick, description } = props;
 
-  // const [deviceWidth, setDeviceWidth] = useState(useRef(window.innerWidth));
-  // const [isMobile, setIsMobile] = useState(false)
-
-  // useEffect(() => {
-  //   const updateDeviceWidth = () => {
-  //     setDeviceWidth(window.innerWidth);
-  //   };
-
-  //   // Add the event listener to listen for window resize
-  //   window.addEventListener('resize', updateDeviceWidth);
-
-  //   // if (deviceWidth.current <= 1000) {
-  //   //   setIsMobile(true)
-  //   // } else {
-  //   //   setIsMobile(false)
-  //   // }
-
-  //   // // Clean up the event listener when the component unmounts
-  //   // return () => {
-  //   //   window.removeEventListener('resize', updateDeviceWidth);
-  //   // };
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(deviceWidth)
-  // }, [deviceWidth, setDeviceWidth])
-
-
   return (
     <React.Fragment>
-      {/* {deviceWidth.current >= 1000 ? */}
-        <AfterLoginLayout
-          children={
-            <Container bsPrefix='change-pin-container'>
-              <h2 className="change-pin-title">Change PIN</h2>
-              <p className="change-pin-description">{description}</p>
-              <Container bsPrefix="change-pin-form-container">
-                <Form>
+      <AfterLoginLayout
+        children={
+          <Container bsPrefix='change-pin-container'>
+            <Row bsPrefix='change-pin-head-container'>
+              <Col md={12}>
+                <div className="back-icon">
+                  <IoArrowBackSharp />
+                </div>
+                <h2 className="change-pin-title">Change PIN</h2>
+              </Col>
+              <Col md={12}>
+                <p className="change-pin-description">{description}</p>
+              </Col>
+            </Row>
+            <Container bsPrefix="change-pin-form-container">
+              <Form className='change-pin-form'>
+                <section className='change-pin-input-container'>
                   <PinInput
                     length={6}
                     initialValue=""
@@ -60,16 +43,16 @@ const ChagePinLayout = (props) => {
                     autoSelect={true}
                     regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
                   />
-                  <section className="d-grid gap-4 mt-5">
-                    <Button type="submit" size="lg" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} onSubmit={handleClick}>
-                      {buttonText}
-                    </Button>
-                  </section>
-                </Form>
-              </Container>
+                </section>
+                <section className="d-grid gap-4 mt-5">
+                  <Button type="submit" size="lg" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} onSubmit={handleClick}>
+                    {buttonText}
+                  </Button>
+                </section>
+              </Form>
             </Container>
-          } />
-        {/* : <></>} */}
+          </Container>
+        } />
     </React.Fragment>
   )
 }
