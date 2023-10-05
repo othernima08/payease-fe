@@ -1,16 +1,14 @@
+import { Button, Form, InputGroup } from 'react-bootstrap'
 
-import "bootstrap-icons/font/bootstrap-icons.css";
-import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
 import "./login.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import InputGroupText from 'react-bootstrap/esm/InputGroupText';
+
 import LayoutAuth from "../../../layouts/auth";
 import LeftLayoutAuth from "../../../components/auth/left";
 import RightLayoutAuth from "../../../components/auth/right";
+
 const Login = () => {
     return (
         <LayoutAuth>
-
             <LeftLayoutAuth />
             <RightLayoutAuth>
                 <h3 className="title-mobile mt-5">Login</h3>
@@ -41,7 +39,7 @@ const Login = () => {
                         </Button>
                     </div>
                     <div className="d-flex flex-row justify-content-center">
-                    <p className="title-mobile-grey"> Already have an account? Let’s </p>  <p className='p-auth opacity-75 mb-5'> Already have an account? Let’s  </p> <span href="" className='mx-1' style={{ color: "blue" }}> Login</span></div>
+                        <p className="title-mobile-grey"> Already have an account? Let’s </p>  <p className='p-auth opacity-75 mb-5'> Already have an account? Let’s  </p> <span href="" className='mx-1' style={{ color: "blue" }}> Login</span></div>
                 </Form>
             </RightLayoutAuth>
 

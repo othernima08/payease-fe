@@ -10,9 +10,47 @@ import { HiOutlineArrowUpTray } from "react-icons/hi2";
 import './sidebar.css'
 
 import MenuItem from '../sidebarMenuItem';
+import { useNavigate } from 'react-router-dom';
 
 const CustomSidebar = () => {
+    const navigate = useNavigate()
     const [selectedIndex, setSelectedIndex] = useState(1);
+
+    const handleClickDashboard = (e) => {
+        e.preventDefault()
+
+        setSelectedIndex(1)
+        navigate("/home")
+    }
+
+    const handleClickTransfer = (e) => {
+        e.preventDefault();
+
+        setSelectedIndex(2)
+        navigate("/transfer")
+    }
+
+    const handleClickTopUp = (e) => {
+        e.preventDefault();
+
+        setSelectedIndex(3)
+        navigate("/top-up")
+    }
+
+    const handleClickProfile = (e) => {
+        e.preventDefault();
+
+        setSelectedIndex(4)
+        navigate("/profile")
+    }
+
+    const handleClickLogOut = (e) => {
+        e.preventDefault();
+
+        setSelectedIndex(5)
+        sessionStorage.clear()
+        navigate("/")
+    }
 
     return (
         <Container bsPrefix='sidebar-container'>
@@ -24,7 +62,7 @@ const CustomSidebar = () => {
                         icon: <RxDashboard />
                     }}
                     selectedIndex={selectedIndex} 
-                    handleClick={() => setSelectedIndex(1)}/>
+                    handleClick={handleClickDashboard}/>
                 <MenuItem
                     menu={{
                         index: 2,
@@ -32,7 +70,7 @@ const CustomSidebar = () => {
                         icon: <AiOutlineArrowUp />
                     }} 
                     selectedIndex={selectedIndex} 
-                    handleClick={() => setSelectedIndex(2)}/>
+                    handleClick={handleClickTransfer}/>
                 <MenuItem
                     menu={{
                         index: 3,
@@ -40,7 +78,7 @@ const CustomSidebar = () => {
                         icon: <IoAdd />
                     }} 
                     selectedIndex={selectedIndex}
-                    handleClick={() => setSelectedIndex(3)}/>
+                    handleClick={handleClickTopUp}/>
                 <MenuItem
                     menu={{
                         index: 4,
@@ -48,7 +86,7 @@ const CustomSidebar = () => {
                         icon: <AiOutlineUser />
                     }} 
                     selectedIndex={selectedIndex}
-                    handleClick={() => setSelectedIndex(4)}/>
+                    handleClick={handleClickProfile}/>
             </section>
             <section>
                 <MenuItem
@@ -58,7 +96,7 @@ const CustomSidebar = () => {
                         icon: <div style={{rotate:"90deg"}}><HiOutlineArrowUpTray /></div>
                     }} 
                     selectedIndex={selectedIndex}
-                    handleClick={() => setSelectedIndex(5)}
+                    handleClick={handleClickLogOut}
                 />
             </section>
         </Container>

@@ -1,20 +1,20 @@
 import React from 'react'
-import "bootstrap-icons/font/bootstrap-icons.css";
-import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
+import { Button, Form, InputGroup } from 'react-bootstrap'
+
 import "./register.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import InputGroupText from 'react-bootstrap/esm/InputGroupText';
+
 import LayoutAuth from '../../../layouts/auth';
 import LeftLayoutAuth from '../../../components/auth/left';
 import RightLayoutAuth from '../../../components/auth/right';
+
 const Register = () => {
     return (
         <LayoutAuth>
             <LeftLayoutAuth />
             <RightLayoutAuth>
                 <div className="relative-top mb-5">
-                <h3 className="title-mobile mt-5">Sign Up</h3>
-                <p className="title-mobile-grey">Create your account to access Zwallet.</p>
+                    <h3 className="title-mobile mt-5">Sign Up</h3>
+                    <p className="title-mobile-grey">Create your account to access Zwallet.</p>
                     <h6 className='mb-4'>Start Accessing Banking Needs With All Devices and All Platforms With 30.000+ Users</h6>
                     <p className='p-auth opacity-75 mb-5'>Transfering money is eassier than ever, you can access PayEase wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!</p></div>
                 <Form>

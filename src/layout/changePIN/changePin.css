@@ -1,0 +1,27 @@
+.change-pin-container {
+    background-color: #ffffff;
+    padding: 32px;
+    height: 100%;
+    box-shadow: 0px 0px 20px 4px #ebebeb;
+    border-radius: 25px;
+}
+
+.change-pin-title {
+    color: #3A3D42;
+    font-family: 'Nunito-Bold', sans-serif;
+    font-size: 18px;
+}
+
+.change-pin-description {
+    color: #7A7886;
+    font-family: 'Nunito-Regular', sans-serif;
+    font-size: 16px;
+    margin-top: 24px;
+}
+
+.change-pin-form-container {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height:80%;
+}
