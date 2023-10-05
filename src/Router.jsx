@@ -14,6 +14,7 @@ import TopUp from './pages/topUp'
 import Profile from './pages/profile'
 import ChangePinPage1 from './pages/changePin/changePinPage1'
 import ChangePinPage2 from './pages/changePin/changePinPage2'
+import ChangePassword from './pages/changePassword'
 
 const Router = () => {
     return (
@@ -21,6 +22,7 @@ const Router = () => {
             <Routes>
                 <Route exact path="/profile/change-pin-1" element={<ChangePinPage1 />} />
                 <Route exact path="/profile/change-pin-2" element={<ChangePinPage2 />} />
+                <Route exact path="/profile/change-password" element={<ChangePassword />} />
 
                 <Route exact path="/home" element={<Home />} />
                 <Route exact path="/transfer" element={<Transfer />} />
