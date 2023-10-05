@@ -48,4 +48,10 @@ img {
         .white-text{
             color: #6379F4 !important;
         }
+
+        .icon-mobile{
+          
+            justify-content: center !important;
+            align-items: center !important;
+        }
     }

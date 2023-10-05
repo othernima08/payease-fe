@@ -17,19 +17,22 @@ img {
         width: 100% !important;
         height: 30%;
     }
-
-
-    h6 {
-        display: none;
+     
+   
+    .h6-login {
+        display: none !important;
     }
 
-    h5 {
-        display: none;
+    .h5-login {
+        display: none !important;
     }
 
-    h3 {
-        text-align: center;
-
+    .h3-login {
+        text-align: center !important;
+       
+    }
+    .p-login {
+        display: none !important;
     }
 
     /* p {
@@ -43,7 +46,7 @@ img {
     .title-mobile {
         text-align: center;
         display: flex;
-        justify-content: center;
+        justify-content: center !important;
         color: black !important;
         margin-bottom: 20px;
     }

@@ -7,9 +7,11 @@ import Pin from './pages/auth/register/pin'
 import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
+import Transfer from './pages/tranfer'
+import InputAmount from './pages/tranfer/input-amount'
 
 import Home from './pages/home'
-import Transfer from './pages/transfer'
+// import Transfer from './pages/transfer'
 import TopUp from './pages/topUp'
 import Profile from './pages/profile'
 import ChangePinPage1 from './pages/changePin/changePinPage1'
@@ -25,7 +27,7 @@ const Router = () => {
                 <Route exact path="/profile/change-password" element={<ChangePassword />} />
 
                 <Route exact path="/home" element={<Home />} />
-                <Route exact path="/transfer" element={<Transfer />} />
+                {/* <Route exact path="/transfer" element={<Transfer />} /> */}
                 <Route exact path="/top-up" element={<TopUp />} />
                 <Route exact path="/profile" element={<Profile />} />
 
@@ -35,6 +37,8 @@ const Router = () => {
                 <Route exact path="/pin-success" element={<Success />} />
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
+                <Route exact path="/home/transfer/receiver" element={<Transfer />} />
+                <Route exact path="/home/transfer/input" element={<InputAmount />} />
             </Routes>
         </BrowserRouter>
     )

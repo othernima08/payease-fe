@@ -1,8 +1,8 @@
-import { Button, Form, InputGroup} from 'react-bootstrap'
+import { Button, Form, InputGroup } from 'react-bootstrap'
 
 import "./login.css";
 
-import LayoutAuth from "../../../layouts/auth";
+import LayoutAuth from "../../../layout/auth";
 import LeftLayoutAuth from "../../../components/auth/left";
 import RightLayoutAuth from "../../../components/auth/right";
 
@@ -11,11 +11,11 @@ const ResetPassword = () => {
         <LayoutAuth>
             <LeftLayoutAuth />
             <RightLayoutAuth>
-                <h3 className="title-mobile mt-5">Reset Password</h3>
-                <p className="title-mobile-grey">Create and confirm your new password so
+                <h3 className="title-mobile mt-5 ">Reset Password</h3>
+                <p className="title-mobile-grey ">Create and confirm your new password so
                     you can login to PayEase.</p>
-                <h6 className='mb-4'>Did You Forgot Your Password? Don’t Worry, You Can Reset Your Password In a Minutes.</h6>
-                <p className='p-auth opacity-75 mb-5'>To reset your password, you must type your e-mail and we will send a link to your email and you will be directed to the reset password screens.</p>
+                <h6 className='mb-4 h6-login'>Did You Forgot Your Password? Don’t Worry, You Can Reset Your Password In a Minutes.</h6>
+                <p className='p-auth opacity-75 mb-5 p-login'>To reset your password, you must type your e-mail and we will send a link to your email and you will be directed to the reset password screens.</p>
                 <Form>
                     <InputGroup className="mb-5">
                         <InputGroup.Text id="basic-addon1" style={{ backgroundColor: '#FFFFFF !important', border: 'none', outline: 'none' }}><i class="bi bi-envelope-fill"></i></InputGroup.Text>
