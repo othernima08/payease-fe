@@ -8,6 +8,8 @@ import Pin from './pages/auth/register/pin'
 import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
+import Transfer from './pages/tranfer'
+import InputAmount from './pages/tranfer/input-amount'
 
 const Router = () => {
     return (
@@ -20,6 +22,8 @@ const Router = () => {
                 <Route exact path="/pin-success" element={<Success />} />
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
+                <Route exact path="/home/transfer/receiver" element={<Transfer />} />
+                <Route exact path="/home/transfer/input" element={<InputAmount />} />
             </Routes>
         </BrowserRouter>
     )
