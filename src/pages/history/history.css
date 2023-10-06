@@ -18,22 +18,14 @@
     font-size: 16px;
 }
 
-.transfer-history-description {
-    color: #7A7886;
-    font-family: 'Nunito-Regular', sans-serif;
-    font-size: 16px;
-    margin-top: 24px;
-    width: 50%;
-}
-
 .transfer-history-detail-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 90%;
+    height: 80%;
 }
 
-.transfer-history-detail{
+.transfer-history-detail {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -42,6 +34,16 @@
 
 .transfer-history-back-icon {
     display: none;
+}
+
+.transaction-history-button-container {
+    display: none;
+}
+
+.button-transaction-history {
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: 0px 0px 20px 4px #ebebeb;
 }
 
 @media only screen and (max-width: 768px) {
@@ -54,6 +56,9 @@
         height: 100%;
         border-radius: 0;
         background-color: #FAFCFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
 
     .transfer-history-back-icon {
@@ -70,13 +75,14 @@
         padding-top: 10px;
     }
 
-    .transfer-history-description {
+    .transfer-history-detail-container {
         margin-left: -16px;
         margin-right: -16px;
-        width: 100%;
     }
 
-    .transfer-history-detail-container {
+    .transaction-history-button-container {
+        display: flex;
+        justify-content: space-between;
         margin-left: -16px;
         margin-right: -16px;
     }

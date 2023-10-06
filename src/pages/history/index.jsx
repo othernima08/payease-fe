@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
 import { IoArrowBackSharp } from "react-icons/io5";
 import blank from '../../assets/images/blank.jpg'
@@ -22,7 +23,7 @@ const TransactionHistory = () => {
                                 <h2 className="transfer-history-title">Transaction History</h2>
                             </Col>
                         </Row>
-                        <Container bsPrefix="transfer-history-detail-container">
+                        <Row bsPrefix="transfer-history-detail-container">
                             <section className='transfer-history-detail'>
                                 <section className="transfer-history-subtitle">
                                     This Week
@@ -61,7 +62,12 @@ const TransactionHistory = () => {
                                     amount={"249.000"}
                                 />
                             </section>
-                        </Container>
+                        </Row>
+                        <Row bsPrefix='transaction-history-button-container'>
+                            <Button style={{ backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#FF5B37" }}><AiOutlineArrowDown /></p></Button>
+                            <Button style={{ backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#1EC15F" }}><AiOutlineArrowUp /></p></Button>
+                            <Button style={{ width:"60%", backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#6379F4" }}>Filter by Date</p></Button>
+                        </Row>
                     </Container>
                 } />
         </React.Fragment>
