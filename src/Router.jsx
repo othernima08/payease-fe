@@ -19,6 +19,8 @@ import Profile from './pages/profile'
 import ChangePinPage1 from './pages/changePin/changePinPage1'
 import ChangePinPage2 from './pages/changePin/changePinPage2'
 import ChangePassword from './pages/changePassword'
+import Confirmation from './pages/transfer/confirmation';
+import TransferStatus from './pages/transfer/transfer-status';
 
 const Router = () => {
     return (
@@ -41,6 +43,8 @@ const Router = () => {
                 <Route exact path="/reset-password" element={<ResetPassword />} />
                 <Route exact path="/transfer/receiver" element={<Transfer />} />
                 <Route exact path="/transfer/input" element={<InputAmount />} />
+                <Route exact path="/transfer/confirmation" element={<Confirmation />} />
+                <Route exact path="/transfer/status" element={<TransferStatus />} />
                 <Route path="/addPhone" element={<AddPhoneNumber/>}/>
                 <Route path="/managePhone" element={<ManagePhoneNumber/>}/>
             </Routes>
