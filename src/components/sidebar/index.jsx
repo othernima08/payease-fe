@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Col, Container, Row } from 'react-bootstrap'
 
@@ -10,9 +10,42 @@ import { HiOutlineArrowUpTray } from "react-icons/hi2";
 import './sidebar.css'
 
 import MenuItem from '../sidebarMenuItem';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CustomSidebar = () => {
-    const [selectedIndex, setSelectedIndex] = useState(1);
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const handleClickDashboard = (e) => {
+        e.preventDefault()
+
+        navigate("/home")
+    }
+
+    const handleClickTransfer = (e) => {
+        e.preventDefault();
+
+        navigate("/transfer")
+    }
+
+    const handleClickTopUp = (e) => {
+        e.preventDefault();
+
+        navigate("/top-up")
+    }
+
+    const handleClickProfile = (e) => {
+        e.preventDefault();
+
+        navigate("/profile")
+    }
+
+    const handleClickLogOut = (e) => {
+        e.preventDefault();
+
+        sessionStorage.clear()
+        navigate("/")
+    }
 
     return (
         <Container bsPrefix='sidebar-container'>
@@ -23,32 +56,32 @@ const CustomSidebar = () => {
                         title: "Dashboard",
                         icon: <RxDashboard />
                     }}
-                    selectedIndex={selectedIndex} 
-                    handleClick={() => setSelectedIndex(1)}/>
+                    isActive={location.pathname.includes("home")}
+                    handleClick={handleClickDashboard}/>
                 <MenuItem
                     menu={{
                         index: 2,
                         title: "Transfer",
                         icon: <AiOutlineArrowUp />
                     }} 
-                    selectedIndex={selectedIndex} 
-                    handleClick={() => setSelectedIndex(2)}/>
+                    isActive={location.pathname.includes("transfer")}
+                    handleClick={handleClickTransfer}/>
                 <MenuItem
                     menu={{
                         index: 3,
                         title: "Top Up",
                         icon: <IoAdd />
                     }} 
-                    selectedIndex={selectedIndex}
-                    handleClick={() => setSelectedIndex(3)}/>
+                    isActive={location.pathname.includes("top-up")}
+                    handleClick={handleClickTopUp}/>
                 <MenuItem
                     menu={{
                         index: 4,
                         title: "Profile",
                         icon: <AiOutlineUser />
                     }} 
-                    selectedIndex={selectedIndex}
-                    handleClick={() => setSelectedIndex(4)}/>
+                    isActive={location.pathname.includes("profile")}
+                    handleClick={handleClickProfile}/>
             </section>
             <section>
                 <MenuItem
@@ -57,8 +90,8 @@ const CustomSidebar = () => {
                         title: "Log Out",
                         icon: <div style={{rotate:"90deg"}}><HiOutlineArrowUpTray /></div>
                     }} 
-                    selectedIndex={selectedIndex}
-                    handleClick={() => setSelectedIndex(5)}
+                    isActive={false}
+                    handleClick={handleClickLogOut}
                 />
             </section>
         </Container>

@@ -2,10 +2,11 @@ img {
     width: 70%;
 }
 
-.title-mobile{
+.title-mobile {
     display: none;
 }
-.title-mobile-grey{
+
+.title-mobile-grey {
     display: none;
 }
 
@@ -34,18 +35,23 @@ img {
         display: none !important;
     }
 
-    .white-text{
+    /* p {
+        display: none;
+    } */
+
+    .white-text {
         color: #6379F4 !important;
     }
 
-    .title-mobile{
+    .title-mobile {
         text-align: center;
         display: flex;
         justify-content: center !important;
         color: black !important;
         margin-bottom: 20px;
     }
-    .title-mobile-grey{
+
+    .title-mobile-grey {
         text-align: center;
         display: flex;
         justify-content: center;
@@ -54,9 +60,8 @@ img {
         margin-bottom: 40px;
     }
 
-    .img-success-mobile
-    {
-        display: flex ;
+    .img-success-mobile {
+        display: flex;
         align-items: center;
         justify-content: center;
     }

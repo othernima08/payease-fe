@@ -10,7 +10,10 @@ const Transfer = () => {
 
 
     return (
-        <AfterLoginLayout>
+        <AfterLoginLayout
+        
+  
+        >
             <div className="content-container ">
                 <h5 className="mb-4">  Search Receiver</h5>
                 <InputGroup className="mb-4">

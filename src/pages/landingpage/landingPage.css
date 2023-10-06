@@ -1,0 +1,172 @@
+/* LandingPage.css */
+
+body{
+    background-color: #fff !important;
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif !important;
+}
+
+.landing-page-image {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+  
+  .landing-page-image img {
+    max-width: 100%;
+    /* height: 440px; */
+
+  }
+  
+ 
+  .landing-page-text {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    /* align-items: center;
+    justify-content: center; */
+
+  }
+  .landing-page-text p{
+    /* margin:auto; */
+  }
+
+
+  .landing-page-text .tagline{
+    font-size: 50px;
+    font-weight: 700;
+    color: #3A3D42;
+    margin-bottom: 50px;
+  }
+  
+  .landing-page-text h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* .landing-page-text p {
+    font-size: 16px;
+    margin-bottom: 20px; */
+    /* left: 100px; */
+  /* } */
+  
+  
+  .card {
+    margin-bottom: 20px;
+    font-size: 20px !important;
+    border-radius: 25px !important;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05); 
+  }
+  
+  .card-title {
+    font-weight: 700;
+    color: #3A3D42 !important;
+  }
+
+  /* CSS untuk testimonial */
+.testimonial-container {
+  text-align: center;
+  margin-top: 40px;
+  /* background-color: #473AD10F; */
+}
+
+
+.testimonial-container h2 {
+  font-size: 50px; 
+  font-weight: 700;
+  color: #3A3D42; 
+  margin-bottom: 20px;
+}
+
+.testimonial-container p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #3A3D42;
+}
+.testimonial-card {
+  border-radius: 10px;
+  margin-bottom: 40px; 
+}
+
+.testimonial-image {
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.testimonial-card .card-body {
+  padding: 20px;
+}
+
+.testimonial-card .card-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #3A3D42; 
+}
+
+.testimonial-card .card-title {
+  font-weight: bold;
+  font-size: 18px; 
+  margin-bottom: 10px; 
+}
+
+.testimonial-card-row {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.testimonial-card-col {
+  margin-bottom: 20px;
+}
+
+/* CSS for footer */
+
+.footer {
+  background-color: #6379F4;
+  color: #fff;
+  padding: 30px 120px; 
+  text-align: center;
+  margin-top: 70px;
+}
+
+.footer h2 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.footer hr {
+  border: none;
+  border-top: 1px solid #fff;
+  margin: 20px 0;
+}
+
+.footer-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* 
+.footer-left, .footer-right {
+  flex: 1;
+  text-align: right;
+} */
+
+.footer-right {
+  text-align: right;
+}
