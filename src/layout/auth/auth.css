@@ -1,0 +1,17 @@
+
+.contain {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+.contain {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+@media (max-width: 639px) {
+    .contain {
+        flex-direction: column;
+    }}
