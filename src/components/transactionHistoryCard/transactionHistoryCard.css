@@ -1,0 +1,41 @@
+.transfer-history-card {
+    margin: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.type-and-user {
+    display: flex;
+}
+
+.recipient-or-provider-img {
+    width: 56px;
+    border-radius: 10px;
+}
+
+.recipient-or-provider-name {
+    font-family: 'Nunito-Bold', sans-serif;
+    font-size: 16px;
+    color: #4D4B57;
+    /* margin: 0; */
+}
+
+.transaction-type {
+    font-family: 'Nunito-Regular', sans-serif;
+    font-size: 14px;
+    color: #7A7886; 
+    /* margin: 0; */
+}
+
+.transaction-amount-income {
+    font-family: 'Nunito-Bold', sans-serif;
+    font-size: 16px;
+    color: #1EC15F;
+}
+
+.transaction-amount-expense {
+    font-family: 'Nunito-Bold', sans-serif;
+    font-size: 16px;
+    color: #FF5B37;
+}

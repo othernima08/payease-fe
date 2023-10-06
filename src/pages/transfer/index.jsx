@@ -1,19 +1,12 @@
 import React from 'react'
-import { Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
-import CustomNavbar from '../../components/navbar'
-import CustomSidebar from '../../components/sidebar'
-import blankPict from '../../assets/images/blank.jpg';
-import CustomFooter from '../../components/footer';
+import { Container, Form, InputGroup } from 'react-bootstrap'
 import AfterLoginLayout from '../../layout/afterLogin';
 import "./transfer.css";
 const Transfer = () => {
 
 
     return (
-        <AfterLoginLayout
-        
-  
-        >
+        <AfterLoginLayout>
             <div className="content-container ">
                 <h5 className="mb-4">  Search Receiver</h5>
                 <InputGroup className="mb-4">
@@ -70,7 +63,7 @@ const Transfer = () => {
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </AfterLoginLayout>
     )
