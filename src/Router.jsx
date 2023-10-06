@@ -33,7 +33,6 @@ const Router = () => {
                 {/* <Route exact path="/transfer" element={<Transfer />} /> */}
                 <Route exact path="/top-up" element={<TopUp />} />
                 <Route exact path="/profile" element={<Profile />} />
-
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/pin-confirm" element={<Pin />} />
