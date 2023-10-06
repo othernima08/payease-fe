@@ -27,7 +27,7 @@
     height:80%;
 }
 
-.back-icon {
+.change-pin-back-icon {
     display: none;
 }
 
@@ -43,7 +43,7 @@
         background-color: #FAFCFF;
     }
 
-    .back-icon {
+    .change-pin-back-icon {
         display: block;
         position: absolute;
         width: fit-content;
