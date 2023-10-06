@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-
+import AfterLoginLayout from './layout/afterLogin'
+import AddPhoneNumber from "./pages/home/addPhoneNumber";
+import ManagePhoneNumber from "./pages/home/managePhone";
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
 import Pin from './pages/auth/register/pin'
@@ -39,8 +41,10 @@ const Router = () => {
                 <Route exact path="/pin-success" element={<Success />} />
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
-                <Route exact path="/home/transfer/receiver" element={<Transfer />} />
-                <Route exact path="/home/transfer/input" element={<InputAmount />} />
+                <Route exact path="/transfer/receiver" element={<Transfer />} />
+                <Route exact path="/transfer/input" element={<InputAmount />} />
+                <Route path="/addPhone" element={<AddPhoneNumber/>}/>
+                <Route path="/managePhone" element={<ManagePhoneNumber/>}/>
             </Routes>
         </BrowserRouter>
     )
