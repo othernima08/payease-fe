@@ -12,7 +12,6 @@ import Success from './pages/auth/register/pinsuccess'
 import Transfer from './pages/transfer'
 import InputAmount from './pages/transfer/input-amount'
 import LandingPage from "./pages/landingpage";
-
 import Home from './pages/home'
 // import Transfer from './pages/transfer'
 import TopUp from './pages/topUp'
