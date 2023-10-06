@@ -18,7 +18,7 @@
     padding-right: 32px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 782px) {
     .footer-container {
         flex-direction: column;
         justify-content: center;
