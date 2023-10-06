@@ -9,6 +9,7 @@ import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
 import Transfer from './pages/tranfer'
 import InputAmount from './pages/tranfer/input-amount'
+import LandingPage from "./pages/landingpage";
 
 import Home from './pages/home'
 // import Transfer from './pages/transfer'
@@ -25,7 +26,8 @@ const Router = () => {
                 <Route exact path="/profile/change-pin-1" element={<ChangePinPage1 />} />
                 <Route exact path="/profile/change-pin-2" element={<ChangePinPage2 />} />
                 <Route exact path="/profile/change-password" element={<ChangePassword />} />
-
+                <Route path="/" element={<LandingPage/>}/>
+                  
                 <Route exact path="/home" element={<Home />} />
                 {/* <Route exact path="/transfer" element={<Transfer />} /> */}
                 <Route exact path="/top-up" element={<TopUp />} />
