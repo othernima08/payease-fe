@@ -17,7 +17,7 @@ const ChagePinLayout = (props) => {
           <Container bsPrefix='change-pin-container'>
             <Row bsPrefix='change-pin-head-container'>
               <Col md={12}>
-                <div className="back-icon">
+                <div className="change-pin-back-icon">
                   <IoArrowBackSharp />
                 </div>
                 <h2 className="change-pin-title">Change PIN</h2>

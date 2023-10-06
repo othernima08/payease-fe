@@ -65,7 +65,7 @@ const ChangePassword = () => {
                 <Container bsPrefix='change-password-container'>
                     <Row bsPrefix='change-password-head-container'>
                         <Col md={12}>
-                            <div className="back-icon">
+                            <div className="change-password-back-icon">
                                 <IoArrowBackSharp />
                             </div>
                             <h2 className="change-password-title">Change password</h2>
