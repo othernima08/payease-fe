@@ -9,8 +9,8 @@ import Pin from './pages/auth/register/pin'
 import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
-import Transfer from './pages/tranfer'
-import InputAmount from './pages/tranfer/input-amount'
+import Transfer from './pages/transfer'
+import InputAmount from './pages/transfer/input-amount'
 import LandingPage from "./pages/landingpage";
 
 import Home from './pages/home'
