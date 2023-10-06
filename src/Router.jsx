@@ -8,7 +8,7 @@ import Pin from './pages/auth/register/pin'
 import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
-import Profile from './pages/profile/Index'
+import Profile from './pages/profile/profile-information/Index'
 
 const Router = () => {
     return (
