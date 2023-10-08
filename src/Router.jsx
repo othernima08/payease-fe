@@ -21,6 +21,7 @@ import ChangePinPage2 from './pages/changePin/changePinPage2'
 import ChangePassword from './pages/changePassword'
 import Confirmation from './pages/transfer/confirmation';
 import TransferStatus from './pages/transfer/transfer-status';
+import PaymentCode from './pages/transfer/topup-code';
 
 const Router = () => {
     return (
@@ -45,6 +46,7 @@ const Router = () => {
                 <Route exact path="/transfer/input" element={<InputAmount />} />
                 <Route exact path="/transfer/confirmation" element={<Confirmation />} />
                 <Route exact path="/transfer/status" element={<TransferStatus />} />
+                <Route exact path="/topup/payment-code" element={<PaymentCode />} />
                 <Route path="/addPhone" element={<AddPhoneNumber/>}/>
                 <Route path="/managePhone" element={<ManagePhoneNumber/>}/>
             </Routes>
