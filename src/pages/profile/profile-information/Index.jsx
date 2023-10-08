@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfileComponent from '../../../components/profile/Index'
+import ProfileComponent from '../../../components/profile/profileInformation/Index'
 import AfterLoginLayout from '../../../layout/afterLogin'
 
 const Profile = () => {
