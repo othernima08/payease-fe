@@ -5,6 +5,7 @@ import "./login.css";
 import LayoutAuth from "../../../layout/auth";
 import LeftLayoutAuth from "../../../components/auth/left";
 import RightLayoutAuth from "../../../components/auth/right";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -28,9 +29,10 @@ const Login = () => {
                     </InputGroup>
                     <div className="d-flex flex-row-reverse mb-5">
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Text className="text-muted">
+                          <Link to={"/reset-password"}>  <Form.Text className="text-muted">
                                 Forgot password?
                             </Form.Text>
+                            </Link>
                         </Form.Group>
                     </div>
                     <div className="d-grid gap-4 mb-5">
@@ -39,7 +41,7 @@ const Login = () => {
                         </Button>
                     </div>
                     <div className="d-flex flex-row justify-content-center">
-                        <p className="title-mobile-grey "> Already have an account? Let’s </p>  <p className='p-auth opacity-75 mb-5 p-login'> Already have an account? Let’s  </p> <span href="" className='mx-1' style={{ color: "blue" }}> Sign Up</span></div>
+                        <p className="title-mobile-grey "> Already have an account? Let’s </p>  <p className='p-auth opacity-75 mb-5 p-login'> Already have an account? Let’s  </p> <Link to={"/register"} > <span href="" className='mx-1' style={{ color: "blue" }}> Sign Up</span></Link></div>
                 </Form>
             </RightLayoutAuth>
         </LayoutAuth>

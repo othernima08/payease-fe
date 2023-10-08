@@ -25,7 +25,7 @@ const CustomSidebar = () => {
     const handleClickTransfer = (e) => {
         e.preventDefault();
 
-        navigate("/transfer")
+        navigate("/transfer/receiver")
     }
 
     const handleClickTopUp = (e) => {
