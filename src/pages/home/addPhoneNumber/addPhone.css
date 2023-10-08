@@ -54,7 +54,7 @@
     outline: none;
   }
   
-  button {
+  .button {
     background-color: #6379F4;
     color: #fff;
     border: none;
@@ -68,6 +68,6 @@
     display: block;
   }
   
-  button:hover {
+  .button:hover {
     background-color: #5564E0;
   }

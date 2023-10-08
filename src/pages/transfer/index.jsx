@@ -16,6 +16,7 @@ const Transfer = () => {
         >
                 <div className="transfer-container ">
                 <div className="content-container ">
+                    <div className="stack">
                     <Row bsPrefix="margin-box" >
                         <Col md={12}>
                             <div className="back-icon">
@@ -26,7 +27,7 @@ const Transfer = () => {
                         </Col>
                     </Row>
        
-                <InputGroup className="mb-4">
+                <InputGroup className="mb-4 ">
                     <InputGroup.Text id="basic-addon1"><i className="bi bi-search"></i></InputGroup.Text>
                     <Form.Control
                         placeholder="Search receiver here"
@@ -34,6 +35,7 @@ const Transfer = () => {
                         aria-describedby="basic-addon1"
                     />
                 </InputGroup>
+                </div>
 
                 <div className="card-container mb-2">
                     <div className="d-flex flex-row">
