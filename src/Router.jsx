@@ -9,9 +9,9 @@ import Pin from './pages/auth/register/pin'
 import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
+import LandingPage from './pages/landingpage/Index';
 import Transfer from './pages/transfer'
 import InputAmount from './pages/transfer/input-amount'
-import LandingPage from "./pages/landingpage";
 import Home from './pages/home'
 // import Transfer from './pages/transfer'
 import TopUp from './pages/topUp'
@@ -42,6 +42,8 @@ const Router = () => {
                 <Route exact path="/pin-success" element={<Success />} />
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
+                <Route exact path="/add-phone" element={<AddPhoneNumber/>}/>
+                <Route exact path="/manage-phone" element={<ManagePhoneNumber/>}/>
                 <Route exact path="/transfer/receiver" element={<Transfer />} />
                 <Route exact path="/transfer/input" element={<InputAmount />} />
                 <Route exact path="/transfer/confirmation" element={<Confirmation />} />
@@ -49,6 +51,7 @@ const Router = () => {
                 <Route exact path="/topup/payment-code" element={<PaymentCode />} />
                 <Route path="/addPhone" element={<AddPhoneNumber/>}/>
                 <Route path="/managePhone" element={<ManagePhoneNumber/>}/>
+
             </Routes>
         </BrowserRouter>
     )
