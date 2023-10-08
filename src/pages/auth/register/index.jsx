@@ -6,6 +6,7 @@ import "./register.css";
 import LayoutAuth from '../../../layout/auth';
 import LeftLayoutAuth from '../../../components/auth/left';
 import RightLayoutAuth from '../../../components/auth/right';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     return (
@@ -38,7 +39,7 @@ const Register = () => {
                         </Button>
                     </div>
                     <div className="d-flex flex-row justify-content-center flex-wrap">
-                        <p className="title-mobile-grey p-login"> Already have an account? Let’s  </p>  <p className='p-auth opacity-75 mb-5'> Already have an account? Let’s  </p> <span href="" className='mx-1' style={{ color: "blue" }}> Login</span></div>
+                        <p className="title-mobile-grey p-login"> Already have an account? Let’s  </p>  <p className='p-auth opacity-75 mb-5'> Already have an account? Let’s  </p> <Link to={"/login"} ><span href="" className='mx-1' style={{ color: "blue" }}> Login</span></Link></div>
                 </Form>
             </RightLayoutAuth>
         </LayoutAuth>

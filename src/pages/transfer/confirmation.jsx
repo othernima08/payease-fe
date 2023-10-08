@@ -62,11 +62,12 @@ const Confirmation = () => {
                 <div className="content-container ">
                     <Row bsPrefix="margin-box" >
                         <Col md={12}>
-                            <div className="back-icon">
-                                <IoArrowBack />
+                            <div className="back-icon d-flex flex-nowrap">
+                                <IoArrowBack className="button-back" style={{ justifyContent:"center", alignItems:"center"}} />
+                                <h2 className='text-title p-balance-mobile-receiver'>Confirmation</h2>
                             </div>
                             <h5 className='text-title p-balance-dekstop'>Transfer To</h5>
-                            <h2 className='text-title p-balance-mobile-receiver'>Confirmation</h2>
+                           
 
                         </Col>
                     </Row>

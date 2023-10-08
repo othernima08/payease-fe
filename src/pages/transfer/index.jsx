@@ -8,6 +8,7 @@ import AfterLoginLayout from '../../layout/afterLogin';
 import "./transfer.css";
 import { ButtonGroup,  } from 'react-bootstrap';
 import { IoArrowBack } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const Transfer = () => {
 
@@ -36,7 +37,7 @@ const Transfer = () => {
                     />
                 </InputGroup>
                 </div>
-
+<Link to={"/transfer/input"}>
                 <div className="card-container mb-2">
                     <div className="d-flex flex-row">
                         <div className='mx-1'>
@@ -48,7 +49,7 @@ const Transfer = () => {
                         </div>
                     </div>
                 </div>
-
+                </Link>
                 <div className="card-container mb-2">
                     <div className="d-flex flex-row">
                         <div className='mx-1'>

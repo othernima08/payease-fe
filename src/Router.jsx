@@ -14,13 +14,14 @@ import Transfer from './pages/transfer'
 import InputAmount from './pages/transfer/input-amount'
 import Home from './pages/home'
 // import Transfer from './pages/transfer'
-import TopUp from './pages/topUp'
+import TopUp from './pages/topUp/topup-code'
 import Profile from './pages/profile'
 import ChangePinPage1 from './pages/changePin/changePinPage1'
 import ChangePinPage2 from './pages/changePin/changePinPage2'
 import ChangePassword from './pages/changePassword'
 import Confirmation from './pages/transfer/confirmation';
 import TransferStatus from './pages/transfer/transfer-status';
+import PaymentCode from './pages/topUp/topup-code';
 
 const Router = () => {
     return (
@@ -30,7 +31,6 @@ const Router = () => {
                 <Route exact path="/profile/change-pin-2" element={<ChangePinPage2 />} />
                 <Route exact path="/profile/change-password" element={<ChangePassword />} />
                 <Route path="/" element={<LandingPage/>}/>
-                  
                 <Route exact path="/home" element={<Home />} />
                 {/* <Route exact path="/transfer" element={<Transfer />} /> */}
                 <Route exact path="/top-up" element={<TopUp />} />
@@ -47,6 +47,7 @@ const Router = () => {
                 <Route exact path="/transfer/input" element={<InputAmount />} />
                 <Route exact path="/transfer/confirmation" element={<Confirmation />} />
                 <Route exact path="/transfer/status" element={<TransferStatus />} />
+                <Route exact path="/top-up/payment-code" element={<PaymentCode />} />
                 <Route path="/addPhone" element={<AddPhoneNumber/>}/>
                 <Route path="/managePhone" element={<ManagePhoneNumber/>}/>
 

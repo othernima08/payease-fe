@@ -5,6 +5,7 @@ import { ButtonGroup, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { NumericFormat } from 'react-number-format';
 import { IoArrowBack } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const InputAmount = () => {
     const [isFocused, setIsFocused] = useState(false);
@@ -26,7 +27,7 @@ const InputAmount = () => {
                         <Col md={12}>
                             <div className="back-icon">
                                 <IoArrowBack 
-                                style={{display:'flex'}}/>
+                              />
                             </div>
                             <h2 className='text-title'>Transfer Money</h2>
                         </Col>
@@ -95,6 +96,7 @@ const InputAmount = () => {
                         </div>
                     </div>
 
+                    <Link to={"/transfer/confirmation"}>
                     <div className='d-flex flex-row-reverse'>
                         <div className="d-inline-flex w-50 align-item-end flex-row-reverse" >
                             <Button variant="primary" >
@@ -102,6 +104,7 @@ const InputAmount = () => {
                             </Button>
                         </div>
                     </div>
+                    </Link>
                 </div>
 
             </div>
