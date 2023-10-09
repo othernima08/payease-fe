@@ -4,6 +4,7 @@ import PinInput from 'react-pin-input';
 import LayoutAuth from '../../../layout/auth';
 import LeftLayoutAuth from '../../../components/auth/left';
 import RightLayoutAuth from '../../../components/auth/right';
+import CustomPIN from '../../../components/pinInput';
 
 const Pin = () => {
     return (
@@ -17,7 +18,7 @@ const Pin = () => {
                     <p className='p-auth opacity-75 mb-5 p-login'>Create 6 digits pin to secure all your money and your data in PayEase app. Keep it secret and don’t tell anyone about your PayEase account password and the PIN.</p></div>
                 <Form>
                     <div className="d-flex justify-content-center mb-5 align-items-center justify-content-center">
-                        <PinInput
+                        {/* <PinInput
                             length={6}
                             initialValue=""
                             secret
@@ -25,12 +26,13 @@ const Pin = () => {
                             onChange={(value, index) => { }}
                             type="numeric"
                             inputMode="number"
-                            inputStyle={{ borderColor: 'red', width: '35px', margin: '4px  ', padding: '5px', borderRadius: '6px' }}
+                            inputStyle={{ borderColor: 'red', width: '35px', margin: '4px  !important', padding: '5px !important', borderRadius: '6px' }}
                             inputFocusStyle={{ borderColor: 'blue' }}
                             onComplete={(value, index) => { }}
                             autoSelect={true}
                             regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
-                        />
+                        /> */}
+                        <CustomPIN/>
                     </div>
                     <div className="d-grid gap-4 mt-5">
                         <Button variant="primary" type="submit" size="lg" style={{ backgroundColor: "#6379F4" }}>

@@ -4,6 +4,7 @@
     height: 100%;
     box-shadow: 0px 0px 20px 4px #ebebeb;
     border-radius: 25px;
+    overflow-y: scroll;
 }
 
 .transfer-history-title {
@@ -18,25 +19,14 @@
     font-size: 16px;
 }
 
-.transfer-history-detail-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 80%;
-}
-
-.transfer-history-detail {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 80%;
-}
 
 .transfer-history-back-icon {
     display: none;
 }
 
 .transaction-history-button-container {
+    /* display: flex;
+    justify-content: space-between; */
     display: none;
 }
 
@@ -56,9 +46,6 @@
         height: 100%;
         border-radius: 0;
         background-color: #FAFCFF;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
     }
 
     .transfer-history-back-icon {
@@ -78,6 +65,9 @@
     .transfer-history-detail-container {
         margin-left: -16px;
         margin-right: -16px;
+        /* display: flex;
+        flex-direction: column;
+        justify-content: space-between; */
     }
 
     .transaction-history-button-container {
@@ -85,5 +75,6 @@
         justify-content: space-between;
         margin-left: -16px;
         margin-right: -16px;
+        position: sticky;
     }
 }

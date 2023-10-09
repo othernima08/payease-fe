@@ -7,21 +7,20 @@
     margin-bottom: 200px;
 }
 
-.img-fluid{
+.img-fluid {
     position: absolute !important;
     height: 90% !important;
     /* top: 70px */
 }
 
-.img-fluid2{
+.img-fluid2 {
     height: 100%;
 }
 
-.button-landing{
+.button-landing {
     position: absolute !important;
     top: 20px;
     right: 200px;
 }
-.paragraf {
-    
-}
+
+.paragraf {}
