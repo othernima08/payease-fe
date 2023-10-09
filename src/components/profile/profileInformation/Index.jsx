@@ -1,5 +1,5 @@
 import React from 'react'
-import './profile.css'
+import './profileInformation.css'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import axios from 'axios'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
