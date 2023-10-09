@@ -2,6 +2,7 @@
     background-color: #ffffff;
     padding: 32px;
     height: 100%;
+    max-height: 100vh;
     box-shadow: 0px 0px 20px 4px #ebebeb;
     border-radius: 25px;
     overflow-y: scroll;
@@ -25,9 +26,9 @@
 }
 
 .transaction-history-button-container {
-    /* display: flex;
-    justify-content: space-between; */
-    display: none;
+    display: flex;
+    justify-content: space-between;
+    /* display: none; */
 }
 
 .button-transaction-history {

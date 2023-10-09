@@ -1,0 +1,62 @@
+.datepicker-modal-title {
+    font-family: 'Nunito-Bold', sans-serif;
+    color: #514F5B;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+.custom-calendar {
+    box-shadow: none;
+    background-color: none;
+    width: 100%;
+}
+
+.Calendar__day.-ltr.-selectedStart {
+    border-radius: 50px;
+}
+
+.Calendar__day.-selectedBetween {
+    border-radius: 50px;
+}
+
+.Calendar__day.-ltr.-selectedEnd {
+    border-radius: 50px;
+}
+
+/* .Calendar__day.-ltr {
+    margin: 8px;
+} */
+
+.Calendar__monthText {
+    color: #3A3D42 !important;
+    font-family: 'Nunito-Regular', sans-serif !important;
+    font-size: 18px !important;
+}
+
+.Calendar__yearText {
+    color: #3A3D42 !important;
+    font-family: 'Nunito-Regular', sans-serif !important;
+    font-size: 18px !important;
+}
+
+.date-range-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+input.date-input {
+    padding: 0px !important;
+    width: 100% !important;
+    border-bottom: none !important;
+}
+
+.date-range-container {
+    margin: 0px 40px;
+    /* margin-top: -40px; */
+    /* position: absolute; */
+}
+
+.end-date-container {
+    margin-left: 24px;
+}

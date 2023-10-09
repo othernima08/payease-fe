@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
@@ -8,8 +8,15 @@ import blank from '../../assets/images/blank.jpg'
 import './history.css'
 import AfterLoginLayout from '../../layout/afterLogin';
 import TransactionHistoryCard from '../../components/transactionHistoryCard';
+import DatePickerModal from '../../modal/datepicker';
 
 const TransactionHistory = () => {
+    const [openDateModal, setOpenDateModal] = useState(false)
+
+    const handleOpenDateModal = ()=>  setOpenDateModal(true)
+
+    const handleCloseDateModal = ()=>setOpenDateModal(false)
+
     return (
         <React.Fragment>
             <AfterLoginLayout
@@ -66,10 +73,11 @@ const TransactionHistory = () => {
                         <Row bsPrefix='transaction-history-button-container'>
                             <Button style={{ backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#FF5B37" }}><AiOutlineArrowDown /></p></Button>
                             <Button style={{ backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#1EC15F" }}><AiOutlineArrowUp /></p></Button>
-                            <Button style={{ width:"60%", backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#6379F4" }}>Filter by Date</p></Button>
+                            <Button style={{ width:"60%", backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#6379F4" }} onClick={handleOpenDateModal}>Filter by Date</p></Button>
                         </Row>
                     </Container>
                 } />
+                {openDateModal && <DatePickerModal open={openDateModal} handleClose={handleCloseDateModal}/>}
         </React.Fragment>
     )
 }
