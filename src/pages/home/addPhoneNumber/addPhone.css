@@ -129,6 +129,9 @@
     background-color: #FAFCFF !important;  
   }
 
+  .button {
+
+
   .back-icon {
     display: block; 
     position: absolute;
@@ -156,4 +159,11 @@
     left: 50%; 
     transform: translateX(-50%); 
   }
+
+  
+  .button:hover {
+    background-color: #5564E0;
+  }
+
+}
 }
