@@ -26,9 +26,9 @@ const Router = () => {
                 <Route exact path="/pin-success" element={<Success />} />
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
-                <Route exact path="/add-phone" element={<AddPhoneNumber/>}/>
-                <Route exact path="/manage-phone" element={<ManagePhoneNumber/>}/>
-                <Route exact path="/payment-method" element={<PaymentMethod/>}/>
+                <Route exact path="/profile/add-phone" element={<AddPhoneNumber/>}/>
+                <Route exact path="/profile/manage-phone" element={<ManagePhoneNumber/>}/>
+                <Route exact path="/top-up/payment-method" element={<PaymentMethod/>}/>
             </Routes>
         </BrowserRouter>
     )
