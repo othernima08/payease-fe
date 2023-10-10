@@ -12,6 +12,8 @@ import Success from './pages/auth/register/pinsuccess'
 import LandingPage from './pages/landingpage/Index';
 
 import Dashboard from './pages/home/dashboard';
+
+import PaymentMethod from './pages/topUp/payment-method';
 import Transfer from './pages/transfer'
 import InputAmount from './pages/transfer/input-amount'
 import Home from './pages/home'
@@ -31,31 +33,36 @@ const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route exact path="/home" element={<Dashboard/>}/>
-                <Route exact path="/profile/change-pin-1" element={<ChangePinPage1 />} />
-                <Route exact path="/profile/change-pin-2" element={<ChangePinPage2 />} />
-                <Route exact path="/profile/change-password" element={<ChangePassword />} />
                 <Route path="/" element={<LandingPage/>}/>
-                <Route exact path="/home" element={<Home />} />
+                  
                 {/* <Route exact path="/transfer" element={<Transfer />} /> */}
-                <Route exact path="/top-up" element={<TopUp />} />
-                <Route exact path="/profile" element={<Profile />} />
+
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/pin-confirm" element={<Pin />} />
                 <Route exact path="/pin-success" element={<Success />} />
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
-                <Route exact path="/add-phone" element={<AddPhoneNumber/>}/>
-                <Route exact path="/manage-phone" element={<ManagePhoneNumber/>}/>
+
+                <Route exact path="/profile/add-phone" element={<AddPhoneNumber/>}/>
+                <Route exact path="/profile/manage-phone" element={<ManagePhoneNumber/>}/>                  
+                <Route exact path="/profile/change-pin-1" element={<ChangePinPage1 />} />
+                <Route exact path="/profile/change-pin-2" element={<ChangePinPage2 />} />
+                <Route exact path="/profile/change-password" element={<ChangePassword />} />
+
+                <Route exact path="/profile" element={<Profile />} />
+                <Route exact path="/profile/add-phone" element={<AddPhoneNumber/>}/>
+                <Route exact path="/profile/manage-phone" element={<ManagePhoneNumber/>}/>
 
                 <Route exact path="/transfer/receiver" element={<Transfer />} />
                 <Route exact path="/transfer/input" element={<InputAmount />} />
                 <Route exact path="/transfer/confirmation" element={<Confirmation />} />
                 <Route exact path="/transfer/status" element={<TransferStatus />} />
+                
+                <Route exact path="/top-up" element={<TopUp />} />
                 <Route exact path="/top-up/payment-code" element={<PaymentCode />} />
                 <Route exact path="/top-up/input-amount" element={<InputAmountTopUp />} />
-                <Route path="/addPhone" element={<AddPhoneNumber/>}/>
-                <Route path="/managePhone" element={<ManagePhoneNumber/>}/>
+                <Route exact path="/top-up/payment-method" element={<PaymentMethod/>}/>
             </Routes>
         </BrowserRouter>
     )
