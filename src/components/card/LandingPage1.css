@@ -1,19 +1,19 @@
 
-.testimonial-container {
+.features-container {
     text-align: center;
     margin-top: 40px;
     background-color: #473AD10F;
 }
 
 
-.testimonial-container h2 {
+.features-container h2 {
     font-size: 50px;
     font-weight: 700;
     color: #3A3D42;
     margin-bottom: 30px;
 }
 
-.testimonial-container p {
+.features-container p {
     font-size: 16px;
     margin-bottom: 20px;
     color: #3A3D42;

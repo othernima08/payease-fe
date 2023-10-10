@@ -42,3 +42,13 @@
     position: absolute;
     margin-left: -24px;
 }
+
+@media only screen and (max-width: 832px) {
+    .sidebar-menu-container {
+        padding: 12px 0px; 
+    }
+
+    .active-sidebar-menu-container {
+        padding: 12px 0px; 
+    }
+}
