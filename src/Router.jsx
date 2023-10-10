@@ -12,6 +12,8 @@ import Success from './pages/auth/register/pinsuccess'
 import LandingPage from './pages/landingpage/Index';
 
 import Dashboard from './pages/home/dashboard';
+
+import PaymentMethod from './pages/topUp/payment-method';
 import Transfer from './pages/transfer'
 import InputAmount from './pages/transfer/input-amount'
 import Home from './pages/home'
@@ -26,15 +28,16 @@ import Confirmation from './pages/transfer/confirmation';
 import TransferStatus from './pages/transfer/transfer-status';
 import PaymentCode from './pages/topUp/topup-code';
 import TopUpHistory from './pages/top-up-history';
+import InputAmountTopUp from './pages/topUp/input-amount-topup';
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<LandingPage/>}/>
+                  
                 {/* <Route exact path="/transfer" element={<Transfer />} /> */}
-                <Route exact path="/top-up" element={<TopUp />} />
-                <Route exact path="/profile" element={<Profile />} />
+
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/pin-confirm" element={<Pin />} />
@@ -56,13 +59,12 @@ const Router = () => {
                 <Route exact path="/transfer/input" element={<InputAmount />} />
                 <Route exact path="/transfer/confirmation" element={<Confirmation />} />
                 <Route exact path="/transfer/status" element={<TransferStatus />} />
-
-                <Route exact path="/top-up/payment-code" element={<PaymentCode />} />
+                
                 <Route exact path="/top-up" element={<TopUp />} />
+                <Route exact path="/top-up/payment-code" element={<PaymentCode />} />
+                <Route exact path="/top-up/input-amount" element={<InputAmountTopUp />} />
+                <Route exact path="/top-up/payment-method" element={<PaymentMethod/>}/>
                 <Route exact path="/top-up/history" element={<TopUpHistory />} />
-
-                <Route path="/addPhone" element={<AddPhoneNumber />} />
-                <Route path="/managePhone" element={<ManagePhoneNumber />} />
             </Routes>
         </BrowserRouter>
     )
