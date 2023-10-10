@@ -10,6 +10,8 @@ import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
 import LandingPage from './pages/landingpage/Index';
+
+import Dashboard from './pages/home/dashboard';
 import Transfer from './pages/transfer'
 import InputAmount from './pages/transfer/input-amount'
 import Home from './pages/home'
@@ -27,6 +29,7 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
+                <Route exact path="/home" element={<Dashboard/>}/>
                 <Route exact path="/profile/change-pin-1" element={<ChangePinPage1 />} />
                 <Route exact path="/profile/change-pin-2" element={<ChangePinPage2 />} />
                 <Route exact path="/profile/change-password" element={<ChangePassword />} />
@@ -43,6 +46,7 @@ const Router = () => {
                 <Route exact path="/reset-password" element={<ResetPassword />} />
                 <Route exact path="/add-phone" element={<AddPhoneNumber/>}/>
                 <Route exact path="/manage-phone" element={<ManagePhoneNumber/>}/>
+
                 <Route exact path="/transfer/receiver" element={<Transfer />} />
                 <Route exact path="/transfer/input" element={<InputAmount />} />
                 <Route exact path="/transfer/confirmation" element={<Confirmation />} />
@@ -50,7 +54,6 @@ const Router = () => {
                 <Route exact path="/top-up/payment-code" element={<PaymentCode />} />
                 <Route path="/addPhone" element={<AddPhoneNumber/>}/>
                 <Route path="/managePhone" element={<ManagePhoneNumber/>}/>
-
             </Routes>
         </BrowserRouter>
     )
