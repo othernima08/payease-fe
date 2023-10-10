@@ -11,6 +11,7 @@ import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
 import LandingPage from './pages/landingpage/Index';
 import Dashboard from './pages/home/dashboard';
+import PaymentMethod from './pages/topUp/payment-method';
 
 const Router = () => {
     return (
@@ -27,6 +28,7 @@ const Router = () => {
                 <Route exact path="/reset-password" element={<ResetPassword />} />
                 <Route exact path="/add-phone" element={<AddPhoneNumber/>}/>
                 <Route exact path="/manage-phone" element={<ManagePhoneNumber/>}/>
+                <Route exact path="/payment-method" element={<PaymentMethod/>}/>
             </Routes>
         </BrowserRouter>
     )
