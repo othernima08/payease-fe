@@ -1,12 +1,40 @@
-import React from 'react'
+import { useState, useEffect } from "react";
 import { Container, Button, Row, Col, Image } from 'react-bootstrap'
 // import PropTypes from "prop-types";
 import profileimg from "../../assets/images/blank.jpg"
 import { useNavigate } from 'react-router-dom';
 
 function ProfilePageComponent() {
+    const [detail, setDetail] = useState({});
+    const userId = localStorage.getItem("id");
 
+    // const { id } = useParams();
     const navigate = useNavigate();
+    const logout = () =>{
+        localStorage.clear();
+        navigate('/login');
+    }
+
+    const handleData = async () => {
+        // e.preventDefault();
+        console.log('handdata is called');
+  
+        try {
+            const response = await fetch(`http://127.0.0.1:9090/users/${userId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setDetail(data);                   
+                    console.log(data)
+                }else {
+                console.error(`Error  ${id}`);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+    useEffect(() => {
+        handleData();
+    }, [userId]);
     return (
         <Container>
             <Row>
@@ -32,9 +60,9 @@ function ProfilePageComponent() {
                     <div style={{ textAlign: "center" }}>
 
                         <p>Edit</p>
-
-                        <p>Full Name</p>
-                        <p>+62 813 9387 7946</p>
+                        {/* <p>{}</p> */}
+                        <p>{detail.data?.firstName} {detail.data?.lastName}</p>
+                        <p>{detail.data?.numberPhone ? detail.data.numberPhone : "-"}</p>
                     </div>
                 </Col>
             </Row>
@@ -42,15 +70,15 @@ function ProfilePageComponent() {
                 <Col className="d-flex justify-content-center">
                     <div style={{ width: "60%" }}>
                         <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/profile-information")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
-                            Personal
+                            Personal Information
                         </Button>
-                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
+                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
                             Change Password
                         </Button>
-                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
+                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
                             Change PIN
                         </Button>
-                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/login")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
+                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => logout()} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
                             Logout
                         </Button>
                     </div>

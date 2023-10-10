@@ -1,11 +1,43 @@
-import React from 'react'
+import { useState, useEffect } from "react";
 import './profileInformation.css'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileComponent = () => {
+
+  const [detail, setDetail] = useState({});
+  const userId = localStorage.getItem("id");
+  const navigate = useNavigate();
+
+  // const { id } = useParams();
+
+  const handleData = async () => {
+      // e.preventDefault();
+      console.log('handdata is called');
+
+      try {
+          const response = await fetch(`http://127.0.0.1:9090/users/${userId}`);
+              if (response.ok) {
+                  const data = await response.json();
+                  setDetail(data);                   
+                  console.log(data)
+              }else {
+              console.error(`Error  ${id}`);
+          }
+      } catch (error) {
+          console.error('Error:', error);
+      }
+  };
+
+  useEffect(() => {
+      handleData();
+  }, [userId]);
+
+
   return (
     <Container className='profile-container'>
 
@@ -24,7 +56,7 @@ const ProfileComponent = () => {
               <div className="profile-details">
                 <div className="profile-info">
                   <p className='text-profile'>First Name</p>
-                  <h5>Trisna</h5>
+                  <h5>{detail.data?.firstName}</h5>
                 </div>
               </div>
             </Card.Body>
@@ -36,7 +68,7 @@ const ProfileComponent = () => {
               <div className="profile-details">
                 <div className="profile-info">
                   <p className='text-profile'>Last Name</p>
-                  <h5>Bayu</h5>
+                  <h5>{detail.data?.lastName}</h5>
                 </div>
               </div>
             </Card.Body>
@@ -48,7 +80,7 @@ const ProfileComponent = () => {
               <div className="profile-details">
                 <div className="pforile-info">
                   <p className='text-profile'>Verified E-mail</p>
-                  <h5>email@email.com</h5>
+                  <h5>{detail.data?.email}</h5>
                 </div>
               </div>
             </Card.Body>
@@ -60,10 +92,10 @@ const ProfileComponent = () => {
               <div className="profile-details">
                 <div className="profile-info">
                   <p className='text-profile'>Phone Number</p>
-                  <h5>+62 813 9387 7946</h5>
+                  <h5>{detail.data?.numberPhone ? detail.data.numberPhone : "-"}</h5>
                 </div>
                 <div className="manage-profile">
-                  <a className='manage-button' onClick={()=>{}} > Manage</a>
+                  <a className='manage-button' onClick={()=>{navigate('/')}} > Manage</a> {/*route ke halaman edit nomer hp*/ }
                   {/* <FontAwesomeIcon icon={faTrash} className="delete-icon" /> */}
                 </div>
               </div>

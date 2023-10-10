@@ -14,23 +14,24 @@ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState("");
 
     const navigatetoProfile = useNavigate();
-    // const routetoprofile = () => {
-    //     navigatetoProfile(`/profile-information`);
-    // };
+    const routetoprofile = () => {
+        navigatetoProfile(`/profile`); 
+    };
+    const userId = localStorage.getItem("id");
 
-    const handleLogin = async () => {
-        // console.log('data:', email);
-        // console.log('Password:', password);
+    const handleLogin = async (e) => {
+        e.preventDefault();
         console.log('handleLogin function is called');
 
         try {
             const response = await fetch('http://127.0.0.1:9090/users/login', {
                 method: 'POST',
-                // headers: {
-                //     'Content-Type': 'application/json',
-                // },
+                headers: {
+                    'Content-Type': 'application/json',
+                },
 
                 body: JSON.stringify({ email, password }),
             });
@@ -39,8 +40,8 @@ const Login = () => {
             console.log(data);
             if (data.success) {
                 console.log('Login successful');
-                navigatetoProfile('/profile-information');
-                // localStorage.setItem("username", email)
+                routetoprofile();
+                localStorage.setItem("id", data.data.id)
             } else {
 
                 setError(data.message);
@@ -89,8 +90,8 @@ const Login = () => {
                         </Form.Group>
                     </div>
                     <div className="d-grid gap-4 mb-5">
-                        <Button variant="primary" type="submit" size="lg" style={{ backgroundColor: "#6379F4" }}
-                            onClick={() =>handleLogin}>
+                        <Button variant="primary"  size="lg" style={{ backgroundColor: "#6379F4" }}
+                            onClick={handleLogin}>
                             Login
                         </Button>
                     </div>
