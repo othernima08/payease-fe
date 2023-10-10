@@ -10,6 +10,8 @@ import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
 import LandingPage from './pages/landingpage/Index';
+
+import Dashboard from './pages/home/dashboard';
 import Transfer from './pages/transfer'
 import InputAmount from './pages/transfer/input-amount'
 import Home from './pages/home'
@@ -29,10 +31,10 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<LandingPage />} />
-
-                {/* <Route exact path="/home" element={<Home />} /> */}
-
+                <Route path="/" element={<LandingPage/>}/>
+                {/* <Route exact path="/transfer" element={<Transfer />} /> */}
+                <Route exact path="/top-up" element={<TopUp />} />
+                <Route exact path="/profile" element={<Profile />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/pin-confirm" element={<Pin />} />
@@ -40,7 +42,7 @@ const Router = () => {
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
 
-                <Route exact path="/home" element={<Home />} />
+                <Route exact path="/home" element={<Dashboard/>}/>
                 <Route exact path="/home/history" element={<TransferHistory />} />
 
                 <Route exact path="/profile" element={<Profile />} />
