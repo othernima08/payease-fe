@@ -115,9 +115,9 @@ const Dashboard = () => {
       <Card className="dashboard-card">
         <Card.Body className="dashboard-body">
           <div className="balance-section">
-            <Card.Title className="balance-title">Balance</Card.Title>
-            <Card.Text className="balance-text">Rp 120.000</Card.Text>
-            <Card.Text className="phone-number-text">
+            <Card.Title bsPrefix="balance-title">Balance</Card.Title>
+            <Card.Text bsPrefix="balance-text">Rp 120.000</Card.Text>
+            <Card.Text bsPrefix="phone-number-text">
               +62 813-9387-7946
             </Card.Text>
           </div>
