@@ -7,7 +7,7 @@ import imageDownload from '../../assets/images/downloadicon.png'
 
 const LandingPage1 = () => {
     return (
-            <div className="testimonial-container">
+            <div className="features-container">
                 <h2><span style={{ color: "#6379F4" }}>About </span>the Application</h2>
                 <p>We have some great features from the application and it’s totally free <br /> to use by all users around the world.</p>
                 <br />

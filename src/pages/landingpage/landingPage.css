@@ -10,27 +10,34 @@ body{
 .landing-page-image {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
   }
   
   .landing-page-image img {
     max-width: 100%;
-    height: auto;
+    /* height: 440px; */
+
   }
   
  
   .landing-page-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* align-items: flex-start; */
+    /* align-items: center;
+    justify-content: center; */
 
   }
+  .landing-page-text p{
+    /* margin:auto; */
+  }
+
 
   .landing-page-text .tagline{
     font-size: 50px;
     font-weight: 700;
     color: #3A3D42;
+    margin-bottom: 50px;
   }
   
   .landing-page-text h2 {
@@ -39,10 +46,11 @@ body{
     margin-bottom: 20px;
   }
   
-  .landing-page-text p {
+  /* .landing-page-text p {
     font-size: 16px;
-    margin-bottom: 20px;
-  }
+    margin-bottom: 20px; */
+    /* left: 100px; */
+  /* } */
   
   
   .landing-page-card {
@@ -61,6 +69,7 @@ body{
 .testimonial-container {
   text-align: center;
   margin-top: 40px;
+  /* background-color: #473AD10F; */
 }
 
 
