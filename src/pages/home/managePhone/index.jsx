@@ -4,6 +4,7 @@ import "./managePhone.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import AfterLoginLayout from "../../../layout/afterLogin";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const ManagePhoneNumber = () => {
   return (
@@ -11,8 +12,8 @@ const ManagePhoneNumber = () => {
       <Container className="manage-phone-container">
         <Row>
           <Col md={12}>
-            <div className="back-icon">
-              <i className="fa fa-arrow-left" aria-hidden="true"></i>
+            <div className="back-icons">
+              <FontAwesomeIcon icon={faArrowLeft} />
             </div>
             <h2>Manage Phone Number</h2>
             <p className="text1">
