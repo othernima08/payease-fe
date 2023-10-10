@@ -1,4 +1,4 @@
-.transaction-history-container {
+.top-up-history-container {
     background-color: #ffffff;
     padding: 32px;
     height: 100%;
@@ -8,43 +8,46 @@
     overflow-y: scroll;
 }
 
-.transaction-history-title {
+.top-up-history-title {
     color: #3A3D42;
     font-family: 'Nunito-Bold', sans-serif;
     font-size: 18px;
 }
 
-.transaction-history-subtitle {
+.top-up-history-subtitle {
     color: #7A7886;
     font-family: 'Nunito-Regular', sans-serif;
     font-size: 16px;
 }
 
 
-.transaction-history-back-icon {
+.top-up-history-back-icon {
     display: none;
 }
 
-.transaction-history-button-container {
+.top-up-history-button-container {
     display: flex;
     justify-content: space-between;
     /* margin-bottom: 20px; */
 }
 
-.button-transaction-history {
+.button-top-up-history {
     background-color: #FFFFFF;
     border: none;
     box-shadow: 0px 0px 20px 4px #ebebeb;
 }
 
-.transaction-history-content {
+.top-up-history-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    height: 100%;
+    /* min-height: 100vh; */
+    max-height: 100vh;
 }
 
 @media only screen and (max-width: 768px) {
-    .transaction-history-container {
+    .top-up-history-container {
         padding: 40px;
         position: fixed;
         top: 0;
@@ -55,7 +58,7 @@
         background-color: #FAFCFF;
     }
 
-    .transaction-history-back-icon {
+    .top-up-history-back-icon {
         display: block;
         position: absolute;
         width: fit-content;
@@ -64,12 +67,12 @@
         font-size: 24px;
     }
 
-    .transaction-history-title {
+    .top-up-history-title {
         margin-left: 20px;
         padding-top: 10px;
     }
 
-    .transaction-history-detail-container {
+    .top-up-history-detail-container {
         margin-left: -16px;
         margin-right: -16px;
         /* display: flex;
@@ -77,7 +80,7 @@
         justify-content: space-between; */
     }
 
-    .transaction-history-button-container {
+    .top-up-history-button-container {
         display: flex;
         justify-content: space-between;
         margin-left: -16px;

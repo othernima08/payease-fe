@@ -23,6 +23,7 @@ import TransferHistory from './pages/history';
 import Confirmation from './pages/transfer/confirmation';
 import TransferStatus from './pages/transfer/transfer-status';
 import PaymentCode from './pages/topUp/topup-code';
+import TopUpHistory from './pages/top-up-history';
 
 const Router = () => {
     return (
@@ -56,6 +57,7 @@ const Router = () => {
 
                 <Route exact path="/top-up/payment-code" element={<PaymentCode />} />
                 <Route exact path="/top-up" element={<TopUp />} />
+                <Route exact path="/top-up/history" element={<TopUpHistory />} />
 
                 <Route path="/addPhone" element={<AddPhoneNumber />} />
                 <Route path="/managePhone" element={<ManagePhoneNumber />} />
