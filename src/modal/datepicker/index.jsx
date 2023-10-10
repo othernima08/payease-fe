@@ -11,14 +11,25 @@ import "./datepicker.css"
 const DatePickerModal = (props) => {
     const { handleClose, open } = props;
 
+    const [startDate, setStartDate] = React.useState("");
+    const [endDate, setEndDate] = React.useState("");
+
     const [selectedDayRange, setSelectedDayRange] = React.useState({
         from: "",
         to: ""
     });
 
+    const formatDate = (date) => {
+        console.log(date)
+        if (date == "") return '';
+        const formattedDate = moment(`${date[2]}-${date[1]}-${date[0]} 00:00:00`).format('LL')
+        return formattedDate;
+    }
+
     React.useEffect(() => {
-        console.log(selectedDayRange)
-    }, [])
+        setStartDate(formatDate(Object.values(selectedDayRange.from)))
+        setEndDate(formatDate(Object.values(selectedDayRange.to)))
+    }, [setSelectedDayRange, selectedDayRange])
 
     return (
         <Modal
@@ -47,12 +58,12 @@ const DatePickerModal = (props) => {
                     <section className="start-date-container">
                         <label className='label-date'>From</label>
                         {/* <input className="date-input" type='text' placeholder='Start Date' value={moment(Object.values(selectedDayRange.from)).format('LL')} readOnly/> */}
-                        <input className="date-input" type='text' placeholder='Start Date' value={Object.values(selectedDayRange.from)} readOnly/>
+                        <input className="date-input" type='text' placeholder='Start Date' value={startDate} readOnly />
 
                     </section>
                     <section className="end-date-container">
                         <label className='label-date'>To</label>
-                        <input className="date-input" type='text' placeholder='End Date' value={Object.values(selectedDayRange.to)} readOnly/>
+                        <input className="date-input" type='text' placeholder='End Date' value={endDate} readOnly />
                     </section>
                 </section>
             </Modal.Body>
@@ -62,7 +73,7 @@ const DatePickerModal = (props) => {
 
                 <Button type="button" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} onClick={handleClose}>
                     Apply
-                  </Button>
+                </Button>
                 {/* </section> */}
             </Modal.Footer>
         </Modal>
