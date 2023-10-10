@@ -26,6 +26,7 @@ import ChangePassword from './pages/changePassword'
 import Confirmation from './pages/transfer/confirmation';
 import TransferStatus from './pages/transfer/transfer-status';
 import PaymentCode from './pages/topUp/topup-code';
+import InputAmountTopUp from './pages/topUp/input-amount-topup';
 
 const Router = () => {
     return (
@@ -60,6 +61,7 @@ const Router = () => {
                 
                 <Route exact path="/top-up" element={<TopUp />} />
                 <Route exact path="/top-up/payment-code" element={<PaymentCode />} />
+                <Route exact path="/top-up/input-amount" element={<InputAmountTopUp />} />
                 <Route exact path="/top-up/payment-method" element={<PaymentMethod/>}/>
             </Routes>
         </BrowserRouter>
