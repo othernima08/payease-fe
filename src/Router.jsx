@@ -23,16 +23,17 @@ import Profile from './pages/profile'
 import ChangePinPage1 from './pages/changePin/changePinPage1'
 import ChangePinPage2 from './pages/changePin/changePinPage2'
 import ChangePassword from './pages/changePassword'
+import TransferHistory from './pages/history';
 import Confirmation from './pages/transfer/confirmation';
 import TransferStatus from './pages/transfer/transfer-status';
 import PaymentCode from './pages/topUp/topup-code';
+import TopUpHistory from './pages/top-up-history';
 import InputAmountTopUp from './pages/topUp/input-amount-topup';
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path="/home" element={<Dashboard/>}/>
                 <Route path="/" element={<LandingPage/>}/>
                   
                 {/* <Route exact path="/transfer" element={<Transfer />} /> */}
@@ -44,15 +45,15 @@ const Router = () => {
                 <Route exact path="/create-password" element={<CreatePassword />} />
                 <Route exact path="/reset-password" element={<ResetPassword />} />
 
-                <Route exact path="/profile/add-phone" element={<AddPhoneNumber/>}/>
-                <Route exact path="/profile/manage-phone" element={<ManagePhoneNumber/>}/>                  
+                <Route exact path="/home" element={<Dashboard/>}/>
+                <Route exact path="/home/history" element={<TransferHistory />} />
+
+                <Route exact path="/profile" element={<Profile />} />
+                <Route exact path="/profile/add-phone" element={<AddPhoneNumber />} />
+                <Route exact path="/profile/manage-phone" element={<ManagePhoneNumber />} />
                 <Route exact path="/profile/change-pin-1" element={<ChangePinPage1 />} />
                 <Route exact path="/profile/change-pin-2" element={<ChangePinPage2 />} />
                 <Route exact path="/profile/change-password" element={<ChangePassword />} />
-
-                <Route exact path="/profile" element={<Profile />} />
-                <Route exact path="/profile/add-phone" element={<AddPhoneNumber/>}/>
-                <Route exact path="/profile/manage-phone" element={<ManagePhoneNumber/>}/>
 
                 <Route exact path="/transfer/receiver" element={<Transfer />} />
                 <Route exact path="/transfer/input" element={<InputAmount />} />
@@ -63,6 +64,7 @@ const Router = () => {
                 <Route exact path="/top-up/payment-code" element={<PaymentCode />} />
                 <Route exact path="/top-up/input-amount" element={<InputAmountTopUp />} />
                 <Route exact path="/top-up/payment-method" element={<PaymentMethod/>}/>
+                <Route exact path="/top-up/history" element={<TopUpHistory />} />
             </Routes>
         </BrowserRouter>
     )

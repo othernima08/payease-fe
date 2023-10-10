@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { BiLockAlt } from "react-icons/bi";
+import { IconContext } from "react-icons";
 
 import AfterLoginLayout from '../../layout/afterLogin'
 import { IoArrowBackSharp } from "react-icons/io5";
@@ -12,11 +13,51 @@ const ChangePassword = () => {
     const [newPassword, setNewPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
 
+    const [cpFieldOnFocus, setCpFieldOnFocus] = useState(false)
+    const [npFieldOnFocus, setNpFieldOnFocus] = useState(false)
+    const [cnpFieldOnFocus, setCnpFieldOnFocus] = useState(false)
+
     useState(() => {
         console.log(newPassword);
         console.log(currentPassword);
         console.log(confirmPassword);
     }, [currentPassword])
+
+    const handleCPFocus = (e) => {
+        e.preventDefault()
+
+        setCpFieldOnFocus(true)
+    }
+
+    const handleCPBlur = (e) => {
+        e.preventDefault()
+
+        setCpFieldOnFocus(false)
+    }
+
+    const handleNPFocus = (e) => {
+        e.preventDefault()
+
+        setNpFieldOnFocus(true)
+    }
+
+    const handleNPBlur = (e) => {
+        e.preventDefault()
+
+        setNpFieldOnFocus(false)
+    }
+
+    const handleCNPFocus = (e) => {
+        e.preventDefault()
+
+        setCnpFieldOnFocus(true)
+    }
+
+    const handleCNPBlur = (e) => {
+        e.preventDefault()
+
+        setCnpFieldOnFocus(false)
+    }
 
     return (
         <AfterLoginLayout
@@ -37,16 +78,22 @@ const ChangePassword = () => {
                         <Form className='change-password-form'>
                             <section className='change-password-input-container'>
                                 <section className='input-container'>
-                                    <p className='input-icon'><BiLockAlt /></p>
-                                    <input type='password' placeholder='Current password' value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
+                                    <IconContext.Provider value={{ color: `${cpFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
+                                        <p className='input-icon'><BiLockAlt /></p>
+                                    </IconContext.Provider>
+                                    <input type='password' placeholder='Current password' value={currentPassword} onFocus={handleCPFocus} onBlur={handleCPBlur} onChange={(e) => setCurrentPassword(e.target.value)} />
                                 </section>
                                 <section className='input-container' >
-                                    <p className='input-icon'><BiLockAlt /></p>
-                                    <input type='password' placeholder='New password' value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                                    <IconContext.Provider value={{ color: `${npFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
+                                        <p className='input-icon'><BiLockAlt /></p>
+                                    </IconContext.Provider>
+                                    <input type='password' placeholder='New password' value={newPassword} onFocus={handleNPFocus} onBlur={handleNPBlur} onChange={(e) => setNewPassword(e.target.value)} />
                                 </section>
                                 <section className='input-container'>
-                                    <p className='input-icon'><BiLockAlt /></p>
-                                    <input type='password' placeholder='Repeat new password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                                    <IconContext.Provider value={{ color: `${cnpFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
+                                        <p className='input-icon'><BiLockAlt /></p>
+                                    </IconContext.Provider>
+                                    <input type='password' placeholder='Repeat new password' value={confirmPassword} onFocus={handleCNPFocus} onBlur={handleCNPBlur} onChange={(e) => setConfirmPassword(e.target.value)} />
                                 </section>
                             </section>
 
