@@ -9,47 +9,44 @@ import RightLayoutAuth from "../../../components/auth/right";
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { login } from '../../../services/users';
 
 const Login = () => {
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState("");
 
     const navigatetoProfile = useNavigate();
+
     const routetoprofile = () => {
         navigatetoProfile(`/home`); 
     };
-    const userId = localStorage.getItem("id");
 
     const handleLogin = async (e) => {
         e.preventDefault();
+
         try {
-            const response = await fetch('http://127.0.0.1:9090/users/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+            const data = {
+                email,
+                password
+            }
 
-                body: JSON.stringify({ email, password }),
-            });
-            // console.log('1');
-            const data = await response.json();
-            console.log(data);
-            if (data.success) {
-                console.log('Login successful');
+            const response = await login(data);
+            // console.log(response);
+            
+            if (response.data.success) {
                 routetoprofile();
-                localStorage.setItem("id", data.data.id)
-                localStorage.setItem("token", data.data.token)
+                localStorage.setItem("id", response.data.data.id)
+                localStorage.setItem("token", response.data.data.token)
             } else {
-
-                setError(data.message);
+                setError(response.data.message);
             }
         } catch (error) {
             console.error('Error:', error);
             setError('An error occurred while logging in.');
         }
     };
+
     return (
         <LayoutAuth>
             <LeftLayoutAuth />

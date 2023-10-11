@@ -12,7 +12,7 @@
     width: 100%;
 }
 
-.Calendar__day.-ltr.-selectedStart {
+/* .Calendar__day.-ltr.-selectedStart {
     border-radius: 50px;
 }
 
@@ -22,13 +22,13 @@
 
 .Calendar__day.-ltr.-selectedEnd {
     border-radius: 50px;
-}
+} */
 
 /* .Calendar__day.-ltr {
     margin: 8px;
 } */
 
-.Calendar__monthText {
+/* .Calendar__monthText {
     color: #3A3D42 !important;
     font-family: 'Nunito-Regular', sans-serif !important;
     font-size: 18px !important;
@@ -38,11 +38,13 @@
     color: #3A3D42 !important;
     font-family: 'Nunito-Regular', sans-serif !important;
     font-size: 18px !important;
-}
+} */
 
 .date-range-container {
     display: flex;
     justify-content: space-around;
+    margin: 0px 20px;
+    margin-top: 40px;
 }
 
 input.date-input {
@@ -51,12 +53,50 @@ input.date-input {
     border-bottom: none !important;
 }
 
-.date-range-container {
-    margin: 0px 40px;
-    /* margin-top: -40px; */
-    /* position: absolute; */
-}
-
 .end-date-container {
     margin-left: 24px;
+}
+
+.nice-dates-navigation_current {
+    color: #3A3D42 !important;
+    font-family: 'Nunito-Regular', sans-serif !important;
+    font-size: 18px !important;
+}
+
+.nice-dates-navigation {
+    height: 15% !important;
+}
+
+.datepicker {
+    display: flex;
+    justify-content: center;
+}
+
+.datepicker div {
+    width: 100% !important;
+}
+
+.nice-dates-day.-selected.-selected-start:before {
+    border-top-right-radius: 999px !important;
+    border-bottom-right-radius: 999px !important;
+    right: 8px !important;
+    background-color: #6379f4 !important;
+}
+
+.nice-dates-day.-selected.-selected-end:before {
+    border-top-left-radius: 999px !important;
+    border-bottom-left-radius: 999px !important;
+    left: 8px !important;
+    background-color: #6379f4 !important;
+}
+
+.nice-dates-day.-selected.-selected-middle:before {
+    border-radius: 999px !important;
+    left: 8px !important;
+    right: 8px !important;
+    background-color: #E0E4FD !important;
+}
+
+.nice-dates-day.-selected:not(:hover) *, .nice-dates-day.-selected.-disabled *{
+    color: #3A3D42 !important;
 }
