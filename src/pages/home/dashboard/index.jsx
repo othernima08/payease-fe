@@ -3,6 +3,7 @@ import AfterLoginLayout from "../../../layout/afterLogin";
 import "./dashboard.css";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Bar } from "react-chartjs-2";
+import "font-awesome/css/font-awesome.css";
 import {
   BarElement,
   CategoryScale,
