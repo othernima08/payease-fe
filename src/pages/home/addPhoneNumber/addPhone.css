@@ -1,0 +1,172 @@
+/* addPhone.css */
+
+.add-phone-number-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%; 
+  height: 100vh;
+}
+
+.add-phone-number-container h2 {
+  color: #3A3D42;
+  font-size: 18px;
+  font-family: 'Nunito-Bold', sans-serif;
+  margin-bottom: 10px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.add-phone-number-container p {
+  font-size: 16px;
+  font-family: 'Nunito-Regular', sans-serif;
+  margin-bottom: 20px;
+  text-align: left;
+  padding-left: 10px;
+  color: #7A7886;
+}
+
+.back-icon {
+  display: none; 
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  /* padding: 10px; */
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-bottom: 25px;
+  font-family: 'Nunito-Regular', sans-serif;
+  width: 70%;
+  border: none;
+  outline: none;
+}
+
+.icon-telp {
+  margin-right: -50px;
+}
+
+
+.phone-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #CBCBCB; 
+  font-size: 16px;
+  padding-left: 70px; 
+}
+
+
+.custom-button {
+  white-space: nowrap;
+  background-color: #6379F4;
+  color: #fff;
+  border: none;
+  border-radius: 15px !important;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;
+  
+}
+
+.custom-button:hover {
+  background-color: #5564E0;
+}
+
+@media only screen and (max-width: 768px) {
+ 
+  .after-login {
+    display: none; 
+  }
+
+  .add-phone-number-container {
+    padding-top: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background-color: #FAFCFF;
+    z-index: 1000;
+    overflow-y: scroll; 
+  }
+
+  .add-phone-number-container h2 {
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: -25px;
+  }
+
+  .add-phone-number-container p {
+    font-size: 14px; 
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+
+  .phone-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 15px;
+    width: 90%; 
+    max-width: 90%;
+    background-color: #FAFCFF !important;
+  }
+
+  .phone-input i {
+    margin-right: 10px; 
+  }
+
+ .phone-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #CBCBCB; 
+  font-size: 16px;
+  padding-left: 60px; 
+}
+
+
+  .back-icons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .back-icons svg {
+    margin-right: 10px;
+  }
+  .custom-button {
+    white-space: nowrap;
+    background-color: #6379F4;
+    color: #fff;
+    border: none;
+    border-radius: 15px !important;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: calc(100% - 40px);
+    margin: 0 20px; 
+    margin-top: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%; 
+    transform: translateX(-50%); 
+  }
+  
+  .button:hover {
+    background-color: #5564E0;
+  }
+
+
+}

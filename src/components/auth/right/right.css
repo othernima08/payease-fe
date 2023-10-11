@@ -1,5 +1,4 @@
 .right {
-   
     justify-content: stretch;
     align-items: center;
     display: flex;
@@ -9,11 +8,11 @@
 }
 
 .right-outer {
-    padding:  5px;
+    padding: 5px;
     border: 0.5px solid #ccc;
     overflow: auto;
     height: 100vh;
- 
+
     justify-content: stretch;
     align-items: center;
     display: flex;
@@ -22,38 +21,37 @@
     background-color: white;
 }
 
-img {
+.img-right {
     width: 70%;
 }
 
-.form-container
-{
+.form-container {
     padding: 20px;
     width: 95%;
 }
 
 .white-text {
     color: white;
-  }
+}
 
-.p-auth{
-  color:  #3A3D42
+.p-auth {
+    color: #3A3D42
 }
 
 @media (max-width: 639px) {
-    .right{
+    .right {
         border-radius: 10px !important;
-        
+
     }
 
     .right-outer {
-        padding:  5px;
+        padding: 5px;
         border: 0.5px solid #ccc;
-        border-radius: 30px 30px 0px 0px; 
-    
+        border-radius: 30px 30px 0px 0px;
+
         width: 100%;
         overflow: auto;
-        height: 70vh;
+        height: 80vh;
         justify-content: stretch;
         align-items: center;
         display: flex;

@@ -1,11 +1,10 @@
 
 import React from 'react'
-import "bootstrap-icons/font/bootstrap-icons.css";
-import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
+import { Button, Form, InputGroup } from 'react-bootstrap'
+
 import "./login.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import InputGroupText from 'react-bootstrap/esm/InputGroupText';
-import LayoutAuth from '../../../layouts/auth';
+
+import LayoutAuth from '../../../layout/auth';
 import LeftLayoutAuth from '../../../components/auth/left';
 import RightLayoutAuth from '../../../components/auth/right';
 
@@ -14,11 +13,11 @@ const CreatePassword = () => {
         <LayoutAuth>
             <LeftLayoutAuth />
             <RightLayoutAuth>
-            <h3 className="title-mobile mt-5">Reset Password</h3>
+                <h3 className="title-mobile mt-5">Reset Password</h3>
                 <p className="title-mobile-grey">Enter your PayEase e-mail so we can send
-you a password reset link.</p>
-                <h6 className='mb-4'>Did You Forgot Your Password? Don’t Worry, You Can Reset Your Password In a Minutes.</h6>
-                <p className='p-auth opacity-75 mb-5'>Now you can create a new password for your Zwallet account. Type your password twice so we can confirm your new passsword.</p>
+                    you a password reset link.</p>
+                <h6 className='mb-4 h6-login'>Did You Forgot Your Password? Don’t Worry, You Can Reset Your Password In a Minutes.</h6>
+                <p className='p-auth opacity-75 mb-5 p-login'>Now you can create a new password for your Zwallet account. Type your password twice so we can confirm your new passsword.</p>
                 <Form>
 
                     <InputGroup className="mb-5">

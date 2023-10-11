@@ -1,0 +1,160 @@
+.content-container {
+    background-color: #ffffff;
+    padding: 30px;
+    height: 100vh;
+    box-shadow: 0px 0px 20px 4px #ebebeb;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.back-icon {
+    display: none !important;
+}
+
+
+.card-container {
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #ffffff;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0px 0px 20px 1px #ebebeb;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.p-content {
+    color: #3A3D42
+}
+
+
+.p-balance-mobile {
+    display: none;
+}
+
+.input-focus {
+    color: #6379F4;
+    border-style: none;
+}
+
+.p-balance-mobile-receiver {
+    display: none;
+}
+
+.img-success-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stack {
+
+    z-index: 2;
+    /* Atur z-index lebih tinggi dari kartu */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 999;
+    background-color: #FAFCFF;
+    width: 100%;
+}
+
+.button-back {
+    margin-top: 8px;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .pincode-input-text {
+        width: 45px !important;
+        height: 60px !important;
+        padding: 0px !important;
+        margin: 7px !important
+    }
+
+    .back-icon {
+        display: none !important;
+    }
+
+
+
+    .transfer-container {
+        position: fixed;
+        top: 0px;
+        z-index: 999;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        background-color: #FAFCFF;
+    }
+
+    .back-icon {
+        display: flex !important;
+        margin-left: -20px !important;
+        font-size: 24px !important;
+    }
+
+    .text-title {
+        margin-left: 20px;
+        padding-top: 5px;
+    }
+
+    .margin-box {
+        margin-bottom: 20px;
+    }
+
+    .p-content {
+        display: none !important;
+    }
+
+    .p-balance-dekstop {
+        display: none !important;
+    }
+
+    .p-balance-mobile {
+        display: flex;
+        color: #7C7895 !important;
+    }
+
+    .p-balance-mobile-receiver {
+        display: flex;
+        color: black !important;
+    }
+
+    .custom-button-tf {
+        display: none;
+    }
+
+    .custom-button-home {
+        width: 100% !important;
+    }
+
+
+
+
+}
+
+@media only screen and (max-width: 410px) {
+    .pincode-input-text {
+        width: 40px !important;
+        height: 55px !important;
+        padding: 0px !important;
+        margin: 2px !important
+    }
+
+    .back-icon {
+        display: block;
+        margin-left: -20px !important;
+        font-size: 24px !important;
+    }
+
+}

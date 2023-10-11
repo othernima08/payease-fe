@@ -1,12 +1,13 @@
 import React from 'react'
-import "bootstrap-icons/font/bootstrap-icons.css";
-import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
+import { Button, Form, InputGroup } from 'react-bootstrap'
+
 import "./register.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import InputGroupText from 'react-bootstrap/esm/InputGroupText';
-import LayoutAuth from '../../../layouts/auth';
+
+import LayoutAuth from '../../../layout/auth';
 import LeftLayoutAuth from '../../../components/auth/left';
 import RightLayoutAuth from '../../../components/auth/right';
+import { Link } from 'react-router-dom';
+
 const Register = () => {
     return (
         <LayoutAuth>
@@ -15,8 +16,8 @@ const Register = () => {
                 <div className="relative-top mb-5">
                 <h3 className="title-mobile mt-5">Sign Up</h3>
                 <p className="title-mobile-grey">Create your account to access Zwallet.</p>
-                    <h6 className='mb-4'>Start Accessing Banking Needs With All Devices and All Platforms With 30.000+ Users</h6>
-                    <p className='p-auth opacity-75 mb-5'>Transfering money is eassier than ever, you can access PayEase wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!</p></div>
+                    <h6 className='mb-4 h6-login'>Start Accessing Banking Needs With All Devices and All Platforms With 30.000+ Users</h6>
+                    <p className='p-auth opacity-75 mb-5 p-login'>Transfering money is eassier than ever, you can access PayEase wherever you are. Desktop, laptop, mobile phone? we cover all of that for you!</p></div>
                 <Form>
                     <InputGroup className="mb-5">
                         <InputGroup.Text id="basic-addon1" style={{ backgroundColor: '#FFFFFF !important', border: 'none', outline: 'none' }}><i class="bi bi-person"></i></InputGroup.Text>
@@ -38,7 +39,7 @@ const Register = () => {
                         </Button>
                     </div>
                     <div className="d-flex flex-row justify-content-center flex-wrap">
-                        <p className="title-mobile-grey"> Already have an account? Let’s  </p>  <p className='p-auth opacity-75 mb-5'> Already have an account? Let’s  </p> <span href="" className='mx-1' style={{ color: "blue" }}> Login</span></div>
+                        <p className="title-mobile-grey p-login"> Already have an account? Let’s  </p>  <p className='p-auth opacity-75 mb-5'> Already have an account? Let’s  </p> <Link to={"/login"} ><span href="" className='mx-1' style={{ color: "blue" }}> Login</span></Link></div>
                 </Form>
             </RightLayoutAuth>
         </LayoutAuth>

@@ -1,0 +1,150 @@
+.payment-method-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: 100vh;
+}
+
+.payment-method-container h2 {
+  color: #3A3D42;
+  font-size: 24px;
+  font-family: 'Nunito-Bold', sans-serif;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.payment-method-container p {
+  color: #3A3D42;
+  font-size: 18px;
+  font-family: 'Nunito-Regular', sans-serif;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.bank-card {
+  border-radius: 10px;
+  margin: 10px;
+  height: 110px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: border-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.bank-card.selected {
+  border: 2px solid #6379F4;
+}
+
+.bank-card-col {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.bank-card-col .card-titles {
+  color: #3A3D42;
+  font-size: 20px;
+  font-family: 'Nunito-Regular', sans-serif !important;
+}
+
+.bank-logo {
+  width: 50px !important;
+  height: 50px !important;
+  margin-right: 10px;
+}
+
+.next-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.next-button {
+  margin-top: 30px;
+  text-align: center;
+  background-color: #6379F4;
+  color: #fff;
+  margin: 0 auto;
+  padding: 10px 70px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.next-button:hover {
+  background-color: #5564E8;
+}
+
+.bank-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.radio-label {
+  align-items: center;
+}
+
+.radio-button {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #6379F4;
+}
+
+@media (max-width: 768px) {
+  /* .navbar {
+    display: none;
+  } */
+
+  .payment-method-container {
+    padding: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .back-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-top: 12px;
+  }
+
+  .payment-method-container h2 {
+    margin-left: 30px;
+    font-size: 20px;
+  }
+
+  .next-button {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #6379F4;
+    color: #fff;
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .next-button:hover {
+    background-color: #5564E8;
+  }
+
+}

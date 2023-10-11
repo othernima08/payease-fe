@@ -1,0 +1,331 @@
+.dashboard-card {
+    background-color: #6379F4;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    overflow: hidden; 
+}
+
+.dashboard-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.balance-title {
+    color: #E0E0E0 !important;
+    font-size: 18px;
+    font-family: 'Nunito-Regular', sans-serif;
+}
+
+.balance-text {
+  font-family: 'Nunito-Bold', sans-serif;
+    color: white !important;
+    font-size: 40px !important;
+}
+
+.phone-number-text {
+  font-family: 'Nunito-Regular', sans-serif;
+    color: #E0E0E0 !important;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.buttons-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+/* .buttons-section-mobile {
+  display: none;
+} */
+
+.transfer-button .fa,
+.topup-button .fa {
+    color: #B5B0ED !important; 
+}
+
+.transfer-button,
+.topup-button {
+  background-color: transparent; 
+  color: white;
+  border: 1px solid white; 
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: right;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+}
+.transfer-button i,
+.topup-button i {
+    margin-right: 5px;
+}
+
+/* CSS container transaction */
+.transaction-summary {
+  width: 95%;
+  background-color: white;
+  box-shadow: 0px 0px 20px 4px #ebebeb;
+  border-radius: 25px !important;
+  margin-top: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.summary-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.arrow-icon {
+  margin-right: 90px;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.fa.fa-arrow-down {
+  color: #1EC15F; 
+}
+
+.fa.fa-arrow-up {
+  color: #FF5B37; 
+}
+
+.income-label,
+.expense-label {
+  color: #6A6A6A;
+  font-family: 'Nunito-Regular', sans-serif;
+  font-size: 14px;
+}
+
+.income-amount,
+.expense-amount {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #3A3D42;
+  font-family: 'Nunito-Bold', sans-serif;
+}
+
+/* CSS untuk card chart */
+.chart-card {
+  background-color: transparent; 
+  border: none; 
+}
+
+/* CSS untuk container history */
+.history-container {
+  width: 95%;
+  background-color: white;
+  box-shadow: 0px 0px 20px 4px #ebebeb;
+  border-radius: 25px !important;
+  margin-top: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.history-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.history-title .prgph1  {
+  font-size: 18px;
+  color: #3A3D42;
+  font-family: 'Nunito-Bold', sans-serif;
+}
+
+.history-title .prgph2  {
+  font-size: 14px;
+  color: #6379F4;
+  font-family: 'Nunito-Regular', sans-serif;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.history-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.history-details {
+  flex-grow: 1;
+}
+
+.history-details p {
+  margin: 0;
+}
+
+.history-details .name {
+  color: #4D4B57;
+  font-size: 16px;
+  font-family: 'Nunito-Bold', sans-serif;
+}
+
+.history-details .type {
+  color: #7A7886;
+  font-size: 16px;
+  font-family: 'Nunito-Regular', sans-serif;
+}
+
+/* CSS untuk jumlah dan warna tulisan */
+.history-amount {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.history-amount.green {
+  color: green;
+}
+
+.history-amount.red {
+  color: red;
+}
+
+
+@media only screen and (min-width: 426px) {
+  .buttons-section-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .sidebar-container,
+  .footer-container,
+  .transaction-summary {
+    display: none;
+  }
+  
+  .buttons-section {
+    display: none;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  .row {
+    margin: 0 !important; 
+    padding-top: 15px;
+  }
+  .profile-container {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .icon {
+    margin-left: auto; 
+    margin-right: 10px; 
+  }
+
+  .navbar-container {
+    background-color: #FAFCFF;
+    border-radius: 0px 0px 20px 20px;
+    height: 120px;
+    box-shadow: 0px 0px 20px 4px #ebebeb;
+    position: relative;
+  }
+
+  .balance {
+    width: 100%; 
+    position: relative; 
+    margin: 0 !important;
+  }
+
+  .balance-title {
+    font-family: 'Nunito-Regular', sans-serif;
+    color: #E0E0E0 !important;
+    font-size: 14px;
+}
+
+.balance-text {
+  font-family: 'Nunito-Bold', sans-serif;
+    color: white !important;
+    font-size: 24px !important;
+}
+
+.phone-number-text {
+  font-family: 'Nunito-Regular', sans-serif;
+    color: #E0E0E0 !important;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+  .dashboard-card {
+    width: 100%; 
+    position: relative; 
+    margin: 0 !important; 
+    border-radius: 20px;
+  }
+
+  .dashboard-body {
+    padding: 20px;
+    justify-content: space-between;
+    align-items: flex-start; 
+    flex-direction: column; 
+  }
+
+  .buttons-section-mobile {
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .buttons-section-mobile .col-md-6 {
+    flex: 1; 
+    margin: 0 5px;
+    max-width: 48%; 
+  }
+  
+  .transfer-button2,
+  .topup-button2 {
+    width: 100%; 
+    background-color: #EAEDFF;
+    height: 57px;
+    border-radius: 15px;
+    font-family: 'Nunito-Regular', sans-serif;
+    color: #514F5B !important;
+    font-size: 18px;
+  }
+
+  .transfer-button2 i,
+  .topup-button2 i {
+    color: #608DE2 !important; 
+    margin-right: 5px;
+  }
+
+  .history-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+

@@ -1,0 +1,17 @@
+.landing-page-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-page-text .p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #3A3D42;
+
+}
+.partners-container{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
