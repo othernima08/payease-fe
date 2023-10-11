@@ -39,7 +39,7 @@ const ProfileComponent = () => {
 
 
   return (
-    <Container className='profile-container'>
+    <Container className='profileinformation-container'>
 
       <Row>
         <Col>

@@ -3,6 +3,7 @@ import { Container, Button, Row, Col, Image } from 'react-bootstrap'
 // import PropTypes from "prop-types";
 import profileimg from "../../assets/images/blank.jpg"
 import { useNavigate } from 'react-router-dom';
+import './profilepage.css'
 
 function ProfilePageComponent() {
     const [detail, setDetail] = useState({});
@@ -36,7 +37,7 @@ function ProfilePageComponent() {
         handleData();
     }, [userId]);
     return (
-        <Container>
+        <Container className="profilepage-container">
             <Row>
                 <Col className="d-flex justify-content-center"
                     style={{
