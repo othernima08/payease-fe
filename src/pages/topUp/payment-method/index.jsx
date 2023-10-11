@@ -18,8 +18,8 @@ const PaymentMethod = () => {
   return (
     <AfterLoginLayout>
       <Container className="payment-method-container">
-      <div className="back-icon">
-          <FontAwesomeIcon icon={faArrowLeft}  />
+      <div className="back-icons">
+          <FontAwesomeIcon icon={faArrowLeft} />
         </div>
         <h2>Top up from</h2>
         <p>Choose the source of funds you'd like to use for topping up your PayEase account</p>
