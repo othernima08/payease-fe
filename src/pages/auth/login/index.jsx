@@ -18,14 +18,12 @@ const Login = () => {
 
     const navigatetoProfile = useNavigate();
     const routetoprofile = () => {
-        navigatetoProfile(`/profile`); 
+        navigatetoProfile(`/home`); 
     };
     const userId = localStorage.getItem("id");
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        console.log('handleLogin function is called');
-
         try {
             const response = await fetch('http://127.0.0.1:9090/users/login', {
                 method: 'POST',
@@ -42,6 +40,7 @@ const Login = () => {
                 console.log('Login successful');
                 routetoprofile();
                 localStorage.setItem("id", data.data.id)
+                localStorage.setItem("token", data.data.token)
             } else {
 
                 setError(data.message);
