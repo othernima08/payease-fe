@@ -26,7 +26,7 @@ const LandingPage = () => {
 
                     <div className='button-landing'>
                         <Link to={"/login"} ><Button className='button-login' variant="outline-light">Login</Button></Link>
-                        <Link to={"/register"} >    <Button style={{ backgroundColor: "#FFFFFF", color: "#6379F4" }}>SignUp</Button></Link>
+                        <Link to={"/register"} ><Button className='button-login' style={{ backgroundColor: "#FFFFFF", color: "#6379F4" }}>SignUp</Button></Link>
                     </div>
 
                     <img

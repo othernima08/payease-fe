@@ -20,17 +20,16 @@ body{
   }
   
  
-  .landing-page-text {
+  .landing-page-text4 {
     display: flex;
     flex-direction: column;
+    padding-right: 30px !important;
     /* align-items: flex-start; */
     /* align-items: center;
     justify-content: center; */
 
   }
-  .landing-page-text p{
-    /* margin:auto; */
-  }
+
 
 
   .landing-page-text .tagline{
@@ -51,7 +50,9 @@ body{
     margin-bottom: 20px; */
     /* left: 100px; */
   /* } */
-  
+  .card-landingpage{
+    margin-bottom: 10px;
+  }
   
   .landing-page-card {
     margin-bottom: 20px;

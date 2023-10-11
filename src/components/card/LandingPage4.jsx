@@ -9,7 +9,7 @@ const LandingPage4 = () => {
         <div className="testimonial-container">
             <h2>What Users are <span style={{ color: "#6379F4" }}>Saying </span></h2>
             <p>We have some great features from the application and it’s totally free <br /> to use by all users around the world.</p>
-            <Row className="justify-content-center">
+            <Row className="justify-content-center" style={{marginRight: "61px", marginLeft: "61px"}}>
                 <Col md={4}>
                     <Card className="testimonial-card">
                         <img src={sherinaImage} alt="Sherina Chaw" className="testimonial-image" />

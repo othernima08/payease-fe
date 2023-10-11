@@ -14,7 +14,7 @@ const LandingPage = () => {
             <LandingPages />
             <LandingPage1 />
             <LandingPage2 />
-            <Container fluid style={{ backgroundColor: "#473AD10F" }}>
+            <Container fluid style={{ backgroundColor: "#473AD10F", padding:"32px" }}>
                 {/* container jadiin fluid */}
                 <Row>
                     <Col md={6} className="landing-page-image">
@@ -25,13 +25,13 @@ const LandingPage = () => {
                             className="img-fluid"
                         />
                     </Col>
-                    <Col md={6} className="landing-page-text">
+                    <Col md={6} className="landing-page-text4">
                         {/* Bagian kanan (teks) */}
                         <div>
                             <h2 className='tagline'>All The  <span style={{ color: "#6379F4" }}>Great </span> Zwallet Features</h2>
                         </div>
                         {/* Card dengan fitur-fitur */}
-                        <Card>
+                        <Card className='card-landingpage'>
                             <Card.Body>
                                 <Card.Title> <span style={{ color: "#6379F4" }}>1. </span> Small Fee</Card.Title>
                                 <Card.Text>
@@ -40,7 +40,7 @@ const LandingPage = () => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                        <Card>
+                        <Card className='card-landingpage'>
                             <Card.Body>
                                 <Card.Title><span style={{ color: "#6379F4" }}>2. </span>  Data Secured</Card.Title>
                                 <Card.Text>
@@ -49,7 +49,7 @@ const LandingPage = () => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                        <Card>
+                        <Card className='card-landingpage'>
                             <Card.Body>
                                 <Card.Title><span style={{ color: "#6379F4" }}>3. </span> User Friendly</Card.Title>
                                 <Card.Text>
