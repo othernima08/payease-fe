@@ -9,6 +9,10 @@ import Pin from './pages/auth/register/pin'
 import CreatePassword from './pages/auth/login/create-password'
 import ResetPassword from './pages/auth/login/reset-password'
 import Success from './pages/auth/register/pinsuccess'
+
+import Profile from './pages/profile/profile-information/Index'
+import ProfilePage from './pages/profile/profile page/Index'
+
 import LandingPage from './pages/landingpage/Index';
 
 import Dashboard from './pages/home/dashboard';
@@ -17,7 +21,6 @@ import PaymentMethod from './pages/topUp/payment-method';
 import Transfer from './pages/transfer'
 import InputAmount from './pages/transfer/input-amount'
 import Home from './pages/home'
-// import Transfer from './pages/transfer'
 import TopUp from './pages/topUp/topup-code'
 import Profile from './pages/profile'
 import ChangePinPage1 from './pages/changePin/changePinPage1'
@@ -48,8 +51,9 @@ const Router = () => {
                 <Route exact path="/home" element={<Dashboard/>}/>
                 <Route exact path="/home/history" element={<TransferHistory />} />
 
-                <Route exact path="/profile" element={<Profile />} />
                 <Route exact path="/profile/add-phone" element={<AddPhoneNumber />} />
+                <Route exact path="/profile/profile-information" element={<Profile />} />
+                <Route exact path="/profile" element={<ProfilePage />} />
                 <Route exact path="/profile/manage-phone" element={<ManagePhoneNumber />} />
                 <Route exact path="/profile/change-pin-1" element={<ChangePinPage1 />} />
                 <Route exact path="/profile/change-pin-2" element={<ChangePinPage2 />} />
