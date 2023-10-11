@@ -70,7 +70,7 @@ function ProfilePageComponent() {
             <Row>
                 <Col className="d-flex justify-content-center">
                     <div style={{ width: "60%" }}>
-                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/profile-information")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
+                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/profile/profile-information")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
                             Personal Information
                         </Button>
                         <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >

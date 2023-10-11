@@ -20,9 +20,7 @@ import Dashboard from './pages/home/dashboard';
 import PaymentMethod from './pages/topUp/payment-method';
 import Transfer from './pages/transfer'
 import InputAmount from './pages/transfer/input-amount'
-import Home from './pages/home'
 import TopUp from './pages/topUp/topup-code'
-import Profile from './pages/profile'
 import ChangePinPage1 from './pages/changePin/changePinPage1'
 import ChangePinPage2 from './pages/changePin/changePinPage2'
 import ChangePassword from './pages/changePassword'
