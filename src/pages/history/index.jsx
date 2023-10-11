@@ -9,9 +9,11 @@ import './history.css'
 import AfterLoginLayout from '../../layout/afterLogin';
 import TransactionHistoryCard from '../../components/transactionHistoryCard';
 import DatePickerModal from '../../modal/datepicker';
+import { useNavigate } from 'react-router';
 
 const TransactionHistory = () => {
     const [openDateModal, setOpenDateModal] = useState(false)
+    const navigate = useNavigate()
 
     const handleOpenDateModal = () => setOpenDateModal(true)
 
@@ -24,7 +26,7 @@ const TransactionHistory = () => {
                     <Container bsPrefix='transaction-history-container'>
                         <Row bsPrefix='transaction-history-head-container'>
                             <Col md={12}>
-                                <div className="transaction-history-back-icon">
+                                <div className="transaction-history-back-icon" onClick={() => navigate("/home") }>
                                     <IoArrowBackSharp />
                                 </div>
                                 <h2 className="transaction-history-title">Transaction History</h2>
@@ -100,9 +102,9 @@ const TransactionHistory = () => {
                                 </section>
                             </Row>
                             <Row bsPrefix='transaction-history-button-container'>
-                                <Button style={{ backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#FF5B37" }}><AiOutlineArrowDown /></p></Button>
-                                <Button style={{ backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#1EC15F" }}><AiOutlineArrowUp /></p></Button>
-                                <Button style={{ width: "60%", backgroundColor: "#FFFFFF", border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg"><p style={{ color: "#6379F4" }} onClick={handleOpenDateModal}>Filter by Date</p></Button>
+                                <Button className='button-amount-expenses-filter' size="lg"><p style={{ color: "#FF5B37" }}><AiOutlineArrowDown /></p></Button>
+                                <Button className='button-amount-expenses-filter' style={{ margin: "0px 8px" }} size="lg"><p style={{ color: "#1EC15F" }}><AiOutlineArrowUp /></p></Button>
+                                <Button className='button-filter-date' size="lg"><p style={{ color: "#6379F4" }} onClick={handleOpenDateModal}>Filter by Date</p></Button>
                             </Row>
                         </Row>
                     </Container>
