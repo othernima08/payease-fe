@@ -35,7 +35,7 @@
   display: none;
 }
 
-.btn-primary {
+.custom-topup-button{
   background-color: #6379f4;
   border: none;
   border-radius: 10px;
@@ -46,7 +46,7 @@
   transition: background-color 0.3s;
 }
 
-.btn-primary:hover {
+.custom-topup-button:hover  {
   background-color: #5564e8;
 }
 

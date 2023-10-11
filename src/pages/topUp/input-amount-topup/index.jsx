@@ -59,7 +59,7 @@ const InputAmountTopUp = () => {
 
         <Row className="justify-content-center">
           <Col md={4}>
-            <Button variant="primary" className="w-100">
+            <Button variant="primary" className="w-100 custom-topup-button">
               Continue
             </Button>
           </Col>
