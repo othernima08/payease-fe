@@ -6,6 +6,7 @@ import "./register.css";
 import LayoutAuth from '../../../layout/auth';
 import LeftLayoutAuth from '../../../components/auth/left';
 import RightLayoutAuth from '../../../components/auth/right';
+import { Link } from 'react-router-dom';
 
 const Success = () => {
     return (
@@ -22,9 +23,11 @@ const Success = () => {
                     <p className='p-auth opacity-75 mb-5 p-login'>Your PIN was successfully created and you can now access all the features in Zwallet. Login to your new account and start exploring!</p></div>
                 <Form>
                     <div className="d-grid gap-4 mb-5">
+                    <Link to={"/login"}>
                         <Button variant="primary" type="submit" size="lg" style={{ backgroundColor: "#6379F4" }}>
                             Login now
                         </Button>
+                        </Link>
                     </div>
                 </Form>
             </RightLayoutAuth>
