@@ -24,7 +24,22 @@ const CreatePassword = () => {
     const checktokenRender = async () => {
         try {
             const res = await checkToken(token)
-            console.log(res);
+           
+            const statusRes = res.data.success;
+            if (statusRes === true) {
+                console.log(res);
+            }
+            else {
+                const errorMsg = res.data.message;
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Registration Failed',
+                    html: errorMsg,
+                }).then(() => {
+                    navigate('/login');
+                });
+            }
+
         } catch (error) {
             console.log(error);
         }
