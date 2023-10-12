@@ -6,13 +6,11 @@ import LayoutAuth from "../../../layout/auth";
 import LeftLayoutAuth from "../../../components/auth/left";
 import RightLayoutAuth from "../../../components/auth/right";
 
-
-
-
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { login } from '../../../services/users';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -35,14 +33,35 @@ const Login = () => {
             }
 
             const response = await login(data);
-            // console.log(response);
+            console.log(response);
             
+
+
+           
             if (response.data.success) {
                 routetoprofile();
                 localStorage.setItem("id", response.data.data.id)
                 localStorage.setItem("token", response.data.data.token)
             } else {
-                setError(response.data.message);
+               
+                if(response.data.error==null){
+                    const errorMsg = response.data.message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        html: errorMsg,
+                    })
+                }
+                else{
+                    const errorMsg = Object.values(response.data.error).join(`<br/>`);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        html: errorMsg,
+                    })
+                }
+
+              
             }
         } catch (error) {
             console.error('Error:', error);
