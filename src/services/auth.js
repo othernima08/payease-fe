@@ -34,6 +34,17 @@ export const registerUser = async (data) => {
     }
   }
 
+  
+  export const findAccountReset = async (data) =>{
+    try {
+      const url = `${BASE_URL_API_DEV}/users/find-email-reset`;
+      const response = await fetchApi({ url, method: "PUT", data })
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
    export const changePassword = async (data,token) =>{
     try {
       const url = `${BASE_URL_API_DEV}/users/change-password?token=${token}`;

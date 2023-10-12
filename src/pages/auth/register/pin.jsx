@@ -77,7 +77,7 @@ const Pin = () => {
                 }}>
 
                     <div className="d-flex justify-content-center mb-5 align-items-center justify-content-center">
-                        {/* <PinInput
+                     <PinInput
                             length={6}
                             initialValue=""
                             secret
@@ -90,8 +90,7 @@ const Pin = () => {
                             onComplete={(value, index) => { }}
                             autoSelect={true}
                             regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
-                        /> */}
-                        <CustomPIN/>
+                     />
                     </div>
                     <div className="d-grid gap-4 mt-5">
 

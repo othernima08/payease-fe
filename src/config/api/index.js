@@ -7,7 +7,6 @@ export const fetchApi = async ({ url, method, data, headers }) => {
       method,
       data,
       headers
-
     });
     return responseAxios;
   } catch (error) {
