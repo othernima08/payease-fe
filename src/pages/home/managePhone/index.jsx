@@ -18,7 +18,7 @@ const ManagePhoneNumber = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    //fetch user's phone number
+    //fetch no hp user
     const fetchUserPhoneNumber = async () => {
       try {
         const response = await axios.get(
@@ -27,7 +27,7 @@ const ManagePhoneNumber = () => {
         if (response.status === 200) {
           const data = response.data;
           let phoneNumber = data.data?.phoneNumber || "";
-          // Format phone number: Replace "08" with "+62"
+          // ubah format no hp
           phoneNumber = phoneNumber.replace(/^0/, "+62");
           setUserPhoneNumber(phoneNumber);
         } else {
@@ -40,12 +40,12 @@ const ManagePhoneNumber = () => {
     fetchUserPhoneNumber();
   }, [userId]);
 
-  // Handle mobile mode "Back" button click
+  // button back
   const handleBackButtonClick = () => {
     navigate("/profile/profile-information");
   };
 
-  // Handle confirmation modal
+  // modal konfirmasi
   const handleShowDeleteConfirmation = () => {
     setShowDeleteConfirmation(true);
     setDeleteConfirmationMessage("Are you sure to delete the phone number?");
@@ -59,7 +59,7 @@ const ManagePhoneNumber = () => {
 
       if (response.status === 200) {
         setShowDeleteConfirmation(false);
-        // Redirect to profile information page
+        // profile information page
         Swal.fire({
           icon: 'success',
           title: 'Phone Number is successfully deleted!',

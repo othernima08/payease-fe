@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 import { FiPhone } from "react-icons/fi";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2"; // Import SweetAlert
+import Swal from "sweetalert2";
 
 import AfterLoginLayout from "../../../layout/afterLogin";
 
@@ -45,7 +45,6 @@ const AddPhoneNumber = () => {
 
   const addPhoneNumberAPI = async (userId, phoneNumber) => {
     if (!userId) {
-      // Menggunakan SweetAlert untuk pesan kesalahan
       Swal.fire({
         icon: 'error',
         title: 'User ID not found',
@@ -55,7 +54,6 @@ const AddPhoneNumber = () => {
     }
 
     if (!isPhoneNumberValid) {
-      // Menggunakan SweetAlert untuk pesan kesalahan
       Swal.fire({
         icon: 'error',
         title: 'Invalid Phone Number',
@@ -74,7 +72,6 @@ const AddPhoneNumber = () => {
       );
 
       if (response.status === 200) {
-        // Menggunakan SweetAlert untuk pesan sukses
         Swal.fire({
           icon: 'success',
           title: 'Phone Number Added',
@@ -85,7 +82,6 @@ const AddPhoneNumber = () => {
           }
         });
       } else {
-        // Menggunakan SweetAlert untuk pesan kesalahan
         Swal.fire({
           icon: 'error',
           title: 'Failed to Add Phone Number',
@@ -94,7 +90,6 @@ const AddPhoneNumber = () => {
       }
     } catch (error) {
       console.error("Error adding phone number:", error);
-      // Menggunakan SweetAlert untuk pesan kesalahan
       Swal.fire({
         icon: 'error',
         title: 'Failed to Add Phone Number',
