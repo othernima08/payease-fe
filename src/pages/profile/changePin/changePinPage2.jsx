@@ -8,45 +8,51 @@ import { changePIN } from '../../../services/users'
 
 const ChangePinPage2 = () => {
     const [newPin, setNewPin] = useState()
+    let attempt = 0
 
     const navigate = useNavigate()
 
-    const handleChangePin = async() => {
-        try {
-            const data = {
-                userId: localStorage.getItem("id"),
-                newPin
-            }
-
-            const response = await changePIN(data)
-
-            if (response.data.success) {
-                Swal.fire({
-                    icon: "success",
-                    title: "Change PIN Success",
-                    html: "Your PIN updated successfully"
-                })
-
-                navigate("/profile")
-            } else {
-                let errorMsg = ""
-
-                if (response.data.error === null) {
-                    errorMsg = response.data.message;
-                } else {
-                    errorMsg = Object.values(response.data.error).join(`<br/>`)
+    const handleChangePin = async () => {
+        if (attempt < 3) {
+            try {
+                const data = {
+                    userId: localStorage.getItem("id"),
+                    newPin
                 }
 
-                Swal.fire({
-                    icon: "error",
-                    title: "Change PIN Failed",
-                    html: errorMsg
-                })
+                const response = await changePIN(data)
 
-                // navigate("/profile")
+                if (response.data.success) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Change PIN Success",
+                        html: "Your PIN updated successfully"
+                    })
+
+                    navigate("/profile")
+                } else {
+                    let errorMsg = ""
+
+                    if (response.data.error === null) {
+                        errorMsg = response.data.message;
+                    } else {
+                        errorMsg = Object.values(response.data.error).join(`<br/>`)
+                    }
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Change PIN Failed",
+                        html: errorMsg
+                    })
+
+                    attempt++
+                }
+            } catch (error) {
+                console.log(error)
+                attempt++
             }
-        } catch (error) {
-            console.log(error)
+        } else {
+            navigate("/profile")
         }
     }
 
@@ -55,7 +61,7 @@ const ChangePinPage2 = () => {
             buttonText={"Change PIN"}
             description={"Type your new 6 digits security PIN to use in  Zwallet."}
             handleClick={handleChangePin}
-            handleChange={(value, index) => {setNewPin(value)}}
+            handleChange={(value, index) => { setNewPin(value) }}
         />
     )
 }

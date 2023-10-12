@@ -10,7 +10,7 @@ import LandingPage4 from '../../components/custom-components/landingPage/Landing
 import { Navigate } from 'react-router';
 
 const LandingPage = () => {
-    const isLoggedIn = localStorage.getItem("id") !== undefined && localStorage.getItem("token") !== undefined
+    const isLoggedIn = localStorage.length !== 0 && localStorage.getItem("id") !== undefined && localStorage.getItem("token") !== undefined
 
     return (
         <React.Fragment>

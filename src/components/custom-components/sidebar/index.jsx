@@ -43,8 +43,9 @@ const CustomSidebar = () => {
     const handleClickLogOut = (e) => {
         e.preventDefault();
 
-        sessionStorage.clear()
-        navigate("/")
+        localStorage.clear();
+
+        navigate("/login")
     }
 
     return (

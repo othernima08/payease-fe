@@ -38,7 +38,8 @@ const ProfileComponent = () => {
   }, [userId]);
 
   const handleManageButtonClick = () => {
-    if (detail.data && detail.data.phoneNumber) {
+
+    if (detail && detail.phoneNumber) {
       // kalau ada ke halaman manage-phone
       navigate('/profile/manage-phone');
     } else {
@@ -49,12 +50,11 @@ const ProfileComponent = () => {
 
   return (
     <Container className='profileinformation-container'>
-
       <Row>
         <Col>
           <div className='personal-information'>
             <h4>Personal information</h4>
-            <p className='text-profile'>We got your personal information from the sign <br />up process. if you want to make changes on <br />your information, contact our support.</p>
+            <p className='text-subtitle'>We got your personal information from the sign <br />up process. if you want to make changes on <br />your information, contact our support.</p>
           </div>
         </Col>
       </Row>

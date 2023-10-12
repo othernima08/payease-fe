@@ -48,7 +48,6 @@ function ProfilePageComponent() {
                     }}>
                     <Image src={detail.profilePicture != null ? detail.profilePicture : profileimg} alt='profile...' rounded style={{ width: "20%" }} />
                 </Col>
-
             </Row>
             <Row>
                 <Col className="d-flex justify-content-center ">

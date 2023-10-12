@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 
 const ChangePassword = () => {
     const navigate = useNavigate()
+    let attempt = 0
 
     const [currentPassword, setCurrentPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
@@ -59,51 +60,58 @@ const ChangePassword = () => {
     }
 
     const handleChangePassword = async () => {
-        try {
-            if (confirmPassword !== newPassword) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Change Password Failed",
-                    html: "Password confirmation doesn't match"
-                })
-
-            } else {
-                const data = {
-                    userId: localStorage.getItem("id"),
-                    currentPassword,
-                    newPassword
-                }
-
-                const response = await changePassword(data);
-
-                if (response.data.success) {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Change Password Success",
-                        html: "Your password updated successfully"
-                    })
-
-                    navigate("/profile")
-                } else {
-                    let errorMsg = ""
-
-                    if (response.data.error === null) {
-                        errorMsg = response.data.message;
-                    } else {
-                        errorMsg = Object.values(response.data.error).join(`<br/>`)
-                    }
-
+        if (attempt < 3) {
+            try {
+                if (confirmPassword !== newPassword) {
                     Swal.fire({
                         icon: "error",
                         title: "Change Password Failed",
-                        html: errorMsg
+                        html: "Password confirmation doesn't match"
                     })
+
+                    attempt++
+                } else {
+                    const data = {
+                        userId: localStorage.getItem("id"),
+                        currentPassword,
+                        newPassword
+                    }
+
+                    const response = await changePassword(data);
+
+                    if (response.data.success) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Change Password Success",
+                            html: "Your password updated successfully"
+                        })
+
+                        navigate("/profile")
+                    } else {
+                        let errorMsg = ""
+
+                        if (response.data.error === null) {
+                            errorMsg = response.data.message;
+                        } else {
+                            errorMsg = Object.values(response.data.error).join(`<br/>`)
+                        }
+
+                        Swal.fire({
+                            icon: "error",
+                            title: "Change Password Failed",
+                            html: errorMsg
+                        })
+
+                        attempt++
+                    }
                 }
+
+            } catch (error) {
+                console.log(error)
+                attempt++
             }
-
-
-        } catch (error) {
-            console.log(error)
+        } else {
+            navigate("/profile")
         }
     }
 
@@ -113,7 +121,7 @@ const ChangePassword = () => {
                 <Container bsPrefix='change-password-container'>
                     <Row bsPrefix='change-password-head-container'>
                         <Col md={12}>
-                            <div className="change-password-back-icon">
+                            <div className="change-password-back-icon" onClick={() => navigate("/profile")}>
                                 <IoArrowBackSharp />
                             </div>
                             <h2 className="change-password-title">Change password</h2>
