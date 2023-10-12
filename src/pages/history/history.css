@@ -43,6 +43,19 @@
     justify-content: space-around;
 }
 
+.button-amount-expenses-filter {
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: 0px 0px 20px 4px #ebebeb
+}
+
+.button-filter-date {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: 0px 0px 20px 4px #ebebeb
+}
+
 @media only screen and (max-width: 768px) {
     .transaction-history-container {
         padding: 40px;
