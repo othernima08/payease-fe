@@ -17,12 +17,19 @@ const ManagePhoneNumber = () => {
   const userId = localStorage.getItem("id");
   const navigate = useNavigate();
 
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("token")}`,
+    }
+  };
+
   useEffect(() => {
     //fetch no hp user
     const fetchUserPhoneNumber = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:9090/users/${userId}`
+          `http://127.0.0.1:9090/users/${userId}`, 
+          config
         );
         if (response.status === 200) {
           const data = response.data;
@@ -54,7 +61,7 @@ const ManagePhoneNumber = () => {
   const handleDeletePhoneNumber = async () => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:9090/users/delete-phone-number/${userId}`
+        `http://127.0.0.1:9090/users/delete-phone-number/${userId}`, config
       );
 
       if (response.status === 200) {
@@ -118,9 +125,9 @@ const ManagePhoneNumber = () => {
         </Row>
       </Container>
 
-      <Modal show={showDeleteConfirmation} onHide={handleCancelDelete}>
+      <Modal show={showDeleteConfirmation} onHide={handleCancelDelete} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Delet Phone Number Confirmation</Modal.Title>
+          <Modal.Title>Delete Phone Number Confirmation</Modal.Title>
         </Modal.Header>
         <Modal.Body>{deleteConfirmationMessage}</Modal.Body>
         <Modal.Footer>

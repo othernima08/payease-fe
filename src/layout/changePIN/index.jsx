@@ -5,7 +5,7 @@ import AfterLoginLayout from '../afterLogin'
 import { IoArrowBackSharp } from "react-icons/io5";
 
 import './changePin.css'
-import CustomPIN from '../../components/pinInput';
+import CustomPIN from '../../components/reusable-components/pinInput';
 
 const ChagePinLayout = (props) => {
   const { buttonText, handleClick, description, handleChange } = props;

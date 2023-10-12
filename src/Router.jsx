@@ -20,7 +20,7 @@ import ChangePassword from './pages/profile/changePassword'
 import LandingPage from './pages/landingpage/Index';
 
 import Dashboard from './pages/home/dashboard';
-import TransferHistory from './pages/history';
+import TransferHistory from './pages/home/history';
 
 import PaymentMethod from './pages/topUp/payment-method';
 import TopUp from './pages/topUp/topup-code'
@@ -38,8 +38,6 @@ const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<LandingPage/>}/>
-                  
-                {/* <Route exact path="/transfer" element={<Transfer />} /> */}
 
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />

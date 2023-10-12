@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router';
 import { pinAdd } from '../../../services/auth';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
-import CustomPIN from '../../../components/pinInput';
+import CustomPIN from '../../../components/reusable-components/pinInput';
 
 
 const Pin = () => {
