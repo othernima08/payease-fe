@@ -67,7 +67,9 @@
 @media only screen and (max-width: 425px) {
     .card-mobile-amount-status {
         margin-top: 15px;
-        justify-content: center;
+        justify-content: space-between !important;
+        width: 100vw;
+     
     }
 
     .transaction-amount-income {

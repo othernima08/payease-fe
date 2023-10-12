@@ -17,7 +17,7 @@ function TransactionHistoryCard(props) {
                     </p>
                 </section>
             </section>
-            <section className='card-mobile-amount-status d-flex flex-row w-100 justify-content-between' style={{flex:"row", alignItems:"center"}}>
+            <section className='card-mobile-amount-status d-flex flex-row justify-content-between' style={{flex:"row", alignItems:"center"}}>
                 {
                     status !== undefined && 
                     <p className={`transaction-status-${status.toLowerCase()}`} style={{marginRight: "16px"}}>
