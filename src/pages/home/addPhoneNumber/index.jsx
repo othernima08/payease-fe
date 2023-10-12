@@ -29,6 +29,12 @@ const AddPhoneNumber = () => {
     setPnFieldOnFocus(false);
   };
 
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("token")}`,
+    }
+  };
+
   const handlePhoneChange = (e) => {
     let formattedPhoneNumber = e.target.value.replace(/\D/g, "");
 
@@ -68,7 +74,8 @@ const AddPhoneNumber = () => {
         {
           userId: userId,
           phoneNumber: phoneNumber,
-        }
+        }, 
+        config
       );
 
       if (response.status === 200) {

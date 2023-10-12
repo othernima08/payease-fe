@@ -10,7 +10,7 @@ import { Fragment, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import PinInput from 'react-pin-input';
-import CustomPIN from '../../components/pinInput';
+import CustomPIN from '../../components/reusable-components/pinInput';
 
 const Confirmation = () => {
 

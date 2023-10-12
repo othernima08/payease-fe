@@ -18,6 +18,7 @@ import gambar2 from "../../../assets/images/th (2).jpeg";
 import netfix from "../../../assets/images/netflixlogo.0.0.png";
 import spotify from "../../../assets/images/OIP2.jpeg";
 import { useNavigate } from "react-router";
+import TransactionHistoryCard from "../../../components/reusable-components/transactionHistoryCard";
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -28,28 +29,28 @@ const Dashboard = () => {
       image: gambar1,
       name: "Samuel Sushi",
       amount: 50000,
-      type: "transfer",
+      type: "Transfer"
     },
     {
       id: 2,
       image: netfix,
       name: "Netflix",
-      amount: -50000,
-      type: "subscription",
+      amount: 50000,
+      type: "Subscription",
     },
     {
       id: 3,
       image: gambar2,
       name: "Alexander Jacob",
-      amount: +50000,
-      type: "transfer",
+      amount: 50000,
+      type: "Transfer",
     },
     {
       id: 4,
       image: spotify,
       name: "Spotify",
-      amount: -50000,
-      type: "subscription",
+      amount: 50000,
+      type: "Subscription",
     },
   ];
 
@@ -195,21 +196,29 @@ const Dashboard = () => {
           <p className="prgph2" onClick={() => navigate("/home/history")}>See all</p>
         </div>
         {transactions.map((transaction) => (
-          <div key={transaction.id} className="history-item">
-            <img src={transaction.image} alt={transaction.name} />
-            <div className="history-details">
-              <p className="name">{transaction.name}</p>
-              <p className="type">{transaction.type}</p>
-            </div>
-            <p
-              className={`history-amount ${transaction.amount >= 0 ? "green" : "red"
-                }`}
-            >
-              {transaction.amount >= 0
-                ? `+ Rp${transaction.amount}`
-                : `- Rp${Math.abs(transaction.amount)}`}
-            </p>
-          </div>
+          <TransactionHistoryCard 
+            id = {transaction.id}
+            userName={transaction.name}
+            type={(transaction.type === "Top Up" || transaction.type === "Transfer" )? "income" : "expense"}
+            subtype={transaction.type}
+            userPict={transaction.image}
+            amount = {transaction.amount}
+          />
+          // <div key={transaction.id} className="history-item">
+          //   <img src={transaction.image} alt={transaction.name} />
+          //   <div className="history-details">
+          //     <p className="name">{transaction.name}</p>
+          //     <p className="type">{transaction.type}</p>
+          //   </div>
+          //   <p
+          //     className={`history-amount ${transaction.amount >= 0 ? "green" : "red"
+          //       }`}
+          //   >
+          //     {transaction.amount >= 0
+          //       ? `+ Rp${transaction.amount}`
+          //       : `- Rp${Math.abs(transaction.amount)}`}
+          //   </p>
+          // </div>
         ))}
       </Container>
     </AfterLoginLayout>

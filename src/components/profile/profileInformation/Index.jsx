@@ -3,12 +3,12 @@ import './profileInformation.css'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import { getUserById } from "../../../services/users";
 // import { useParams } from 'react-router-dom';
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileComponent = () => {
-
   const [detail, setDetail] = useState({});
   const userId = localStorage.getItem("id");
   const navigate = useNavigate();
@@ -20,9 +20,9 @@ const ProfileComponent = () => {
       console.log('handdata is called');
 
       try {
-          const response = await fetch(`http://127.0.0.1:9090/users/${userId}`);
-              if (response.ok) {
-                  const data = await response.json();
+          const response = await getUserById(userId)
+              if (response.data.success) {
+                  const data = response.data.data
                   setDetail(data);                   
                   console.log(data)
               }else {
@@ -38,7 +38,8 @@ const ProfileComponent = () => {
   }, [userId]);
 
   const handleManageButtonClick = () => {
-    if (detail.data && detail.data.phoneNumber) {
+
+    if (detail && detail.phoneNumber) {
       // kalau ada ke halaman manage-phone
       navigate('/profile/manage-phone');
     } else {
@@ -49,12 +50,11 @@ const ProfileComponent = () => {
 
   return (
     <Container className='profileinformation-container'>
-
       <Row>
         <Col>
           <div className='personal-information'>
             <h4>Personal information</h4>
-            <p className='text-profile'>We got your personal information from the sign <br />up process. if you want to make changes on <br />your information, contact our support.</p>
+            <p className='text-subtitle'>We got your personal information from the sign <br />up process. if you want to make changes on <br />your information, contact our support.</p>
           </div>
         </Col>
       </Row>
@@ -65,7 +65,7 @@ const ProfileComponent = () => {
               <div className="profile-details">
                 <div className="profile-info">
                   <p className='text-profile'>First Name</p>
-                  <h5>{detail.data?.firstName}</h5>
+                  <h5>{detail.firstName}</h5>
                 </div>
               </div>
             </Card.Body>
@@ -77,7 +77,7 @@ const ProfileComponent = () => {
               <div className="profile-details">
                 <div className="profile-info">
                   <p className='text-profile'>Last Name</p>
-                  <h5>{detail.data?.lastName}</h5>
+                  <h5>{detail.lastName}</h5>
                 </div>
               </div>
             </Card.Body>
@@ -89,7 +89,7 @@ const ProfileComponent = () => {
               <div className="profile-details">
                 <div className="pforile-info">
                   <p className='text-profile'>Verified E-mail</p>
-                  <h5>{detail.data?.email}</h5>
+                  <h5>{detail.email}</h5>
                 </div>
               </div>
             </Card.Body>
@@ -101,7 +101,7 @@ const ProfileComponent = () => {
               <div className="profile-details">
                 <div className="profile-info">
                   <p className='text-profile'>Phone Number</p>
-                  <h5>{detail.data?.phoneNumber || "-" }</h5>
+                  <h5>{detail.phoneNumber || "-" }</h5>
                 </div>
                 <div className="manage-profile">
                   <a className='manage-button' onClick={handleManageButtonClick} > Manage</a> {/*route ke halaman edit nomer hp*/ }

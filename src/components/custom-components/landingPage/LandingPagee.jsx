@@ -1,8 +1,8 @@
 import React from 'react'
 import { Row, Col, Button } from 'react-bootstrap';
-import imagephone1 from '../../assets/images/landingphone1.png'
+import imagephone1 from '../../../assets/images/landingphone1.png'
 import './LandingPagee.css'
-import backgroundImg from '../../assets/images/bg.png'
+import backgroundImg from '../../../assets/images/bg.png'
 import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
@@ -12,7 +12,6 @@ const LandingPage = () => {
             <Col md={6} className="landing-page-text">
                 <div>
                     <h2 className='tagline'>Awesome App <br /> For Saving <span style={{ color: "#6379F4" }}>Great </span> Time.</h2>
-
                 </div>
                 <div className='paragraf'>
                     <p >we bring you a mobile app for banking problems </p>
@@ -23,7 +22,6 @@ const LandingPage = () => {
             </Col>
             <Col md={6} className="landing-page-image">
                 <div className="">
-
                     <div className='button-landing'>
                         <Link to={"/login"} ><Button className='button-login' variant="outline-light">Login</Button></Link>
                         <Link to={"/register"} ><Button className='button-login' style={{ backgroundColor: "#FFFFFF", color: "#6379F4" }}>SignUp</Button></Link>

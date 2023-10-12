@@ -67,6 +67,21 @@ export const changePIN = async(data) => {
     }
 }
 
+export const verifyPIN = async(data) => {
+    try {
+        const token = localStorage.getItem("token")
+
+        const url = `${BASE_URL_API_DEV}/users/verify-pin`
+        const response = await fetchApi({ url, method: "PUT", data, headers : {
+            "Authorization": `Bearer ${token}`
+        }});
+
+        return response
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const changePassword = async(data) => {
     try {
         const token = localStorage.getItem("token")

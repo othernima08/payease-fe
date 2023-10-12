@@ -6,7 +6,7 @@ import { Navbar, Container, Button } from 'react-bootstrap';
 import { BsBell } from "react-icons/bs";
 
 import './navbar.css'
-import blankPict from '../../assets/images/blank.jpg';
+import blankPict from '../../../assets/images/blank.jpg';
 
 function CustomNavbar(props) {
     const navigate = useNavigate();

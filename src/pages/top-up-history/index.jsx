@@ -7,7 +7,7 @@ import blank from '../../assets/images/blank.jpg'
 
 import './tu-history.css'
 import AfterLoginLayout from '../../layout/afterLogin';
-import TransactionHistoryCard from '../../components/transactionHistoryCard';
+import TransactionHistoryCard from '../../components/reusable-components/transactionHistoryCard';
 import DatePickerModal from '../../modal/datepicker';
 
 const TopUpHistory = () => {
