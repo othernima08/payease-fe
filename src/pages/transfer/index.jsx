@@ -12,8 +12,8 @@ const Transfer = () => {
         <AfterLoginLayout
         >
             <div className="transfer-container ">
-                <div className="content-container ">
-                    <div className="stack">
+                <div className="content-container-find">
+                    <div className="stack-transfer">
                         <Row bsPrefix="margin-box" >
                             <Col md={12}>
                                 <div className="back-icon">
@@ -33,6 +33,7 @@ const Transfer = () => {
                             />
                         </InputGroup>
                     </div>
+                    <div className="content">
                     <Link to={"/transfer/input"}>
                         <div className="card-container mb-2">
                             <div className="d-flex flex-row">
@@ -131,6 +132,7 @@ const Transfer = () => {
                             <div className='d-flex flex-column p-2'>
                                 <div>Michael Le</div>
                                 <div className='p-auth opacity-75'>+62 813-8492-9994</div>
+                            </div>
                             </div>
                         </div>
                     </div>
