@@ -8,7 +8,8 @@ import LayoutAuth from '../../../layout/auth';
 import LeftLayoutAuth from '../../../components/auth/left';
 import RightLayoutAuth from '../../../components/auth/right';
 import { changePassword, checkToken } from '../../../services/auth';
-import { useParams } from 'react-router';
+import { Navigate, useNavigate, useParams } from 'react-router';
+import Swal from 'sweetalert2';
 
 const CreatePassword = () => {
 
@@ -16,6 +17,7 @@ const CreatePassword = () => {
     const [newPassword, setnewPassword] = useState("");
     const [confirmPassword, setconfirmPassword] = useState("");
 
+    const navigate = useNavigate();
 
     const { token } = useParams();
 
@@ -41,20 +43,20 @@ const CreatePassword = () => {
 
             const response = await changePassword(data, token)
             console.log(response.data);
+            console.log(response.data.message);
             const statusRes = response.data.success;
 
             if (statusRes === true) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Registration Successful',
-                    text: 'You have successfully registered your account, please configure your pin!',
+                    title: 'Password Changed Successfully',
+                    text: 'You have successfully changed your password, please login!',
                 }).then(() => {
-                    sessionStorage.setItem("register", email)
-                    navigate('/pin-confirm');
+                    navigate('/login');
                 });
             }
             else {
-                const errorMsg = Object.values(response.data.error).join(`<br/>`);
+                const errorMsg = response.data.message;
                 Swal.fire({
                     icon: 'error',
                     title: 'Registration Failed',
