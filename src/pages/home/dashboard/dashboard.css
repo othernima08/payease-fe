@@ -150,6 +150,7 @@
   font-size: 14px;
   color: #6379F4;
   font-family: 'Nunito-Regular', sans-serif;
+  cursor: pointer;
 }
 
 .history-item {

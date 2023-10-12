@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ChagePinLayout from '../../layout/changePIN'
+import ChagePinLayout from '../../../layout/changePIN'
 
 const ChangePinPage1 = () => {
     return (

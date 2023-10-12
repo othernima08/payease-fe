@@ -6,6 +6,7 @@ import { Navbar, Container, Button } from 'react-bootstrap';
 import { BsBell } from "react-icons/bs";
 
 import './navbar.css'
+import blankPict from '../../assets/images/blank.jpg';
 
 function CustomNavbar(props) {
     const navigate = useNavigate();
@@ -19,15 +20,18 @@ function CustomNavbar(props) {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <figure className='profile-container' style={{ margin: 0}}>
-                        <img src={user.profilePict} alt="profile-pict" className='profile-picture' />
+                        <img src={user?.profilePictureUrl === null ? blankPict : user.profilePictureUrl} alt="profile-pict" className='profile-picture' />
                     </figure>
                     <section className="profile-text">
                         <p className="fullName">
-                           {user.fullName}
+                           {`${user.firstName} ${user.lastName}` }
                         </p>
-                        <p className="phoneNumber">
-                            {user.phoneNum}
-                        </p>
+                        { 
+                            user.phoneNumber !== null && 
+                            <p className="phoneNumber">
+                                {user.phoneNumber}
+                            </p>
+                        }
                     </section>
                     <p className="icon"><BsBell /></p>
                 </Navbar.Collapse>
