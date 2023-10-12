@@ -37,6 +37,15 @@ const ProfileComponent = () => {
       handleData();
   }, [userId]);
 
+  const handleManageButtonClick = () => {
+    if (detail.data && detail.data.phoneNumber) {
+      // kalau ada ke halaman manage-phone
+      navigate('/profile/manage-phone');
+    } else {
+      // kalau blm ke halaman add-phone
+      navigate('/profile/add-phone');
+    }
+  };
 
   return (
     <Container className='profileinformation-container'>
@@ -95,7 +104,7 @@ const ProfileComponent = () => {
                   <h5>{detail.data?.phoneNumber || "-" }</h5>
                 </div>
                 <div className="manage-profile">
-                  <a className='manage-button' onClick={()=>{navigate('/add-phone')}} > Manage</a> {/*route ke halaman edit nomer hp*/ }
+                  <a className='manage-button' onClick={handleManageButtonClick} > Manage</a> {/*route ke halaman edit nomer hp*/ }
                   {/* <FontAwesomeIcon icon={faTrash} className="delete-icon" /> */}
                 </div>
               </div>
