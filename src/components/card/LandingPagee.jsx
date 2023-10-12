@@ -11,12 +11,12 @@ const LandingPage = () => {
 
             <Col md={6} className="landing-page-text">
                 <div>
-                <h2 className='tagline'>Awesome App <br /> For Saving <span style={{ color: "#6379F4" }}>Great </span> Time.</h2>
+                    <h2 className='tagline'>Awesome App <br /> For Saving <span style={{ color: "#6379F4" }}>Great </span> Time.</h2>
 
                 </div>
                 <div className='paragraf'>
-                <p >we bring you a mobile app for banking problems </p>
-                <p>that oftenly wasting much of your time</p>
+                    <p >we bring you a mobile app for banking problems </p>
+                    <p>that oftenly wasting much of your time</p>
 
                 </div>
                 <Link to={"/register"}>   <Button style={{ backgroundColor: "#6379F4", color: "#FFFFFF" }}>Try it free</Button></Link>
@@ -25,15 +25,15 @@ const LandingPage = () => {
                 <div className="">
 
                     <div className='button-landing'>
-                     <Link to={"/login"} ><Button className='button-login' variant="outline-light">Login</Button></Link>  
-                     <Link to={"/register"} >    <Button style={{ backgroundColor: "#FFFFFF", color: "#6379F4" }}>SignUp</Button></Link>
+                        <Link to={"/login"} ><Button className='button-login' variant="outline-light">Login</Button></Link>
+                        <Link to={"/register"} ><Button className='button-login' style={{ backgroundColor: "#FFFFFF", color: "#6379F4" }}>SignUp</Button></Link>
                     </div>
 
                     <img
                         src={imagephone1}
                         alt="Gambar Anda"
                         className="img-fluid"
-                        style={{ top:"45px", right: "145px"}}
+                        style={{ top: "45px", right: "145px" }}
                     />
                 </div>
                 <img src={backgroundImg}

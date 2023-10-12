@@ -1,0 +1,9 @@
+.profilepage-container{
+    background-color: #ffffff;
+    padding: 24px;
+    height: 100vh;   
+    box-shadow: 0px 0px 20px 4px #ebebeb;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}

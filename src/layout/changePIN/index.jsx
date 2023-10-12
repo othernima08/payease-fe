@@ -6,6 +6,7 @@ import AfterLoginLayout from '../afterLogin'
 import { IoArrowBackSharp } from "react-icons/io5";
 
 import './changePin.css'
+import CustomPIN from '../../components/pinInput';
 
 const ChagePinLayout = (props) => {
   const { buttonText, handleClick, description } = props;
@@ -29,7 +30,7 @@ const ChagePinLayout = (props) => {
             <Container bsPrefix="change-pin-form-container">
               <Form className='change-pin-form'>
                 <section className='change-pin-input-container'>
-                  <PinInput
+                  {/* <PinInput
                     length={6}
                     initialValue=""
                     // secret
@@ -42,7 +43,8 @@ const ChagePinLayout = (props) => {
                     onComplete={(value, index) => { }}
                     autoSelect={true}
                     regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
-                  />
+                  /> */}
+                  <CustomPIN/>
                 </section>
                 <section className="d-grid gap-4 mt-5">
                   <Button type="submit" size="lg" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} onSubmit={handleClick}>

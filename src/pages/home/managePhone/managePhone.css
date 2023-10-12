@@ -12,8 +12,9 @@
 }
 
 .manage-phone-container h2 {
+  color: #3A3D42;
   font-size: 18px;
-  font-weight: 700;
+  font-family: 'Nunito-Bold', sans-serif;
   margin-bottom: 10px;
   text-align: left;
   padding-left: 10px;
@@ -21,6 +22,7 @@
 
 .manage-phone-container .text1 {
   font-size: 16px;
+  font-family: 'Nunito-Regular', sans-serif;
   margin-bottom: 20px;
   text-align: left;
   padding-left: 10px;
@@ -36,7 +38,7 @@
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); 
 }
 
-.back-icon {
+.back-icons {
   display: none; 
 }
 
@@ -53,12 +55,13 @@
 
 .card h5 {
   font-size: 16px;
-  color: #7A7886; /* Warna teks judul */
+  color: #7A7886;
+  font-family: 'Nunito-Regular', sans-serif;
 }
 
 .card p {
   font-size: 16px;
-  color: #555; /* Warna teks paragraf */
+  color: #555; 
 }
 
 .delete-icon-container {
@@ -77,18 +80,20 @@
   opacity: 0.7;
 }
 
-@media (max-width: 425px) {
+@media only screen and (max-width: 768px) {
 
  .after-login {
   display: none;
  }
 
- .back-icon {
-  display: block; 
-  position: absolute;
-  left: 23px; 
-  top: 25px;
-  cursor: pointer;
+ .back-icons {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.back-icons svg {
+  margin-right: 10px;
 }
  .manage-phone-container {
     padding-top: 30px;
@@ -104,16 +109,16 @@
 }
 
 .manage-phone-container h2 {
-  font-size: 16px; 
-    text-align: left; 
-    margin-left: 20px; 
+  font-size: 16px;
+  margin-left: 20px;
+  margin-top: -25px;
 }
 
 .manage-phone-container .text1 {
   font-size: 14px; 
   text-align: left;
   margin-bottom: 20px;
-  margin-left: 20px;
+  margin-left: 20px;
 }
 
 }

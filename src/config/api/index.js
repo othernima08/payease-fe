@@ -1,14 +1,17 @@
 import axios from "axios";
+export const fetchApi = async ({ url, method, data, headers }) => {
 
-export const fetchApi = async ({ url, method, data }) => {
   try {
     const responseAxios = await axios({
       url,
       method,
       data,
+      headers
+
     });
     return responseAxios;
   } catch (error) {
     return error.response;
   }
+
 };
