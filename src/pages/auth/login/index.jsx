@@ -5,9 +5,19 @@ import "./login.css";
 import LayoutAuth from "../../../layout/auth";
 import LeftLayoutAuth from "../../../components/auth/left";
 import RightLayoutAuth from "../../../components/auth/right";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { registerUser } from '../../../services/auth';
+
+
+
+
+
 
 const Login = () => {
+
+
+
     return (
         <LayoutAuth>
             <LeftLayoutAuth />
