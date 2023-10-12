@@ -8,13 +8,16 @@ import { useNavigate } from 'react-router';
 import { pinAdd } from '../../../services/auth';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import CustomPIN from '../../../components/pinInput';
 
 
 const Pin = () => {
-
     const [pin, setPin] = useState("");
+    
     const navigate = useNavigate();
+    
     const email = sessionStorage.getItem("register");
+    
     const pinSubmit = async (e) => {
         try {
 
@@ -60,8 +63,6 @@ const Pin = () => {
         }
     }, []);
 
-
-
     return (
         <LayoutAuth>
             <LeftLayoutAuth />
@@ -77,12 +78,12 @@ const Pin = () => {
                 }}>
 
                     <div className="d-flex justify-content-center mb-5 align-items-center justify-content-center">
-                     <PinInput
+                     {/* <PinInput
                             length={6}
                             initialValue=""
                             secret
                             secretDelay={100}
-                            onChange={(value, index) => { setPin(value) }}
+                            onChange={}
                             type="numeric"
                             inputMode="number"
                             inputStyle={{ borderColor: 'red', width: '35px', margin: '4px  !important', padding: '5px !important', borderRadius: '6px' }}
@@ -90,10 +91,12 @@ const Pin = () => {
                             onComplete={(value, index) => { }}
                             autoSelect={true}
                             regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+                     /> */}
+                     <CustomPIN 
+                        handleChange={(value, index) => { setPin(value) }}
                      />
                     </div>
                     <div className="d-grid gap-4 mt-5">
-
                         <Button variant="primary" type="submit" size="lg" style={{ backgroundColor: "#6379F4" }}>
                             Confirm
                         </Button>
