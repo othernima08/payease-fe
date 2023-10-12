@@ -1,19 +1,92 @@
-import React from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Card, Modal, Button } from "react-bootstrap";
 import "./managePhone.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import AfterLoginLayout from "../../../layout/afterLogin";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const ManagePhoneNumber = () => {
+  const [userPhoneNumber, setUserPhoneNumber] = useState("");
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const [deleteConfirmationMessage, setDeleteConfirmationMessage] =
+    useState("");
+  const userId = localStorage.getItem("id");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    //fetch user's phone number
+    const fetchUserPhoneNumber = async () => {
+      try {
+        const response = await axios.get(
+          `http://127.0.0.1:9090/users/${userId}`
+        );
+        if (response.status === 200) {
+          const data = response.data;
+          let phoneNumber = data.data?.phoneNumber || "";
+          // Format phone number: Replace "08" with "+62"
+          phoneNumber = phoneNumber.replace(/^0/, "+62");
+          setUserPhoneNumber(phoneNumber);
+        } else {
+          console.error("Error fetching user data");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    fetchUserPhoneNumber();
+  }, [userId]);
+
+  // Handle mobile mode "Back" button click
+  const handleBackButtonClick = () => {
+    navigate("/profile/profile-information");
+  };
+
+  // Handle confirmation modal
+  const handleShowDeleteConfirmation = () => {
+    setShowDeleteConfirmation(true);
+    setDeleteConfirmationMessage("Are you sure to delete the phone number?");
+  };
+
+  const handleDeletePhoneNumber = async () => {
+    try {
+      const response = await axios.delete(
+        `http://127.0.0.1:9090/users/delete-phone-number/${userId}`
+      );
+
+      if (response.status === 200) {
+        setShowDeleteConfirmation(false);
+        // Redirect to profile information page
+        Swal.fire({
+          icon: 'success',
+          title: 'Phone Number is successfully deleted!',
+        }); 
+        navigate("/profile/profile-information");
+      } else {
+        console.error("Error deleting phone number");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeleteConfirmation(false);
+  };
+
   return (
     <AfterLoginLayout>
       <Container className="manage-phone-container">
         <Row>
           <Col md={12}>
             <div className="back-icons">
-              <FontAwesomeIcon icon={faArrowLeft} />
+              <FontAwesomeIcon
+                icon={faArrowLeft}
+                onClick={handleBackButtonClick}
+              />
             </div>
             <h2>Manage Phone Number</h2>
             <p className="text1">
@@ -29,10 +102,14 @@ const ManagePhoneNumber = () => {
                 <div className="phone-details">
                   <div className="phone-info">
                     <h5>Primary</h5>
-                    <p>+62 813 9387 7946</p>
+                    <p>{userPhoneNumber || "-"}</p>
                   </div>
                   <div className="delete-icon-container">
-                    <FontAwesomeIcon icon={faTrash} className="delete-icon" />
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      className="delete-icon"
+                      onClick={handleShowDeleteConfirmation}
+                    />
                   </div>
                 </div>
               </Card.Body>
@@ -40,6 +117,21 @@ const ManagePhoneNumber = () => {
           </Col>
         </Row>
       </Container>
+
+      <Modal show={showDeleteConfirmation} onHide={handleCancelDelete}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delet Phone Number Confirmation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{deleteConfirmationMessage}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCancelDelete}>
+            No
+          </Button>
+          <Button variant="primary" onClick={handleDeletePhoneNumber}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </AfterLoginLayout>
   );
 };
