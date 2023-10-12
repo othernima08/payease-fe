@@ -26,7 +26,7 @@
 .transaction-type {
     font-family: 'Nunito-Regular', sans-serif;
     font-size: 14px;
-    color: #7A7886; 
+    color: #7A7886;
     /* margin: 0; */
 }
 
@@ -61,4 +61,28 @@
         background-color: #ffffff;
         box-shadow: 0px 0px 20px 4px #ebebeb;
     }
+}
+
+
+@media only screen and (max-width: 425px) {
+    .card-mobile-amount-status {
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    .transaction-amount-income {
+        font-family: 'Nunito-Bold', sans-serif;
+        font-size: 16px;
+        color: #1EC15F;
+        margin-left: 15px;
+        justify-content: space-between !important;
+    }
+    
+    .transaction-amount-expense {
+        font-family: 'Nunito-Bold', sans-serif;
+        font-size: 16px;
+        color: #FF5B37;
+        justify-content: space-between !important;
+    }
+
 }
