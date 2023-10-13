@@ -25,7 +25,6 @@ export const register = async (data) => {
 export const getUsers = async() =>{
     try {
         const token = localStorage.getItem("token")
-
         const url = `${BASE_URL_API_DEV}/users`
         const response = await fetchApi({ url, method: "GET", headers : {
             "Authorization": `Bearer ${token}`
@@ -40,7 +39,6 @@ export const getUsers = async() =>{
 export const getUserById = async(id) => {
     try {
         const token = localStorage.getItem("token")
-
         const url = `${BASE_URL_API_DEV}/users/${id}`
         const response = await fetchApi({ url, method: "GET", headers : {
             "Authorization": `Bearer ${token}`

@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AfterLoginLayout from '../../layout/afterLogin'
 import "./transfer.css";
 import { ButtonGroup, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { NumericFormat } from 'react-number-format';
 import { IoArrowBack } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { getUserById } from '../../services/users';
+import ReceiverCard from '../../components/receiverCard';
 
 const InputAmount = () => {
     const [isFocused, setIsFocused] = useState(false);
 
+    const [tampilUsers, setTampilUser] = useState(false);
+    const { id } = useParams();
     const handleFocus = () => {
         setIsFocused(true);
     };
@@ -18,6 +22,24 @@ const InputAmount = () => {
         setIsFocused(false);
     };
 
+        
+    const getuserId = async () => {
+        try {
+           const res = await getUserById(id)
+            console.log(res);
+            setTampilUser(res.data.data);
+         
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        getuserId();
+    }, []);
+
+    console.log(tampilUsers,"mapsnyna");
+
     return (
         <AfterLoginLayout
         >
@@ -25,30 +47,31 @@ const InputAmount = () => {
                 <div className="content-container ">
                     <Row bsPrefix="margin-box" >
                         <Col md={12}>
-                            <div className="back-icon">
-                                <IoArrowBack 
-                              />
-                            </div>
+                            <div className=" back-icon d-flex flex-nowrap"> <Link to={"/transfer/receiver"}>
+                                <IoArrowBack className="button-back" style={{ justifyContent: "center", alignItems: "center" }}
+                              /></Link>
+                           
                             <h2 className='text-title'>Transfer Money</h2>
+                            </div>
                         </Col>
                     </Row>
-                    <div className="card-container mb-4">
-                        <div className="d-flex flex-row">
-                            <div className='mx-1'>
-                                <img src="/src/assets/transfer-image/samuel.png" alt="" />
-                            </div>
-                            <div className='d-flex flex-column'>
-                                <div>Samuel Suhi</div>
-                                <div className='p-auth opacity-75'>+62 813-8492-9994</div>
-                            </div>
-                        </div>
-                    </div>
+                 
+                                <ReceiverCard
+                                    key={tampilUsers.id}
+                                    email={tampilUsers.email}
+                                    firstName={tampilUsers.firstName}
+                                    lastName={tampilUsers.lastName}
+                                    phoneNumber={tampilUsers.phoneNumber}
+                                    profilePicture={tampilUsers.profilePictureUrl}
+                                    id={tampilUsers.id}
+                                />
+                     
 
                     <div className='p-content opacity-75'>Type the amount you want to transfer and then</div>
                     <div className='p-content opacity-75'>  press continue to the next steps.</div>
                     <div className='d-flex  align-item-center justify-content-center flex-column'>
                 
-                    <center ><p className='p-balance-mobile mb-5 d-flex justify-content-center'>Rp. 120.000 Available</p></center>
+                    <center ><p className='p-balance-mobile-receiver mb-5 d-flex justify-content-center'>Rp. 120.000 Available</p></center>
                         <div style={{ flex: 1, display: 'flex', justifyContent: 'center', }}>
                      
                             <NumericFormat
@@ -73,7 +96,7 @@ const InputAmount = () => {
                         </div>
                     </div>
 
-                    <center className='mb-5 '><p className='p-balance-dekstop'>Rp. 120.000 Available</p></center>
+                    <center className='mb-5 '><p className='p-balance-dekstop'>Rp.{tampilUsers.balance} Available</p></center>
                     <div className="d-flex align-time-center justify-content-center">
                         <div className="d-inline-flex w-50 flex-column " style={{
                             marginBottom: '80px',

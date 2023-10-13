@@ -32,6 +32,7 @@ import TopUpHistory from './pages/top-up-history';
 import InputAmountTopUp from './pages/topUp/input-amount-topup';
 
 const Router = () => {
+
     return (
         <BrowserRouter>
             <Routes>
@@ -58,7 +59,7 @@ const Router = () => {
                 <Route exact path="/profile/change-password" element={<ChangePassword />} />
 
                 <Route exact path="/transfer/receiver" element={<Transfer />} />
-                <Route exact path="/transfer/input" element={<InputAmount />} />
+                <Route exact path="/transfer/to/:id" element={<InputAmount />} />
                 <Route exact path="/transfer/confirmation" element={<Confirmation />} />
                 <Route exact path="/transfer/status" element={<TransferStatus />} />
                 

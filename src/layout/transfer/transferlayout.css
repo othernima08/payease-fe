@@ -60,7 +60,7 @@
 }
 
 .p-balance-mobile-receiver {
-    display: none !important;
+    display: none;
 }
 
 .img-success-mobile {
@@ -152,7 +152,7 @@ a {
     }
 
     .p-balance-mobile-receiver {
-        display: flex  !important;
+        display: flex;
         color: black !important;
     }
 

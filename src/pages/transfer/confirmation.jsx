@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import PinInput from 'react-pin-input';
 import CustomPIN from '../../components/pinInput';
+import { Link } from 'react-router-dom';
 
 const Confirmation = () => {
 
@@ -66,13 +67,11 @@ const Confirmation = () => {
                     <div className="content-container ">
                         <Row bsPrefix="margin-box" >
                             <Col md={12}>
-                                <div className="back-icon d-flex flex-nowrap">
-                                    <IoArrowBack className="button-back" style={{ justifyContent: "center", alignItems: "center" }} />
+                                <div className="back-icon d-flex flex-nowrap"><Link to={"/transfer/input"}>
+                                    <IoArrowBack className="button-back" style={{ justifyContent: "center", alignItems: "center" }} /></Link>
                                     <h2 className='text-title p-balance-mobile-receiver'>Confirmation</h2>
                                 </div>
                                 <h5 className='text-title p-balance-dekstop'>Transfer To</h5>
-
-
                             </Col>
                         </Row>
 
