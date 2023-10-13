@@ -20,6 +20,7 @@ const Confirmation = () => {
 
 
     const [pin, setPin] = useState(false);
+    const [idTrans, setIdtrans] = useState("");
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -64,17 +65,17 @@ const Confirmation = () => {
                     amount: parseFloat(amount),
                     transactionTime
                 }
-
+                
                 const response = await transferPost(data)
-
                 if (response.data.success) {
                     Swal.fire({
                         icon: "success",
                         title: "Transfer Success",
                         html: "Transfer Success"
                     })
-
-                    navigate("/profile")
+                    setIdtrans(response.data.data)
+                    console.log(response.data.data,"ini data berhasil")
+                    navigate(`/transfer/status/${response.data.data}`)
                 } else {
                     let errorMsg = ""
 
