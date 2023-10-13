@@ -19,8 +19,8 @@ const PaymentCode = () => {
     const fetchData = async () => {
       try {
         const response = await getVirtualAccountById(virtualAccountId);
-        if (response && response.success) {
-          setVirtualAccountData(response.data[0]);
+        if (response && response.data.success) {
+          setVirtualAccountData(response.data.data);
         } else {
           console.log("Failed to fetch virtual account data");
         }
@@ -29,7 +29,7 @@ const PaymentCode = () => {
       }
     };
     fetchData();
-  }, []);
+},[]);
 
   return (
     <AfterLoginLayout>

@@ -39,3 +39,23 @@ export const getVirtualAccountById = async (virtualAccountId) => {
       console.error(error);
     }
   };
+
+  export const topUpPost = async (data) => {
+    try {
+      const token = localStorage.getItem("token");
+  
+      const url = `${BASE_URL_API_DEV}/transactions/transfer`;
+      const response = await fetchApi({
+        url,
+        method: "POST",
+        data,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
