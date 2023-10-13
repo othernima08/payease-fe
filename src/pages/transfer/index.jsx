@@ -6,7 +6,7 @@ import { ButtonGroup, } from 'react-bootstrap';
 import { IoArrowBack } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import TransferLayout from '../../layout/transfer';
-import ReceiverCard from '../../components/receiverCard';
+import ReceiverCard from '../../components/transferComponents/receiverCard';
 import { getUsers } from '../../services/users';
 
 const Transfer = () => {
@@ -32,6 +32,7 @@ const Transfer = () => {
 
     useEffect(() => {
         getDataReceiver();
+
     }, []);
 
     console.log(tampilUsers, "mapsnya");

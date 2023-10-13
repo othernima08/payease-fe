@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
 import CustomNavbar from '../../components/custom-components/navbar'
 import CustomSidebar from '../../components/custom-components/sidebar'
@@ -8,11 +8,29 @@ import AfterLoginLayout from '../../layout/afterLogin';
 import "./transfer.css";
 import { ButtonGroup, } from 'react-bootstrap';
 import { IoArrowBack } from 'react-icons/io5';
+import { useParams } from 'react-router';
 
 const TransferStatus = () => {
+
+    const {id} = useParams();
+
+
+
+    const getTransactionId = async () => {
+
+    }
+
+
+    useEffect(() => {
+        getDataReceiver();
+
+    }, []);
+
     return (
         <AfterLoginLayout
         >
+
+        
             <div className="transfer-container ">
                 <div className="content-container ">
                     <Row bsPrefix="margin-box" >
