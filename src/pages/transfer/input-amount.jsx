@@ -71,7 +71,7 @@ const InputAmount = () => {
                     <div className='p-content opacity-75'>  press continue to the next steps.</div>
                     <div className='d-flex  align-item-center justify-content-center flex-column'>
                 
-                    <center ><p className='p-balance-mobile-receiver mb-5 d-flex justify-content-center'>Rp. 120.000 Available</p></center>
+                    <center ><p className='p-balance-mobile-receiver mb-5 d-flex justify-content-center'>Rp.{tampilUsers.balance}  Available</p></center>
                         <div style={{ flex: 1, display: 'flex', justifyContent: 'center', }}>
                      
                             <NumericFormat
