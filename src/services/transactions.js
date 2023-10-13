@@ -39,3 +39,23 @@ export const getTopUpHistoryByUserIdAndStatus = async (userId, isSuccess) => {
         console.log(error);
     }
 };
+
+export const transferPost = async (data) => {
+    try {
+        const token = localStorage.getItem("token");
+
+        const url = `${BASE_URL_API_DEV}/transactions/transfer`;
+        const response = await fetchApi({
+            url,
+            method: "POST",
+            data,
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};

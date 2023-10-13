@@ -61,7 +61,7 @@ const Router = () => {
                 <Route exact path="/transfer/receiver" element={<Transfer />} />
                 <Route exact path="/transfer/to/:id" element={<InputAmount />} />
                 <Route exact path="/transfer/confirmation" element={<Confirmation />} />
-                <Route exact path="/transfer/status" element={<TransferStatus />} />
+                <Route exact path="/transfer/status/:id" element={<TransferStatus />} />
                 
                 <Route exact path="/top-up" element={<TopUp />} />
                 <Route exact path="/top-up/payment-code" element={<PaymentCode />} />
