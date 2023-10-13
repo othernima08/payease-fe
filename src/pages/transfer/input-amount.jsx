@@ -3,6 +3,7 @@ import AfterLoginLayout from '../../layout/afterLogin'
 import "./transfer.css";
 import { ButtonGroup, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import blank from "../../assets/images/blank.jpg"
 import { NumericFormat } from 'react-number-format';
 import { IoArrowBack } from 'react-icons/io5';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -114,7 +115,7 @@ const InputAmount = () => {
                         firstName={tampilUsersRecipient.firstName}
                         lastName={tampilUsersRecipient.lastName}
                         phoneNumber={tampilUsersRecipient.phoneNumber}
-                        profilePicture={tampilUsersRecipient.profilePictureUrl}
+                        profilePicture={tampilUsersRecipient.profilePictureUrl != null ? tampilUsersRecipient.profilePictureUrl : blank}
                         id={tampilUsersRecipient.id}
                     />
 

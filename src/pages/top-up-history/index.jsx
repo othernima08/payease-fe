@@ -99,7 +99,7 @@ const TopUpHistory = () => {
                                                 type={"income"}
                                                 subtype={item.type}
                                                 status={item.status}
-                                                userPict={item.profile_picture_url}
+                                                userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
                                                 amount={item.amount}
                                             />
                                         )) : <p>No Data</p>
@@ -116,7 +116,7 @@ const TopUpHistory = () => {
                                                 type={"income"}
                                                 subtype={item.type}
                                                 status={item.status}
-                                                userPict={item.profile_picture_url}
+                                                userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
                                                 amount={item.amount}
                                             />
                                         )) : <p>No Data</p>
@@ -133,7 +133,7 @@ const TopUpHistory = () => {
                                                 type={"income"}
                                                 subtype={item.type}
                                                 status={item.status}
-                                                userPict={item.profile_picture_url}
+                                                userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
                                                 amount={item.amount}
                                             />
                                         )) : <p>No Data</p>
