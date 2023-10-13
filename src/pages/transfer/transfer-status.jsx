@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
-import CustomNavbar from '../../components/navbar'
-import CustomSidebar from '../../components/sidebar'
+import CustomNavbar from '../../components/custom-components/navbar'
+import CustomSidebar from '../../components/custom-components/sidebar'
 import blankPict from '../../assets/images/blank.jpg';
-import CustomFooter from '../../components/footer';
+import CustomFooter from '../../components/custom-components/footer';
 import AfterLoginLayout from '../../layout/afterLogin';
 import "./transfer.css";
 import { ButtonGroup, } from 'react-bootstrap';

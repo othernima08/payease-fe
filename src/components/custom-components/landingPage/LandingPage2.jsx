@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col, Card, Container } from 'react-bootstrap';
-import imagePartner from '../../assets/images/partners.png'
+import imagePartner from '../../../assets/images/partners.png'
 import './LandingPage2.css'
 
 const LandingPage2 = () => {

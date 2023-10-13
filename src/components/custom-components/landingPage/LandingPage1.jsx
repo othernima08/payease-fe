@@ -1,9 +1,9 @@
 import React from 'react'
 import { Row, Col, Card } from 'react-bootstrap';
 import "./LandingPage1.css"
-import imageCall from '../../assets/images/call.png'
-import imageLock from '../../assets/images/lock.png'
-import imageDownload from '../../assets/images/downloadicon.png'
+import imageCall from '../../../assets/images/call.png'
+import imageLock from '../../../assets/images/lock.png'
+import imageDownload from '../../../assets/images/downloadicon.png'
 
 const LandingPage1 = () => {
     return (

@@ -3,12 +3,18 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { BiLockAlt } from "react-icons/bi";
 import { IconContext } from "react-icons";
 
-import AfterLoginLayout from '../../layout/afterLogin'
+import AfterLoginLayout from '../../../layout/afterLogin'
 import { IoArrowBackSharp } from "react-icons/io5";
 
 import './changePassword.css'
+import { changePassword } from '../../../services/users';
+import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const ChangePassword = () => {
+    const navigate = useNavigate()
+    let attempt = 0
+
     const [currentPassword, setCurrentPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
@@ -16,12 +22,6 @@ const ChangePassword = () => {
     const [cpFieldOnFocus, setCpFieldOnFocus] = useState(false)
     const [npFieldOnFocus, setNpFieldOnFocus] = useState(false)
     const [cnpFieldOnFocus, setCnpFieldOnFocus] = useState(false)
-
-    useState(() => {
-        console.log(newPassword);
-        console.log(currentPassword);
-        console.log(confirmPassword);
-    }, [currentPassword])
 
     const handleCPFocus = (e) => {
         e.preventDefault()
@@ -59,13 +59,69 @@ const ChangePassword = () => {
         setCnpFieldOnFocus(false)
     }
 
+    const handleChangePassword = async () => {
+        if (attempt < 3) {
+            try {
+                if (confirmPassword !== newPassword) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Change Password Failed",
+                        html: "Password confirmation doesn't match"
+                    })
+
+                    attempt++
+                } else {
+                    const data = {
+                        userId: localStorage.getItem("id"),
+                        currentPassword,
+                        newPassword
+                    }
+
+                    const response = await changePassword(data);
+
+                    if (response.data.success) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Change Password Success",
+                            html: "Your password updated successfully"
+                        })
+
+                        navigate("/profile")
+                    } else {
+                        let errorMsg = ""
+
+                        if (response.data.error === null) {
+                            errorMsg = response.data.message;
+                        } else {
+                            errorMsg = Object.values(response.data.error).join(`<br/>`)
+                        }
+
+                        Swal.fire({
+                            icon: "error",
+                            title: "Change Password Failed",
+                            html: errorMsg
+                        })
+
+                        attempt++
+                    }
+                }
+
+            } catch (error) {
+                console.log(error)
+                attempt++
+            }
+        } else {
+            navigate("/profile")
+        }
+    }
+
     return (
         <AfterLoginLayout
             children={
                 <Container bsPrefix='change-password-container'>
                     <Row bsPrefix='change-password-head-container'>
                         <Col md={12}>
-                            <div className="change-password-back-icon">
+                            <div className="change-password-back-icon" onClick={() => navigate("/profile")}>
                                 <IoArrowBackSharp />
                             </div>
                             <h2 className="change-password-title">Change password</h2>
@@ -98,7 +154,7 @@ const ChangePassword = () => {
                             </section>
 
                             <section className="d-grid gap-4 mt-5">
-                                <Button type="submit" size="lg" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} disabled={confirmPassword === "" || newPassword === "" || currentPassword === ""}>
+                                <Button type="button" size="lg" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} disabled={confirmPassword === "" || newPassword === "" || currentPassword === ""} onClick={handleChangePassword}>
                                     Change Password
                                 </Button>
                             </section>

@@ -9,7 +9,7 @@ import { HiOutlineArrowUpTray } from "react-icons/hi2";
 
 import './sidebar.css'
 
-import MenuItem from '../sidebarMenuItem';
+import MenuItem from '../../reusable-components/sidebarMenuItem';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const CustomSidebar = () => {
@@ -31,7 +31,7 @@ const CustomSidebar = () => {
     const handleClickTopUp = (e) => {
         e.preventDefault();
 
-        navigate("/top-up")
+        navigate("/top-up/payment-method")
     }
 
     const handleClickProfile = (e) => {
@@ -43,8 +43,9 @@ const CustomSidebar = () => {
     const handleClickLogOut = (e) => {
         e.preventDefault();
 
-        sessionStorage.clear()
-        navigate("/")
+        localStorage.clear();
+
+        navigate("/login")
     }
 
     return (

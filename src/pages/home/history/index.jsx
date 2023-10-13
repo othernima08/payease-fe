@@ -3,12 +3,13 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
 import { IoArrowBackSharp } from "react-icons/io5";
-import blank from '../../assets/images/blank.jpg'
+import blank from '../../../assets/images/blank.jpg'
 
 import './history.css'
-import AfterLoginLayout from '../../layout/afterLogin';
-import TransactionHistoryCard from '../../components/transactionHistoryCard';
-import DatePickerModal from '../../modal/datepicker';
+import AfterLoginLayout from '../../../layout/afterLogin';
+import TransactionHistoryCard from '../../../components/reusable-components/transactionHistoryCard';
+import DatePickerModal from '../../../modal/datepicker';
+// import '../../../'
 import { useNavigate } from 'react-router';
 
 const TransactionHistory = () => {
@@ -39,6 +40,7 @@ const TransactionHistory = () => {
                                         This Week
                                     </section>
                                     <TransactionHistoryCard
+                                    id={1}
                                         userName={"Samuel Suhi"}
                                         type={"income"}
                                         subtype={"Transfer"}
@@ -46,6 +48,7 @@ const TransactionHistory = () => {
                                         amount={"50.000"}
                                     />
                                     <TransactionHistoryCard
+                                        id={2}
                                         userName={"Netflix"}
                                         type={"expense"}
                                         subtype={"Subscription"}
@@ -58,6 +61,7 @@ const TransactionHistory = () => {
                                         This Month
                                     </section>
                                     <TransactionHistoryCard
+                                        id={3}
                                         userName={"Christine Mariani"}
                                         type={"income"}
                                         subtype={"Transfer"}
@@ -65,34 +69,7 @@ const TransactionHistory = () => {
                                         amount={"150.000"}
                                     />
                                     <TransactionHistoryCard
-                                        userName={"Adobe Inc."}
-                                        type={"expense"}
-                                        subtype={"Subscription"}
-                                        userPict={blank}
-                                        amount={"249.000"}
-                                    />
-                                    <TransactionHistoryCard
-                                        userName={"Christine Mariani"}
-                                        type={"income"}
-                                        subtype={"Transfer"}
-                                        userPict={blank}
-                                        amount={"150.000"}
-                                    />
-                                    <TransactionHistoryCard
-                                        userName={"Adobe Inc."}
-                                        type={"expense"}
-                                        subtype={"Subscription"}
-                                        userPict={blank}
-                                        amount={"249.000"}
-                                    />
-                                    <TransactionHistoryCard
-                                        userName={"Christine Mariani"}
-                                        type={"income"}
-                                        subtype={"Transfer"}
-                                        userPict={blank}
-                                        amount={"150.000"}
-                                    />
-                                    <TransactionHistoryCard
+                                        id={4}
                                         userName={"Adobe Inc."}
                                         type={"expense"}
                                         subtype={"Subscription"}

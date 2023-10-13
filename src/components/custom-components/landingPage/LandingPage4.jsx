@@ -1,8 +1,8 @@
 import React from 'react'
 import { Row, Col, Card } from 'react-bootstrap';
-import sherinaImage from "../../assets/images/th (1).jpeg"
-import jessicaImage from "../../assets/images/th (2).jpeg"
-import robertImage from "../../assets/images/th.jpeg"
+import sherinaImage from "../../../assets/images/th (1).jpeg"
+import jessicaImage from "../../../assets/images/th (2).jpeg"
+import robertImage from "../../../assets/images/th.jpeg"
 
 const LandingPage4 = () => {
     return (

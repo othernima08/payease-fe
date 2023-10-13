@@ -4,13 +4,11 @@ import { enGB } from 'date-fns/locale'
 import { DateRangePickerCalendar, START_DATE } from 'react-nice-dates'
 import 'react-nice-dates/build/style.css'
 
-// import { Calendar } from "react-modern-calendar-datepicker";
-// import moment from 'moment'
-
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 import "./datepicker.css"
+import CustomInput from '../../components/reusable-components/input';
 
 const DatePickerModal = (props) => {
     const { handleClose, open } = props;
@@ -23,22 +21,12 @@ const DatePickerModal = (props) => {
         setFocus(newFocus || START_DATE)
     }
 
-    // const [selectedDayRange, setSelectedDayRange] = React.useState({
-    //     from: "",
-    //     to: ""
-    // });
-
     const formatDate = (date) => {
         console.log(date)
         if (date == "") return '';
         const formattedDate = format(date, 'cccc, dd MMM yyyy', { locale: enGB })
         return formattedDate;
     }
-
-    // useEffect(() => {
-    //     setStartDate(formatDate(Object.values(selectedDayRange.from)))
-    //     setEndDate(formatDate(Object.values(selectedDayRange.to)))
-    // }, [setSelectedDayRange, selectedDayRange])
 
     return (
         <Modal
@@ -67,13 +55,25 @@ const DatePickerModal = (props) => {
                 </section>
                 <section className="date-range-container">
                     <section className="start-date-container">
-                        <label className='label-date'>From</label>
-                        <input className="date-input" type='text' placeholder='Start Date' value={formatDate(startDate)} readOnly />
+                        <CustomInput
+                            labelClassName="label-date"
+                            inputClassName="date-input"
+                            label="From"
+                            type='text'
+                            placeholder='Start Date'
+                            value={formatDate(startDate)}
+                            readOnly />
 
                     </section>
                     <section className="end-date-container">
-                        <label className='label-date'>To</label>
-                        <input className="date-input" type='text' placeholder='End Date' value={formatDate(endDate)} readOnly />
+                        <CustomInput
+                            labelClassName="label-date"
+                            inputClassName="date-input"
+                            label="To"
+                            type='text'
+                            placeholder='End Date'
+                            value={formatDate(endDate)}
+                            readOnly />
                     </section>
                 </section>
             </Modal.Body>
