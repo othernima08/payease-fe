@@ -34,9 +34,6 @@ const Login = () => {
 
             const response = await login(data);
             console.log(response);
-            
-
-
            
             if (response.data.success) {
                 routetoprofile();
@@ -59,9 +56,7 @@ const Login = () => {
                         title: 'Login Failed',
                         html: errorMsg,
                     })
-                }
-
-              
+                }              
             }
         } catch (error) {
             console.error('Error:', error);

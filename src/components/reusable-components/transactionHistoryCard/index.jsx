@@ -2,10 +2,10 @@ import React from 'react'
 import './transactionHistoryCard.css'
 
 function TransactionHistoryCard(props) {
-    const { type, subtype, status, amount, userName, userPict } = props;
+    const { type, subtype, status, amount, userName, id, userPict } = props;
 
     return (
-        <section className="transfer-history-card d-flex flex-row flex-wrap">
+        <section key={id} className="transfer-history-card d-flex flex-row flex-wrap">
             <section className="type-and-user">
                 <img src={userPict} alt="" className="recipient-or-provider-img" />
                 <section style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: "16px" }}>

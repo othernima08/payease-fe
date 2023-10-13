@@ -1,15 +1,16 @@
 import React from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import PinInput from 'react-pin-input';
+import { useNavigate } from 'react-router';
 
 import AfterLoginLayout from '../afterLogin'
 import { IoArrowBackSharp } from "react-icons/io5";
 
 import './changePin.css'
-import CustomPIN from '../../components/pinInput';
+import CustomPIN from '../../components/reusable-components/pinInput';
 
 const ChagePinLayout = (props) => {
-  const { buttonText, handleClick, description } = props;
+  const { buttonText, handleClick, description, handleChange } = props;
+  const navigate = useNavigate()
 
   return (
     <React.Fragment>
@@ -18,7 +19,7 @@ const ChagePinLayout = (props) => {
           <Container bsPrefix='change-pin-container'>
             <Row bsPrefix='change-pin-head-container'>
               <Col md={12}>
-                <div className="change-pin-back-icon">
+                <div className="change-pin-back-icon" onClick={() => navigate("/profile")}>
                   <IoArrowBackSharp />
                 </div>
                 <h2 className="change-pin-title">Change PIN</h2>
@@ -30,24 +31,10 @@ const ChagePinLayout = (props) => {
             <Container bsPrefix="change-pin-form-container">
               <Form className='change-pin-form'>
                 <section className='change-pin-input-container'>
-                  {/* <PinInput
-                    length={6}
-                    initialValue=""
-                    // secret
-                    // secretDelay={100}
-                    onChange={(value, index) => { }}
-                    type="numeric"
-                    inputMode="number"
-                    inputStyle={{ borderColor: '#CBCBCB', width: '56px', height: '80px', margin: '4px 12px', fontSize: "30px", padding: '5px', borderRadius: '6px' }}
-                    inputFocusStyle={{ borderColor: '#6379F4' }}
-                    onComplete={(value, index) => { }}
-                    autoSelect={true}
-                    regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
-                  /> */}
-                  <CustomPIN/>
+                  <CustomPIN handleChange={handleChange}/>
                 </section>
                 <section className="d-grid gap-4 mt-5">
-                  <Button type="submit" size="lg" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} onSubmit={handleClick}>
+                  <Button type="button" size="lg" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} onClick={handleClick}>
                     {buttonText}
                   </Button>
                 </section>
