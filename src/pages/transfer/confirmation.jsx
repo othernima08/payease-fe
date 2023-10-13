@@ -49,7 +49,6 @@ const Confirmation = () => {
     };
     useEffect(() => {
         getuserId();
-
     }, []);
 
 
@@ -62,7 +61,7 @@ const Confirmation = () => {
                     userId: localStorage.getItem("id"),
                     recipientPhoneNumber: tampilUsersRecipient.phoneNumber,
                     pin,
-                    amount,
+                    amount: parseFloat(amount),
                     transactionTime
                 }
 
