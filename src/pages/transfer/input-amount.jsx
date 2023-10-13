@@ -8,6 +8,7 @@ import { IoArrowBack } from 'react-icons/io5';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getUserById } from '../../services/users';
 import ReceiverCard from '../../components/transferComponents/receiverCard';
+import Swal from 'sweetalert2';
 
 const InputAmount = () => {
     const [isFocused, setIsFocused] = useState(false);
@@ -55,7 +56,11 @@ const InputAmount = () => {
         try {
             e.preventDefault();
             if (inAMount === '' || parseFloat(inAMount) > tampilUserSender.balance) {
-                console.log('Invalid PIN or insufficient balance');
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid PIN or insufficient balance",
+                    html: "Invalid PIN or insufficient balance"
+                })
               }
 
               

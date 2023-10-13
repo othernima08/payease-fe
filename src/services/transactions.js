@@ -21,3 +21,22 @@ export const transferPost = async (data) => {
       console.log(error);
     }
   };
+
+  export const findTransferId = async (id) => {
+    try {
+      const token = localStorage.getItem("token");
+      const url = `${BASE_URL_API_DEV}/transactions/transfer/${id}`;
+      const response = await fetchApi({
+        url,
+        method: "GET",
+        id,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
