@@ -22,8 +22,8 @@ const Transfer = () => {
     const getDataReceiver = async () => {
         try {
             const data = await getUsers();
-            console.log(data, "from axios");
-            console.log(data.data.data, "Data nya");
+            // console.log(data, "from axios");
+            // console.log(data.data.data, "Data nya");
             setTampilUser(data.data.data);
         } catch (error) {
             console.log(error);

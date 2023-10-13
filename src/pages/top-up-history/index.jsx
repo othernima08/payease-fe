@@ -47,7 +47,6 @@ const TopUpHistory = () => {
 
             if (response.data.success) {
                 setTopUpHistory(response.data.data)
-                console.log(response.data.data)
             } else {
                 setError(response.data.message)
             }
@@ -62,7 +61,6 @@ const TopUpHistory = () => {
 
             if (response.data.success) {
                 setTopUpHistory(response.data.data)
-                console.log(response.data.data)
             } else {
                 setError(response.data.message)
             }
@@ -95,7 +93,7 @@ const TopUpHistory = () => {
                                         This Week
                                     </section>
                                     {
-                                        thisWeekData?.map(item => (
+                                        thisWeekData.length > 0 ? thisWeekData?.map(item => (
                                             <TransactionHistoryCard
                                                 userName={item.name}
                                                 type={"income"}
@@ -104,7 +102,7 @@ const TopUpHistory = () => {
                                                 userPict={item.profile_picture_url}
                                                 amount={item.amount}
                                             />
-                                        ))
+                                        )) : <p>No Data</p>
                                     }
                                 </section>
                                 <section className='top-up-history-detail'>
@@ -112,7 +110,7 @@ const TopUpHistory = () => {
                                         This Month
                                     </section>
                                     {
-                                        thisMonthData?.map(item => (
+                                        thisMonthData.length > 0 ? thisMonthData?.map(item => (
                                             <TransactionHistoryCard
                                                 userName={item.name}
                                                 type={"income"}
@@ -121,7 +119,7 @@ const TopUpHistory = () => {
                                                 userPict={item.profile_picture_url}
                                                 amount={item.amount}
                                             />
-                                        ))
+                                        )) : <p>No Data</p>
                                     }
                                 </section>
                                 <section className='top-up-history-detail'>
@@ -129,7 +127,7 @@ const TopUpHistory = () => {
                                         Older
                                     </section>
                                     {
-                                        olderData?.map(item => (
+                                        olderData.length > 0 ? olderData?.map(item => (
                                             <TransactionHistoryCard
                                                 userName={item.name}
                                                 type={"income"}
@@ -138,7 +136,7 @@ const TopUpHistory = () => {
                                                 userPict={item.profile_picture_url}
                                                 amount={item.amount}
                                             />
-                                        ))
+                                        )) : <p>No Data</p>
                                     }
                                 </section>
                             </Row>

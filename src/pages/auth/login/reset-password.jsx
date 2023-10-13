@@ -23,12 +23,12 @@ const ResetPassword = () => {
             const data = {
                 email,
             }
-            console.log(data);
+            // console.log(data);
             
 
             const response = await findAccountReset(data)
-            console.log(response.data);
-            console.log(response.data.message);
+            // console.log(response.data);
+            // console.log(response.data.message);
             const statusRes = response.data.success;
 
             if (statusRes === true) {

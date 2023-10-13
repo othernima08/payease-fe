@@ -29,7 +29,7 @@ const Register = () => {
                 lastName
             }
             const response = await registerUser(data)
-            console.log(response.data);
+            // console.log(response.data);
             const statusRes = response.data.success;
 
             if (statusRes === true) {

@@ -21,6 +21,44 @@ export const getTopUpHistoryByUserId = async (userId) => {
     }
 };
 
+export const getTransactionHistoryByUserId = async (userId) => {
+    try {
+        const token = localStorage.getItem("token");
+
+        const url = `${BASE_URL_API_DEV}/transactions/transaction-history/${userId}`;
+        const response = await fetchApi({
+            url,
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getTransactionHistoryByUserIdAndStatus = async (userId, isIncome) => {
+    try {
+        const token = localStorage.getItem("token");
+
+        const url = `${BASE_URL_API_DEV}/transactions/transaction-history?userId=${userId}&isIncome=${isIncome}`;
+        const response = await fetchApi({
+            url,
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const getTopUpHistoryByUserIdAndStatus = async (userId, isSuccess) => {
     try {
         const token = localStorage.getItem("token");

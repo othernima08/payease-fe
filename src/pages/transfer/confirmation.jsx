@@ -36,12 +36,12 @@ const Confirmation = () => {
         try {
             const sender = localStorage.getItem("id");
             const recipient = localStorage.getItem("recipient");
-            console.log(sender);
-            console.log(recipient);
+            // console.log(sender);
+            // console.log(recipient);
             const res = await getUserById(recipient)
             const resSender = await getUserById(sender)
-            console.log(res,"recepient");
-            console.log(resSender,"sender");
+            // console.log(res,"recepient");
+            // console.log(resSender,"sender");
             setTampilUserRecipient(res.data.data);
             SetTampilUserSender(resSender.data.data);
         } catch (error) {
