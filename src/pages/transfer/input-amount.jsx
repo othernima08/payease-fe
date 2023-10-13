@@ -40,6 +40,16 @@ const InputAmount = () => {
 
     console.log(tampilUsers,"mapsnyna");
 
+    const handleSubmit = async (e) => {
+try {
+    e.preventDefault();
+    set
+    
+} catch (error) {
+    
+}
+    }
+
     return (
         <AfterLoginLayout
         >
@@ -89,7 +99,7 @@ const InputAmount = () => {
                                 }}
 
                                 className={isFocused ? 'input-focus' : ''}
-                                onChange={handleFocus}
+                                onChange={(e)=> handleSubmit(e)}
                                 onFocus={handleFocus}
                                 onBlur={handleFocus}
                             />
