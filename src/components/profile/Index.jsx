@@ -5,6 +5,7 @@ import profileimg from "../../assets/images/blank.jpg"
 import { useNavigate } from 'react-router-dom';
 import './profilepage.css'
 import { getUserById } from "../../services/users";
+import NotificationCard from "../reusable-components/notificationCard";
 
 function ProfilePageComponent() {
     const [detail, setDetail] = useState({});
@@ -46,7 +47,7 @@ function ProfilePageComponent() {
                         marginRight: "16px",
                         marginLeft: "16px",
                     }}>
-                    <Image src={detail.profilePicture != null ? detail.profilePicture : profileimg} alt='profile...' rounded style={{ width: "20%" }} />
+                    <Image src={detail.sharedUrl != null ? detail.sharedUrl : profileimg} alt='profile...' rounded style={{ width: "20%" }} />
                 </Col>
             </Row>
             <Row>
@@ -77,6 +78,14 @@ function ProfilePageComponent() {
                         </Button>
                     </div>
                 </Col>
+            </Row>
+            <Row>
+                <NotificationCard
+                    id={1}
+                    type={"income"}
+                    notes={"Transfered from Joshua Lee"}
+                    amount={"Rp220.000"}
+                />
             </Row>
         </Container >
     )

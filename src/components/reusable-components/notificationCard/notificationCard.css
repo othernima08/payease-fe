@@ -1,0 +1,35 @@
+.notification-card {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    padding: 12px
+}
+
+.notification-icon {
+    margin-right: 12px;
+    margin-top: -8px;
+}
+
+.notification-icon p {
+    font-size: 28px;
+}
+
+.notification-income {
+    color:#1EC15F
+}
+
+.notification-expense {
+    color: #FF5B37;
+}
+
+.notification-notes {
+    font-size: 14px;
+    font-family: 'Nunito-Regular',sans-serif;
+    color:#7A7A7A
+}
+
+.notification-amount {
+    font-size: 18px;
+    font-family: 'Nunito-Bold', sans-serif;
+    color: #43484F;
+}
