@@ -33,7 +33,7 @@ const Login = () => {
             }
 
             const response = await login(data);
-            console.log(response);
+            // console.log(response);
            
             if (response.data.success) {
                 routetoprofile();

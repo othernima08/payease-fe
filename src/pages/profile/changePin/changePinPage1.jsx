@@ -23,6 +23,8 @@ const ChangePinPage1 = () => {
                 const response = await verifyPIN(data)
 
                 if (response.data.success) {
+                    localStorage.setItem("currentPin", currentPin)
+                    
                     Swal.fire({
                         icon: "success",
                         title: "Verify PIN Success",

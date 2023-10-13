@@ -17,14 +17,14 @@ const ProfileComponent = () => {
 
   const handleData = async () => {
       // e.preventDefault();
-      console.log('handdata is called');
+      // console.log('handdata is called');
 
       try {
           const response = await getUserById(userId)
               if (response.data.success) {
                   const data = response.data.data
                   setDetail(data);                   
-                  console.log(data)
+                  // console.log(data)
               }else {
               console.error(`Error  ${id}`);
           }

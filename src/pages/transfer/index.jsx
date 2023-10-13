@@ -4,6 +4,7 @@ import AfterLoginLayout from '../../layout/afterLogin';
 import "./transfer.css";
 import { ButtonGroup, } from 'react-bootstrap';
 import { IoArrowBack } from 'react-icons/io5';
+import blank from "../../assets/images/blank.jpg"
 import { Link } from 'react-router-dom';
 import TransferLayout from '../../layout/transfer';
 import ReceiverCard from '../../components/transferComponents/receiverCard';
@@ -22,8 +23,8 @@ const Transfer = () => {
     const getDataReceiver = async () => {
         try {
             const data = await getUsers();
-            console.log(data, "from axios");
-            console.log(data.data.data, "Data nya");
+            // console.log(data, "from axios");
+            // console.log(data.data.data, "Data nya");
             setTampilUser(data.data.data);
         } catch (error) {
             console.log(error);
@@ -91,7 +92,7 @@ const Transfer = () => {
                                     firstName={p.firstName}
                                     lastName={p.lastName}
                                     phoneNumber={p.phoneNumber}
-                                    profilePicture={p.profilePictureUrl}
+                                    profilePicture={p.profilePictureUrl != null ? p.profilePictureUrl : blank}
                                     id={p.id}
                                 />
                             ))
