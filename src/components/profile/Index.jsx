@@ -79,14 +79,6 @@ function ProfilePageComponent() {
                     </div>
                 </Col>
             </Row>
-            <Row>
-                <NotificationCard
-                    id={1}
-                    type={"income"}
-                    notes={"Transfered from Joshua Lee"}
-                    amount={"Rp220.000"}
-                />
-            </Row>
         </Container >
     )
 }
