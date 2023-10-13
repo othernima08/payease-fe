@@ -27,7 +27,7 @@ const CreatePassword = () => {
            
             const statusRes = res.data.success;
             if (statusRes === true) {
-                console.log(res);
+                // console.log(res);
             }
             else {
                 const errorMsg = res.data.message;
@@ -53,12 +53,12 @@ const CreatePassword = () => {
                 newPassword,
                 confirmPassword
             }
-            console.log(data);
+            // console.log(data);
             
 
             const response = await changePassword(data, token)
-            console.log(response.data);
-            console.log(response.data.message);
+            // console.log(response.data);
+            // console.log(response.data.message);
             const statusRes = response.data.success;
 
             if (statusRes === true) {

@@ -4,22 +4,22 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import "./notificationCard.css"
 
 function NotificationCard(props) {
-    const {id, type, notes, amount} = props
+    const { id, type, notes, amount } = props
 
     return (
         <section key={id} className="notification-card">
             <section className="notification-icon">
                 <p className={`notification-${type}`}>
-                    <AiOutlineArrowDown />
+                    {type === "income" ? <AiOutlineArrowDown /> : <AiOutlineArrowUp />}
                 </p>
             </section>
             <section style={{ width: "100%" }}>
                 <section className="notification-text">
                     <p className="notification-notes">
-                        Transfered from Joshua Lee
+                        {notes}
                     </p>
                     <p className="notification-amount">
-                        Rp220.000
+                        Rp{amount}
                     </p>
 
                 </section>
