@@ -12,6 +12,7 @@ import TransactionHistoryCard from '../../../components/reusable-components/tran
 import DatePickerModal from '../../../modal/datepicker';
 
 import { getTransactionHistoryByUserId, getTransactionHistoryByUserIdAndStatus } from '../../../services/transactions';
+import NotificationCard from '../../../components/reusable-components/notificationCard';
 
 const TransactionHistory = () => {
     const [openDateModal, setOpenDateModal] = useState(false)
