@@ -95,6 +95,7 @@ const TopUpHistory = () => {
                                     {
                                         thisWeekData.length > 0 ? thisWeekData?.map(item => (
                                             <TransactionHistoryCard
+                                                id={item.id}
                                                 userName={item.name}
                                                 type={"income"}
                                                 subtype={item.type}
@@ -112,6 +113,7 @@ const TopUpHistory = () => {
                                     {
                                         thisMonthData.length > 0 ? thisMonthData?.map(item => (
                                             <TransactionHistoryCard
+                                                id ={item.id}
                                                 userName={item.name}
                                                 type={"income"}
                                                 subtype={item.type}

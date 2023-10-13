@@ -15,6 +15,13 @@ const PopoverNotification = () => {
                 notes={"Expense"}
                 amount={"Rp1.560.000"}
             />
+            {/* contoh data get dari API */}
+            {/* <NotificationCard
+                id={item.id}
+                type={item.type === "Transfer to" ? "expense" : "income"}
+                notes={item.type === "Top up" ? (item.type + " from " + item.name) : (item.type + " " + item.name)}
+                amount={item.amount}
+            /> */}
         </React.Fragment>
     )
 }
