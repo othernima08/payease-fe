@@ -27,9 +27,9 @@ const Pin = () => {
                 pin
             }
 
-            console.log(data);
+            // console.log(data);
             const response = await pinAdd(data)
-            console.log(response.data);
+            // console.log(response.data);
             const statusRes = response.data.success;
             if (statusRes === true) {
                 Swal.fire({
@@ -57,7 +57,7 @@ const Pin = () => {
 
     useEffect(() => {
         const sessi = sessionStorage.getItem("register");
-        console.log(sessi);
+        // console.log(sessi);
         if (sessi === null) {
             navigate("/login")
         }

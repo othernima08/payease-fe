@@ -22,7 +22,7 @@ const DatePickerModal = (props) => {
     }
 
     const formatDate = (date) => {
-        console.log(date)
+        // console.log(date)
         if (date == "") return '';
         const formattedDate = format(date, 'cccc, dd MMM yyyy', { locale: enGB })
         return formattedDate;

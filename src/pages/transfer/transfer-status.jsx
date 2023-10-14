@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
 import CustomNavbar from '../../components/custom-components/navbar'
 import CustomSidebar from '../../components/custom-components/sidebar'
@@ -8,11 +8,49 @@ import AfterLoginLayout from '../../layout/afterLogin';
 import "./transfer.css";
 import { ButtonGroup, } from 'react-bootstrap';
 import { IoArrowBack } from 'react-icons/io5';
+import { useParams } from 'react-router';
+import { findTransferId } from '../../services/transactions';
 
 const TransferStatus = () => {
+
+    const {id} = useParams();
+    const [tampilTransfer, setTampilTransfer] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const getTransactionId = async () => {
+        try {
+            console.log(id,"ini id transfer");
+           const res = await findTransferId(id)
+           console.log(res,"data transfer ini");
+           setTampilTransfer(res.data.data);
+       } catch (error) {
+           console.log(error);
+           console.error(error);
+           setTampilTransfer(null);
+       }
+       finally {
+        setLoading(false);
+    }
+    }
+
+
+    useEffect(() => {
+        getTransactionId();
+    }, [id]);
+
+    console.log(tampilTransfer,"ini data yang mau ditampilin");
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (!tampilTransfer) {
+        return <div>Error loading data.</div>;
+    }
+
     return (
         <AfterLoginLayout
         >
+
             <div className="transfer-container ">
                 <div className="content-container ">
                     <Row bsPrefix="margin-box" >
@@ -31,15 +69,12 @@ const TransferStatus = () => {
                         <h5 className='text-title '>Transfer Success</h5>
                     </div>
 
-
-
-
                     <div className="card-container mb-2">
                         <div className="d-flex flex-row">
 
                             <div className='d-flex flex-column p-2'>
                                 <div>Amount</div>
-                                <div className='p-auth opacity-75'>Rp100.000</div>
+                                <div className='p-auth opacity-75'>Rp. {tampilTransfer.transactions.amount}</div>
                             </div>
                         </div>
                     </div>
@@ -48,7 +83,7 @@ const TransferStatus = () => {
 
                             <div className='d-flex flex-column p-2'>
                                 <div>Balance Left</div>
-                                <div className='p-auth opacity-75'>Rp20.000</div>
+                                <div className='p-auth opacity-75'>Rp.  {tampilTransfer.transactions.user.balance}</div>
                             </div>
                         </div>
                     </div>
@@ -57,7 +92,7 @@ const TransferStatus = () => {
 
                             <div className='d-flex flex-column p-2'>
                                 <div>Date & Time</div>
-                                <div className='p-auth opacity-75'>May 11, 2020 - 12.20</div>
+                                <div className='p-auth opacity-75'> {tampilTransfer.transactionTime}</div>
                             </div>
                         </div>
                     </div>
@@ -66,7 +101,7 @@ const TransferStatus = () => {
 
                             <div className='d-flex flex-column p-2'>
                                 <div>Notes</div>
-                                <div className='p-auth opacity-75'>For buying some socks</div>
+                                <div className='p-auth opacity-75'>{tampilTransfer.notes}</div>
                             </div>
                         </div>
                     </div>
@@ -78,8 +113,8 @@ const TransferStatus = () => {
                                 <img src="/src/assets/transfer-image/samuel.png" alt="" />
                             </div>
                             <div className='d-flex flex-column p-2'>
-                                <div>Amount</div>
-                                <div className='p-auth opacity-75'>Rp100.000</div>
+                                <div>{tampilTransfer.user.firstName + " " +tampilTransfer.user.lastName  }</div>
+                                <div className='p-auth opacity-75'>{tampilTransfer.user.phoneNumber}</div>
                             </div>
                         </div>
                     </div>

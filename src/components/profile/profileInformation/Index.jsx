@@ -17,14 +17,14 @@ const ProfileComponent = () => {
 
   const handleData = async () => {
       // e.preventDefault();
-      console.log('handdata is called');
+      // console.log('handdata is called');
 
       try {
           const response = await getUserById(userId)
               if (response.data.success) {
                   const data = response.data.data
                   setDetail(data);                   
-                  console.log(data)
+                  // console.log(data)
               }else {
               console.error(`Error  ${id}`);
           }
@@ -54,7 +54,7 @@ const ProfileComponent = () => {
         <Col>
           <div className='personal-information'>
             <h4>Personal information</h4>
-            <p className='text-subtitle'>We got your personal information from the sign <br />up process. if you want to make changes on <br />your information, contact our support.</p>
+            <p className='text-subtitle'>We got your personal information from the sign<br />up process. if you want to make changes on <br />your information, contact our support.</p>
           </div>
         </Col>
       </Row>

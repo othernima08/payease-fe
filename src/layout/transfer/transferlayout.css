@@ -1,6 +1,5 @@
-.content-container {
+.content-container-find {
     background-color: #ffffff;
-    padding: 30px;
     height: 100vh;
     box-shadow: 0px 0px 20px 4px #ebebeb;
     border-radius: 25px;
@@ -8,6 +7,29 @@
     flex-direction: column;
     overflow: scroll;
 }
+.content {
+    padding-bottom :30px;
+    padding-right :30px;
+    padding-left :30px;
+    background-color: #ffffff;
+    height: 100vh;
+    box-shadow: 0px 0px 20px 4px #ebebeb;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.margin-box {
+
+   
+    padding-top :30px;
+   
+}
+.back-icon {
+    display: none !important;
+}
+
 
 .card-container {
     margin-top: 5px;
@@ -20,6 +42,8 @@
     display: flex;
     flex-direction: column;
 }
+
+
 
 .p-content {
     color: #3A3D42
@@ -45,32 +69,53 @@
     justify-content: center;
 }
 
-.stack {
-   
-  z-index: 2; /* Atur z-index lebih tinggi dari kartu */
+.stack-transfer {
+    z-index: 1; /* Atur z-index lebih tinggi dari kartu */
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
     z-index: 999; 
-    background-color: #FAFCFF;
+    background-color: #ffffff;
     width: 100%;
-  }
+
+    padding-right :30px;
+    padding-left :30px;
+}
+
+.button-back {
+    margin-top: 8px;
+}
+
+a {
+    text-decoration: none;
+}
 
 @media only screen and (max-width: 768px) {
 
-  
+
+    .content-container {
+        background-color: #ffffff;
+        padding-bottom: 0px !important;
+        padding-right: 30px;
+        padding-left: 30px;
+    
+    }
     .pincode-input-text {
         width: 45px !important;
         height: 60px !important;
         padding: 0px !important;
         margin: 7px !important
-      }
+    }
+
+    .back-icon {
+        display: none !important;
+    }
 
 
     .transfer-container {
         position: fixed;
         top: 0px;
-        z-index: 999; 
+        z-index: 999;
         left: 0;
         width: 100%;
         height: 100%;
@@ -78,13 +123,10 @@
         background-color: #FAFCFF;
     }
 
-    .content-container {
-        padding: 40px;
-    }
-
     .back-icon {
-        margin-left: -20px;
-        font-size: 24px;
+        display: flex !important;
+        margin-left: -20px !important;
+        font-size: 24px !important;
     }
 
     .text-title {
@@ -101,7 +143,7 @@
     }
 
     .p-balance-dekstop {
-        display: none !important;
+        display: none ;
     }
 
     .p-balance-mobile {
@@ -115,11 +157,14 @@
     }
 
     .custom-button-tf {
-      display: none;
+        display: none;
     }
+
     .custom-button-home {
         width: 100% !important;
-      }
+    }
+
+
 
 
 }
@@ -130,5 +175,12 @@
         height: 55px !important;
         padding: 0px !important;
         margin: 2px !important
-      }
+    }
+
+    .back-icon {
+        display: block;
+        margin-left: -20px !important;
+        font-size: 24px !important;
+    }
+
 }
