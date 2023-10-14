@@ -13,7 +13,7 @@ import { getVirtualAccountById } from "../../services/transactions";
 
 const PaymentCode = () => {
   const [virtualAccountData, setVirtualAccountData] = useState(null);
-  
+
   useEffect(() => {
     const virtualAccountId = localStorage.getItem("selectedBankId");
     const fetchData = async () => {
@@ -49,7 +49,7 @@ const PaymentCode = () => {
           <div className="d-flex img-success-mobile mb-1 mt-2 flex-column">
             <h3 className="text-title ">Payment Code</h3>
 
-            <h2 className="text-title ">220085864127829</h2>
+               <h2 className="text-title ">{localStorage.getItem('paymentCode')}</h2>
 
             <h5 className="text-title ">Status : Waiting for payment</h5>
           </div>
@@ -57,7 +57,7 @@ const PaymentCode = () => {
             <div className="d-flex flex-row">
               <div className="d-flex flex-column p-2">
                 <div>Amount</div>
-                <div className="p-auth opacity-75">Rp100.000</div>
+                <div className="p-auth opacity-75">{localStorage.getItem('amount')}</div>
               </div>
             </div>
           </div>

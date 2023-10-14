@@ -6,6 +6,7 @@ import { Container, Card, Button } from 'react-bootstrap';
 import './payment-method.css';
 import { getVirtualAccountByUserId, topUpPost } from '../../../services/transactions';
 import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const PaymentMethod = () => {
   const [selectedBank, setSelectedBank] = useState(null);
@@ -43,6 +44,12 @@ const PaymentMethod = () => {
     const response = await topUpPost({ userId, amount, virtualAccountId });
   
     if (response && response.data && response.data.success) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Top Up Successful',
+        text: 'Proceed to Payment..'
+      });
+      localStorage.setItem("paymentCode", response.data.data.paymentCode);
       navigate('/top-up'); // Navigasi dengan mengirim data yang sesuai
     } else {
       console.error('Failed to process top up');

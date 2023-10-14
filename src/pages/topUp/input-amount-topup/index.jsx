@@ -66,7 +66,7 @@ const InputAmountTopUp = () => {
 
         <Row className="justify-content-center">
           <Col md={12}>
-            <p className="balance-topup">Rp120.000 Available</p>
+            <p className="balance-topup">Set Amount Top Up. Min : 10.000</p>
           </Col>
         </Row>
 
