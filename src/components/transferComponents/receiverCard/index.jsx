@@ -6,9 +6,9 @@ const ReceiverCard = (props) => {
     return (
          <Link to={`../transfer/to/${id}`} >
         <div className="card-container mb-2">
-            <div className="d-flex flex-row">
+            <div className="d-flex flex-row align-items-center">
                 <div className='mx-1'>
-                    <img src={profilePicture} alt="" />
+                    <img src={profilePicture} alt="" style={{ width: "60px", height: "auto", borderRadius: 10}}/>
                 </div>
                 <div className='d-flex flex-column p-2'>
                     <div>{firstName + ' ' + lastName}</div>
