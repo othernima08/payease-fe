@@ -8,7 +8,7 @@ const ReceiverCard = (props) => {
         <div className="card-container mb-2">
             <div className="d-flex flex-row">
                 <div className='mx-1'>
-                    <img src={profilePicture} alt="" />
+                    <img style={{width:"10%"}} src={profilePicture} alt="" />
                 </div>
                 <div className='d-flex flex-column p-2'>
                     <div>{firstName + ' ' + lastName}</div>

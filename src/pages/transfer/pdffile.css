@@ -1,0 +1,6 @@
+.pdf-only {
+    display: block; /* Display these elements only in the PDF */
+  }
+  .no-pdf {
+    display: none; /* Hide these elements in the PDF */
+  }
