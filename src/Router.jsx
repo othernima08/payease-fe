@@ -33,6 +33,8 @@ import InputAmount from './pages/transfer/input-amount'
 import Confirmation from './pages/transfer/confirmation';
 import TransferStatus from './pages/transfer/transfer-status';
 import PaymentPoint from './pages/payment-point';
+import PDFFile from './components/pdfFile/PDFFile';
+
 
 const Router = () => {
 
@@ -69,7 +71,11 @@ const Router = () => {
                 <Route exact path="/top-up/input-amount" element={<InputAmountTopUp />} />
                 <Route exact path="/top-up/payment-method" element={<PaymentMethod/>}/>
                 <Route exact path="/top-up/history" element={<TopUpHistory />} />
+
                 <Route exact path="/payment-point" element={<PaymentPoint />} />
+
+
+                <Route exact path="/receipt/testpdf" element={<PDFFile />} />
 
             </Routes>
         </BrowserRouter>

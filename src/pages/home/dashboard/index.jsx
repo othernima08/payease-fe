@@ -145,7 +145,7 @@ const Dashboard = () => {
       <Container className="history-container">
         <div className="history-title">
           <p className="prgph1">Transaction History</p>
-          <p className="prgph2">See all</p>
+          <p className="prgph2" onClick={() => {navigate("/home/history")}}>See all</p>
         </div>
         {transactions.map((transaction) => (
           <div key={transaction.id} className="history-item">
