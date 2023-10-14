@@ -13,7 +13,7 @@ import { getVirtualAccountById } from "../../services/transactions";
 
 const PaymentCode = () => {
   const [virtualAccountData, setVirtualAccountData] = useState(null);
-
+  
   useEffect(() => {
     const virtualAccountId = localStorage.getItem("selectedBankId");
     const fetchData = async () => {
@@ -75,7 +75,7 @@ const PaymentCode = () => {
               <div className="d-flex flex-column p-2">
                 <div>Payment Method</div>
                 <div className="p-auth opacity-75">
-                  {virtualAccountData && virtualAccountData[0].provider_name}
+                {virtualAccountData && virtualAccountData[0].provider_name}
                 </div>
               </div>
             </div>
@@ -87,52 +87,43 @@ const PaymentCode = () => {
               <div className="mx-1 d-flex justify-content-around">
                 <img
                   style={{ width: "20%", justifyItems: "center" }}
-                  src={
-                    virtualAccountData &&
-                    virtualAccountData[0].profile_picture_url
-                  }
+                  src={virtualAccountData && virtualAccountData[0].profile_picture_url}
                   alt=""
                 />
               </div>
               <div className="d-flex flex-column p-2">
-                <div>Bank BCA</div>
+                <div> {virtualAccountData && virtualAccountData[0].provider_name}</div>
                 <div className="p-auth opacity-75">
-                  - Lakukan login ke akun m-BCA anda.
+                  - Lakukan login ke akun m- {virtualAccountData && virtualAccountData[0].provider_name} anda.
                   <br />
                   - Pilih menu m-Transfer.
                   <br />
-                  - Pilih BCA Virtual Account.
+                  - Pilih {virtualAccountData && virtualAccountData[0].provider_name} Virtual Account.
                   <br />
-                  - Masukkan 12301 + nomor ponsel anda. Contoh:
-                  12301081234567890
-                  <br />
-                  - *Nomor Handphone yang terdaftar di aplikasi
+                  - Masukkan no virtual account : {virtualAccountData && virtualAccountData[0].number}
                   <br />
                   - Masukkan nominal top-up.
                   <br />
                   - Ikuti instruksi untuk menyelesaikan transaksi.
                   <br />
-                  ATM BCA
+
+                   {virtualAccountData && virtualAccountData[0].provider_name} 
                   <br />
-                  - Masukkan kartu ATM dan PIN BCA Anda.
+                  - Masukkan kartu ATM dan PIN  {virtualAccountData && virtualAccountData[0].provider_name}  Anda.
                   <br />
                   - Pilih menu Transaksi Lainnya.
                   <br />
                   - Pilih menu Transfers.
                   <br />
-                  - Pilih menu Ke Rek BCA Virtual Account.
+                  - Pilih menu Ke Rek  {virtualAccountData && virtualAccountData[0].provider_name}  Virtual Account.
                   <br />
-                  - Masukkan 12301 + nomor ponsel anda. Contoh:
-                  12301081234567890
-                  <br />
-                  - *Nomor Handphone yang terdaftar di aplikasi
-                  <br />
+                  - Masukkan no virtula account : {virtualAccountData && virtualAccountData[0].provider_number}
                   - Masukkan nominal top-up.
                   <br />
                   - Ikuti instruksi untuk menyelesaikan transaksi.
                   <br />
                   Catatan:
-                  <br />- minimum top-up Rp20.000
+                  <br />- Minimum top-up Rp20.000
                 </div>
               </div>
             </div>

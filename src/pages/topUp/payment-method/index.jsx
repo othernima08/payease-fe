@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Container, Card, Button } from 'react-bootstrap';
 import './payment-method.css';
-import { getVirtualAccountByUserId } from '../../../services/transactions';
+import { getVirtualAccountByUserId, topUpPost } from '../../../services/transactions';
 import { useNavigate } from 'react-router-dom';
 
 const PaymentMethod = () => {
@@ -34,8 +34,19 @@ const PaymentMethod = () => {
     localStorage.setItem("selectedBankId", bank.id);
   };
 
-  const handleNextClick = () => {
-    navigate('/top-up');
+
+  const handleNextClick = async () => {
+    const userId = localStorage.getItem("id");
+    const amount = localStorage.getItem("amount");
+    const virtualAccountId = localStorage.getItem("selectedBankId");
+  
+    const response = await topUpPost({ userId, amount, virtualAccountId });
+  
+    if (response && response.data && response.data.success) {
+      navigate('/top-up'); // Navigasi dengan mengirim data yang sesuai
+    } else {
+      console.error('Failed to process top up');
+    }
   };
 
   return (

@@ -44,7 +44,7 @@ export const getVirtualAccountById = async (virtualAccountId) => {
     try {
       const token = localStorage.getItem("token");
   
-      const url = `${BASE_URL_API_DEV}/transactions/transfer`;
+      const url = `${BASE_URL_API_DEV}/transactions/top-up`;
       const response = await fetchApi({
         url,
         method: "POST",
