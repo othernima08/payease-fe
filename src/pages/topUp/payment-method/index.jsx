@@ -1,98 +1,97 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AfterLoginLayout from '../../../layout/afterLogin';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Container, Card, Button } from 'react-bootstrap';
 import './payment-method.css';
-import bank1 from '../../../assets/images/Logo Bank BNI.jpg';
-import bank2 from '../../../assets/images/bni.png';
-import bank3 from '../../../assets/images/Logo Bank Mandiri.jpg'
+import { getVirtualAccountByUserId, topUpPost } from '../../../services/transactions';
+import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const PaymentMethod = () => {
   const [selectedBank, setSelectedBank] = useState(null);
+  const [banks, setBanks] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userId = localStorage.getItem("id"); 
+        const response = await getVirtualAccountByUserId(userId);
+        if (response && response.data && response.data.success) {
+          setBanks(response.data.data);
+        } else {
+          console.log("Failed to fetch virtual account data");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleBankSelect = (bank) => {
     setSelectedBank(bank);
+    localStorage.setItem("selectedBankId", bank.id);
+  };
+
+
+  const handleNextClick = async () => {
+    const userId = localStorage.getItem("id");
+    const amount = localStorage.getItem("amount");
+    const virtualAccountId = localStorage.getItem("selectedBankId");
+  
+    const response = await topUpPost({ userId, amount, virtualAccountId });
+  
+    if (response && response.data && response.data.success) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Top Up Successful',
+        text: 'Proceed to Payment..'
+      });
+      localStorage.setItem("paymentCode", response.data.data.paymentCode);
+      navigate('/top-up'); // Navigasi dengan mengirim data yang sesuai
+    } else {
+      console.error('Failed to process top up');
+    }
   };
 
   return (
     <AfterLoginLayout>
       <Container className="payment-method-container">
-      <div className="back-icons">
+        <div className="back-icons">
           <FontAwesomeIcon icon={faArrowLeft} />
         </div>
         <h2>Top up from</h2>
         <p>Choose the source of funds you'd like to use for topping up your PayEase account</p>
 
-        <Card
-          className={`bank-card ${selectedBank === 'Bank BNI' ? 'selected' : ''}`}
-          onClick={() => handleBankSelect('Bank BNI')}
-        >
-          <Card.Body className="bank-card-row">
-            <div className="bank-card-col">
-              <img className="bank-logo" src={bank1} alt="Bank BNI" />
-              <h4 className="card-titles">Bank BNI</h4>
-            </div>
-            <div className="bank-card-col">
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  className="radio-button"
-                  name="bank-option"
-                  checked={selectedBank === 'Bank BNI'}
-                  onChange={() => handleBankSelect('Bank BNI')}
-                />
-              </label>
-            </div>
-          </Card.Body>
-        </Card>
+        {banks.map((bank) => (
+          <Card
+            key={bank.id}
+            className={`bank-card ${selectedBank && selectedBank.id === bank.id ? 'selected' : ''}`}
+            onClick={() => handleBankSelect(bank)}
+          >
+            <Card.Body className="bank-card-row">
+              <div className="bank-card-col">
+                <img className="bank-logo" src={bank.profile_picture_url} alt={bank.name} />
+                <h4 className="card-titles">{bank.name}</h4>
+              </div>
+              <div className="bank-card-col">
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    className="radio-button"
+                    name="bank-option"
+                    checked={selectedBank && selectedBank.id === bank.id}
+                    onChange={() => handleBankSelect(bank)}
+                  />
+                </label>
+              </div>
+            </Card.Body>
+          </Card>
+        ))}
 
-        <Card
-          className={`bank-card ${selectedBank === 'Bank BRI' ? 'selected' : ''}`}
-          onClick={() => handleBankSelect('Bank BRI')}
-        >
-          <Card.Body className="bank-card-row">
-            <div className="bank-card-col">
-              <img className="bank-logo" src={bank2} alt="Bank BRI" />
-              <h4 className="card-titles">Bank BRI</h4>
-            </div>
-            <div className="bank-card-col">
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  className="radio-button"
-                  name="bank-option"
-                  checked={selectedBank === 'Bank BRI'}
-                  onChange={() => handleBankSelect('Bank BRI')}
-                />
-              </label>
-            </div>
-          </Card.Body>
-        </Card>
-
-        <Card
-          className={`bank-card ${selectedBank === 'Bank Mandiri' ? 'selected' : ''}`}
-          onClick={() => handleBankSelect('Bank Mandiri')}
-        >
-          <Card.Body className="bank-card-row">
-            <div className="bank-card-col">
-              <img className="bank-logo" src={bank3} alt="Bank Mandiri" />
-              <h4 className="card-titles">Bank Mandiri</h4>
-            </div>
-            <div className="bank-card-col">
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  className="radio-button"
-                  name="bank-option"
-                  checked={selectedBank === 'Bank Mandiri'}
-                  onChange={() => handleBankSelect('Bank Mandiri')}
-                />
-              </label>
-            </div>
-          </Card.Body>
-        </Card>
-        <Button className="next-button">Next</Button>
+        <Button className="next-button" onClick={handleNextClick}>Next</Button>
       </Container>
     </AfterLoginLayout>
   );

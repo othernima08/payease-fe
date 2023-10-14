@@ -5,12 +5,20 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { NumericFormat } from 'react-number-format';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const InputAmountTopUp = () => {
   const [isFocused, setIsFocused] = useState(false);
+  const [amount, setAmount] = useState('');
+  const navigate = useNavigate();
 
   const handleFocus = () => {
     setIsFocused(!isFocused);
+  };
+
+  const handleContinueClick = () => {
+    localStorage.setItem('amount', amount);
+    navigate('/top-up/payment-method');
   };
 
   return (
@@ -44,6 +52,11 @@ const InputAmountTopUp = () => {
                 }}
                 className={isFocused ? 'input-focus' : ''}
                 onChange={handleFocus}
+                value={amount}
+                onValueChange={(values) => {
+                  const { value } = values;
+                  setAmount(value);
+                }}
                 onFocus={handleFocus}
                 onBlur={handleFocus}
               />
@@ -53,13 +66,13 @@ const InputAmountTopUp = () => {
 
         <Row className="justify-content-center">
           <Col md={12}>
-            <p className="balance-topup">Rp120.000 Available</p>
+            <p className="balance-topup">Set Amount Top Up. Min : 10.000</p>
           </Col>
         </Row>
 
         <Row className="justify-content-center">
           <Col md={4}>
-            <Button variant="primary" className="w-100 custom-topup-button">
+            <Button variant="primary" className="w-100 custom-topup-button" onClick={handleContinueClick}>
               Continue
             </Button>
           </Col>
