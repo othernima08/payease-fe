@@ -10,6 +10,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import "./grafik.css"
 
 const Grafik = () => {
   
