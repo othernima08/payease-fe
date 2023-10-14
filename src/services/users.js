@@ -55,6 +55,29 @@ export const getUserById = async (id) => {
   }
 };
 
+
+
+export const getUserPhoneNotNullAndNotSender = async (id) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const url = `${BASE_URL_API_DEV}/users/user/${id}`;
+    const response = await fetchApi({
+      url,
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
 export const changePIN = async (data) => {
   try {
     const token = localStorage.getItem("token");
