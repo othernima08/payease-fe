@@ -27,8 +27,8 @@ const Confirmation = () => {
 
     //getuserdetails
     const navigate = useNavigate();
-    const amount =localStorage.getItem("amount")
-    const notes =localStorage.getItem("notes")
+    const amount = localStorage.getItem("amount");
+    const notes = localStorage.getItem("notes");
     const transactionTime =localStorage.getItem("transactionTime")
     const [tampilUsersRecipient, setTampilUserRecipient] = useState(false);
     const [tampilUserSender, SetTampilUserSender] = useState(false);
@@ -63,7 +63,8 @@ const Confirmation = () => {
                     recipientPhoneNumber: tampilUsersRecipient.phoneNumber,
                     pin,
                     amount: parseFloat(amount),
-                    transactionTime
+                    transactionTime,
+                    notes
                 }
                 
                 const response = await transferPost(data)
@@ -76,6 +77,13 @@ const Confirmation = () => {
                     setIdtrans(response.data.data)
                     console.log(response.data.data,"ini data berhasil")
                     navigate(`/transfer/status/${response.data.data}`)
+                    localStorage.removeItem("notes")
+                    localStorage.removeItem("amount")
+                    localStorage.removeItem("balance")
+                    localStorage.removeItem("transactionTime")
+                    localStorage.removeItem("senderId")
+                    localStorage.removeItem("recipient")
+                    
                 } else {
                     let errorMsg = ""
 

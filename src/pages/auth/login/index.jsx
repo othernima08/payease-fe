@@ -110,7 +110,7 @@ const Login = () => {
                         </Button>
                     </div>
                     <div className="d-flex flex-row justify-content-center">
-                        <p className="title-mobile-grey"> Already have an account? Let’s </p>  <p className='p-auth opacity-75 mb-5'> Already have an account? Let’s  </p> <span href="" className='mx-1' style={{ color: "blue" }}> Login</span>
+                        <p className="title-mobile-grey"> Already have an account? Let’s </p>  <p className='p-auth opacity-75 mb-5'> Already have an account? Let’s  </p> <Link to={"/register"}><span href="" className='mx-1' style={{ color: "blue" }}> Register</span></Link>
                     </div>
                 </Form>
             </RightLayoutAuth>
