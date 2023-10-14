@@ -6,10 +6,12 @@ const ReceiverCard = (props) => {
     const {id,firstName, lastName, phoneNumber, profilePicture} = props;
     return (
          <Link to={`../transfer/to/${id}`} >
+
         <div className="card-container  justify-content-start mb-2">
             <div className="d-flex flex-row justify-content-start align-items-center ">
                 <div className='d-flex flex-row mx-1 image-size'>
                     <img className='image-size' src={profilePicture} alt="" />
+
                 </div>
                 <div className='d-flex flex-column p-2'>
                     <div>{firstName + ' ' + lastName}</div>

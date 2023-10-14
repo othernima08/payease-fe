@@ -1,26 +1,93 @@
+
+.paragraf p {
+    margin-bottom: 10px;
+    font-family: 'Nunito-Regular', sans-serif;
+    color: #4E5055;
+    font-size: 18px;
+}
+
+.landing-page-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.landing-page-left h2 {
+    font-size: 50px;
+    font-family: 'Nunito-Bold', sans-serif;
+    color: #3A3D42;
+    margin-bottom: 30px;
+    padding-top: 16px;
+}
+
+.landing-page-left-content {
+    padding: 40px;
+}
+
+.landing-page-left-content button {
+    width: 200px;
+    height: 50px;
+    border: none;
+    background-color: #6379F4;
+    color: #FFFFFF;
+    font-family: 'Nunito-Bold', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s;
+    border-radius: 12px;
+}
+
+.landing-page-left-content button:hover {
+    background-color: #4750f4;
+}
+
+.landing-page-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../assets/images/bg.png');
+    background-repeat: no-repeat;
+}
+.button-landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 20px; 
+}
+
+.button-login {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 15px;
+    font-family: 'Nunito-Bold', sans-serif;
+    font-size: 16px;
+    width: 100px;
+    height: 55px;
+}
+
+.button-login:hover {
+    background-color: #FFFFFF;
+    border: none;
+    color: #6379F4;
+}
+
+.img-fluid-right {
+    width: 100%;
+    height: auto;
+}
+
 .bg-img {
     display: flex;
     justify-content: flex-end;
-    /* position: absolute; */
-    margin-bottom: 100px;
-    height: 440px;
     margin-bottom: 200px;
 }
-
-.img-fluid {
-    position: absolute !important;
-    height: 90% !important;
-    /* top: 70px */
-}
-
-.img-fluid2 {
-    height: 100%;
-}
-
-.button-landing {
-    position: absolute !important;
-    top: 20px;
-    right: 200px;
-}
-
-.paragraf {}
