@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import './profilepage.css'
 import { getUserById } from "../../services/users";
 
-function wProfilePageComponent() {
+function ProfilePageComponent() {
     const [detail, setDetail] = useState([]);
     // const [imageData, setImageData] = useState({});
     const userId = localStorage.getItem("id");

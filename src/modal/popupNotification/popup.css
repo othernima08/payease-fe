@@ -1,0 +1,13 @@
+.custom-notif-modal{
+    /* position: absolute !important;
+    height: 90% !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-right: 0; */
+    /* width: 100% !important; */
+    top: 10% !important;
+    left: 65% !important;
+    right: 1% !important;
+    width: 30% !important;
+}

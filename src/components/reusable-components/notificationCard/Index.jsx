@@ -4,8 +4,8 @@ import './notificationCard.css'
 
 const NotificationCard = () => {
     return (
-        <Card>
-            <Card.Body>
+        <Card className='notif-card'>
+            <Card.Body className='notif-card'>
                 <div className="d-flex align-items-center">
                     <div className="notif-icon">
                         <i className="fa fa-arrow-up" aria-hidden="true"></i>
