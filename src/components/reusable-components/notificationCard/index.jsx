@@ -19,7 +19,7 @@ function NotificationCard(props) {
                         {notes}
                     </p>
                     <p className="notification-amount">
-                        {amount}
+                        Rp{amount}
                     </p>
 
                 </section>

@@ -21,6 +21,9 @@ const InputAmountTopUp = () => {
     navigate('/top-up/payment-method');
   };
 
+  const handleTopUpHistoryClick = () =>{
+    navigate('/top-up/history');
+  }
   return (
     <AfterLoginLayout>
       <Container className="input-amount-container">
@@ -71,6 +74,11 @@ const InputAmountTopUp = () => {
         </Row>
 
         <Row className="justify-content-center">
+          <Col md={4}>
+            <Button variant="primary" className="w-100 custom-topup-button" onClick={handleTopUpHistoryClick}>
+              Top Up History
+            </Button>
+          </Col>
           <Col md={4}>
             <Button variant="primary" className="w-100 custom-topup-button" onClick={handleContinueClick}>
               Continue

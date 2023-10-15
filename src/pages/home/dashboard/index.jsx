@@ -7,7 +7,7 @@ import "font-awesome/css/font-awesome.css";
 import blank from "../../../assets/images/blank.jpg"
 import { getUserById } from "../../../services/users";
 import Grafik from "../../../components/reusable-components/grafik";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getTopFiveUserTransactionHistory } from "../../../services/transactions";
 import TransactionHistoryCard from "../../../components/reusable-components/transactionHistoryCard";
 
@@ -85,7 +85,7 @@ const Dashboard = () => {
               <Card.Body className="dashboard-body">
                 <div className="balance-section">
                   <Card.Title bsPrefix="balance-title">Balance</Card.Title>
-                  <Card.Text bsPrefix="balance-text">{`Rp ${balance}`}</Card.Text>
+                  <Card.Text bsPrefix="balance-text"> {`Rp ${parseFloat(balance).toLocaleString('id-ID')}`}</Card.Text>
                   <Card.Text bsPrefix="phone-number-text">
                     {phoneNumber}
                   </Card.Text>
@@ -107,14 +107,18 @@ const Dashboard = () => {
       <Container className="buttons-section-mobile">
         <Row>
           <Col md={6} className="d-flex justify-content-center">
+          <Link to={"/transfer/receiver"}>
             <Button variant="light" className="transfer-button2">
               <i className="fa fa-arrow-up" aria-hidden="true"></i> Transfer
             </Button>
+            </Link>
           </Col>
           <Col md={6} className="d-flex justify-content-center">
+          <Link to={"/top-up/input-amount  "}>
             <Button variant="light" className="topup-button2">
               <i className="fa fa-plus" aria-hidden="true"></i> Top Up
             </Button>
+            </Link>
           </Col>
         </Row>
       </Container>
@@ -126,7 +130,7 @@ const Dashboard = () => {
             </div>
             <div className="income-section">
               <p className="income-label">Income</p>
-              <p className="income-amount">{`Rp ${totalIncome}`}</p>
+              <p className="income-amount"> {`Rp ${parseFloat(totalIncome).toLocaleString('id-ID')}`}</p>
             </div>
           </Col>
           <Col md={6} className="summary-column rights">
@@ -135,7 +139,7 @@ const Dashboard = () => {
             </div>
             <div className="expense-section">
               <p className="expense-label">Expense</p>
-              <p className="expense-amount">{`Rp ${totalExpense}`}</p>
+              <p className="expense-amount"> {`Rp ${parseFloat(totalExpense).toLocaleString('id-ID')}`}</p>
             </div>
           </Col>
         </Row>
@@ -156,7 +160,7 @@ const Dashboard = () => {
             type={transaction.type === "Transfer to" ? "expense" : "income"}
             subtype={transaction.type === "Top Up" ? "Top up" : "Transfer"}
             userPict={transaction.profile_picture_url != null ? transaction.profile_picture_url : blank}
-            amount={transaction.amount}
+            amount={`Rp ${parseFloat(transaction.amount).toLocaleString('id-ID')}`}
             status={transaction.status}
           />
         ))}

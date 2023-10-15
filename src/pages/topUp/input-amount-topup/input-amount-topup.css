@@ -85,6 +85,16 @@
     font-size: 20px;
     margin-top: -30px !important;
   }
+
+  .custom-topup-button {
+    margin-bottom: 20px;
+  }
+
+  .topup-history-button,
+  .continue-button {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 425px) {
