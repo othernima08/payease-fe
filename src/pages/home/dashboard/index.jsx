@@ -4,73 +4,77 @@ import AfterLoginLayout from "../../../layout/afterLogin";
 import "./dashboard.css";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "font-awesome/css/font-awesome.css";
-import gambar1 from "../../../assets/images/th (1).jpeg";
-import gambar2 from "../../../assets/images/th (2).jpeg";
-import netfix from "../../../assets/images/netflixlogo.0.0.png";
-import spotify from "../../../assets/images/OIP2.jpeg";
+import blank from "../../../assets/images/blank.jpg"
 import { getUserById } from "../../../services/users";
 import Grafik from "../../../components/reusable-components/grafik";
 import { useNavigate } from 'react-router-dom';
+import { getTransactionHistoryByUserId } from "../../../services/transactions";
+import TransactionHistoryCard from "../../../components/reusable-components/transactionHistoryCard";
 
 const Dashboard = () => {
-  const transactions = [
-    {
-      id: 1,
-      image: gambar1,
-      name: "Samuel Sushi",
-      amount: 50000,
-      type: "transfer",
-    },
-    {
-      id: 2,
-      image: netfix,
-      name: "Netflix",
-      amount: -50000,
-      type: "subscription",
-    },
-    {
-      id: 3,
-      image: gambar2,
-      name: "Alexander Jacob",
-      amount: +50000,
-      type: "transfer",
-    },
-    {
-      id: 4,
-      image: spotify,
-      name: "Spotify",
-      amount: -50000,
-      type: "subscription",
-    },
-  ];
+  
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [balance, setBalance] = useState('');
+  const [transactionHistory, setTransactionHistory] = useState([]);
 
-
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [balance, setBalance] = useState("");
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [totalExpense, setTotalExpense] = useState(0);
 
   useEffect(() => {
-    const userId = localStorage.getItem("id");
-    const fetchData = async () => {
-      try {
-        const response = await getUserById(userId);
-        if (response.status === 200) {
-          const user = response.data.data;
-          setPhoneNumber(user.phoneNumber);
-          setBalance(user.balance);
-        } else {
-          console.error("Failed to fetch user data");
-        }
-      } catch (error) {
-        console.error("Error:", error);
+    let incomeTotal = 0;
+    let expenseTotal = 0;
+
+    transactionHistory.forEach((transaction) => {
+      if (transaction.type === "Top Up") {
+        incomeTotal += transaction.amount;
+      } else if (transaction.type === "Transfer to") {
+        expenseTotal += transaction.amount;
       }
-    };
-    fetchData();
-  }, []);
+    });
+
+    setTotalIncome(incomeTotal);
+    setTotalExpense(expenseTotal);
+  }, [transactionHistory]);
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const userId = localStorage.getItem('id');
+
+    const fetchData = async () => {
+      try {
+        const userResponse = await getUserById(userId);
+        const transactionResponse = await getTransactionHistoryByUserId(userId);
+
+        if (userResponse.status === 200) {
+          const user = userResponse.data.data;
+          setPhoneNumber(user.phoneNumber);
+          setBalance(user.balance);
+        } else {
+          console.error('Failed to fetch user data');
+        }
+
+        if (transactionResponse.data.success) {
+          const limitedHistory = transactionResponse.data.data.slice(0, 4);
+          setTransactionHistory(limitedHistory);
+        } else {
+          console.error('Failed to fetch transaction history');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
   const handleClickTopUp = () => {
     navigate('/top-up/input-amount');
+  };
+
+  const handleClickTransfer = () => {
+    navigate('/transfer/receiver');
   };
 
   return (
@@ -88,7 +92,7 @@ const Dashboard = () => {
             </Card.Text>
           </div>
           <div className="buttons-section">
-            <Button variant="light" className="transfer-button">
+            <Button variant="light" className="transfer-button" onClick={handleClickTransfer}>
               <i className="fa fa-arrow-up" aria-hidden="true"></i>{" "}
               Transfer
             </Button>
@@ -125,7 +129,7 @@ const Dashboard = () => {
             </div>
             <div className="income-section">
               <p className="income-label">Income</p>
-              <p className="income-amount">Rp 2.500.000</p>
+              <p className="income-amount">{`Rp ${totalIncome}`}</p>
             </div>
           </Col>
           <Col md={6} className="summary-column rights">
@@ -134,7 +138,7 @@ const Dashboard = () => {
             </div>
             <div className="expense-section">
               <p className="expense-label">Expense</p>
-              <p className="expense-amount">Rp 1.500.000</p>
+              <p className="expense-amount">{`Rp ${totalExpense}`}</p>
             </div>
           </Col>
         </Row>
@@ -147,23 +151,17 @@ const Dashboard = () => {
           <p className="prgph1">Transaction History</p>
           <p className="prgph2" onClick={() => {navigate("/home/history")}}>See all</p>
         </div>
-        {transactions.map((transaction) => (
-          <div key={transaction.id} className="history-item">
-            <img src={transaction.image} alt={transaction.name} />
-            <div className="history-details">
-              <p className="name">{transaction.name}</p>
-              <p className="type">{transaction.type}</p>
-            </div>
-            <p
-              className={`history-amount ${
-                transaction.amount >= 0 ? "green" : "red"
-              }`}
-            >
-              {transaction.amount >= 0
-                ? `+ Rp${transaction.amount}`
-                : `- Rp${Math.abs(transaction.amount)}`}
-            </p>
-          </div>
+        {transactionHistory.map((transaction) => (
+          <TransactionHistoryCard
+            key={transaction.id}
+            id={transaction.id}
+            userName={transaction.name}
+            type={transaction.type === "Transfer to" ? "expense" : "income"}
+            subtype={transaction.type === "Top Up" ? "Top up" : "Transfer"}
+            userPict={transaction.profile_picture_url != null ? transaction.profile_picture_url : blank}
+            amount={transaction.amount}
+            status={transaction.status}
+          />
         ))}
       </Container>
     </AfterLoginLayout>
