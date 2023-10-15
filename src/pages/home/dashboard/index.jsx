@@ -160,7 +160,7 @@ const Dashboard = () => {
             type={transaction.type === "Transfer to" ? "expense" : "income"}
             subtype={transaction.type === "Top Up" ? "Top up" : "Transfer"}
             userPict={transaction.profile_picture_url != null ? transaction.profile_picture_url : blank}
-            amount={transaction.amount}
+            amount={`Rp ${parseFloat(transaction.amount).toLocaleString('id-ID')}`}
             status={transaction.status}
           />
         ))}
