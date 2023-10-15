@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import './profilepage.css'
 import { getUserById } from "../../services/users";
 
-function ProfilePageComponent() {
-    const [detail, setDetail] = useState({});
+function wProfilePageComponent() {
+    const [detail, setDetail] = useState([]);
+    // const [imageData, setImageData] = useState({});
     const userId = localStorage.getItem("id");
 
     // const { id } = useParams();
@@ -18,7 +19,6 @@ function ProfilePageComponent() {
     }
 
     const handleData = async () => {
-        // e.preventDefault();
         console.log('handdata is called');
 
         try {
@@ -26,7 +26,10 @@ function ProfilePageComponent() {
             if (response.data.success) {
                 const data = response.data.data
                 setDetail(data);
+                // setImageData(data.firstName)
                 console.log(data)
+                console.log(data.sharedUrl)
+                // console.log(imageData);
             } else {
                 console.error(`Error  ${id}`);
             }
@@ -34,8 +37,25 @@ function ProfilePageComponent() {
             console.error('Error:', error);
         }
     };
+
+    // const getImage= async () => {
+    //     console.log("a");
+    //     try {
+    //         const response = await getImage(userId)
+    //         if (response.data.success) {
+    //             // const imageData = response
+    //             setImageData(response);
+    //             console.log(response);
+    //         } else {
+    //             console.error(`Error  ${id}`);
+    //         }
+    //     } catch (error) {
+    //         console.error('Error:', error);
+    //     }
+    // };
     useEffect(() => {
         handleData();
+        // getImage();
     }, [userId]);
     return (
         <Container className="profilepage-container">
@@ -46,14 +66,15 @@ function ProfilePageComponent() {
                         marginRight: "16px",
                         marginLeft: "16px",
                     }}>
-                    <Image src={detail.profilePicture != null ? detail.profilePicture : profileimg} alt='profile...' rounded style={{ width: "20%" }} />
+                        {/* <img src={detail?.sharedUrl} alt="..."  style={{ width: "100%" }}/> */}
+                    <Image src={  detail?.sharedUrl } alt="..." rounded style={{ width: "20%" }} />
                 </Col>
             </Row>
             <Row>
                 <Col className="d-flex justify-content-center ">
                     <div style={{ textAlign: "center" }}>
 
-                        <p>Edit</p>
+                        <p>Edit  </p>
                         {/* <p>{}</p> */}
                         <p>{detail.firstName} {detail.lastName}</p>
                         <p>{detail.phoneNumber ? detail.phoneNumber : "-"}</p>

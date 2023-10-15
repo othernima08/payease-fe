@@ -96,3 +96,18 @@ export const changePassword = async(data) => {
         console.log(error)
     }
 }
+
+export const getImage = async(data) => {
+    try {
+        const token = localStorage.getItem("token")
+
+        const url = `${BASE_URL_API_DEV}/users/image/${id}`
+        const response = await fetchApi({ url, method: "GET", data, headers : {
+            "Authorization": `Bearer ${token}`
+        }});
+
+        return response
+    } catch (error) {
+        console.log(error)
+    }
+}
