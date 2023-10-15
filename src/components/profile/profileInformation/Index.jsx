@@ -17,7 +17,6 @@ const ProfileComponent = () => {
 
   const handleData = async () => {
       // e.preventDefault();
-      // console.log('handdata is called');
 
       try {
           const response = await getUserById(userId)
