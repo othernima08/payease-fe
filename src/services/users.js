@@ -122,7 +122,7 @@ export const changePassword = async (data) => {
   try {
     const token = localStorage.getItem("token");
 
-    const url = `${BASE_URL_API_DEV}/users/change-password`;
+    const url = `${BASE_URL_API_DEV}/users/change-password-after-login`;
     const response = await fetchApi({
       url,
       method: "PUT",
