@@ -71,6 +71,7 @@ const TopUpHistory = () => {
                                         (topUpHistory != []  && topUpHistory?.thisWeek?.length > 0) ? topUpHistory.thisWeek.map(item => (
                                             <TransactionHistoryCard
                                                 key={item.id}
+                                                id={item.id}
                                                 userName={item.name}
                                                 type={"income"}
                                                 subtype={item.type}
@@ -89,6 +90,7 @@ const TopUpHistory = () => {
                                         (topUpHistory != [] && topUpHistory?.thisMonth?.length > 0) ? topUpHistory.thisMonth.map(item => (
                                             <TransactionHistoryCard
                                                 key={item.id}
+                                                id={item.id}
                                                 userName={item.name}
                                                 type={"income"}
                                                 subtype={item.type}
@@ -107,6 +109,7 @@ const TopUpHistory = () => {
                                         (topUpHistory != [] && topUpHistory?.older?.length > 0) ? topUpHistory.older.map(item => (
                                             <TransactionHistoryCard
                                                 key={item.id}
+                                                id={item.id}
                                                 userName={item.name}
                                                 type={"income"}
                                                 subtype={item.type}
