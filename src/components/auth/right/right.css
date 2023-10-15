@@ -1,6 +1,6 @@
 .right {
-    justify-content: stretch;
-    align-items: center;
+ 
+width: 40%;
     display: flex;
     flex-direction: column;
     background-color: none;
@@ -8,12 +8,13 @@
 }
 
 .right-outer {
+    
     padding: 5px;
     border: 0.5px solid #ccc;
     overflow: auto;
     height: 100vh;
 
-    justify-content: stretch;
+
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -41,7 +42,7 @@
 @media (max-width: 639px) {
     .right {
         border-radius: 10px !important;
-
+        width: 100%;
     }
 
     .right-outer {

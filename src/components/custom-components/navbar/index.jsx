@@ -7,8 +7,9 @@ import { BsBell } from "react-icons/bs";
 
 import './navbar.css'
 import blankPict from '../../../assets/images/blank.jpg';
-// import NotificationModal from '../../../modal/popupNotification/Index';
+// import NotificationModal from '../../../modal/popupNotification/Index'; -- ini di after login layout aja na
 
+import { useEffect } from 'react';
 
 function CustomNavbar(props) {
     const navigate = useNavigate();

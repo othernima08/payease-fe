@@ -116,11 +116,6 @@
   font-family: 'Nunito-Bold', sans-serif;
 }
 
-/* CSS untuk card chart */
-.chart-card {
-  background-color: transparent; 
-  border: none; 
-}
 
 /* CSS untuk container history */
 .history-container {

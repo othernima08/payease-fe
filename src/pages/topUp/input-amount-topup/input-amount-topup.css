@@ -35,7 +35,7 @@
   display: none;
 }
 
-.custom-topup-button{
+.custom-topup-button {
   background-color: #6379f4;
   border: none;
   border-radius: 10px;
@@ -46,7 +46,7 @@
   transition: background-color 0.3s;
 }
 
-.custom-topup-button:hover  {
+.custom-topup-button:hover {
   background-color: #5564e8;
 }
 
@@ -65,28 +65,10 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100% !important;
     height: 100%;
     border-radius: 0;
   }
-  
-
-  .input-amount-container .deskripsi {
-    font-size: 16px;
-  }
-
-  .input-amount-container .balance-topup {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-
-  .after-login-layout {
-    display: none;
-  }
-
-  /* .navbar {
-        display: none;
-      } */
 
   .back-icons {
     display: flex;
@@ -99,7 +81,16 @@
   }
 
   .input-amount-container h2 {
-    margin-left: 10px;
-    margin-top: -44px;
+    margin-left: 20px !important;
+    font-size: 20px;
+    margin-top: -30px !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .input-amount-container h2 {
+    margin-left: 18px !important;
+    font-size: 20px;
+    margin-top: -45px !important;
   }
 }
