@@ -10,8 +10,36 @@ import RightLayoutAuth from '../../../components/auth/right';
 import { changePassword, checkToken } from '../../../services/auth';
 import { Navigate, useNavigate, useParams } from 'react-router';
 import Swal from 'sweetalert2';
+import { IconContext } from 'react-icons';
+import { BiLockAlt } from 'react-icons/bi';
 
 const CreatePassword = () => {
+
+
+    const [pFieldOnFocus, setpFieldOnFocus] = useState(false)
+    const [cpFieldOnFocus, setcpFieldOnFocus] = useState(false)
+
+
+    const handlepFocus = (e) => {
+        e.preventDefault()
+        setpFieldOnFocus(true)
+    }
+
+    const handlepBlur = (e) => {
+        e.preventDefault()
+        setpFieldOnFocus(false)
+    }
+    const handlecpFocus = (e) => {
+        e.preventDefault()
+        setcpFieldOnFocus(true)
+    }
+
+    const handlecpBlur = (e) => {
+        e.preventDefault()
+        setcpFieldOnFocus(false)
+    }
+
+
 
 
     const [newPassword, setnewPassword] = useState("");
@@ -24,7 +52,7 @@ const CreatePassword = () => {
     const checktokenRender = async () => {
         try {
             const res = await checkToken(token)
-           
+
             const statusRes = res.data.success;
             if (statusRes === true) {
                 // console.log(res);
@@ -54,7 +82,7 @@ const CreatePassword = () => {
                 confirmPassword
             }
             // console.log(data);
-            
+
 
             const response = await changePassword(data, token)
             // console.log(response.data);
@@ -78,7 +106,6 @@ const CreatePassword = () => {
                     html: errorMsg,
                 })
             }
-
         } catch (error) {
             console.log(error);
         }
@@ -100,20 +127,41 @@ const CreatePassword = () => {
                 <h6 className='mb-4 h6-login'>Did You Forgot Your Password? Don’t Worry, You Can Reset Your Password In a Minutes.</h6>
                 <p className='p-auth opacity-75 mb-5 p-login'>Now you can create a new password for your Zwallet account. Type your password twice so we can confirm your new passsword.</p>
 
-                <Form onSubmit={e => {
+                <Form
+                className='w-100'
+                onSubmit={e => {
                     e.preventDefault();
                     changePasswordAction(e)
                 }}>
 
-                    <InputGroup className="mb-5">
-                        <InputGroup.Text id="basic-addon1" style={{ backgroundColor: 'white !important', border: 'none', outline: 'none' }} ><i class="bi bi-lock"></i></InputGroup.Text>
-                        <Form.Control type="password" className="p-auth opacity-75" placeholder="Create new password" onChange={(e) => setnewPassword(e.target.value)} />
-                    </InputGroup>
-                    <InputGroup className="mb-5">
-                        <InputGroup.Text id="basic-addon1" style={{ backgroundColor: 'white !important', border: 'none', outline: 'none' }}   ><i class="bi bi-lock"></i></InputGroup.Text>
-                        <Form.Control type="password" className="p-auth opacity-75" placeholder="Confirm new password" onChange={(e) => setconfirmPassword(e.target.value)}/>
-                    </InputGroup>
 
+
+
+                    <section className='input-container mb-4'>
+                        <IconContext.Provider value={{ color: `${pFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
+                            <p className='input-icon'><BiLockAlt /></p>
+                        </IconContext.Provider>
+                        <input type='password' onFocus={handlepFocus} onBlur={handlepBlur}
+                            className="p-auth opacity-75"
+                            placeholder="Enter your password"
+                            value={newPassword}
+                            onChange={(e) => setnewPassword(e.target.value)}
+                            required />
+                    </section>
+
+
+                    <section className='input-container mb-4'>
+                        <IconContext.Provider value={{ color: `${pFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
+                            <p className='input-icon'><BiLockAlt /></p>
+                        </IconContext.Provider>
+                        <input type='password' onFocus={handlecpFocus} onBlur={handlecpBlur}
+                            className="p-auth opacity-75"
+                            placeholder="Confirm your new password"
+                            value={confirmPassword}
+                            onChange={(e) => setconfirmPassword(e.target.value)}
+                            required />
+                    </section>
+        
                     <div className="d-grid gap-4 mb-5">
                         <Button variant="primary" type="submit" size="lg" style={{ backgroundColor: "#6379F4" }} >
                             Reset Password
