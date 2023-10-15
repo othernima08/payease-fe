@@ -19,16 +19,16 @@ const PaymentCode = () => {
   const exportPDF = () => {
     const input = document.getElementById("content")
     html2canvas(input, { logging: true, letterRendering: 1, useCORS: true }).then(
-        canvas => {
-            const imgWidth = 208;
-            const imgHeight = canvas.height * imgWidth / canvas.width;
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-            pdf.save("check.pdf")
-        }
+      canvas => {
+        const imgWidth = 208;
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+        pdf.save("check.pdf")
+      }
     )
-}
+  }
 
 
 
@@ -55,110 +55,110 @@ const PaymentCode = () => {
       <div className="transfer-container  ">
         <div className="content-container ">
           <div id="content">
-          <Row bsPrefix="margin-box">
-            <Col md={12}>
-              <div className="back-icon">
-                <IoArrowBack />
-              </div>
+            <Row bsPrefix="margin-box">
+              <Col md={12}>
+                <div className="back-icon">
+                  <IoArrowBack />
+                </div>
 
-              <h2 className="text-title p-balance-mobile-receiver">
-                Confirmation
+                <h2 className="text-title p-balance-mobile-receiver">
+                  Confirmation
+                </h2>
+              </Col>
+            </Row>
+            <div className="d-flex img-success-mobile mb-1 mt-2 flex-column">
+              <h3 className="text-title ">Payment Code</h3>
+
+              <h2 className="text-title ">
+                {localStorage.getItem("paymentCode")}
               </h2>
-            </Col>
-          </Row>
-          <div className="d-flex img-success-mobile mb-1 mt-2 flex-column">
-            <h3 className="text-title ">Payment Code</h3>
 
-            <h2 className="text-title ">
-              {localStorage.getItem("paymentCode")}
-            </h2>
+              <h5 className="text-title ">Status : Waiting for payment</h5>
+            </div>
+            <div className="card-container mb-2">
+              <div className="d-flex flex-row">
+                <div className="d-flex flex-column p-2">
+                  <div>Amount</div>
+                  <div className="p-auth opacity-75">
 
-            <h5 className="text-title ">Status : Waiting for payment</h5>
-          </div>
-          <div className="card-container mb-2">
-            <div className="d-flex flex-row">
-              <div className="d-flex flex-column p-2">
-                <div>Amount</div>
-                <div className="p-auth opacity-75">
+                    {`Rp ${parseFloat(localStorage.getItem("amount")).toLocaleString('id-ID')}`}
 
- {`Rp ${parseFloat(localStorage.getItem("amount")).toLocaleString('id-ID')}`}
-                
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="card-container mb-2">
-            <div className="d-flex flex-row">
-              <div className="d-flex flex-column p-2">
-                <div>Payment Method</div>
-                <div className="p-auth opacity-75">
-                  {virtualAccountData && virtualAccountData[0].provider_name}
+            <div className="card-container mb-2">
+              <div className="d-flex flex-row">
+                <div className="d-flex flex-column p-2">
+                  <div>Payment Method</div>
+                  <div className="p-auth opacity-75">
+                    {virtualAccountData && virtualAccountData[0].provider_name}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <h5 className="text-title mt-2 mb-2 mx-4">Payment Instruction</h5>
+            <h5 className="text-title mt-2 mb-2 mx-4">Payment Instruction</h5>
 
-          <div className="card-container mb-2">
-            <div className="d-flex flex-column justify-content-center align-content-center">
-              <div className="mx-1 d-flex justify-content-around">
-                <img
-                  style={{ width: "20%", justifyItems: "center" }}
-                  src={
-                    virtualAccountData &&
-                    virtualAccountData[0].profile_picture_url
-                  }
-                  alt=""
-                />
-              </div>
-              <div className="d-flex flex-column p-2">
-                <div>
-                  {" "}
-                  {virtualAccountData && virtualAccountData[0].provider_name}
+            <div className="card-container mb-2">
+              <div className="d-flex flex-column justify-content-center align-content-center">
+                <div className="mx-1 d-flex justify-content-around">
+                  <img
+                    style={{ width: "20%", justifyItems: "center" }}
+                    src={
+                      virtualAccountData &&
+                      virtualAccountData[0].profile_picture_url
+                    }
+                    alt=""
+                  />
                 </div>
-                <div className="p-auth opacity-75">
-                  - Lakukan login ke akun m-{" "}
-                  {virtualAccountData && virtualAccountData[0].provider_name}{" "}
-                  anda.
-                  <br />
-                  - Pilih menu m-Transfer.
-                  <br />- Pilih{" "}
-                  {virtualAccountData &&
-                    virtualAccountData[0].provider_name}{" "}
-                  Virtual Account.
-                  <br />- Masukkan no virtual account :{" "}
-                  {virtualAccountData && virtualAccountData[0].number}
-                  <br />
-                  - Masukkan nominal top-up.
-                  <br />
-                  - Ikuti instruksi untuk menyelesaikan transaksi.
-                  <br />
-                  {virtualAccountData && virtualAccountData[0].provider_name}
-                  <br />- Masukkan kartu ATM dan PIN{" "}
-                  {virtualAccountData &&
-                    virtualAccountData[0].provider_name}{" "}
-                  Anda.
-                  <br />
-                  - Pilih menu Transaksi Lainnya.
-                  <br />
-                  - Pilih menu Transfers.
-                  <br />- Pilih menu Ke Rek{" "}
-                  {virtualAccountData &&
-                    virtualAccountData[0].provider_name}{" "}
-                  Virtual Account.
-                  <br />- Masukkan no virtula account :{" "}
-                  {virtualAccountData && virtualAccountData[0].provider_number}
-                  - Masukkan nominal top-up.
-                  <br />
-                  - Ikuti instruksi untuk menyelesaikan transaksi.
-                  <br />
-                  Catatan:
-                  <br />- Minimum top-up Rp20.000
+                <div className="d-flex flex-column p-2">
+                  <div>
+                    {" "}
+                    {virtualAccountData && virtualAccountData[0].provider_name}
+                  </div>
+                  <div className="p-auth opacity-75">
+                    - Lakukan login ke akun m-{" "}
+                    {virtualAccountData && virtualAccountData[0].provider_name}{" "}
+                    anda.
+                    <br />
+                    - Pilih menu m-Transfer.
+                    <br />- Pilih{" "}
+                    {virtualAccountData &&
+                      virtualAccountData[0].provider_name}{" "}
+                    Virtual Account.
+                    <br />- Masukkan no virtual account :{" "}
+                    {virtualAccountData && virtualAccountData[0].number}
+                    <br />
+                    - Masukkan nominal top-up.
+                    <br />
+                    - Ikuti instruksi untuk menyelesaikan transaksi.
+                    <br />
+                    {virtualAccountData && virtualAccountData[0].provider_name}
+                    <br />- Masukkan kartu ATM dan PIN{" "}
+                    {virtualAccountData &&
+                      virtualAccountData[0].provider_name}{" "}
+                    Anda.
+                    <br />
+                    - Pilih menu Transaksi Lainnya.
+                    <br />
+                    - Pilih menu Transfers.
+                    <br />- Pilih menu Ke Rek{" "}
+                    {virtualAccountData &&
+                      virtualAccountData[0].provider_name}{" "}
+                    Virtual Account.
+                    <br />- Masukkan no virtula account :{" "}
+                    {virtualAccountData && virtualAccountData[0].provider_number}
+                    - Masukkan nominal top-up.
+                    <br />
+                    - Ikuti instruksi untuk menyelesaikan transaksi.
+                    <br />
+                    Catatan:
+                    <br />- Minimum top-up Rp20.000
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </div>
           <div className="d-flex flex-row-reverse mt-4">
             <div
@@ -166,7 +166,7 @@ const PaymentCode = () => {
               style={{ width: "100%", justifyContent: "flex-end" }}
             >
 
-<Button onClick={exportPDF} variant="primary custom-button-tf" className='mx-2' style={{ backgroundColor: "rgba(99, 121, 244, 0.15)", color: "#6379F4", width: "200px" }}><i class="bi bi-download mx-2"></i>Download PDF</Button>
+              <Button onClick={exportPDF} variant="primary custom-button-tf" className='mx-2' style={{ backgroundColor: "rgba(99, 121, 244, 0.15)", color: "#6379F4", width: "200px" }}><i class="bi bi-download mx-2"></i>Download PDF</Button>
               <Link to={"/top-up/history"}>
                 <Button
                   variant="primary custom-button-home"
