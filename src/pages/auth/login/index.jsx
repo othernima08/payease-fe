@@ -9,20 +9,80 @@ import RightLayoutAuth from "../../../components/auth/right";
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { login } from '../../../services/users';
+import { getUserById, login } from '../../../services/users';
 import Swal from 'sweetalert2';
+import { sendOtp } from '../../../services/auth';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isVerified, setIsVerified] = useState('');
     const [error, setError] = useState("");
 
-    const navigatetoProfile = useNavigate();
 
-    const routetoprofile = () => {
-        navigatetoProfile(`/home`); 
-    };
+    const [userStatus, setUserStatus] = useState('');
 
+    const navigate = useNavigate();
+
+    const sendOtpToEmail = async () =>{
+        try {
+            const data = {
+                emailUser: email
+            }
+            const response = await sendOtp(data);
+            console.log(response);  
+            if (response.data.success) {
+                navigate("/otp");
+            } 
+            else {
+                if (response.data.error == null) {
+                    const errorMsg = response.data.message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        html: errorMsg,
+                    })
+                }
+                else {
+                    const errorMsg = Object.values(response.data.error).join(`<br/>`);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        html: errorMsg,
+                    })
+                }
+            }
+
+         
+        } catch (error) {
+            
+        }
+    }
+
+    const checkUserStatus = async () => {
+        try {
+            const response = await getUserById(localStorage.getItem("id"));
+            console.log(response.data.data);
+            const isVerifiedData = response.data.data.isVerified;
+            localStorage.setItem("verified", isVerifiedData);
+            console.log(isVerifiedData, "ini is Verified");
+            if (isVerifiedData === true) { 
+                navigate(`/home`);
+            } 
+            else {
+                sendOtpToEmail();
+               
+            }
+
+        } catch (error) {
+       
+            Swal.fire({
+                icon: 'error',
+                title: 'Login Failed',
+                html: error,
+            })
+        }
+    }
     const handleLogin = async (e) => {
         e.preventDefault();
 
@@ -33,15 +93,20 @@ const Login = () => {
             }
 
             const response = await login(data);
-            // console.log(response);
-           
+            console.log(response);
+
             if (response.data.success) {
-                routetoprofile();
-                localStorage.setItem("id", response.data.data.id)
-                localStorage.setItem("token", response.data.data.token)
+                localStorage.setItem("id", response.data.data.id);
+                localStorage.setItem("token", response.data.data.token);
+                
+                checkUserStatus();
+
+
+                // if(setUserStatus){
+
+                // }
             } else {
-               
-                if(response.data.error==null){
+                if (response.data.error == null) {
                     const errorMsg = response.data.message
                     Swal.fire({
                         icon: 'error',
@@ -49,14 +114,14 @@ const Login = () => {
                         html: errorMsg,
                     })
                 }
-                else{
+                else {
                     const errorMsg = Object.values(response.data.error).join(`<br/>`);
                     Swal.fire({
                         icon: 'error',
                         title: 'Login Failed',
                         html: errorMsg,
                     })
-                }              
+                }
             }
         } catch (error) {
             console.error('Error:', error);
@@ -97,14 +162,14 @@ const Login = () => {
                     </InputGroup>
                     <div className="d-flex flex-row-reverse mb-5">
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                          <Link to={"/reset-password"}>  <Form.Text className="text-muted">
+                            <Link to={"/reset-password"}>  <Form.Text className="text-muted">
                                 Forgot password?
                             </Form.Text>
                             </Link>
                         </Form.Group>
                     </div>
                     <div className="d-grid gap-4 mb-5">
-                        <Button variant="primary"  size="lg" style={{ backgroundColor: "#6379F4" }}
+                        <Button variant="primary" size="lg" style={{ backgroundColor: "#6379F4" }}
                             onClick={handleLogin}>
                             Login
                         </Button>

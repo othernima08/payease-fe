@@ -5,15 +5,18 @@ import "./transfer.css";
 import { ButtonGroup, } from 'react-bootstrap';
 import { IoArrowBack } from 'react-icons/io5';
 import blank from "../../assets/images/blank.jpg"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TransferLayout from '../../layout/transfer';
 import ReceiverCard from '../../components/transferComponents/receiverCard';
-import { getUserPhoneNotNullAndNotSender, getUsers } from '../../services/users';
+import { getUserById, getUserPhoneNotNullAndNotSender, getUsers } from '../../services/users';
+import Swal from 'sweetalert2';
 
 const Transfer = () => {
 
+    const navigate = useNavigate();
     const [isSearching, setIsSearching] = useState(false);
     const [tampilUsers, setTampilUser] = useState([]);
+    const [tampilSender, setTampilSender] = useState([]);
     const [searchVal, setSearchVal] = useState(""); // Tambahkan state untuk nilai pencarian
 
  
@@ -37,14 +40,33 @@ const Transfer = () => {
         }
     }
 
+    const getDataUser = async () => {
+        try {
+            const data = await getUserById(idUser);
+            // console.log(data, "from axios");
+            console.log(data.data.data, "Data id user");
+            setTampilSender(data.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
         getDataReceiver();
-
+        getDataUser();
     }, []);
 
     console.log(tampilUsers, "mapsnya");
+    if(tampilSender.phoneNumber === null){
+            Swal.fire({
+                icon: "error",
+                title: "Transfer Menu Can't Be Accessed",
+                html: "You cant transfer because your phone number is still empty, please go to your profile and manage your phone number"
+            }) 
+            navigate(`/home`)
+    }
 
-
+   
     return (
         <AfterLoginLayout
         >

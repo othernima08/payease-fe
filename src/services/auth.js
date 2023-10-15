@@ -54,3 +54,24 @@ export const registerUser = async (data) => {
       console.log(error);
     }
   }
+
+  export const sendOtp = async (data) =>{
+    try {
+      const url = `${BASE_URL_API_DEV}/otp/generate`;
+      const response = await fetchApi({ url, method: "POST", data })
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  export const confirmOtpBe = async (data) =>{
+    try {
+      const url = `${BASE_URL_API_DEV}/otp`;
+      const response = await fetchApi({ url, method: "PUT", data })
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
