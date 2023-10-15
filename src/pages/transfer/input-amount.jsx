@@ -158,7 +158,7 @@ const InputAmount = () => {
                         </div>
                     </div>
 
-                    <center className='mb-5 '><p className='p-balance-dekstop'>Rp.{tampilUserSender.balance} Available</p></center>
+                    <center className='mb-5 '><p className='p-balance-dekstop'>Rp. {tampilUserSender.balance.toLocaleString('id-ID')} Available</p></center>
                     <div className="d-flex align-time-center justify-content-center">
                         <div className="d-inline-flex w-50 flex-column " style={{
                             marginBottom: '80px',

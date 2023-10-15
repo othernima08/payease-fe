@@ -85,7 +85,7 @@ const Dashboard = () => {
               <Card.Body className="dashboard-body">
                 <div className="balance-section">
                   <Card.Title bsPrefix="balance-title">Balance</Card.Title>
-                  <Card.Text bsPrefix="balance-text">{`Rp ${balance}`}</Card.Text>
+                  <Card.Text bsPrefix="balance-text"> {`Rp ${parseFloat(balance).toLocaleString('id-ID')}`}</Card.Text>
                   <Card.Text bsPrefix="phone-number-text">
                     {phoneNumber}
                   </Card.Text>
@@ -126,7 +126,7 @@ const Dashboard = () => {
             </div>
             <div className="income-section">
               <p className="income-label">Income</p>
-              <p className="income-amount">{`Rp ${totalIncome}`}</p>
+              <p className="income-amount"> {`Rp ${parseFloat(totalIncome).toLocaleString('id-ID')}`}</p>
             </div>
           </Col>
           <Col md={6} className="summary-column rights">
@@ -135,7 +135,7 @@ const Dashboard = () => {
             </div>
             <div className="expense-section">
               <p className="expense-label">Expense</p>
-              <p className="expense-amount">{`Rp ${totalExpense}`}</p>
+              <p className="expense-amount"> {`Rp ${parseFloat(totalExpense).toLocaleString('id-ID')}`}</p>
             </div>
           </Col>
         </Row>
