@@ -16,31 +16,6 @@ const TopUpHistory = () => {
 
     const navigate = useNavigate()
 
-    const currentDate = new Date();
-
-    // Calculate the start of the current week
-    const currentWeekStart = new Date(currentDate);
-    currentWeekStart.setHours(0, 0, 0, 0);
-    currentWeekStart.setDate(currentDate.getDate() - currentDate.getDay());
-
-    // Calculate the start of the current month
-    const currentMonthStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-
-    const thisWeekData = topUpHistory.filter((entry) => {
-        const entryDate = new Date(entry.transaction_time);
-        return entryDate >= currentWeekStart;
-    });
-
-    const thisMonthData = topUpHistory.filter((entry) => {
-        const entryDate = new Date(entry.transaction_time);
-        return entryDate >= currentMonthStart && !thisWeekData.includes(entry);
-    });
-
-    const olderData = topUpHistory.filter((entry) => {
-        const entryDate = new Date(entry.transaction_time);
-        return entryDate < currentMonthStart;
-    });
-
     const handleGetAllData = async () => {
         try {
             const response = await getTopUpHistoryByUserId(localStorage.getItem("id"));
@@ -93,9 +68,9 @@ const TopUpHistory = () => {
                                         This Week
                                     </section>
                                     {
-                                        thisWeekData.length > 0 ? thisWeekData?.map(item => (
+                                        (topUpHistory != []  && topUpHistory?.thisWeek?.length > 0) ? topUpHistory.thisWeek.map(item => (
                                             <TransactionHistoryCard
-                                                id={item.id}
+                                                key={item.id}
                                                 userName={item.name}
                                                 type={"income"}
                                                 subtype={item.type}
@@ -111,9 +86,9 @@ const TopUpHistory = () => {
                                         This Month
                                     </section>
                                     {
-                                        thisMonthData.length > 0 ? thisMonthData?.map(item => (
+                                        (topUpHistory != [] && topUpHistory?.thisMonth?.length > 0) ? topUpHistory.thisMonth.map(item => (
                                             <TransactionHistoryCard
-                                                id ={item.id}
+                                                key={item.id}
                                                 userName={item.name}
                                                 type={"income"}
                                                 subtype={item.type}
@@ -129,8 +104,9 @@ const TopUpHistory = () => {
                                         Older
                                     </section>
                                     {
-                                        olderData.length > 0 ? olderData?.map(item => (
+                                        (topUpHistory != [] && topUpHistory?.older?.length > 0) ? topUpHistory.older.map(item => (
                                             <TransactionHistoryCard
+                                                key={item.id}
                                                 userName={item.name}
                                                 type={"income"}
                                                 subtype={item.type}
