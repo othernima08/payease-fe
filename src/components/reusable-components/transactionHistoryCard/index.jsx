@@ -24,10 +24,9 @@ function TransactionHistoryCard(props) {
                         {status}
                     </p>
                 }
-              <p className={`transaction-amount-${type}`}>
-  {type === "income" ? '+Rp ' : '-Rp '}
-  {amount.toLocaleString('id-ID')}
-</p>
+                <p className={`transaction-amount-${type}`}>
+                    {(type === "income" ? '+' : '-') + amount}
+                </p>
             </section>
 
         </section>

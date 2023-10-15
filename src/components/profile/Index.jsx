@@ -5,7 +5,7 @@ import profileimg from "../../assets/images/blank.jpg"
 import { useNavigate } from 'react-router-dom';
 import './profilepage.css'
 import { getUserById } from "../../services/users";
-import NotificationCard from "../reusable-components/notificationCard";
+// import NotificationCard from "../reusable-components/notificationCard";
 
 function ProfilePageComponent() {
     const [detail, setDetail] = useState([]);
