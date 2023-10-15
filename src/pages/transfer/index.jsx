@@ -8,16 +8,19 @@ import blank from "../../assets/images/blank.jpg"
 import { Link, useNavigate } from 'react-router-dom';
 import TransferLayout from '../../layout/transfer';
 import ReceiverCard from '../../components/transferComponents/receiverCard';
+
 import { getUserById, getUserPhoneNotNullAndNotSender, getUsers } from '../../services/users';
 import Swal from 'sweetalert2';
 
 const Transfer = () => {
 
     const navigate = useNavigate();
+
+
     const [isSearching, setIsSearching] = useState(false);
     const [tampilUsers, setTampilUser] = useState([]);
     const [tampilSender, setTampilSender] = useState([]);
-    const [searchVal, setSearchVal] = useState(""); // Tambahkan state untuk nilai pencarian
+    const [searchVal, setSearchVal] = useState(""); 
 
  
     const result = tampilUsers.filter((users) =>
