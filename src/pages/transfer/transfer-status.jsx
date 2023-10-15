@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap'
-import CustomNavbar from '../../components/custom-components/navbar'
-import CustomSidebar from '../../components/custom-components/sidebar'
 import blankPict from '../../assets/images/blank.jpg';
-import CustomFooter from '../../components/custom-components/footer';
 import AfterLoginLayout from '../../layout/afterLogin';
 import "./transfer.css";
 import { ButtonGroup, } from 'react-bootstrap';
 import { IoArrowBack } from 'react-icons/io5';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { findTransferId } from '../../services/transactions';
 import html2pdf from 'html2pdf.js';
 import jsPDF from 'jspdf';
@@ -16,17 +13,15 @@ import html2canvas from 'html2canvas';
 
 
 const TransferStatus = () => {
-
-
     const { id } = useParams();
+    const navigate = useNavigate()
     const [tampilTransfer, setTampilTransfer] = useState([]);
     const [loading, setLoading] = useState(true);
 
 
-
     const getTransactionId = async () => {
         try {
-            console.log(id, "ini id transfer");
+            // console.log(id, "ini id transfer");
             const res = await findTransferId(id)
             console.log(res, "data transfer ini");
             setTampilTransfer(res.data.data);
@@ -68,7 +63,7 @@ const TransferStatus = () => {
         getTransactionId();
     }, [id]);
 
-    console.log(tampilTransfer, "ini data yang mau ditampilin");
+    // console.log(tampilTransfer, "ini data yang mau ditampilin");
 
     if (loading) {
         return <div>Loading...</div>;
@@ -81,7 +76,6 @@ const TransferStatus = () => {
     return (
         <AfterLoginLayout
         >
-
             <div className="transfer-container ">
                 <div className="content-container ">
                     <div id='content'>
@@ -159,7 +153,7 @@ const TransferStatus = () => {
                         <div className="d-flex flex-row custom-button-home" style={{ width: "60%" }}>
                             <Button variant="primary custom-button-tf" className='mx-3' style={{ width: "60px", marginRight: "4px", backgroundColor: "rgba(99, 121, 244, 0.15)" }}><i class="bi bi-share" style={{ color: "black" }}></i></Button>
                             <Button onClick={exportPDF} variant="primary custom-button-tf" className='mx-2' style={{ backgroundColor: "rgba(99, 121, 244, 0.15)", color: "#6379F4", width: "200px" }}><i class="bi bi-download mx-2"></i>Download PDF</Button>
-                            <Button variant="primary custom-button-home-tf" className='mx-2' style={{ backgroundColor: "#6379F4" }}>Back to Home</Button>
+                            <Button variant="primary custom-button-home-tf" className='mx-2' style={{ backgroundColor: "#6379F4" }} onClick={() => {navigate("/home")}}>Back to Home</Button>
                         </div>
                     </div>
 

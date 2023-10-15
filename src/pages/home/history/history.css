@@ -29,7 +29,7 @@
 .transaction-history-button-container {
     display: flex;
     justify-content: space-between;
-    /* margin-bottom: 20px; */
+    margin: 20px 0px;
 }
 
 .button-transaction-history {

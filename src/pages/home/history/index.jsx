@@ -21,31 +21,6 @@ const TransactionHistory = () => {
 
     const navigate = useNavigate()
 
-    const currentDate = new Date();
-
-    // Calculate the start of the current week
-    const currentWeekStart = new Date(currentDate);
-    currentWeekStart.setHours(0, 0, 0, 0);
-    currentWeekStart.setDate(currentDate.getDate() - currentDate.getDay());
-
-    // Calculate the start of the current month
-    const currentMonthStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-
-    const thisWeekData = transactionHistory.filter((entry) => {
-        const entryDate = new Date(entry.transaction_time);
-        return entryDate >= currentWeekStart;
-    });
-
-    const thisMonthData = transactionHistory.filter((entry) => {
-        const entryDate = new Date(entry.transaction_time);
-        return entryDate >= currentMonthStart && !thisWeekData.includes(entry);
-    });
-
-    const olderData = transactionHistory.filter((entry) => {
-        const entryDate = new Date(entry.transaction_time);
-        return entryDate < currentMonthStart;
-    });
-
     const handleOpenDateModal = () => setOpenDateModal(true)
     const handleCloseDateModal = () => setOpenDateModal(false)
 
@@ -102,8 +77,9 @@ const TransactionHistory = () => {
                                         This Week
                                     </section>
                                     {
-                                        thisWeekData.length > 0 ? thisWeekData.map(item => (
+                                        (transactionHistory != [] && transactionHistory?.thisWeek?.length > 0) ? transactionHistory.thisWeek.map(item => (
                                             <TransactionHistoryCard
+                                                key={item.id}
                                                 id={item.id}
                                                 userName={item.name}
                                                 type={item.type === "Transfer to" ? "expense" : "income"}
@@ -119,8 +95,9 @@ const TransactionHistory = () => {
                                         This Month
                                     </section>
                                     {
-                                        thisMonthData.length > 0 ? thisMonthData.map(item => (
+                                        (transactionHistory != [] &&  transactionHistory?.thisMonth?.length > 0) ? transactionHistory.thisMonth.map(item => (
                                             <TransactionHistoryCard
+                                                key={item.id}
                                                 id={item.id}
                                                 userName={item.name}
                                                 type={item.type === "Transfer to" ? "expense" : "income"}
@@ -136,8 +113,9 @@ const TransactionHistory = () => {
                                         Older
                                     </section>
                                     {
-                                        olderData.length > 0 ? olderData.map(item => (
+                                        (transactionHistory != [] && transactionHistory?.older?.length > 0)? transactionHistory.older.map(item => (
                                             <TransactionHistoryCard
+                                                key={item.id}
                                                 id={item.id}
                                                 userName={item.name}
                                                 type={item.type === "Transfer to" ? "expense" : "income"}
