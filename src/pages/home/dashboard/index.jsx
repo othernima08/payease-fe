@@ -7,7 +7,7 @@ import "font-awesome/css/font-awesome.css";
 import blank from "../../../assets/images/blank.jpg"
 import { getUserById } from "../../../services/users";
 import Grafik from "../../../components/reusable-components/grafik";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getTopFiveUserTransactionHistory } from "../../../services/transactions";
 import TransactionHistoryCard from "../../../components/reusable-components/transactionHistoryCard";
 
@@ -107,14 +107,18 @@ const Dashboard = () => {
       <Container className="buttons-section-mobile">
         <Row>
           <Col md={6} className="d-flex justify-content-center">
+          <Link to={"/transfer/receiver"}>
             <Button variant="light" className="transfer-button2">
               <i className="fa fa-arrow-up" aria-hidden="true"></i> Transfer
             </Button>
+            </Link>
           </Col>
           <Col md={6} className="d-flex justify-content-center">
+          <Link to={"/top-up/input-amount  "}>
             <Button variant="light" className="topup-button2">
               <i className="fa fa-plus" aria-hidden="true"></i> Top Up
             </Button>
+            </Link>
           </Col>
         </Row>
       </Container>
