@@ -59,6 +59,7 @@ export const topUpPost = async (data) => {
     console.log(error);
   }
 };
+
 export const topUpPayment = async (paymentCode) => {
   try {
     const token = localStorage.getItem("token");
@@ -103,6 +104,25 @@ export const getTransactionHistoryByUserId = async (userId) => {
     const token = localStorage.getItem("token");
 
     const url = `${BASE_URL_API_DEV}/transactions/transaction-history/${userId}`;
+    const response = await fetchApi({
+      url,
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getTopFiveUserTransactionHistory = async (userId) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const url = `${BASE_URL_API_DEV}/transactions/top-five-transaction-history/${userId}`;
     const response = await fetchApi({
       url,
       method: "GET",
