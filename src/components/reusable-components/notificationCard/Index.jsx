@@ -1,27 +1,30 @@
 import React from 'react'
-import { Card, CardBody, Col, Row } from 'react-bootstrap'
-import './notificationCard.css'
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
-const NotificationCard = () => {
+import "./notificationCard.css"
+
+function NotificationCard(props) {
+    const { id, type, notes, amount } = props
+
     return (
-        <Card className='notif-card'>
-            <Card.Body className='notif-card'>
-                <div className="d-flex align-items-center">
-                    <div className="notif-icon">
-                        <i className="fa fa-arrow-up" aria-hidden="true"></i>
-                    </div>
-                    <div>
-                        <div>
-                            <Card.Title className='pop-up-title'>Transfer to mamat</Card.Title>
-                        </div>
-                        <div className="pop-up-amount">
-                            <p className="mb-0">Rp30.000</p>  
-                        </div>
+        <section key={id} className="notification-card">
+            <section className="notification-icon">
+                <p className={`notification-${type}`}>
+                    {type === "income" ? <AiOutlineArrowDown /> : <AiOutlineArrowUp />}
+                </p>
+            </section>
+            <section style={{ width: "100%" }}>
+                <section className="notification-text">
+                    <p className="notification-notes">
+                        {notes}
+                    </p>
+                    <p className="notification-amount">
+                        Rp{amount}
+                    </p>
 
-                    </div>
-                </div>
-            </Card.Body>
-        </Card>
+                </section>
+            </section>
+        </section>
     )
 }
 
