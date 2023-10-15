@@ -181,9 +181,9 @@ const TransactionHistory = () => {
                                 }
                             </Row>
                             <Row bsPrefix='transaction-history-button-container'>
-                                <Button className='button-amount-expenses-filter' size="lg" onClick={() => { handleGetDataByStatus(false) }}><p style={{ color: "#FF5B37" }}><AiOutlineArrowDown /></p></Button>
-                                <Button className='button-amount-expenses-filter' style={{ margin: "0px 8px" }} size="lg" onClick={() => { handleGetDataByStatus(true) }}><p style={{ color: "#1EC15F" }}><AiOutlineArrowUp /></p></Button>
-                                <Button className='button-filter-date' size="lg"><p style={{ color: "#6379F4" }} onClick={handleOpenDateModal}>Filter by Date</p></Button>
+                                <Button className='button-amount-expenses-filter' size="lg" onClick={() => { handleGetDataByStatus(false) }}><p><AiOutlineArrowDown /></p></Button>
+                                <Button className='button-amount-incomes-filter' style={{ margin: "0px 8px" }} size="lg" onClick={() => { handleGetDataByStatus(true) }}><p><AiOutlineArrowUp /></p></Button>
+                                <Button className='button-filter-date' size="lg"><p onClick={handleOpenDateModal}>Filter by Date</p></Button>
                             </Row>
                         </Row>
                     </Container>
