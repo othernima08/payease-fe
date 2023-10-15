@@ -80,7 +80,9 @@ const PaymentCode = () => {
               <div className="d-flex flex-column p-2">
                 <div>Amount</div>
                 <div className="p-auth opacity-75">
-                  {localStorage.getItem("amount")}
+
+ {`Rp ${parseFloat(localStorage.getItem("amount")).toLocaleString('id-ID')}`}
+                
                 </div>
               </div>
             </div>
