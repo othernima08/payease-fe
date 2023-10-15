@@ -8,7 +8,8 @@ import { getUserById } from "../../services/users";
 // import NotificationCard from "../reusable-components/notificationCard";
 
 function ProfilePageComponent() {
-    const [detail, setDetail] = useState({});
+    const [detail, setDetail] = useState([]);
+    // const [imageData, setImageData] = useState({});
     const userId = localStorage.getItem("id");
 
     // const { id } = useParams();
@@ -27,7 +28,10 @@ function ProfilePageComponent() {
             if (response.data.success) {
                 const data = response.data.data
                 setDetail(data);
-                // console.log(data)
+                // setImageData(data.firstName)
+                console.log(data)
+                console.log(data.sharedUrl)
+                // console.log(imageData);
             } else {
                 console.error(`Error  ${id}`);
             }
@@ -35,8 +39,25 @@ function ProfilePageComponent() {
             console.error('Error:', error);
         }
     };
+
+    // const getImage= async () => {
+    //     console.log("a");
+    //     try {
+    //         const response = await getImage(userId)
+    //         if (response.data.success) {
+    //             // const imageData = response
+    //             setImageData(response);
+    //             console.log(response);
+    //         } else {
+    //             console.error(`Error  ${id}`);
+    //         }
+    //     } catch (error) {
+    //         console.error('Error:', error);
+    //     }
+    // };
     useEffect(() => {
         handleData();
+        // getImage();
     }, [userId]);
     return (
         <Container className="profilepage-container">
@@ -54,7 +75,7 @@ function ProfilePageComponent() {
                 <Col className="d-flex justify-content-center ">
                     <div style={{ textAlign: "center" }}>
 
-                        <p>Edit</p>
+                        <p>Edit  </p>
                         {/* <p>{}</p> */}
                         <p>{detail.firstName} {detail.lastName}</p>
                         <p>{detail.phoneNumber ? detail.phoneNumber : "-"}</p>

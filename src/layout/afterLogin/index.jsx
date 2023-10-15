@@ -15,7 +15,9 @@ import { Navigate } from 'react-router';
 
 const AfterLoginLayout = (props) => {
     const { children } = props;
-
+    
+    // tambahin state buat cek notificationnya open/gak, cth:
+    const [isOpen, setIsOpen] =useState(false)
     const [user, setUser] = useState({});
     const [error, setError] = useState(null);
 
@@ -60,6 +62,8 @@ const AfterLoginLayout = (props) => {
                     <CustomFooter />
                 </Container> : <Navigate to="/login" />
             }
+            {/* cth panggil popovernya */}
+            {/* {isOpen && <NotificationPopover/>} */} 
         </React.Fragment>
     )
 }

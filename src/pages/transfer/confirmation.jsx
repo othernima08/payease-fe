@@ -174,7 +174,7 @@ const Confirmation = () => {
                                 </div>
                                 <div className='d-flex flex-column p-2'>
                                     <div>{tampilUsersRecipient.firstName + " " + tampilUsersRecipient.lastName}</div>
-                                    <div className='p-auth opacity-75'>{amount}</div>
+                                    <div className='p-auth opacity-75'>{tampilUsersRecipient.phoneNumber}</div>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@ const Confirmation = () => {
 
                                 <div className='d-flex flex-column p-2'>
                                     <div>Amount</div>
-                                    <div className='p-auth opacity-75'>{amount}</div>
+                                    <div className='p-auth opacity-75'> {`Rp ${parseFloat(amount).toLocaleString('id-ID')}`}</div>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +195,7 @@ const Confirmation = () => {
 
                                 <div className='d-flex flex-column p-2'>
                                     <div>Balance Left</div>
-                                    <div className='p-auth opacity-75'>{tampilUserSender.balance}</div>
+                                    <div className='p-auth opacity-75'>{`Rp ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}</div>
                                 </div>
                             </div>
                         </div>

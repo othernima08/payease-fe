@@ -100,7 +100,11 @@ const TransferStatus = () => {
 
                                 <div className='d-flex flex-column p-2'>
                                     <div>Amount</div>
-                                    <div className='p-auth opacity-75'>Rp. {tampilTransfer.transactions.amount}</div>
+                                    <div className='p-auth opacity-75'>Rp.
+                                    
+                                    {`${parseFloat(tampilTransfer.transactions.amount).toLocaleString('id-ID')}`}
+                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +113,11 @@ const TransferStatus = () => {
 
                                 <div className='d-flex flex-column p-2'>
                                     <div>Balance Left</div>
-                                    <div className='p-auth opacity-75'>Rp.  {tampilTransfer.transactions.user.balance}</div>
+                                    <div className='p-auth opacity-75'>Rp.  
+                                    
+                                    {` ${parseFloat(tampilTransfer.transactions.user.balance).toLocaleString('id-ID')}`}
+                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>

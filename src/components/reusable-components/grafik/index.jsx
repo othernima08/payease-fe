@@ -68,6 +68,14 @@ const Grafik = () => {
         barPercentage: 0.2,
         borderSkipped: false,
       },
+      {
+        label: "Dataset 2",
+        data: [900, 590, 150, 280, 890, 570, 200],
+        backgroundColor: "red",
+        borderRadius: 100,
+        barPercentage: 0.2,
+        borderSkipped: false,
+      },
     ],
   };
   return (
