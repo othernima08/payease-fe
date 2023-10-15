@@ -8,11 +8,11 @@ import blank from "../../../assets/images/blank.jpg"
 import { getUserById } from "../../../services/users";
 import Grafik from "../../../components/reusable-components/grafik";
 import { useNavigate } from 'react-router-dom';
-import { getTransactionHistoryByUserId } from "../../../services/transactions";
+import { getTopFiveUserTransactionHistory } from "../../../services/transactions";
 import TransactionHistoryCard from "../../../components/reusable-components/transactionHistoryCard";
 
 const Dashboard = () => {
-  
+
   const [phoneNumber, setPhoneNumber] = useState('');
   const [balance, setBalance] = useState('');
   const [transactionHistory, setTransactionHistory] = useState([]);
@@ -25,7 +25,7 @@ const Dashboard = () => {
     let expenseTotal = 0;
 
     transactionHistory.forEach((transaction) => {
-      if (transaction.type === "Top Up") {
+      if (transaction.type === "Top Up" || transaction.type === "Transfer from" ) {
         incomeTotal += transaction.amount;
       } else if (transaction.type === "Transfer to") {
         expenseTotal += transaction.amount;
@@ -44,7 +44,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const userResponse = await getUserById(userId);
-        const transactionResponse = await getTransactionHistoryByUserId(userId);
+        const transactionResponse = await getTopFiveUserTransactionHistory(userId);
 
         if (userResponse.status === 200) {
           const user = userResponse.data.data;
@@ -55,8 +55,7 @@ const Dashboard = () => {
         }
 
         if (transactionResponse.data.success) {
-          const limitedHistory = transactionResponse.data.data.slice(0, 4);
-          setTransactionHistory(limitedHistory);
+          setTransactionHistory(transactionResponse.data.data);
         } else {
           console.error('Failed to fetch transaction history');
         }
@@ -79,48 +78,46 @@ const Dashboard = () => {
 
   return (
     <AfterLoginLayout>
-     <Container fluid className="balance">
-  <Row>
-    <Col md={12}>
-      <Card className="dashboard-card">
-        <Card.Body className="dashboard-body">
-          <div className="balance-section">
-            <Card.Title bsPrefix="balance-title">Balance</Card.Title>
-            <Card.Text bsPrefix="balance-text">{`Rp ${balance}`}</Card.Text>
-            <Card.Text bsPrefix="phone-number-text">
-            {phoneNumber}
-            </Card.Text>
-          </div>
-          <div className="buttons-section">
-            <Button variant="light" className="transfer-button" onClick={handleClickTransfer}>
-              <i className="fa fa-arrow-up" aria-hidden="true"></i>{" "}
-              Transfer
+      <Container fluid className="balance">
+        <Row>
+          <Col md={12}>
+            <Card className="dashboard-card">
+              <Card.Body className="dashboard-body">
+                <div className="balance-section">
+                  <Card.Title bsPrefix="balance-title">Balance</Card.Title>
+                  <Card.Text bsPrefix="balance-text">{`Rp ${balance}`}</Card.Text>
+                  <Card.Text bsPrefix="phone-number-text">
+                    {phoneNumber}
+                  </Card.Text>
+                </div>
+                <div className="buttons-section">
+                  <Button variant="light" className="transfer-button" onClick={handleClickTransfer}>
+                    <i className="fa fa-arrow-up" aria-hidden="true"></i>{" "}
+                    Transfer
+                  </Button>
+                  <Button variant="light" className="topup-button" onClick={handleClickTopUp}>
+                    <i className="fa fa-plus" aria-hidden="true"></i> Top Up
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+      <Container className="buttons-section-mobile">
+        <Row>
+          <Col md={6} className="d-flex justify-content-center">
+            <Button variant="light" className="transfer-button2">
+              <i className="fa fa-arrow-up" aria-hidden="true"></i> Transfer
             </Button>
-            <Button variant="light" className="topup-button"  onClick={handleClickTopUp}>
+          </Col>
+          <Col md={6} className="d-flex justify-content-center">
+            <Button variant="light" className="topup-button2">
               <i className="fa fa-plus" aria-hidden="true"></i> Top Up
             </Button>
-          </div>
-        </Card.Body>
-      </Card>
-    </Col>
-  </Row>
-</Container>
-<Container className="buttons-section-mobile">
-  <Row>
-    <Col md={6} className="d-flex justify-content-center">
-      <Button variant="light" className="transfer-button2">
-        <i className="fa fa-arrow-up" aria-hidden="true"></i> Transfer
-      </Button>
-    </Col>
-    <Col md={6} className="d-flex justify-content-center">
-      <Button variant="light" className="topup-button2">
-        <i className="fa fa-plus" aria-hidden="true"></i> Top Up
-      </Button>
-    </Col>
-  </Row>
-</Container>
-
-
+          </Col>
+        </Row>
+      </Container>
       <Container className="transaction-summary">
         <Row>
           <Col md={6} className="summary-column lefts">
@@ -143,13 +140,13 @@ const Dashboard = () => {
           </Col>
         </Row>
         {/* Card with Bar Chart */}
-        <Grafik/>
+        <Grafik />
       </Container>
 
       <Container className="history-container">
         <div className="history-title">
           <p className="prgph1">Transaction History</p>
-          <p className="prgph2" onClick={() => {navigate("/home/history")}}>See all</p>
+          <p className="prgph2" onClick={() => { navigate("/home/history") }}>See all</p>
         </div>
         {transactionHistory.map((transaction) => (
           <TransactionHistoryCard

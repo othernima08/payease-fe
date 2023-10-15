@@ -80,6 +80,7 @@ const TransactionHistory = () => {
                                         (transactionHistory != [] && transactionHistory?.thisWeek?.length > 0) ? transactionHistory.thisWeek.map(item => (
                                             <TransactionHistoryCard
                                                 key={item.id}
+                                                id={item.id}
                                                 userName={item.name}
                                                 type={item.type === "Transfer to" ? "expense" : "income"}
                                                 subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
@@ -97,6 +98,7 @@ const TransactionHistory = () => {
                                         (transactionHistory != [] &&  transactionHistory?.thisMonth?.length > 0) ? transactionHistory.thisMonth.map(item => (
                                             <TransactionHistoryCard
                                                 key={item.id}
+                                                id={item.id}
                                                 userName={item.name}
                                                 type={item.type === "Transfer to" ? "expense" : "income"}
                                                 subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
@@ -114,6 +116,7 @@ const TransactionHistory = () => {
                                         (transactionHistory != [] && transactionHistory?.older?.length > 0)? transactionHistory.older.map(item => (
                                             <TransactionHistoryCard
                                                 key={item.id}
+                                                id={item.id}
                                                 userName={item.name}
                                                 type={item.type === "Transfer to" ? "expense" : "income"}
                                                 subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
