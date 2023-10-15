@@ -122,9 +122,9 @@ const TopUpHistory = () => {
                                 </section>
                             </Row>
                             <Row bsPrefix='top-up-history-button-container'>
-                                <Button style={{ width: '100%', backgroundColor: "#FFFFFF", marginRight: 8, border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg" onClick={handleGetAllData}><p style={{ color: "blue" }} >All</p></Button>
-                                <Button style={{ width: '100%', backgroundColor: "#FFFFFF", marginRight: 8, border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg" onClick={() => { handleGetDataByStatus(false) }}><p style={{ color: "#FF5B37" }} >Pending</p></Button>
-                                <Button style={{ width: '100%', backgroundColor: "#FFFFFF", marginLeft: 8, border: "none", boxShadow: "0px 0px 20px 4px #ebebeb" }} size="lg" onClick={() => { handleGetDataByStatus(true) }}><p style={{ color: "#1EC15F" }}>Success</p></Button>
+                                <Button className='button-get-top-up-histories' size="lg" onClick={handleGetAllData}><p className='get-all'>All</p></Button>
+                                <Button className='button-get-top-up-histories' style={{margin: "0px 12px"}} size="lg" onClick={() => { handleGetDataByStatus(false) }}><p className='get-pending' >Pending</p></Button>
+                                <Button className='button-get-top-up-histories' size="lg" onClick={() => { handleGetDataByStatus(true) }}><p className='get-success'>Success</p></Button>
                             </Row>
                         </Row>
                     </Container>
