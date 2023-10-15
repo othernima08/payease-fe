@@ -11,8 +11,27 @@ import { IoArrowBack } from "react-icons/io5";
 import LayoutAuth from "../../layout/auth";
 import { getVirtualAccountById } from "../../services/transactions";
 import { Link } from "react-router-dom";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 const PaymentCode = () => {
   const [virtualAccountData, setVirtualAccountData] = useState(null);
+
+  const exportPDF = () => {
+    const input = document.getElementById("content")
+    html2canvas(input, { logging: true, letterRendering: 1, useCORS: true }).then(
+        canvas => {
+            const imgWidth = 208;
+            const imgHeight = canvas.height * imgWidth / canvas.width;
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+            pdf.save("check.pdf")
+        }
+    )
+}
+
+
+
 
   useEffect(() => {
     const virtualAccountId = localStorage.getItem("selectedBankId");
@@ -33,8 +52,9 @@ const PaymentCode = () => {
 
   return (
     <AfterLoginLayout>
-      <div className="transfer-container ">
+      <div className="transfer-container  ">
         <div className="content-container ">
+          <div id="content">
           <Row bsPrefix="margin-box">
             <Col md={12}>
               <div className="back-icon">
@@ -76,7 +96,7 @@ const PaymentCode = () => {
               </div>
             </div>
           </div>
-          <h5 className="text-title mt-2 mb-2">Payment Instruction</h5>
+          <h5 className="text-title mt-2 mb-2 mx-4">Payment Instruction</h5>
 
           <div className="card-container mb-2">
             <div className="d-flex flex-column justify-content-center align-content-center">
@@ -137,11 +157,14 @@ const PaymentCode = () => {
               </div>
             </div>
           </div>
+          </div>
           <div className="d-flex flex-row-reverse mt-4">
             <div
               className="d-flex flex-row custom-button-home"
               style={{ width: "100%", justifyContent: "flex-end" }}
             >
+
+<Button onClick={exportPDF} variant="primary custom-button-tf" className='mx-2' style={{ backgroundColor: "rgba(99, 121, 244, 0.15)", color: "#6379F4", width: "200px" }}><i class="bi bi-download mx-2"></i>Download PDF</Button>
               <Link to={"/top-up/history"}>
                 <Button
                   variant="primary custom-button-home"
