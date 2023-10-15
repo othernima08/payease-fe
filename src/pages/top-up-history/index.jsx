@@ -77,7 +77,7 @@ const TopUpHistory = () => {
                                                 subtype={item.type}
                                                 status={item.status}
                                                 userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
-                                                amount={item.amount}
+                                                amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
                                             />
                                         )) : <p>No Data</p>
                                     }
@@ -96,7 +96,7 @@ const TopUpHistory = () => {
                                                 subtype={item.type}
                                                 status={item.status}
                                                 userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
-                                                amount={item.amount}
+                                                amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
                                             />
                                         )) : <p>No Data</p>
                                     }
@@ -115,7 +115,7 @@ const TopUpHistory = () => {
                                                 subtype={item.type}
                                                 status={item.status}
                                                 userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
-                                                amount={item.amount}
+                                                amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
                                             />
                                         )) : <p>No Data</p>
                                     }
