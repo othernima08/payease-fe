@@ -10,6 +10,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getUserById } from '../../services/users';
 import ReceiverCard from '../../components/transferComponents/receiverCard';
 import Swal from 'sweetalert2';
+import { IconContext } from 'react-icons';
+import { BiEnvelope, BiPencil } from 'react-icons/bi';
 
 const InputAmount = () => {
     const [isFocused, setIsFocused] = useState(false);
@@ -63,7 +65,7 @@ const InputAmount = () => {
                     title: "Invalid PIN or insufficient balance",
                     html: "Invalid PIN or insufficient balance"
                 })
-              }
+            }
 
 
             else {
@@ -99,6 +101,21 @@ const InputAmount = () => {
         }
     }
 
+
+    const [eFieldOnFocus, seteFieldOnFocus] = useState(false)
+    const handleeFocus = (e) => {
+        e.preventDefault()
+
+        seteFieldOnFocus(true)
+    }
+
+    const handleeBlur = (e) => {
+        e.preventDefault()
+
+        seteFieldOnFocus(false)
+    }
+
+
     return (
         <AfterLoginLayout
         >
@@ -127,7 +144,7 @@ const InputAmount = () => {
 
 
                     <div className='p-content opacity-75'>Type the amount you want to transfer and then</div>
-                    <div className='p-content opacity-75'>  press continue to the next steps.</div>
+                    <div className='p-content opacity-75 mb-5'>  press continue to the next steps.</div>
                     <div className='d-flex  align-item-center justify-content-center flex-column'>
 
                         <center ><p className='p-balance-mobile-receiver mb-5 d-flex justify-content-center'>{`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
@@ -158,14 +175,14 @@ const InputAmount = () => {
                         </div>
                     </div>
 
-                    <center className='mb-5 '><p className='p-balance-dekstop'>Rp.  {`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
+                    <center className='mb-5 '><p className='p-balance-dekstop'>  {`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
                     <div className="d-flex align-time-center justify-content-center">
                         <div className="d-inline-flex w-50 flex-column " style={{
                             marginBottom: '80px',
                             textAlign: 'center'
                         }}>
 
-                            <InputGroup className="mb-4"
+                            {/* <InputGroup className="mb-4"
                             >
                                 <InputGroup.Text id="basic-addon1"><i className="bi bi-pencil"></i></InputGroup.Text>
                                 <Form.Control
@@ -179,8 +196,24 @@ const InputAmount = () => {
                                     value={notes}
                                     onChange={(e) => setNotes(e.target.value)}
                                 />
-                            </InputGroup>
+                            </InputGroup> */}
+<div className="w-100">
 
+                            <section className='input-container mb-5'>
+                                <IconContext.Provider value={{ color: `${eFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
+                                    <p className='input-icon'><BiPencil /></p>
+                                </IconContext.Provider>
+                                <input
+                                    onFocus={handleeFocus}
+                                    onBlur={handleeBlur}
+                                    type="email"
+                                    className="p-auth opacity-75"
+                                    placeholder="Enter your email"
+                                    value={notes}
+                                    onChange={(e) => setNotes(e.target.value)}
+                                    required />
+                            </section>
+                            </div>
 
                         </div>
                     </div>
