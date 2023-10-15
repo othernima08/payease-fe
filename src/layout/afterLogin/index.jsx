@@ -15,16 +15,23 @@ import { Navigate } from 'react-router';
 
 const AfterLoginLayout = (props) => {
     const { children } = props;
-
+    
+    // tambahin state buat cek notificationnya open/gak, cth:
+    const [isOpen, setIsOpen] =useState(false)
     const [user, setUser] = useState({});
     const [error, setError] = useState(null);
 
-    const isLoggedIn = localStorage.length !== 0 && localStorage.getItem("id") !== undefined && localStorage.getItem("token") !== undefined
+    const isLoggedIn = localStorage.length !== 0 
+    && localStorage.getItem("id") !== undefined 
+    && localStorage.getItem("token") !== undefined
+    && localStorage.getItem("verified") !== "null" 
+    && localStorage.getItem("verified") !== "false" 
+    && localStorage.getItem("verified") !== undefined
 
     const getUser = async () => {
         try {
             const response = await getUserById(localStorage.getItem("id"));
-
+            // console.log(response)
             if (response.data.success) {
                 setUser(response.data.data)
             } else {
@@ -55,6 +62,8 @@ const AfterLoginLayout = (props) => {
                     <CustomFooter />
                 </Container> : <Navigate to="/login" />
             }
+            {/* cth panggil popovernya */}
+            {/* {isOpen && <NotificationPopover/>} */} 
         </React.Fragment>
     )
 }

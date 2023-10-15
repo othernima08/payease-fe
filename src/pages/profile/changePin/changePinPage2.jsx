@@ -17,6 +17,7 @@ const ChangePinPage2 = () => {
             try {
                 const data = {
                     userId: localStorage.getItem("id"),
+                    currentPin: localStorage.getItem("currentPin"),
                     newPin
                 }
 
@@ -29,6 +30,7 @@ const ChangePinPage2 = () => {
                         html: "Your PIN updated successfully"
                     })
 
+                    localStorage.removeItem("currentPin")
                     navigate("/profile")
                 } else {
                     let errorMsg = ""
@@ -52,6 +54,7 @@ const ChangePinPage2 = () => {
                 attempt++
             }
         } else {
+            localStorage.removeItem("currentPin")
             navigate("/profile")
         }
     }

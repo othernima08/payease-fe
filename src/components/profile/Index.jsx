@@ -5,6 +5,7 @@ import profileimg from "../../assets/images/blank.jpg"
 import { useNavigate } from 'react-router-dom';
 import './profilepage.css'
 import { getUserById } from "../../services/users";
+import NotificationCard from "../reusable-components/notificationCard";
 
 function ProfilePageComponent() {
     const [detail, setDetail] = useState([]);
@@ -19,7 +20,8 @@ function ProfilePageComponent() {
     }
 
     const handleData = async () => {
-        console.log('handdata is called');
+        // e.preventDefault();
+        // console.log('handdata is called');
 
         try {
             const response = await getUserById(userId)
@@ -66,8 +68,7 @@ function ProfilePageComponent() {
                         marginRight: "16px",
                         marginLeft: "16px",
                     }}>
-                        {/* <img src={detail?.sharedUrl} alt="..."  style={{ width: "100%" }}/> */}
-                    <Image src={  detail?.sharedUrl } alt="..." rounded style={{ width: "20%" }} />
+                    <Image src={detail.sharedUrl != null ? detail.sharedUrl : profileimg} alt='profile...' rounded style={{ width: "20%" }} />
                 </Col>
             </Row>
             <Row>

@@ -6,8 +6,8 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import AfterLoginLayout from "../../../layout/afterLogin";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
-import axios from "axios";
 import Swal from "sweetalert2";
+import { getUserById, deletePhoneNumberService } from "../../../services/users";
 
 const ManagePhoneNumber = () => {
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
@@ -17,20 +17,12 @@ const ManagePhoneNumber = () => {
   const userId = localStorage.getItem("id");
   const navigate = useNavigate();
 
-  const config = {
-    headers: {
-      'Authorization': `Bearer ${localStorage.getItem("token")}`,
-    }
-  };
 
   useEffect(() => {
     //fetch no hp user
     const fetchUserPhoneNumber = async () => {
       try {
-        const response = await axios.get(
-          `http://127.0.0.1:9090/users/${userId}`, 
-          config
-        );
+        const response = await getUserById(userId);
         if (response.status === 200) {
           const data = response.data;
           let phoneNumber = data.data?.phoneNumber || "";
@@ -60,13 +52,9 @@ const ManagePhoneNumber = () => {
 
   const handleDeletePhoneNumber = async () => {
     try {
-      const response = await axios.delete(
-        `http://127.0.0.1:9090/users/delete-phone-number/${userId}`, config
-      );
-
+      const response = await deletePhoneNumberService(userId);
       if (response.status === 200) {
         setShowDeleteConfirmation(false);
-        // profile information page
         Swal.fire({
           icon: 'success',
           title: 'Phone Number is successfully deleted!',

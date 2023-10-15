@@ -1,0 +1,48 @@
+/* payment-point.css */
+.payment-point-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+  }
+  
+  .payment-point-text-center {
+    text-align: center;
+    font-family: 'Nunito-Bold', sans-serif;
+    color: #4E5055;
+  }
+  
+  .payment-point-input-container {
+    margin-top: 20px;
+  }
+  
+  .payment-point-input-container input[type='text'] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .payment-point-button-container {
+    margin-top: 20px;
+  }
+  
+  .payment-point-process-button {
+    background-color: #6379F4;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .payment-point-process-button:disabled {
+    background-color: #A9A9A9;
+    cursor: not-allowed;
+  }
+  

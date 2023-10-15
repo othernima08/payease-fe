@@ -31,7 +31,7 @@ const CustomSidebar = () => {
     const handleClickTopUp = (e) => {
         e.preventDefault();
 
-        navigate("/top-up/payment-method")
+        navigate("/top-up/input-amount")
     }
 
     const handleClickProfile = (e) => {

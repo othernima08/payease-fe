@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { IconContext } from "react-icons";
 import { FiPhone } from "react-icons/fi";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { addPhoneNumberService } from "../../../services/users";
 
 import AfterLoginLayout from "../../../layout/afterLogin";
 
@@ -29,11 +29,6 @@ const AddPhoneNumber = () => {
     setPnFieldOnFocus(false);
   };
 
-  const config = {
-    headers: {
-      'Authorization': `Bearer ${localStorage.getItem("token")}`,
-    }
-  };
 
   const handlePhoneChange = (e) => {
     let formattedPhoneNumber = e.target.value.replace(/\D/g, "");
@@ -49,36 +44,17 @@ const AddPhoneNumber = () => {
     setPhoneNumber(formattedPhoneNumber);
   };
 
-  const addPhoneNumberAPI = async (userId, phoneNumber) => {
-    if (!userId) {
-      Swal.fire({
-        icon: 'error',
-        title: 'User ID not found',
-        text: 'User ID not found in localStorage. Please log in.'
-      });
-      return;
-    }
-
-    if (!isPhoneNumberValid) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Invalid Phone Number',
-        text: 'Please enter a valid phone number.'
-      });
-      return;
-    }
-
+  const handleAddPhoneNumber = async () => {
     try {
-      const response = await axios.put(
-        "http://127.0.0.1:9090/users/add-phone-number",
-        {
-          userId: userId,
-          phoneNumber: phoneNumber,
-        }, 
-        config
-      );
+      const response = await addPhoneNumberService(userId, phoneNumber);
 
-      if (response.status === 200) {
+      if (response.error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Failed to Add Phone Number',
+          text: response.message || 'Failed to add phone number. Please try again later.'
+        });
+      } else {
         Swal.fire({
           icon: 'success',
           title: 'Phone Number Added',
@@ -87,12 +63,6 @@ const AddPhoneNumber = () => {
           if (result.isConfirmed) {
             navigate("/profile/manage-phone");
           }
-        });
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Failed to Add Phone Number',
-          text: 'Failed to add phone number. Please try again later.'
         });
       }
     } catch (error) {
@@ -104,12 +74,6 @@ const AddPhoneNumber = () => {
       });
     }
   };
-
-  const handleAddPhoneNumber = () => {
-    addPhoneNumberAPI(userId, phoneNumber);
-    setPhoneNumber("");
-  };
-
   const handleBackButtonClick = () => {
     navigate("/profile/profile-information");
   };

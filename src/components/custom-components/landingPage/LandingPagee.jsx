@@ -1,46 +1,38 @@
-import React from 'react'
-import { Row, Col, Button } from 'react-bootstrap';
-import imagephone1 from '../../../assets/images/landingphone1.png'
-import './LandingPagee.css'
-import backgroundImg from '../../../assets/images/bg.png'
+import React from 'react';
+import { Row, Col, Button, Container } from 'react-bootstrap';
+import imagephone1 from '../../../assets/images/landingphone1.png';
 import { Link } from 'react-router-dom';
+import "./LandingPagee.css"
 
-const LandingPage = () => {
+const LandingPages = () => {
     return (
-        <Row>
-
-            <Col md={6} className="landing-page-text">
-                <div>
-                    <h2 className='tagline'>Awesome App <br /> For Saving <span style={{ color: "#6379F4" }}>Great </span> Time.</h2>
-                </div>
-                <div className='paragraf'>
-                    <p >we bring you a mobile app for banking problems </p>
-                    <p>that oftenly wasting much of your time</p>
-
-                </div>
-                <Link to={"/register"}>   <Button style={{ backgroundColor: "#6379F4", color: "#FFFFFF" }}>Try it free</Button></Link>
-            </Col>
-            <Col md={6} className="landing-page-image">
-                <div className="">
-                    <div className='button-landing'>
-                        <Link to={"/login"} ><Button className='button-login' variant="outline-light">Login</Button></Link>
-                        <Link to={"/register"} ><Button className='button-login' style={{ backgroundColor: "#FFFFFF", color: "#6379F4" }}>SignUp</Button></Link>
+        <Container fluid>
+            <Row>
+                <Col md={6} className="landing-page-left">
+                    <div className='landing-page-left-content'>
+                        <h2 className='tagline'>Awesome App <br /> For Saving <span style={{ color: "#6379F4" }}>Great </span> Time.</h2>
+                        <div className='paragraf'>
+                            <p>We bring you a mobile app for banking problems that often waste much of your time</p>
+                            <Link to={"/register"}>   <Button style={{ backgroundColor: "#6379F4", color: "#FFFFFF" }}>Try it free</Button></Link>
+                        </div>
                     </div>
-
-                    <img
-                        src={imagephone1}
-                        alt="Gambar Anda"
-                        className="img-fluid"
-                        style={{ top: "45px", right: "145px" }}
-                    />
-                </div>
-                <img src={backgroundImg}
-                    alt="img"
-                    className='bg-img' />
-
-            </Col>
-        </Row>
-    )
+                </Col>
+                <Col md={6} className="landing-page-right">
+                    <div className="button-landing">
+                    <div className="button-container">
+                            <Link to={"/login"} ><Button className='button-login'>Login</Button></Link>
+                            <Link to={"/register"} ><Button className='button-login' style={{ backgroundColor: "#FFFFFF", color: "#6379F4" }}>SignUp</Button></Link>
+                        </div>
+                        <img
+                            src={imagephone1}
+                            alt="Gambar Anda"
+                            className="img-fluid-right"
+                        />
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+    );
 }
 
-export default LandingPage
+export default LandingPages;
