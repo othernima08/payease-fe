@@ -34,6 +34,7 @@ import Confirmation from './pages/transfer/confirmation';
 import TransferStatus from './pages/transfer/transfer-status';
 import PaymentPoint from './pages/payment-point';
 import PDFFile from './components/pdfFile/PDFFile';
+import OTPPage from './pages/auth/login/otp';
 
 
 const Router = () => {
@@ -71,9 +72,8 @@ const Router = () => {
                 <Route exact path="/top-up/input-amount" element={<InputAmountTopUp />} />
                 <Route exact path="/top-up/payment-method" element={<PaymentMethod/>}/>
                 <Route exact path="/top-up/history" element={<TopUpHistory />} />
-
+                <Route exact path="/otp" element={<OTPPage />} />
                 <Route exact path="/payment-point" element={<PaymentPoint />} />
-
 
                 <Route exact path="/receipt/testpdf" element={<PDFFile />} />
 

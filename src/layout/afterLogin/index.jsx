@@ -19,7 +19,12 @@ const AfterLoginLayout = (props) => {
     const [user, setUser] = useState({});
     const [error, setError] = useState(null);
 
-    const isLoggedIn = localStorage.length !== 0 && localStorage.getItem("id") !== undefined && localStorage.getItem("token") !== undefined
+    const isLoggedIn = localStorage.length !== 0 
+    && localStorage.getItem("id") !== undefined 
+    && localStorage.getItem("token") !== undefined
+    && localStorage.getItem("verified") !== "null" 
+    && localStorage.getItem("verified") !== "false" 
+    && localStorage.getItem("verified") !== undefined
 
     const getUser = async () => {
         try {
