@@ -8,7 +8,7 @@ import blank from "../../../assets/images/blank.jpg"
 import { getUserById } from "../../../services/users";
 import Grafik from "../../../components/reusable-components/grafik";
 import { Link, useNavigate } from 'react-router-dom';
-import { getTopFiveUserTransactionHistory } from "../../../services/transactions";
+import { getTopFiveUserTransactionHistory, getUserIncomesExpensesAmount } from "../../../services/transactions";
 import TransactionHistoryCard from "../../../components/reusable-components/transactionHistoryCard";
 
 const Dashboard = () => {
@@ -20,21 +20,37 @@ const Dashboard = () => {
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalExpense, setTotalExpense] = useState(0);
 
-  useEffect(() => {
-    let incomeTotal = 0;
-    let expenseTotal = 0;
+  const handleGetUserIncomeExpensesData = async () => {
+    try {
+        const response = await getUserIncomesExpensesAmount(localStorage.getItem("id"));
+      console.log(response)
+        if (response.data.success) {
+            setTotalIncome(response.data.data.incomes)
+            setTotalExpense(response.data.data.expenses)
+        } else {
+            setError(response.data.message)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
 
-    transactionHistory.forEach((transaction) => {
-      if (transaction.type === "Top Up" || transaction.type === "Transfer from" ) {
-        incomeTotal += transaction.amount;
-      } else if (transaction.type === "Transfer to") {
-        expenseTotal += transaction.amount;
-      }
-    });
+  // useEffect(() => {
+  //   let incomeTotal = 0;
+  //   let expenseTotal = 0;
 
-    setTotalIncome(incomeTotal);
-    setTotalExpense(expenseTotal);
-  }, [transactionHistory]);
+  //   transactionHistory.forEach((transaction) => {
+  //     console.log(transactionHistory)
+  //     if (transaction.type === "Top Up" || transaction.type === "Transfer from" ) {
+  //       incomeTotal += transaction.amount;
+  //     } else if (transaction.type === "Transfer to") {
+  //       expenseTotal += transaction.amount;
+  //     }
+  //   });
+
+  //   setTotalIncome(incomeTotal);
+  //   setTotalExpense(expenseTotal);
+  // }, [transactionHistory]);
 
   const navigate = useNavigate();
 
@@ -64,6 +80,7 @@ const Dashboard = () => {
       }
     };
 
+    handleGetUserIncomeExpensesData()
     fetchData();
   }, []);
 
@@ -160,7 +177,7 @@ const Dashboard = () => {
             type={transaction.type === "Transfer to" ? "expense" : "income"}
             subtype={transaction.type === "Top Up" ? "Top up" : "Transfer"}
             userPict={transaction.profile_picture_url != null ? transaction.profile_picture_url : blank}
-            amount={transaction.amount}
+            amount={`Rp ${parseFloat(transaction.amount).toLocaleString('id-ID')}`}
             status={transaction.status}
           />
         ))}

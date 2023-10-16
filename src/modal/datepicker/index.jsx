@@ -11,10 +11,8 @@ import "./datepicker.css"
 import CustomInput from '../../components/reusable-components/input';
 
 const DatePickerModal = (props) => {
-    const { handleClose, open } = props;
+    const { handleClose, handleClick, open, startDate, handleChangeStart, handleChangeEnd, endDate } = props;
 
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
     const [focus, setFocus] = useState(START_DATE)
 
     const handleFocusChange = newFocus => {
@@ -22,7 +20,6 @@ const DatePickerModal = (props) => {
     }
 
     const formatDate = (date) => {
-        // console.log(date)
         if (date == "") return '';
         const formattedDate = format(date, 'cccc, dd MMM yyyy', { locale: enGB })
         return formattedDate;
@@ -47,8 +44,8 @@ const DatePickerModal = (props) => {
                         startDate={startDate}
                         endDate={endDate}
                         focus={focus}
-                        onStartDateChange={setStartDate}
-                        onEndDateChange={setEndDate}
+                        onStartDateChange={handleChangeStart}
+                        onEndDateChange={handleChangeEnd}
                         onFocusChange={handleFocusChange}
                         locale={enGB}
                     />
@@ -78,7 +75,7 @@ const DatePickerModal = (props) => {
                 </section>
             </Modal.Body>
             <Modal.Footer>
-                <Button type="button" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} onClick={handleClose}>
+                <Button type="button" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} onClick={handleClick}>
                     Apply
                 </Button>
             </Modal.Footer>
