@@ -59,7 +59,7 @@ const InputAmount = () => {
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
-            if (inAMount === '' || parseFloat(inAMount) > tampilUserSender.balance) {
+            if (inAMount === '' || parseFloat(inAMount) > tampilUserSender.balance ||parseFloat(inAMount) < 0) {
 
                 Swal.fire({
                     icon: "error",
@@ -157,7 +157,7 @@ const InputAmount = () => {
                     <div className='p-content opacity-75 mb-5'>  press continue to the next steps.</div>
                     <div className='d-flex  align-item-center justify-content-center flex-column'>
 
-                        <center ><p className='p-balance-mobile-receiver mb-5 mt-4 d-flex justify-content-center'>{`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
+                        <center ><p className='p-balance-mobile-receiver-title mb-5 mt-4 d-flex justify-content-center'>{`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
                         <div style={{ flex: 1, display: 'flex', justifyContent: 'center', }}>
 
                             <NumericFormat

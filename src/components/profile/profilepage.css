@@ -6,6 +6,18 @@
     border-radius: 25px;
     display: flex;
     flex-direction: column;
+
+}
+
+.profile-edit{
+    font-size: 18px;
+    color: #7A7886;
+}
+.profile-name{
+    font-size: 24px;
+}
+.profile-number{
+    font-size: 24px;
 }
 
 .button-profile-container {
@@ -59,4 +71,10 @@
     .button-profile {
         font-size: 14px;
     }
+}
+
+.modal-image-preview {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
 }

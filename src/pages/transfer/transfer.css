@@ -61,6 +61,9 @@
 .p-balance-mobile-receiver-title {
     display: none !important;
 }
+.unclickable-text {
+    pointer-events: none;
+}
 
 .img-success-mobile {
     display: flex;

@@ -20,9 +20,9 @@ const Transfer = () => {
     const [isSearching, setIsSearching] = useState(false);
     const [tampilUsers, setTampilUser] = useState([]);
     const [tampilSender, setTampilSender] = useState([]);
-    const [searchVal, setSearchVal] = useState(""); 
+    const [searchVal, setSearchVal] = useState("");
 
- 
+
     const result = tampilUsers.filter((users) =>
         users.phone_Number.toLowerCase().includes(searchVal.toLowerCase())
     );
@@ -60,20 +60,20 @@ const Transfer = () => {
     }, []);
 
     console.log(tampilUsers, "mapsnya");
-    if(tampilSender.phoneNumber === null){
-            Swal.fire({
-                icon: "error",
-                title: "Transfer Menu Can't Be Accessed",
-                html: "You cant transfer because your phone number is still empty, please go to your profile and manage your phone number"
-            }) 
-            navigate(`/home`)
+    if (tampilSender.phoneNumber === null) {
+        Swal.fire({
+            icon: "error",
+            title: "Transfer Menu Can't Be Accessed",
+            html: "You cant transfer because your phone number is still empty, please go to your profile and manage your phone number"
+        })
+        navigate(`/home`)
     }
 
 
     const handleButtonClicked = () => {
         navigate(`/home`)
-      };
-   
+    };
+
     return (
         <AfterLoginLayout
         >
@@ -82,7 +82,7 @@ const Transfer = () => {
                     <Row bsPrefix="margin-box" >
                         <Col md={12}>
                             <div className="back-icon d-flex flex-nowrap">
-                            
+
                                 <IoArrowBack onClick={handleButtonClicked} className="button-back" style={{ justifyContent: "center", alignItems: "center" }} />
 
                                 <h2 className='text-title p-balance-mobile-receiver-title'>Find Receiver</h2>
@@ -94,12 +94,13 @@ const Transfer = () => {
                     <InputGroup className="mb-4 ">
                         <InputGroup.Text id="basic-addon1"><i className="bi bi-search"></i></InputGroup.Text>
                         <Form.Control
-                         value={searchVal}
-                         onChange={(e) =>{
-                             setSearchVal(e.target.value);
-                            setIsSearching(e.target.value.length > 0);}
-                        
-                        }
+                            value={searchVal}
+                            onChange={(e) => {
+                                setSearchVal(e.target.value);
+                                setIsSearching(e.target.value.length > 0);
+                            }
+
+                            }
                             placeholder="Search receiver here"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
@@ -107,7 +108,7 @@ const Transfer = () => {
                     </InputGroup>
                 </div>
                 <div className="content">
-                    <Link to={"/transfer/input"}>
+                   
                         {/* {tampilUsers.length > 0 ? (
                             result.map(p => (
                                 <ReceiverCard
@@ -124,30 +125,31 @@ const Transfer = () => {
                             <div>Loading...</div>
                         )} */}
 
-{isSearching ? ( // Tampilkan daftar hanya saat melakukan pencarian
-        result.length > 0 ? (
-            result.map(p => (
-                <ReceiverCard
-                    key={p.id}
-                    email={p.email}
-                    firstName={p.first_Name}
-                    lastName={p.last_Name}
-                    phoneNumber={p.phone_Number}
-                    profilePicture={p.profile_Picture_Url != null ? p.profile_Picture_Url : blank}
-                    id={p.id}
-                />
-            ))
-        ) : (
-            <div>No matching receivers found. Make sure the recepient has phone number</div>
-        )
-    ) : null}
+                        {isSearching ? (
+                            result.length > 0 ? (
+                                result.map(p => (
+                                    <ReceiverCard
+                                       isMatch={true}
+                                        key={p.id}
+                                        email={p.email}
+                                        firstName={p.first_Name}
+                                        lastName={p.last_Name}
+                                        phoneNumber={p.phone_Number}
+                                        profilePicture={p.profile_Picture_Url != null ? p.profile_Picture_Url : blank}
+                                        id={p.id}
+                                    />
+                                ))
+                            ) : (
+                                <ReceiverCard
+                                isMatch={false}
+                            />
+                            ) 
+                        ) : null}
 
 
 
 
 
-
-                    </Link>
                 </div>
             </TransferLayout>
         </AfterLoginLayout >
