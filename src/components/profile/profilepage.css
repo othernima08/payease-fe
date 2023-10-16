@@ -6,6 +6,18 @@
     border-radius: 25px;
     display: flex;
     flex-direction: column;
+
+}
+
+.profile-edit{
+    font-size: 18px;
+    color: #7A7886;
+}
+.profile-name{
+    font-size: 24px;
+}
+.profile-number{
+    font-size: 24px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -21,4 +33,11 @@
         z-index: 1000;
         overflow-y: scroll;
     }
+    
+}
+
+.modal-image-preview {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
 }
