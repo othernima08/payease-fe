@@ -159,6 +159,29 @@ export const getTransactionHistoryByUserIdAndStatus = async (
   }
 };
 
+export const getTransactionHistoryByUserIdAndDateTime = async (
+  userId,
+  startDate,
+  endDate
+) => {
+  try {
+    const token = localStorage.getItem("token");
+    
+    const url = `${BASE_URL_API_DEV}/transactions/transaction-history-filter-date?userId=${userId}&startDate=${startDate}&endDate=${endDate}`;
+    const response = await fetchApi({
+      url,
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getTopUpHistoryByUserIdAndStatus = async (userId, isSuccess) => {
   try {
     const token = localStorage.getItem("token");

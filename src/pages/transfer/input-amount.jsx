@@ -130,7 +130,7 @@ const InputAmount = () => {
                     <div className='p-content opacity-75'>  press continue to the next steps.</div>
                     <div className='d-flex  align-item-center justify-content-center flex-column'>
 
-                        <center ><p className='p-balance-mobile-receiver mb-5 d-flex justify-content-center'>Rp.{tampilUserSender.balance}  Available</p></center>
+                        <center ><p className='p-balance-mobile-receiver mb-5 d-flex justify-content-center'>{`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
                         <div style={{ flex: 1, display: 'flex', justifyContent: 'center', }}>
 
                             <NumericFormat
@@ -158,7 +158,7 @@ const InputAmount = () => {
                         </div>
                     </div>
 
-                    <center className='mb-5 '><p className='p-balance-dekstop'>Rp.{tampilUserSender.balance} Available</p></center>
+                    <center className='mb-5 '><p className='p-balance-dekstop'>Rp.  {`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
                     <div className="d-flex align-time-center justify-content-center">
                         <div className="d-inline-flex w-50 flex-column " style={{
                             marginBottom: '80px',

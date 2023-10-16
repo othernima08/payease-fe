@@ -25,7 +25,7 @@ function TransactionHistoryCard(props) {
                     </p>
                 }
                 <p className={`transaction-amount-${type}`}>
-                    {(type === "income" ? '+Rp' : '-Rp') + amount}
+                    {(type === "income" ? '+' : '-') + amount}
                 </p>
             </section>
 
