@@ -17,18 +17,26 @@ const InputAmountTopUp = () => {
   };
 
   const handleContinueClick = () => {
-    localStorage.setItem('amount', amount);
-    navigate('/top-up/payment-method');
+    if (amount) {
+      localStorage.setItem('amount', amount);
+      navigate('/top-up/payment-method');
+    }
   };
+
 
   const handleTopUpHistoryClick = () =>{
     navigate('/top-up/history');
   }
+
+  const handleBackButtonClick = () => {
+    navigate("/home");
+  };
+
   return (
     <AfterLoginLayout>
       <Container className="input-amount-container">
       <div className="back-icons">
-          <FontAwesomeIcon icon={faArrowLeft} />
+          <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButtonClick}/>
         </div>
         <Row>
           <Col md={12}>

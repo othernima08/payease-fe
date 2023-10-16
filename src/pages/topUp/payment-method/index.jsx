@@ -50,17 +50,30 @@ const PaymentMethod = () => {
         text: 'Proceed to Payment..'
       });
       localStorage.setItem("paymentCode", response.data.data.paymentCode);
-      navigate('/top-up'); // Navigasi dengan mengirim data yang sesuai
+      navigate('/top-up'); 
     } else {
+      const errorMsg = response.data.message;
+      if(response.data.error && response.data.error.amount){
+        errorMsg = response.data.error.amount;
+      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Failed to process top up',
+        html: errorMsg,
+      });
       console.error('Failed to process top up');
     }
+  };
+
+  const handleBackButtonClick = () => {
+    navigate("/top-up/input-amount");
   };
 
   return (
     <AfterLoginLayout>
       <Container className="payment-method-container">
         <div className="back-icons">
-          <FontAwesomeIcon icon={faArrowLeft} />
+          <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButtonClick}/>
         </div>
         <h2>Top up from</h2>
         <p>Choose the source of funds you'd like to use for topping up your PayEase account</p>
