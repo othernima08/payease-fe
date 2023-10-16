@@ -1,4 +1,9 @@
 .image-size{
-    width: 50px ;
-
-}
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+} 

@@ -7,7 +7,7 @@ function TransactionHistoryCard(props) {
     return (
         <section key={id} className="transfer-history-card d-flex flex-row flex-wrap">
             <section className="type-and-user">
-                <img src={userPict} alt="" className="recipient-or-provider-img" />
+                <img src={userPict} alt="" className="image-profile-home" />
                 <section style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginLeft: "16px" }}>
                     <h3 className="recipient-or-provider-name">
                         {userName}
