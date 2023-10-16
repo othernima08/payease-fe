@@ -1,5 +1,5 @@
 import React from 'react'
-import NotificationCard from '../../components/reusable-components/notificationCard/Index'
+// import NotificationCard from '../../components/reusable-components/notificationCard/Index'
 import Modal from 'react-bootstrap/Modal';
 import './popup.css'
 
@@ -17,11 +17,11 @@ const NotificationModal = (props) => {
 
             <Modal.Body>
                 <p className='today-font'>Today</p>
-                <NotificationCard />
+                {/* <NotificationCard />
                 <p className='week-font'>This Week</p>
                 <NotificationCard />
                 <NotificationCard />
-                <NotificationCard />
+                <NotificationCard /> */}
 
             </Modal.Body>
 

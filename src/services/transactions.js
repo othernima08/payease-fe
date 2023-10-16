@@ -258,3 +258,22 @@ export const findTransferId = async (id) => {
     console.log(error);
   }
 };
+
+export const getTransactionHistoryByUserIdAndDays = async (userId) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const url = `${BASE_URL_API_DEV}/transactions/transaction-history-daily/${userId}`;
+    const response = await fetchApi({
+      url,
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
