@@ -13,7 +13,7 @@ import AfterLoginLayout from '../../../layout/afterLogin';
 import TransactionHistoryCard from '../../../components/reusable-components/transactionHistoryCard';
 import DatePickerModal from '../../../modal/datepicker';
 
-import { getTransactionHistoryByUserId, getTransactionHistoryByUserIdAndStatus } from '../../../services/transactions';
+import { getTransactionHistoryByUserId, getTransactionHistoryByUserIdAndDateTime, getTransactionHistoryByUserIdAndStatus } from '../../../services/transactions';
 
 const TransactionHistory = () => {
     const [openDateModal, setOpenDateModal] = useState(false)
@@ -75,19 +75,21 @@ const TransactionHistory = () => {
     const handleGetDataBySelectedDateRange = async (startDate, endDate) => {
         try {
             const response = await getTransactionHistoryByUserIdAndDateTime(localStorage.getItem("id"), formatDate(startDate), formatDate(endDate));
+
             console.log(response)
+            
             if (response.data.success) {
                 setFilteredHistory(response.data.data)
             } else {
                 setError(response.data.message)
             }
+
         } catch (error) {
             console.log(error)
         }
     }
 
-    const handleClick = (e) => {
-        e.preventDefault();
+    const handleClick = () => {
         handleGetDataBySelectedDateRange(startDate, endDate);
         setOpenDateModal(false)
     }
