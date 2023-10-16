@@ -58,8 +58,11 @@
     border-style: none;
 }
 
-.p-balance-mobile-receiver {
+.p-balance-mobile-receiver-title {
     display: none !important;
+}
+.unclickable-text {
+    pointer-events: none;
 }
 
 .img-success-mobile {
@@ -76,13 +79,17 @@
     z-index: 999; 
     background-color: #ffffff;
     width: 100%;
-
     padding-right :30px;
     padding-left :30px;
 }
 
+
+.p-balance-dekstop{
+    display: contents ;
+}
+
 .button-back {
-    margin-top: 8px;
+    margin-top: -2px;
 }
 
 a {
@@ -92,6 +99,9 @@ a {
 @media only screen and (max-width: 768px) {
 
 
+    .but-mobile{
+        width: 100% !important;
+    }
     .content-container {
         background-color: #ffffff;
         padding-bottom: 0px !important;
@@ -142,7 +152,7 @@ a {
     }
 
     .p-balance-dekstop {
-        display: none ;
+        display: none !important ;
     }
 
     .p-balance-mobile {
@@ -150,9 +160,9 @@ a {
         color: #7C7895 !important;
     }
 
-    .p-balance-mobile-receiver {
+    .p-balance-mobile-receiver-title {
         display: flex  !important;
-        color: black !important;
+        color: black  !important;
     }
 
     .custom-button-tf {
