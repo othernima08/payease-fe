@@ -2,8 +2,6 @@
 import AfterLoginLayout from '../../layout/afterLogin'
 import "./transfer.css";
 import { ButtonGroup, CloseButton, Col, Form, InputGroup, Row } from 'react-bootstrap';
-
-
 import { NumericFormat } from 'react-number-format';
 import { IoArrowBack } from 'react-icons/io5';
 import { Fragment, useEffect, useState } from 'react';
@@ -15,6 +13,8 @@ import CustomPIN from '../../components/reusable-components/pinInput';
 import { getUserById } from '../../services/users';
 import { transferPost } from '../../services/transactions';
 import Swal from 'sweetalert2';
+import TransferLayout from '../../layout/transfer';
+import { format } from 'date-fns';
 
 const Confirmation = () => {
 
@@ -32,6 +32,7 @@ const Confirmation = () => {
     const transactionTime =localStorage.getItem("transactionTime")
     const [tampilUsersRecipient, setTampilUserRecipient] = useState(false);
     const [tampilUserSender, SetTampilUserSender] = useState(false);
+    const [userData, setUserData] = useState({});
     const getuserId = async () => {
         try {
             const sender = localStorage.getItem("id");
@@ -45,13 +46,19 @@ const Confirmation = () => {
             setTampilUserRecipient(res.data.data);
             SetTampilUserSender(resSender.data.data);
         } catch (error) {
-            console.log(error);
+            console.log(error,"ini errornya");
+            
         }
     };
     useEffect(() => {
         getuserId();
+        if (!amount || !transactionTime) {
+            navigate('/home');
+        }
     }, []);
 
+    const springBootDate = new Date(transactionTime);
+    const formattedDate = format(springBootDate, "MMMM dd, yyyy");
 
     //function to save transfer
 
@@ -66,7 +73,6 @@ const Confirmation = () => {
                     transactionTime,
                     notes
                 }
-                
                 const response = await transferPost(data)
                 if (response.data.success) {
                     Swal.fire({
@@ -101,12 +107,15 @@ const Confirmation = () => {
                     
                 }
             } catch (error) {
-                console.log(error)
-               
+                console.log(error,"ini errornya")
+             
             }
         } 
     
-
+   
+        const handleButtonClicked = () => {
+            navigate(`/transfer/to/${ localStorage.getItem("recipient")}`)
+          };
     return (
         <Fragment>
             <Modal
@@ -152,21 +161,20 @@ const Confirmation = () => {
 
             <AfterLoginLayout
             >
-
-                <div className="transfer-container ">
-                    <div className="content-container ">
+ <TransferLayout>
+ <div className="stack-transfer">
                         <Row bsPrefix="margin-box" >
                             <Col md={12}>
-                                <div className="back-icon d-flex flex-nowrap"><Link to={"/transfer/input"}>
-                                    <IoArrowBack className="button-back" style={{ justifyContent: "center", alignItems: "center" }} /></Link>
-                                    <h2 className='text-title p-balance-mobile-receiver'>Confirmation</h2>
+                                <div className="back-icon d-flex flex-nowrap">
+                                    <IoArrowBack className="button-back " onClick={handleButtonClicked} style={{ justifyContent: "center", alignItems: "center" }} />
+                                    <h2 className='text-title p-balance-mobile-receiver-title'>Confirmation</h2>
                                 </div>
                                 <h5 className='text-title p-balance-dekstop'>Transfer To</h5>
                             </Col>
                         </Row>
 
 
-                        <h5 className='text-title p-balance-mobile-receiver'>Transfer To</h5>
+                        <h5 className='text-title p-balance-mobile-receiver-title'>Transfer To</h5>
                         <div className="card-container mb-2">
                             <div className="d-flex flex-row">
                                 <div className='mx-1'>
@@ -180,13 +188,13 @@ const Confirmation = () => {
                         </div>
 
                         <h5 className='text-title p-balance-dekstop mt-4'>Details</h5>
-                        <h5 className='text-title p-balance-mobile-receiver mt-4'>Details</h5>
+                        <h5 className='text-title p-balance-mobile-receiver-title mt-4'>Details</h5>
                         <div className="card-container mb-2">
                             <div className="d-flex flex-row">
 
                                 <div className='d-flex flex-column p-2'>
-                                    <div>Amount</div>
-                                    <div className='p-auth opacity-75'> {`Rp ${parseFloat(amount).toLocaleString('id-ID')}`}</div>
+                                    <div className='p-auth opacity-75'  >Amount</div>
+                                    <div > {`Rp ${parseFloat(amount).toLocaleString('id-ID')}`}</div>
                                 </div>
                             </div>
                         </div>
@@ -194,8 +202,8 @@ const Confirmation = () => {
                             <div className="d-flex flex-row">
 
                                 <div className='d-flex flex-column p-2'>
-                                    <div>Balance Left</div>
-                                    <div className='p-auth opacity-75'>{`Rp ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}</div>
+                                    <div className='p-auth opacity-75'>Balance Left</div>
+                                    <div >{`Rp ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}</div>
                                 </div>
                             </div>
                         </div>
@@ -203,27 +211,26 @@ const Confirmation = () => {
                             <div className="d-flex flex-row">
 
                                 <div className='d-flex flex-column p-2'>
-                                    <div>Date & Time</div>
-                                    <div className='p-auth opacity-75'>{transactionTime}</div>
+                                    <div className='p-auth opacity-75'>Date & Time</div>
+                                    <div > {formattedDate}</div>
                                 </div>
                             </div>
                         </div>
                         <div className="card-container mb-2">
                             <div className="d-flex flex-row">
                                 <div className='d-flex flex-column p-2'>
-                                    <div>Notes</div>
-                                    <div className='p-auth opacity-75'>{notes}</div>
+                                    <div className='p-auth opacity-75'>Notes</div>
+                                    <div >{notes}</div>
                                 </div>
                             </div>
                         </div>
                         <div className="d-flex flex-row-reverse mt-4">
-                            <div className="d-flex flex-row justify-content-end custom-button-home" style={{ width: "60%" }}>
+                            <div className="d-flex flex-row justify-content-end custom-button-home mb-3" style={{ width: "60%" }}>
                                 <Button onClick={handleShow} variant="primary custom-button-home" className='mx-2' style={{ backgroundColor: "#6379F4" }}>Continue</Button>
                             </div>
                         </div>
-                    </div>
-                </div>
-
+                 </div>
+                </TransferLayout>
             </AfterLoginLayout>
 
         </Fragment>

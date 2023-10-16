@@ -1,5 +1,5 @@
 import React from 'react'
-import NotificationCard from '../../components/reusable-components/notificationCard/Index'
+// import NotificationCard from '../../components/reusable-components/notificationCard/Index'
 import Modal from 'react-bootstrap/Modal';
 import './popup.css'
 

@@ -10,6 +10,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getUserById } from '../../services/users';
 import ReceiverCard from '../../components/transferComponents/receiverCard';
 import Swal from 'sweetalert2';
+import { IconContext } from 'react-icons';
+import { BiEnvelope, BiPencil } from 'react-icons/bi';
+import TransferLayout from '../../layout/transfer';
 
 const InputAmount = () => {
     const [isFocused, setIsFocused] = useState(false);
@@ -60,11 +63,10 @@ const InputAmount = () => {
 
                 Swal.fire({
                     icon: "error",
-                    title: "Invalid PIN or insufficient balance",
-                    html: "Invalid PIN or insufficient balance"
+                    title: "Invalid Input or insufficient balance",
+                    html: "Invalid Input or insufficient balance"
                 })
-              }
-
+            }
 
             else {
                 const formatDateForServer = (date) => {
@@ -99,22 +101,47 @@ const InputAmount = () => {
         }
     }
 
+
+    const [eFieldOnFocus, seteFieldOnFocus] = useState(false)
+    const handleeFocus = (e) => {
+        e.preventDefault()
+
+        seteFieldOnFocus(true)
+    }
+
+    const handleeBlur = (e) => {
+        e.preventDefault()
+
+        seteFieldOnFocus(false)
+    }
+
+
+
+    const handleButtonClicked = () => {
+        navigate(`/transfer/receiver`)
+      };
+   
+
+
     return (
         <AfterLoginLayout
         >
-            <div className="transfer-container ">
-                <div className="content-container ">
+ <TransferLayout>
+ <div className="stack-transfer">
                     <Row bsPrefix="margin-box" >
                         <Col md={12}>
-                            <div className=" back-icon d-flex flex-nowrap"> <Link to={"/transfer/receiver"}>
-                                <IoArrowBack className="button-back" style={{ justifyContent: "center", alignItems: "center" }}
-                                /></Link>
+                            <div className=" back-icon d-flex flex-nowrap"> 
+                                <IoArrowBack className="button-back" onClick={handleButtonClicked} style={{ justifyContent: "center", alignItems: "center" }}
+                                />
 
                                 <h2 className='text-title'>Transfer Money</h2>
+                              
                             </div>
                         </Col>
                     </Row>
 
+                    <h4 className="p-balance-dekstop d-flex mb-4" > Transfer Money</h4>
+             
                     <ReceiverCard
                         key={tampilUsersRecipient.id}
                         email={tampilUsersRecipient.email}
@@ -126,11 +153,11 @@ const InputAmount = () => {
                     />
 
 
-                    <div className='p-content opacity-75'>Type the amount you want to transfer and then</div>
-                    <div className='p-content opacity-75'>  press continue to the next steps.</div>
+                    <div className='p-content opacity-75 mt-4'>Type the amount you want to transfer and then</div>
+                    <div className='p-content opacity-75 mb-5'>  press continue to the next steps.</div>
                     <div className='d-flex  align-item-center justify-content-center flex-column'>
 
-                        <center ><p className='p-balance-mobile-receiver mb-5 d-flex justify-content-center'>{`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
+                        <center ><p className='p-balance-mobile-receiver mb-5 mt-4 d-flex justify-content-center'>{`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
                         <div style={{ flex: 1, display: 'flex', justifyContent: 'center', }}>
 
                             <NumericFormat
@@ -158,14 +185,14 @@ const InputAmount = () => {
                         </div>
                     </div>
 
-                    <center className='mb-5 '><p className='p-balance-dekstop'>Rp.  {`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
+                    <center className='mb-5 '><p className='p-balance-dekstop'>  {`Rp. ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}  Available</p></center>
                     <div className="d-flex align-time-center justify-content-center">
-                        <div className="d-inline-flex w-50 flex-column " style={{
+                        <div className="d-inline-flex w-50 flex-column but-mobile" style={{
                             marginBottom: '80px',
                             textAlign: 'center'
                         }}>
 
-                            <InputGroup className="mb-4"
+                            {/* <InputGroup className="mb-4"
                             >
                                 <InputGroup.Text id="basic-addon1"><i className="bi bi-pencil"></i></InputGroup.Text>
                                 <Form.Control
@@ -179,26 +206,39 @@ const InputAmount = () => {
                                     value={notes}
                                     onChange={(e) => setNotes(e.target.value)}
                                 />
-                            </InputGroup>
+                            </InputGroup> */}
+                            <div className="w-100">
 
+                                <section className='input-container mb-5'>
+                                    <IconContext.Provider value={{ color: `${eFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
+                                        <p className='input-icon'><BiPencil /></p>
+                                    </IconContext.Provider>
+                                    <input
+                                        onFocus={handleeFocus}
+                                        onBlur={handleeBlur}
+                                        type="email"
+                                        className="p-auth opacity-75 w-100"
+                                        placeholder="Notes"
+                                        value={notes}
+                                        onChange={(e) => setNotes(e.target.value)}
+                                        required />
+                                </section>
+                            </div>
 
                         </div>
                     </div>
 
 
-                    <div className='d-flex flex-row-reverse'>
-                        <div className="d-inline-flex w-50 align-item-end flex-row-reverse" >
-                            <Button type="submit" variant="primary" onClick={handleSubmit}>
-                                Continue
-                            </Button>
+                    <div className='d-flex flex-row-reverse  mb-4 '>
+                        <div className="d-inline-flex  align-item-end flex-row-reverse" >
+                            <div className="d-flex flex-row justify-content-end " style={{ width: "100%" }}>
+                                <Button onClick={handleSubmit} variant="primary" className='mx-2' style={{ backgroundColor: "#6379F4" }}>Continue</Button>
+                            </div>
                         </div>
-
-                    </div>
-
-                </div>
 
             </div>
-
+            </div>
+            </TransferLayout>
         </AfterLoginLayout >
     )
 }
