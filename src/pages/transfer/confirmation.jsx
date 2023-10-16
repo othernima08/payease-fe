@@ -1,6 +1,7 @@
 
 import AfterLoginLayout from '../../layout/afterLogin'
 import "./transfer.css";
+import blankPict from '../../assets/images/blank.jpg';
 import { ButtonGroup, CloseButton, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import { NumericFormat } from 'react-number-format';
 import { IoArrowBack } from 'react-icons/io5';
@@ -178,7 +179,9 @@ const Confirmation = () => {
                         <div className="card-container mb-2">
                             <div className="d-flex flex-row">
                                 <div className='mx-1'>
-                                    <img src="/src/assets/transfer-image/samuel.png" alt="" />
+                                    <img src={tampilUsersRecipient.sharedUrl != null ? tampilUsersRecipient.sharedUrl: blankPict } alt="" className='image-size'/>
+
+                              
                                 </div>
                                 <div className='d-flex flex-column p-2'>
                                     <div>{tampilUsersRecipient.firstName + " " + tampilUsersRecipient.lastName}</div>

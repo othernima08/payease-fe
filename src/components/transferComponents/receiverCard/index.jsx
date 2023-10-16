@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import "./receiverCard.css"
 
 const ReceiverCard = (props) => {
-    const {id,firstName, lastName, phoneNumber, profilePicture, isMatch} = props;
+    const {id,firstName, lastName, phoneNumber, userPic, isMatch} = props;
+
+    console.log(userPic,"userpic ini")
     // return (
     //      <Link to={`../transfer/to/${id}`} >
 
@@ -41,7 +43,7 @@ const ReceiverCard = (props) => {
                 <div className="card-container justify-content-start mb-2">
                     <div className="d-flex flex-row justify-content-start align-items-center">
                         <div className='d-flex flex-row mx-1 image-size'>
-                            <img className='image-size' src={profilePicture} alt="" />
+                            <img className='image-size' src={userPic} alt="" />
                         </div>
                         <div className='d-flex flex-column p-2'>
                             <div>{firstName + ' ' + lastName}</div>

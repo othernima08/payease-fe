@@ -8,7 +8,7 @@ import blank from "../../assets/images/blank.jpg"
 import { Link, useNavigate } from 'react-router-dom';
 import TransferLayout from '../../layout/transfer';
 import ReceiverCard from '../../components/transferComponents/receiverCard';
-
+import profileimg from "../../assets/images/blank.jpg"
 import { getUserById, getUserPhoneNotNullAndNotSender, getUsers } from '../../services/users';
 import Swal from 'sweetalert2';
 
@@ -59,7 +59,7 @@ const Transfer = () => {
         getDataUser();
     }, []);
 
-    console.log(tampilUsers, "mapsnya");
+    console.log(tampilUsers, "mapsnya user yang mau tampil");
     if (tampilSender.phoneNumber === null) {
         Swal.fire({
             icon: "error",
@@ -135,7 +135,7 @@ const Transfer = () => {
                                         firstName={p.first_Name}
                                         lastName={p.last_Name}
                                         phoneNumber={p.phone_Number}
-                                        profilePicture={p.profile_Picture_Url != null ? p.profile_Picture_Url : blank}
+                                        userPic={p.shared_Url != null ? p.shared_Url: blank}
                                         id={p.id}
                                     />
                                 ))

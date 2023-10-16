@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./addPhone.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,14 +7,15 @@ import { IconContext } from "react-icons";
 import { FiPhone } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { addPhoneNumberService } from "../../../services/users";
+import { addPhoneNumber } from "../../../services/users";
 
 import AfterLoginLayout from "../../../layout/afterLogin";
+
 
 const AddPhoneNumber = () => {
   const [pnFieldOnFocus, setPnFieldOnFocus] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(false);
+  // const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(false);
   const navigate = useNavigate();
 
   const userId = localStorage.getItem("id");
@@ -37,32 +38,46 @@ const AddPhoneNumber = () => {
       formattedPhoneNumber = "08" + formattedPhoneNumber.slice(3);
     }
 
-    setIsPhoneNumberValid(
-      formattedPhoneNumber.length >= 9 && formattedPhoneNumber.length <= 12
-    );
+    // setIsPhoneNumberValid(
+    //   formattedPhoneNumber.length >= 12 && formattedPhoneNumber.length <= 13
+    // );
 
     setPhoneNumber(formattedPhoneNumber);
   };
 
-  const handleAddPhoneNumber = async () => {
+  const handleAddPhoneNumber = async (e) => {
     try {
-      const response = await addPhoneNumberService(userId, phoneNumber);
+      e.preventDefault();
 
-      if (response.error) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Failed to Add Phone Number',
-          text: response.message || 'Failed to add phone number. Please try again later.'
-        });
-      } else {
+      if (!phoneNumber) {
+        return;
+      }
+
+      const data = {
+          userId: userId,
+          phoneNumber
+      }
+  
+      const response = await addPhoneNumber(data);
+      const statusRes = response.data.success;
+      if (statusRes === true) {
         Swal.fire({
           icon: 'success',
           title: 'Phone Number Added',
           text: 'Phone Number is successfully added!'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/profile/manage-phone");
-          }
+        }).then(()=> {
+          navigate('/profile/manage-phone');
+        });
+  
+      } else {
+        const errorMsg = response.data.message; 
+        if (response.data.error && response.data.error.phoneNumber) {
+          errorMsg = response.data.error.phoneNumber; 
+        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Add Phone Number Failed',
+          html: errorMsg,
         });
       }
     } catch (error) {
@@ -74,6 +89,7 @@ const AddPhoneNumber = () => {
       });
     }
   };
+
   const handleBackButtonClick = () => {
     navigate("/profile/profile-information");
   };
@@ -119,7 +135,7 @@ const AddPhoneNumber = () => {
             <Button
               className="custom-button"
               onClick={handleAddPhoneNumber}
-              disabled={!isPhoneNumberValid}
+              disabled={!phoneNumber}
             >
               Add Phone Number
             </Button>

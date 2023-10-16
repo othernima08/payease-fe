@@ -88,3 +88,13 @@
     }
 
 }
+
+.image-profile-home{
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border-radius: 20%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+} 
