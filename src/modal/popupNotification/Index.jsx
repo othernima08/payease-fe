@@ -1,5 +1,7 @@
+
 import React, { useEffect, useState } from 'react'
 import NotificationCard from '../../components/reusable-components/notificationCard/Index'
+
 import Modal from 'react-bootstrap/Modal';
 import './popup.css'
 import { getTopFiveUserTransactionHistory } from '../../services/transactions';
@@ -43,6 +45,7 @@ const NotificationModal = (props) => {
                         amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
                     />
                 )) : <p>No Data</p>}
+
             </Modal.Body>
 
         </Modal>

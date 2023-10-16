@@ -29,7 +29,7 @@
 .transaction-history-button-container {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0px;
+    margin: 12px 0px;
 }
 
 .button-transaction-history {
@@ -49,14 +49,23 @@
 .button-amount-expenses-filter {
     background-color: #FFFFFF;
     border: none;
-    box-shadow: 0px 0px 20px 4px #ebebeb
+    box-shadow: 0px 0px 20px 4px #ebebeb;
+    color: #FF5B37
+}
+
+.button-amount-incomes-filter {
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: 0px 0px 20px 4px #ebebeb;
+    color: #1EC15F
 }
 
 .button-filter-date {
     width: 100%;
     background-color: #FFFFFF;
     border: none;
-    box-shadow: 0px 0px 20px 4px #ebebeb
+    box-shadow: 0px 0px 20px 4px #ebebeb;
+    color: #6379F4
 }
 
 @media only screen and (max-width: 768px) {
