@@ -180,8 +180,6 @@ const Confirmation = () => {
                             <div className="d-flex flex-row">
                                 <div className='mx-1'>
                                     <img src={tampilUsersRecipient.sharedUrl != null ? tampilUsersRecipient.sharedUrl: blankPict } alt="" className='image-size'/>
-
-                              
                                 </div>
                                 <div className='d-flex flex-column p-2'>
                                     <div>{tampilUsersRecipient.firstName + " " + tampilUsersRecipient.lastName}</div>
@@ -194,7 +192,6 @@ const Confirmation = () => {
                         <h5 className='text-title p-balance-mobile-receiver-title mt-4'>Details</h5>
                         <div className="card-container mb-2">
                             <div className="d-flex flex-row">
-
                                 <div className='d-flex flex-column p-2'>
                                     <div className='p-auth opacity-75'  >Amount</div>
                                     <div > {`Rp ${parseFloat(amount).toLocaleString('id-ID')}`}</div>
