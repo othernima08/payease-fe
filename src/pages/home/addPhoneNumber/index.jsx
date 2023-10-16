@@ -70,7 +70,7 @@ const AddPhoneNumber = () => {
         });
   
       } else {
-        let errorMsg = 'Failed to add phone number. Please try again later.';
+        let errorMsg = response.data.message;
         if (response.data.error && response.data.error.phoneNumber) {
           errorMsg = response.data.error.phoneNumber;
         }
