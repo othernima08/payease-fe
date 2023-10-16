@@ -169,7 +169,7 @@ const PaymentCode = () => {
               style={{ width: "100%", justifyContent: "flex-end" }}
             >
 
-              <Button onClick={exportPDF} variant="primary custom-button-tf" className='mx-2' style={{ backgroundColor: "rgba(99, 121, 244, 0.15)", color: "#6379F4", width: "200px" }}><i class="bi bi-download mx-2"></i>Download PDF</Button>
+              <Button onClick={exportPDF} variant="primary custom-button-tf mb-3" className='mx-2' style={{ backgroundColor: "rgba(99, 121, 244, 0.15)", color: "#6379F4", width: "200px" }}><i class="bi bi-download mx-2"></i>Download PDF</Button>
               <Link to={"/top-up/history"}>
                 <Button
                   variant="primary custom-button-home"

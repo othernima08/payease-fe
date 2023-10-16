@@ -92,7 +92,8 @@
         margin-top: 50px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center !important;
+        align-items: center;
         height: 45%;
     }
 }

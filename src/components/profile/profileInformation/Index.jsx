@@ -17,24 +17,24 @@ const ProfileComponent = () => {
   // const { id } = useParams();
 
   const handleData = async () => {
-      // e.preventDefault();
+    // e.preventDefault();
 
-      try {
-          const response = await getUserById(userId)
-              if (response.data.success) {
-                  const data = response.data.data
-                  setDetail(data);                   
-                  // console.log(data)
-              }else {
-              console.error(`Error  ${id}`);
-          }
-      } catch (error) {
-          console.error('Error:', error);
+    try {
+      const response = await getUserById(userId)
+      if (response.data.success) {
+        const data = response.data.data
+        setDetail(data);
+        // console.log(data)
+      } else {
+        console.error(`Error  ${id}`);
       }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   useEffect(() => {
-      handleData();
+    handleData();
   }, [userId]);
 
   const handleManageButtonClick = () => {
@@ -50,79 +50,71 @@ const ProfileComponent = () => {
 
   return (
     <Container className='profileinformation-container'>
-          <Row bsPrefix='d-flexr'>
-                        <Col md={12}>
-                            <div className="change-password-back-icon" onClick={() => navigate("/profile")}>
-                                <IoArrowBackSharp />
-                            </div>
-                            <h2 className="change-password-title">Change password</h2>
-                        </Col>
-                        <Col md={12}>
-                            <p className="change-password-description">You must enter your current password and then type your new password twice.</p>
-                        </Col>
-                    </Row>
-      <Row>
-        <Col>
-          <div className='personal-information'>
-            <h4>Personal information</h4>
-            <p className='text-subtitle'>We got your personal information from the sign<br />up process. if you want to make changes on <br />your information, contact our support.</p>
-          </div>
+      <Row bsPrefix='d-flex flex-column'>
+        <Col md={12}>
+          <Row bsPrefix='profile-head-container d-flex flex-row'>
+            <div className="profile-back-icon mt-2" onClick={() => navigate("/profile")}>
+              <IoArrowBackSharp />
+            </div>
+
+            <h2 className="change-password-title">Personal information</h2>
+          </Row>
         </Col>
+
       </Row>
-      <Row>
-        <Col md={12}>
-          <Card className="profile-card">
-            <Card.Body>
-              <div className="profile-details">
-                <div className="profile-info">
-                  <p className='text-profile'>First Name</p>
-                  <h5>{detail.firstName}</h5>
+
+      {/* <p className="change-password-description">You must enter your current password and then type your new password twice.</p>
+
+            */}
+      <p className='p-auth opacity-75 mt-2 p-3'>We got your personal information from the sign up process. if you want to make changes on your information, contact our support.</p>
+
+
+      <div className="card-container mb-2">
+        <div className="d-flex flex-row">
+          <div className='d-flex flex-column p-2'>
+            <div className='p-auth opacity-75'>First Name</div>
+            <h5>{detail.firstName}</h5>
+          </div>
+        </div>
+      </div>
+
+      <div className="card-container mb-2">
+        <div className="d-flex flex-row">
+          <div className='d-flex flex-column p-2'>
+            <div className='p-auth opacity-75'>Last Name</div>
+            <h5>{detail.lastName}</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div className="card-container mb-2">
+        <div className="d-flex flex-row">
+          <div className='d-flex flex-column p-2'>
+            <div className='p-auth opacity-75'>Verified E-Mail</div>
+            <h5>{detail.email}</h5>
+          </div>
+        </div>
+      </div>
+
+      <div className="card-container mb-2">
+        <div className="d-flex flex-row justify-content-around w-100">
+        <div className="profile-details w-100 justify-content-around">
+                <div className="profile-info-cek ">
+                  <p className='p-auth opacity-75'>Phone Number</p>
+                  <h5>{detail.phoneNumber || "-"}</h5>
                 </div>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={12}>
-          <Card className="profile-card">
-            <Card.Body>
-              <div className="profile-details">
-                <div className="profile-info">
-                  <p className='text-profile'>Last Name</p>
-                  <h5>{detail.lastName}</h5>
-                </div>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={12}>
-          <Card className="profile-card">
-            <Card.Body>
-              <div className="profile-details">
-                <div className="pforile-info">
-                  <p className='text-profile'>Verified E-mail</p>
-                  <h5>{detail.email}</h5>
-                </div>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={12}>
-          <Card className="profile-card">
-            <Card.Body>
-              <div className="profile-details">
-                <div className="profile-info">
-                  <p className='text-profile'>Phone Number</p>
-                  <h5>{detail.phoneNumber || "-" }</h5>
-                </div>
-                <div className="manage-profile">
-                  <a className='manage-button' onClick={handleManageButtonClick} > Manage</a> {/*route ke halaman edit nomer hp*/ }
+                <div className="manage-profile w-100 d-flex flex-row-reverse">
+                  <a className='manage-button' onClick={handleManageButtonClick} > Manage</a> {/*route ke halaman edit nomer hp*/}
                   {/* <FontAwesomeIcon icon={faTrash} className="delete-icon" /> */}
                 </div>
               </div>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+        </div>
+      </div>
+
+
+
+
+  
     </Container>
 
   )
