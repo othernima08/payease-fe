@@ -55,8 +55,6 @@ export const getUserById = async (id) => {
   }
 };
 
-
-
 export const getUserPhoneNotNullAndNotSender = async (id) => {
   try {
     const token = localStorage.getItem("token");
@@ -75,8 +73,6 @@ export const getUserPhoneNotNullAndNotSender = async (id) => {
     console.log(error);
   }
 };
-
-
 
 export const changePIN = async (data) => {
   try {
@@ -118,7 +114,6 @@ export const verifyPIN = async (data) => {
   }
 };
 
-
 export const getImage = async(data) => {
   try {
       const token = localStorage.getItem("token")
@@ -154,11 +149,10 @@ export const changePassword = async (data) => {
   }
 };
 
-export const addPhoneNumberService = async (userId, phoneNumber) => {
+export const addPhoneNumber = async (data) => {
   try {
     const token = localStorage.getItem("token");
     const url = `${BASE_URL_API_DEV}/users/add-phone-number`;
-    const data = { userId, phoneNumber };
     const response = await fetchApi({
       url,
       method: "PUT",
@@ -170,10 +164,6 @@ export const addPhoneNumberService = async (userId, phoneNumber) => {
     return response;
   } catch (error) {
     console.log(error);
-    return {
-      error: true,
-      message: "Failed to add phone number. Please try again later.",
-    };
   }
 };
 
