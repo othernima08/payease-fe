@@ -151,7 +151,7 @@ const CreatePassword = () => {
 
 
                     <section className='input-container mb-4'>
-                        <IconContext.Provider value={{ color: `${pFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
+                        <IconContext.Provider value={{ color: `${cpFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
                             <p className='input-icon'><BiLockAlt /></p>
                         </IconContext.Provider>
                         <input type='password' onFocus={handlecpFocus} onBlur={handlecpBlur}
