@@ -58,7 +58,7 @@
     border-style: none;
 }
 
-.p-balance-mobile-receiver {
+.p-balance-mobile-receiver-title {
     display: none !important;
 }
 
@@ -157,9 +157,9 @@ a {
         color: #7C7895 !important;
     }
 
-    .p-balance-mobile-receiver {
+    .p-balance-mobile-receiver-title {
         display: flex  !important;
-        color: #7C7895  !important;
+        color: black  !important;
     }
 
     .custom-button-tf {

@@ -85,9 +85,9 @@ const Transfer = () => {
                             
                                 <IoArrowBack onClick={handleButtonClicked} className="button-back" style={{ justifyContent: "center", alignItems: "center" }} />
 
-                                <h2 className='text-title p-balance-mobile-receiver'>Find Receiver</h2>
+                                <h2 className='text-title p-balance-mobile-receiver-title'>Find Receiver</h2>
                             </div>
-                            <h2 className='text-title p-balance-dekstop'>Search Receiver</h2>
+                            <h4 className="p-balance-dekstop d-flex mb-4" > Search Receiver</h4>
                         </Col>
                     </Row>
 

@@ -10,6 +10,7 @@ import { findTransferId } from '../../services/transactions';
 import html2pdf from 'html2pdf.js';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { format } from 'date-fns';
 
 
 const TransferStatus = () => {
@@ -45,6 +46,7 @@ const TransferStatus = () => {
     //     })
     // }
 
+
     const exportPDF = () => {
         const input = document.getElementById("content")
         html2canvas(input, { logging: true, letterRendering: 1, useCORS: true }).then(
@@ -72,6 +74,11 @@ const TransferStatus = () => {
     if (!tampilTransfer) {
         return <div>Error loading data.</div>;
     }
+
+
+    
+    const springBootDate = new Date(tampilTransfer.transactionTime);
+    const formattedDate = format(springBootDate, "MMMM dd, yyyy");
 
     return (
         <AfterLoginLayout
@@ -117,7 +124,7 @@ const TransferStatus = () => {
 
                                 <div className='d-flex flex-column p-2'>
                                     <div>Date & Time</div>
-                                    <div className='p-auth opacity-75'> {tampilTransfer.transactionTime}</div>
+                                    <div className='p-auth opacity-75'> {formattedDate}</div>
                                 </div>
                             </div>
                         </div>
