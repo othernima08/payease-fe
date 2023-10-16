@@ -14,6 +14,7 @@ import TransactionHistoryCard from '../../../components/reusable-components/tran
 import DatePickerModal from '../../../modal/datepicker';
 
 import { getTransactionHistoryByUserId, getTransactionHistoryByUserIdAndDateTime, getTransactionHistoryByUserIdAndStatus } from '../../../services/transactions';
+import LoadingScreen from '../../loadingScreen';
 
 const TransactionHistory = () => {
     const [openDateModal, setOpenDateModal] = useState(false)
@@ -23,6 +24,7 @@ const TransactionHistory = () => {
     const [transactionHistory, setTransactionHistory] = useState([]);
     const [filteredHistory, setFilteredHistory] = useState([]);
     const [error, setError] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
 
     const navigate = useNavigate()
 
@@ -45,7 +47,7 @@ const TransactionHistory = () => {
 
             if (response.data.success) {
                 setTransactionHistory(response.data.data)
-                console.log(response.data.data)
+                // console.log(response.data.data)
             } else {
                 setError(response.data.message)
             }
@@ -59,7 +61,7 @@ const TransactionHistory = () => {
             setStartDate("")
             setEndDate("")
             setFilteredHistory([])
-            
+
             const response = await getTransactionHistoryByUserIdAndStatus(localStorage.getItem("id"), isIncome);
 
             if (response.data.success) {
@@ -76,8 +78,8 @@ const TransactionHistory = () => {
         try {
             const response = await getTransactionHistoryByUserIdAndDateTime(localStorage.getItem("id"), formatDate(startDate), formatDate(endDate));
 
-            console.log(response)
-            
+            //console.log(response)
+
             if (response.data.success) {
                 setFilteredHistory(response.data.data)
             } else {
@@ -96,107 +98,115 @@ const TransactionHistory = () => {
 
     useEffect(() => {
         handleGetAllData()
+
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
     }, [])
 
     return (
         <React.Fragment>
-            <AfterLoginLayout
-                children={
-                    <Container bsPrefix='transaction-history-container'>
-                        <Row bsPrefix='transaction-history-head-container'>
-                            <Col md={12}>
-                                <div className="transaction-history-back-icon" onClick={() => navigate("/home")}>
-                                    <IoArrowBackSharp />
-                                </div>
-                                <h2 className="transaction-history-title">Transaction History</h2>
-                            </Col>
-                        </Row>
-                        <Row bsPrefix="transaction-history-content">
-                            <Row bsPrefix="transaction-history-detail-container">
-                                {
-                                    (startDate != "" && endDate != "" && filteredHistory != []) ?
-                                        <section className='transaction-history-detail'>
-                                            <section className="transaction-history-subtitle">
-                                                Results
-                                            </section>
-                                            {filteredHistory != [] ? filteredHistory?.map(item => (
-                                                <TransactionHistoryCard
-                                                    key={item.id}
-                                                    id={item.id}
-                                                    userName={item.name}
-                                                    type={item.type === "Transfer to" ? "expense" : "income"}
-                                                    subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
-                                                    userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
-                                                    amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`} />
-                                            )) : <p>No Data</p>}
-                                        </section> :
-                                        <React.Fragment>
-                                            <section className='transaction-history-detail'>
-                                                <section className="transaction-history-subtitle">
-                                                    This Week
-                                                </section>
-                                                {
-                                                    (transactionHistory != [] && transactionHistory?.thisWeek?.length > 0) ? transactionHistory.thisWeek.map(item => (
-                                                        <TransactionHistoryCard
-                                                            key={item.id}
-                                                            id={item.id}
-                                                            userName={item.name}
-                                                            type={item.type === "Transfer to" ? "expense" : "income"}
-                                                            subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
-                                                            userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
-                                                            amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
-                                                        />
-                                                    )) : <p>No Data</p>
-                                                }
-                                            </section>
-                                            <section className='transaction-history-detail'>
-                                                <section className="transaction-history-subtitle">
-                                                    This Month
-                                                </section>
-                                                {
-                                                    (transactionHistory != [] && transactionHistory?.thisMonth?.length > 0) ? transactionHistory.thisMonth.map(item => (
-                                                        <TransactionHistoryCard
-                                                            key={item.id}
-                                                            id={item.id}
-                                                            userName={item.name}
-                                                            type={item.type === "Transfer to" ? "expense" : "income"}
-                                                            subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
-                                                            userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
-                                                            amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
-                                                        />
-                                                    )) : <p>No Data</p>
-                                                }
-                                            </section>
-                                            <section className='transaction-history-detail'>
-                                                <section className="transaction-history-subtitle">
-                                                    Older
-                                                </section>
-                                                {
-                                                    (transactionHistory != [] && transactionHistory?.older?.length > 0) ? transactionHistory.older.map(item => (
-                                                        <TransactionHistoryCard
-                                                            key={item.id}
-                                                            id={item.id}
-                                                            userName={item.name}
-                                                            type={item.type === "Transfer to" ? "expense" : "income"}
-                                                            subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
-                                                            userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
-                                                            amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
-                                                        />
-                                                    )) : <p>No Data</p>
-                                                }
-                                            </section>
-                                        </React.Fragment>
-                                }
+            {!isLoading ?
+                <AfterLoginLayout
+                    children={
+                        <Container bsPrefix='transaction-history-container'>
+                            <Row bsPrefix='transaction-history-head-container'>
+                                <Col md={12}>
+                                    <div className="transaction-history-back-icon" onClick={() => navigate("/home")}>
+                                        <IoArrowBackSharp />
+                                    </div>
+                                    <h2 className="transaction-history-title">Transaction History</h2>
+                                </Col>
                             </Row>
-                            <Row bsPrefix='transaction-history-button-container'>
-                                <Button className='button-amount-expenses-filter' size="lg" onClick={() => { handleGetDataByStatus(false) }}><p><AiOutlineArrowDown /></p></Button>
-                                <Button className='button-amount-incomes-filter' style={{ margin: "0px 8px" }} size="lg" onClick={() => { handleGetDataByStatus(true) }}><p><AiOutlineArrowUp /></p></Button>
-                                <Button className='button-filter-date-all' style={{ margin: "0px 8px" }} size="lg"><p onClick={() => {handleGetAllData()}}>All</p></Button>
-                                <Button className='button-filter-date' size="lg"><p onClick={handleOpenDateModal}>Filter by Date</p></Button>
+                            <Row bsPrefix="transaction-history-content">
+                                <Row bsPrefix="transaction-history-detail-container">
+                                    {
+                                        (startDate != "" && endDate != "" && filteredHistory != []) ?
+                                            <section className='transaction-history-detail'>
+                                                <section className="transaction-history-subtitle">
+                                                    Results
+                                                </section>
+                                                {filteredHistory != [] ? filteredHistory?.map(item => (
+                                                    <TransactionHistoryCard
+                                                        key={item.id}
+                                                        id={item.id}
+                                                        userName={item.name}
+                                                        type={item.type === "Transfer to" ? "expense" : "income"}
+                                                        subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
+                                                        userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
+                                                        amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`} />
+                                                )) : <p>No Data</p>}
+                                            </section> :
+                                            <React.Fragment>
+                                                <section className='transaction-history-detail'>
+                                                    <section className="transaction-history-subtitle">
+                                                        This Week
+                                                    </section>
+                                                    {
+                                                        (transactionHistory != [] && transactionHistory?.thisWeek?.length > 0) ? transactionHistory.thisWeek.map(item => (
+                                                            <TransactionHistoryCard
+                                                                key={item.id}
+                                                                id={item.id}
+                                                                userName={item.name}
+                                                                type={item.type === "Transfer to" ? "expense" : "income"}
+                                                                subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
+                                                                userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
+                                                                amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
+                                                            />
+                                                        )) : <p>No Data</p>
+                                                    }
+                                                </section>
+                                                <section className='transaction-history-detail'>
+                                                    <section className="transaction-history-subtitle">
+                                                        This Month
+                                                    </section>
+                                                    {
+                                                        (transactionHistory != [] && transactionHistory?.thisMonth?.length > 0) ? transactionHistory.thisMonth.map(item => (
+                                                            <TransactionHistoryCard
+                                                                key={item.id}
+                                                                id={item.id}
+                                                                userName={item.name}
+                                                                type={item.type === "Transfer to" ? "expense" : "income"}
+                                                                subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
+                                                                userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
+                                                                amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
+                                                            />
+                                                        )) : <p>No Data</p>
+                                                    }
+                                                </section>
+                                                <section className='transaction-history-detail'>
+                                                    <section className="transaction-history-subtitle">
+                                                        Older
+                                                    </section>
+                                                    {
+                                                        (transactionHistory != [] && transactionHistory?.older?.length > 0) ? transactionHistory.older.map(item => (
+                                                            <TransactionHistoryCard
+                                                                key={item.id}
+                                                                id={item.id}
+                                                                userName={item.name}
+                                                                type={item.type === "Transfer to" ? "expense" : "income"}
+                                                                subtype={item.type === "Top Up" ? "Top up" : "Transfer"}
+                                                                userPict={item.profile_picture_url != null ? item.profile_picture_url : blank}
+                                                                amount={`Rp ${parseFloat(item.amount).toLocaleString('id-ID')}`}
+                                                            />
+                                                        )) : <p>No Data</p>
+                                                    }
+                                                </section>
+                                            </React.Fragment>
+                                    }
+                                </Row>
+                                <Row bsPrefix='transaction-history-button-container'>
+                                    <Button className='button-amount-expenses-filter' size="lg" onClick={() => { handleGetDataByStatus(false) }}><p><AiOutlineArrowDown /></p></Button>
+                                    <Button className='button-amount-incomes-filter' style={{ margin: "0px 8px" }} size="lg" onClick={() => { handleGetDataByStatus(true) }}><p><AiOutlineArrowUp /></p></Button>
+                                    <Button className='button-filter-date-all' style={{ margin: "0px 8px" }} size="lg"><p onClick={() => { handleGetAllData() }}>All</p></Button>
+                                    <Button className='button-filter-date' size="lg"><p onClick={handleOpenDateModal}>Filter by Date</p></Button>
+                                </Row>
                             </Row>
-                        </Row>
-                    </Container>
-                } />
+                        </Container>
+                    } />
+                : <LoadingScreen />}
             {openDateModal && <DatePickerModal
                 open={openDateModal}
                 handleClose={handleCloseDateModal}

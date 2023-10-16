@@ -1,0 +1,30 @@
+@keyframes fade {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+.loading-container {
+    background-color: #6379F4;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-screen-text {
+    color: #FFFFFF;
+    font-size: 2.8rem;
+    font-family: 'Nunito-Bold',sans-serif;
+    font-weight: lighter;
+    margin: 0;
+}

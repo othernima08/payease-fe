@@ -46,13 +46,13 @@ function ProfilePageComponent() {
             if (file) {
                 const formData = new FormData();
                 formData.append("file", file);
-                console.log(userId);
+                //console.log(userId);
                 const id = localStorage.getItem("id");
 
                 const response = await editImage(id, file);
 
                 if (response.data.success) {
-                    console.log(response);
+                    //console.log(response);
                     navigate("/profile")
 
                 } else {

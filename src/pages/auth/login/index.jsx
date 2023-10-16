@@ -61,7 +61,7 @@ const Login = () => {
                 emailUser: email
             }
             const response = await sendOtp(data);
-            console.log(response);
+            //console.log(response);
             if (response.data.success) {
                 navigate("/otp");
             }
@@ -124,7 +124,7 @@ const Login = () => {
             }
 
             const response = await login(data);
-            console.log(response);
+            //console.log(response);
 
             if (response.data.success) {
                 localStorage.setItem("id", response.data.data.id);

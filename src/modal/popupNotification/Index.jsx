@@ -8,7 +8,6 @@ import { getTopFiveUserTransactionHistory } from '../../services/transactions';
 
 const NotificationModal = (props) => {
     const { handleCloseNotif, showNotif } = props;
-
     const [data, setData] = useState([])
 
     const handleGetData = async () => {
@@ -36,7 +35,7 @@ const NotificationModal = (props) => {
             size="md"
         >
             <Modal.Body>
-                {( data.length === 0) ? data?.map(item => (
+                {( data.length != 0) ? data?.map(item => (
                     <NotificationCard
                         key={item.id}
                         id={item.id}
