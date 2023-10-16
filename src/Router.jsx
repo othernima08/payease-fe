@@ -21,6 +21,7 @@ import LandingPage from './pages/landingpage/Index';
 
 import Dashboard from './pages/home/dashboard';
 import TransferHistory from './pages/home/history';
+import Notification from './pages/notification';
 
 import PaymentMethod from './pages/topUp/payment-method';
 import TopUp from './pages/topUp/topup-code'
@@ -53,6 +54,7 @@ const Router = () => {
 
                 <Route exact path="/home" element={<Dashboard/>}/>
                 <Route exact path="/home/history" element={<TransferHistory />} />
+                <Route exact path="/home/notification" element={<Notification />} />
 
                 <Route exact path="/profile/add-phone" element={<AddPhoneNumber />} />
                 <Route exact path="/profile/profile-information" element={<Profile />} />

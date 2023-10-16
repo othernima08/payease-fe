@@ -119,13 +119,18 @@ export const verifyPIN = async (data) => {
 };
 
 
-export const getImage = async(data) => {
+export const editImage = async(userId, file) => {
   try {
       const token = localStorage.getItem("token")
-
-      const url = `${BASE_URL_API_DEV}/users/image/${id}`
-      const response = await fetchApi({ url, method: "GET", data, headers : {
-          "Authorization": `Bearer ${token}`
+      const url = `${BASE_URL_API_DEV}/users/update-image`
+      const data = { userId, file };
+      const response = await fetchApi({ 
+        url, 
+        method: "PUT", 
+        data, 
+        headers : {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "multipart/form-data"
       }});
 
       return response
