@@ -31,6 +31,7 @@ const Confirmation = () => {
     const transactionTime =localStorage.getItem("transactionTime")
     const [tampilUsersRecipient, setTampilUserRecipient] = useState(false);
     const [tampilUserSender, SetTampilUserSender] = useState(false);
+    const [userData, setUserData] = useState({});
     const getuserId = async () => {
         try {
             const sender = localStorage.getItem("id");
@@ -44,12 +45,18 @@ const Confirmation = () => {
             setTampilUserRecipient(res.data.data);
             SetTampilUserSender(resSender.data.data);
         } catch (error) {
-            console.log(error);
+            console.log(error,"ini errornya");
+            
         }
     };
     useEffect(() => {
         getuserId();
+        if (!amount || !transactionTime) {
+            navigate('/home');
+        }
     }, []);
+
+   
 
 
     //function to save transfer
@@ -65,7 +72,6 @@ const Confirmation = () => {
                     transactionTime,
                     notes
                 }
-                
                 const response = await transferPost(data)
                 if (response.data.success) {
                     Swal.fire({
@@ -100,8 +106,8 @@ const Confirmation = () => {
                     
                 }
             } catch (error) {
-                console.log(error)
-               
+                console.log(error,"ini errornya")
+             
             }
         } 
     
