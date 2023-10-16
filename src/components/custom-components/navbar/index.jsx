@@ -36,8 +36,12 @@ function CustomNavbar(props) {
                 <Navbar.Brand onClick={() => navigate("/home")} id="logo">PayEase</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                    <figure className='profile-container' style={{ margin: 0 }}>
-                        <img src={user?.sharedUrl === null ? blankPict : user.sharedUrl} alt="profile-pict" className='profile-picture' />
+                    <figure className='profile-container' style={{ margin: 0 ,
+                  
+                    }}>
+                        <img src={user?.sharedUrl === null ? blankPict : user.sharedUrl}
+                     
+                        className='image-profile-test' />
                     </figure>
                     <section className="profile-text">
                         <p className="fullName">
