@@ -28,7 +28,7 @@
 .top-up-history-button-container {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0px;
+    padding: 12px 0px 20px 0px;
 }
 
 .button-top-up-history {
@@ -51,6 +51,11 @@
     margin-right: 8;
     border: none;
     box-shadow: 0px 0px 20px 4px #ebebeb;
+}
+
+.button-get-top-up-histories:hover {
+    background-color:#6379F4;
+    border-color: #6379F4;
 }
 
 .button-get-top-up-histories .get-all {
@@ -78,6 +83,10 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .button-get-top-up-histories {
+        font-size: 16px;
+    }
+
     .top-up-history-container {
         padding: 40px;
         position: fixed;
@@ -106,9 +115,6 @@
     .top-up-history-detail-container {
         margin-left: -16px;
         margin-right: -16px;
-        /* display: flex;
-        flex-direction: column;
-        justify-content: space-between; */
     }
 
     .top-up-history-button-container {

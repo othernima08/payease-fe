@@ -33,12 +33,15 @@ const TransactionHistory = () => {
     const formatDate = (date) => {
         if (date == "") return '';
         const formattedDate = format(date, 'cccc, dd MMM yyyy', { locale: enGB })
-        // console.log(formattedDate)
         return formattedDate;
     }
 
     const handleGetAllData = async () => {
         try {
+            setStartDate("")
+            setEndDate("")
+            setFilteredHistory([])
+
             const response = await getTransactionHistoryByUserId(localStorage.getItem("id"));
 
             if (response.data.success) {
@@ -54,6 +57,10 @@ const TransactionHistory = () => {
 
     const handleGetDataByStatus = async (isIncome) => {
         try {
+            setStartDate("")
+            setEndDate("")
+            setFilteredHistory([])
+            
             const response = await getTransactionHistoryByUserIdAndStatus(localStorage.getItem("id"), isIncome);
 
             if (response.data.success) {
@@ -183,6 +190,7 @@ const TransactionHistory = () => {
                             <Row bsPrefix='transaction-history-button-container'>
                                 <Button className='button-amount-expenses-filter' size="lg" onClick={() => { handleGetDataByStatus(false) }}><p><AiOutlineArrowDown /></p></Button>
                                 <Button className='button-amount-incomes-filter' style={{ margin: "0px 8px" }} size="lg" onClick={() => { handleGetDataByStatus(true) }}><p><AiOutlineArrowUp /></p></Button>
+                                <Button className='button-filter-date-all' style={{ margin: "0px 8px" }} size="lg"><p onClick={() => {handleGetAllData()}}>All</p></Button>
                                 <Button className='button-filter-date' size="lg"><p onClick={handleOpenDateModal}>Filter by Date</p></Button>
                             </Row>
                         </Row>

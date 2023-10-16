@@ -17,41 +17,87 @@
     border-color: #6379F4 !important;
 }
 
+.pincode-input-container .pincode-input-text {
+    margin: 2px 6px !important;
+    text-align: center;
+    border: 1px solid;
+    background: transparent;
+    width: 56px !important;
+    height: 80px !important;
+    border-color: #cbcbcb !important;
+    font-size: 30px;
+    padding: 5px !important;
+    border-radius: 10px !important;
+}
+
+.pincode-input-container .pincode-input-text:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #6379F4 !important;
+}
+
 @media only screen and (min-width: 411px) and (max-width: 767px) {
     .pincode-input-container .pincode-input-text {
-        width: 45px !important;
+        width: 48px !important;
         height: 64px !important;
         margin: 2px 6px !important;
         padding: 5px !important;
     }
 }
 
-@media only screen and (min-width: 280px) and (max-width: 410px) {
+@media only screen and (min-width: 281px) and (max-width: 410px) {
+    .pincode-input-container .pincode-input-text {
+        width: 40px !important;
+        height: 60px !important;
+        margin: 2px 6px !important;
+        padding: 5px !important;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .pincode-input-container .pincode-input-text {
+        width: 32px !important;
+        height: 60px !important;
+        margin: 1px 3px !important;
+        padding: 4px !important;
+    }
+}
+
+/* @media only screen  and (min-width: 281px) and (max-width: 767px) {
+    .pincode-input-container .pincode-input-text {
+        width: 40px !important;
+        height: 60px !important;
+        margin: 2px 6px !important;
+        padding: 5px !important;
+    }
+} */
+
+/* @media only screen and (min-width: 280px) and (max-width: 410px) {
     .pincode-input-container .pincode-input-text {
         width: 35px !important;
         height: 60px !important;
         margin: 1px 1px !important;
         padding: 2px !important;
     }
-}
+} */
 
-@media only screen and (max-width: 280px) {
+/* @media only screen and (max-width: 280px) {
     .pincode-input-container .pincode-input-text {
-        width: 20px !important;
-        height: 30px !important;
+        width: 30px !important;
+        height: 42px !important;
         margin: 1px 3px !important;
         padding: 4px !important;
     }
-}
+} */
 
-@media only screen and (min-width: 637px) and (max-width: 906px){
+/* @media only screen and (min-width: 637px) and (max-width: 906px){
     .pincode-input-container .pincode-input-text {
         width: 26px !important;
         height: 40px !important;
         margin: 1px 2px !important;
         padding: 2px !important;
     }
-}
+} */
 
 /* @media only screen and (max-width: 906) {
     .pincode-input-container .pincode-input-text {
