@@ -48,11 +48,11 @@ const AddPhoneNumber = () => {
   const handleAddPhoneNumber = async (e) => {
     try {
       e.preventDefault();
-
+  
       if (!phoneNumber) {
         return;
       }
-
+  
       const data = {
           userId: userId,
           phoneNumber
@@ -70,9 +70,9 @@ const AddPhoneNumber = () => {
         });
   
       } else {
-        const errorMsg = response.data.message; 
+        let errorMsg = response.data.message;
         if (response.data.error && response.data.error.phoneNumber) {
-          errorMsg = response.data.error.phoneNumber; 
+          errorMsg = response.data.error.phoneNumber;
         }
         Swal.fire({
           icon: 'error',
