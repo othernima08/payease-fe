@@ -1,10 +1,14 @@
 .text-profile {
     font-size: 16px;
     margin-bottom: 10px;
-    text-align: left;
-    /* padding-left: 10px; */
-    color: #7A7886;
+   
+ 
 }
+.change-password-title {
+    margin-left: 15px !important;
+    padding-top: 10px !important;
+}
+
 
 .text-subtitle {
     margin-bottom: 10px;
@@ -30,8 +34,9 @@
 
 .profile-details {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    margin-left: 6px;
 }
 
 .profile-info {
@@ -88,8 +93,8 @@
     }
 
     .change-password-title {
-        margin-left: 20px;
-        padding-top: 10px;
+        margin-left: 20px !important;
+        padding-top: 10px !important;
     }
 
     /* .change-password-description {

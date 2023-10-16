@@ -97,10 +97,10 @@ const ProfileComponent = () => {
       </div>
 
       <div className="card-container mb-2">
-        <div className="d-flex flex-row justify-content-between w-100">
-        <div className="profile-details w-100 justify-content-between">
-                <div className="profile-info-cek">
-                  <p className='text-profile'>Phone Number</p>
+        <div className="d-flex flex-row justify-content-around w-100">
+        <div className="profile-details w-100 justify-content-around">
+                <div className="profile-info-cek ">
+                  <p className='p-auth opacity-75'>Phone Number</p>
                   <h5>{detail.phoneNumber || "-"}</h5>
                 </div>
                 <div className="manage-profile w-100 d-flex flex-row-reverse">
