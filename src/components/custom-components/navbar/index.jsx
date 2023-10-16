@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import PropTypes from "prop-types";
 import { useMediaQuery } from 'react-responsive';
@@ -36,8 +36,11 @@ function CustomNavbar(props) {
                 <Navbar.Brand onClick={() => navigate("/home")} id="logo">PayEase</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                    <figure className='profile-container' style={{
-                        margin: 0,
+
+                <Link to={`/profile`} className='d-flex flex-row'>
+                    <figure className='profile-container' style={{ margin: 0 ,
+                  
+
                     }}>
                         <img src={user?.sharedUrl === null ? blankPict : user.sharedUrl} className='image-profile-test' />
                     </figure>
@@ -52,6 +55,7 @@ function CustomNavbar(props) {
                             </p>
                         }
                     </section>
+                    </Link>
                     <p className="icon" onClick={handleShowNotif}><BsBell /></p>
                 </Navbar.Collapse>
             </Container>

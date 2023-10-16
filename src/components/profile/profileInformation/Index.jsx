@@ -4,6 +4,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { getUserById } from "../../../services/users";
+import { IoArrowBackSharp } from "react-icons/io5";
 // import { useParams } from 'react-router-dom';
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -49,6 +50,17 @@ const ProfileComponent = () => {
 
   return (
     <Container className='profileinformation-container'>
+          <Row bsPrefix='d-flexr'>
+                        <Col md={12}>
+                            <div className="change-password-back-icon" onClick={() => navigate("/profile")}>
+                                <IoArrowBackSharp />
+                            </div>
+                            <h2 className="change-password-title">Change password</h2>
+                        </Col>
+                        <Col md={12}>
+                            <p className="change-password-description">You must enter your current password and then type your new password twice.</p>
+                        </Col>
+                    </Row>
       <Row>
         <Col>
           <div className='personal-information'>
