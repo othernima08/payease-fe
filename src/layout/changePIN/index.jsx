@@ -34,7 +34,7 @@ const ChagePinLayout = (props) => {
                   <CustomPIN handleChange={handleChange}/>
                 </section>
                 <section className="d-grid gap-4 mt-5">
-                  <Button type="button" size="lg" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} onClick={handleClick}>
+                  <Button type="button" size="lg" className='change-pin-button' onClick={handleClick}>
                     {buttonText}
                   </Button>
                 </section>

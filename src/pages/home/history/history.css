@@ -1,6 +1,7 @@
 .transaction-history-container {
     background-color: #ffffff;
     padding: 32px;
+    min-height: 100vh;
     height: 100%;
     max-height: 100vh;
     box-shadow: 0px 0px 20px 4px #ebebeb;
@@ -29,7 +30,7 @@
 .transaction-history-button-container {
     display: flex;
     justify-content: space-between;
-    margin: 12px 0px;
+    padding: 12px 0px 20px 0px;
 }
 
 .button-transaction-history {
@@ -60,6 +61,18 @@
     color: #1EC15F
 }
 
+.button-amount-expenses-filter:hover {
+    background-color:#6379F4;
+    color: #ffffff;
+    border-color: #6379F4;
+}
+
+.button-amount-incomes-filter:hover {
+    background-color:#6379F4;
+    color: #ffffff;
+    border-color: #6379F4;
+}
+
 .button-filter-date {
     width: 100%;
     background-color: #FFFFFF;
@@ -68,7 +81,42 @@
     color: #6379F4
 }
 
+.button-filter-date:hover {
+    background-color:#6379F4;
+    color: #ffffff;
+    border-color: #6379F4;
+}
+
+.button-filter-date-all {
+    width: 50%;
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: 0px 0px 20px 4px #ebebeb;
+    color: #6379F4
+}
+
+.button-filter-date-all:hover {
+    background-color:#6379F4;
+    color: #ffffff;
+    border-color: #6379F4;
+}
+
 @media only screen and (max-width: 768px) {
+    .button-filter-date  {
+        font-size: 14px;
+    }
+
+    .button-filter-date-all{
+        font-size: 14px;
+    }
+    .button-amount-incomes-filter {
+        font-size: 14px;
+    }
+
+    .button-amount-expenses-filter {
+        font-size: 14px;
+    }
+
     .transaction-history-container {
         padding: 40px;
         position: fixed;

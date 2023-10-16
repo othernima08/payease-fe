@@ -31,6 +31,11 @@
     display: none;
 }
 
+.change-pin-button {
+    background-color: #6379F4;
+    border-color: #6379F4; 
+}
+
 @media only screen and (max-width: 768px) {
     .change-pin-container {
         padding: 40px;

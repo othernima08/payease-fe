@@ -36,6 +36,7 @@ import TransferStatus from './pages/transfer/transfer-status';
 import PaymentPoint from './pages/payment-point';
 import PDFFile from './components/pdfFile/PDFFile';
 import OTPPage from './pages/auth/login/otp';
+import SplashScreen from './pages/loadingScreen';
 
 
 const Router = () => {
@@ -44,6 +45,7 @@ const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<LandingPage/>}/>
+                <Route path="/loading" element={<SplashScreen/>}/>
 
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />

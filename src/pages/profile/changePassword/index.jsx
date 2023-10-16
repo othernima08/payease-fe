@@ -154,7 +154,7 @@ const ChangePassword = () => {
                             </section>
 
                             <section className="d-grid gap-4 mt-5">
-                                <Button type="button" size="lg" style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} disabled={confirmPassword === "" || newPassword === "" || currentPassword === ""} onClick={handleChangePassword}>
+                                <Button type="button" size="lg" className='change-password-button' style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} disabled={confirmPassword === "" || newPassword === "" || currentPassword === ""} onClick={handleChangePassword}>
                                     Change Password
                                 </Button>
                             </section>
