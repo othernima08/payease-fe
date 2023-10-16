@@ -4,9 +4,8 @@ import { Container, Button, Row, Col, Image, Modal, Form } from 'react-bootstrap
 import profileimg from "../../assets/images/blank.jpg"
 import { useNavigate } from 'react-router-dom';
 import './profilepage.css'
-import { editImage } from "../../services/users";
+import { editImage,getUserById } from "../../services/users";
 import editIcon from "../../assets/profile-image/edit.png"
-// import { getUserById } from "../../services/users";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { IoArrowBackSharp } from "react-icons/io5";
 // import NotificationCard from "../reusable-components/notificationCard";
