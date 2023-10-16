@@ -29,8 +29,8 @@ const ChagePinLayout = (props) => {
               </Col>
             </Row>
             <Container bsPrefix="change-pin-form-container">
-              <Form className='change-pin-form'>
-                <section className='change-pin-input-container'>
+              <Form className='change-pin-form d-flex flex-column no-wrap '>
+                <section className='change-pin-input-container justify-content-center d-flex flex-column no-wrap align-itmes-center'>
                   <CustomPIN handleChange={handleChange}/>
                 </section>
                 <section className="d-grid gap-4 mt-5">

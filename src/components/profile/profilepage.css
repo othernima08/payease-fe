@@ -14,10 +14,16 @@
     color: #7A7886;
 }
 .profile-name{
+    margin-top: 4px;
+    margin-bottom: 4px;
     font-size: 24px;
 }
 .profile-number{
-    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    opacity: 65%;
 }
 
 .button-profile-container {
@@ -84,7 +90,7 @@
     display: inline-block;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 20%;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

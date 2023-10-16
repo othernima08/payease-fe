@@ -116,6 +116,7 @@
 
     .custom-button-tf {
       display: none;
+      margin-bottom: 4px !important;
     }
     .custom-button-home {
         width: 100% !important;
