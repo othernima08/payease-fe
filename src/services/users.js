@@ -113,8 +113,7 @@ export const verifyPIN = async (data) => {
     console.log(error);
   }
 };
-
-export const getImage = async(data) => {
+export const editImage = async(userId, file) => {
 
   try {
       const token = localStorage.getItem("token")
