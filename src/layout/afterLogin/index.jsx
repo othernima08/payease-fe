@@ -31,7 +31,6 @@ const AfterLoginLayout = (props) => {
     const getUser = async () => {
         try {
             const response = await getUserById(localStorage.getItem("id"));
-            // console.log(response)
             if (response.data.success) {
                 setUser(response.data.data)
             } else {
@@ -62,8 +61,6 @@ const AfterLoginLayout = (props) => {
                     <CustomFooter />
                 </Container> : <Navigate to="/login" />
             }
-            {/* cth panggil popovernya */}
-            {/* {isOpen && <NotificationPopover/>} */} 
         </React.Fragment>
     )
 }

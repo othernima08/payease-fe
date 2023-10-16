@@ -13,8 +13,7 @@ import AfterLoginLayout from '../../../layout/afterLogin';
 import TransactionHistoryCard from '../../../components/reusable-components/transactionHistoryCard';
 import DatePickerModal from '../../../modal/datepicker';
 
-import { getTransactionHistoryByUserId, getTransactionHistoryByUserIdAndDateTime, getTransactionHistoryByUserIdAndStatus } from '../../../services/transactions';
-// import NotificationCard from '../../../components/reusable-components/notificationCard';
+import { getTransactionHistoryByUserId, getTransactionHistoryByUserIdAndStatus } from '../../../services/transactions';
 
 const TransactionHistory = () => {
     const [openDateModal, setOpenDateModal] = useState(false)
