@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Bar } from "react-chartjs-2";
 import { Row, Col, Card } from "react-bootstrap";
 import {
@@ -11,16 +11,17 @@ import {
   Tooltip,
 } from "chart.js";
 import "./grafik.css"
+import { getTransactionHistoryByUserIdAndDays } from "../../../services/transactions";
 
 const Grafik = () => {
-  
+
   Chart.register(
     CategoryScale,
-    LinearScale,
     BarElement,
+    LinearScale,
+    Legend,
     Title,
-    Tooltip,
-    Legend
+    Tooltip
   );
 
   const chartOptions = {
@@ -31,7 +32,7 @@ const Grafik = () => {
       },
       title: {
         display: true,
-        text: "Grafik Pemasukan dan Pengeluaran",
+        text: "Income and expense graph",
       },
     },
     scales: {
@@ -46,45 +47,57 @@ const Grafik = () => {
       },
     },
   };
+  const [dailyData, setDailyData] = useState({});
 
-  const chartLabels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
+  const handleGetDataByDays = async (userId) => {
+    try {
+      const response = await getTransactionHistoryByUserIdAndDays(userId);
+      if (response.data.success) {
+        setDailyData(response.data.data);
+      } else {
+        setError(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-  const chartData = {
-    labels: chartLabels,
-    datasets: [
-      {
-        label: "Dataset 1",
-        data: [900, 590, 150, 280, 890, 570, 200],
-        backgroundColor: "#6379F4",
-        borderRadius: 100,
-        barPercentage: 0.2,
-        borderSkipped: false,
-      },
-      {
-        label: "Dataset 2",
-        data: [900, 590, 150, 280, 890, 570, 200],
-        backgroundColor: "red",
-        borderRadius: 100,
-        barPercentage: 0.2,
-        borderSkipped: false,
-      },
-    ],
-  };
+  useEffect(() => {
+    handleGetDataByDays(localStorage.getItem("id"));
+  }, []);
+
+  const prepareChartData = (dailyData) => {
+    const chartLabels = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+    const chartData = {
+      labels: chartLabels,
+      datasets: [
+        {
+          label: "Income",
+          data: chartLabels.map(day => dailyData[day] ? dailyData[day].income : 0),
+          backgroundColor: "#6379F4",
+          borderRadius: 100,
+          barPercentage: 0.2,
+          borderSkipped: false,
+        },
+        {
+          label: "Expense",
+          data: chartLabels.map(day => dailyData[day] ? dailyData[day].expense : 0),
+          backgroundColor: "red",
+          borderRadius: 100,
+          barPercentage: 0.2,
+          borderSkipped: false,
+        },
+      ],
+    };
+    return chartData;
+  }
   return (
     <Row>
       <Col md={12}>
         <Card className="chart-card">
           <Card.Body>
             <div className="chart-container">
-              <Bar options={chartOptions} data={chartData} />
+              <Bar options={chartOptions} data={prepareChartData(dailyData)} />
             </div>
           </Card.Body>
         </Card>
