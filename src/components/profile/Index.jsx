@@ -4,7 +4,7 @@ import { Container, Button, Row, Col, Image, Modal, Form } from 'react-bootstrap
 import profileimg from "../../assets/images/blank.jpg"
 import { useNavigate } from 'react-router-dom';
 import './profilepage.css'
-import { editImage, getUserById } from "../../services/users";
+import { editImage } from "../../services/users";
 import editIcon from "../../assets/profile-image/edit.png"
 import { getUserById } from "../../services/users";
 // import NotificationCard from "../reusable-components/notificationCard";
@@ -89,7 +89,7 @@ function ProfilePageComponent() {
                     }}>
                     <Image src={detail.sharedUrl
                         != null ? detail.sharedUrl
-                        : profileimg} alt='profile...' rounded style={{ width: "20%" }} />
+                        : profileimg} alt='profile...' rounded className="image-profile"/>
                 </Col>
             </Row>
             <Row>
