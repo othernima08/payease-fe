@@ -41,8 +41,8 @@ const InputAmount = () => {
             //  console.log(sender);
             const res = await getUserById(id)
             const resSender = await getUserById(sender)
-            // console.log(res,"recepient");
-            // console.log(resSender,"sender");
+            console.log(res,"recepient");
+            console.log(resSender,"sender");
             setTampilUserRecipient(res.data.data);
             SetTampilUserSender(resSender.data.data);
         } catch (error) {
@@ -143,12 +143,13 @@ const InputAmount = () => {
                     <h4 className="p-balance-dekstop d-flex mb-4" > Transfer Money</h4>
              
                     <ReceiverCard
+                      isMatch={true}
                         key={tampilUsersRecipient.id}
                         email={tampilUsersRecipient.email}
                         firstName={tampilUsersRecipient.firstName}
                         lastName={tampilUsersRecipient.lastName}
                         phoneNumber={tampilUsersRecipient.phoneNumber}
-                        profilePicture={tampilUsersRecipient.profilePictureUrl != null ? tampilUsersRecipient.profilePictureUrl : blank}
+                        userPic={tampilUsersRecipient.sharedUrl != null ? tampilUsersRecipient.sharedUrl : blank}
                         id={tampilUsersRecipient.id}
                     />
 
@@ -214,6 +215,7 @@ const InputAmount = () => {
                                         <p className='input-icon'><BiPencil /></p>
                                     </IconContext.Provider>
                                     <input
+                                  
                                         onFocus={handleeFocus}
                                         onBlur={handleeBlur}
                                         type="email"

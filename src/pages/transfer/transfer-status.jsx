@@ -158,7 +158,7 @@ const TransferStatus = () => {
                     <div className="d-flex flex-row-reverse mt-4 mb-3">
                         <div className="d-flex flex-row custom-button-home" style={{ width: "60%" }}>
                             <Button variant="primary custom-button-tf" className='mx-3' style={{ width: "60px", marginRight: "4px", backgroundColor: "rgba(99, 121, 244, 0.15)" }}><i class="bi bi-share" style={{ color: "black" }}></i></Button>
-                            <Button onClick={exportPDF} variant="primary custom-button-tf" className='mx-2' style={{ backgroundColor: "rgba(99, 121, 244, 0.15)", color: "#6379F4", width: "200px" }}><i class="bi bi-download mx-2"></i>Download PDF</Button>
+                            <Button onClick={exportPDF} variant="primary custom-button-tf" className='mx-2' style={{ backgroundColor: "rgba(99, 121, 244, 0.15)", color: "#6379F4", width: "100%" }}><i class="bi bi-download mx-2"></i>Download PDF</Button>
                             <Button variant="primary custom-button-home-tf" className='mx-2 w-100' style={{ backgroundColor: "#6379F4" }} onClick={() => {navigate("/home")}}>Back to Home</Button>
                         </div>
                     </div>
