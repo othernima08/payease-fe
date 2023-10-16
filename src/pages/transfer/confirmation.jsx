@@ -2,8 +2,6 @@
 import AfterLoginLayout from '../../layout/afterLogin'
 import "./transfer.css";
 import { ButtonGroup, CloseButton, Col, Form, InputGroup, Row } from 'react-bootstrap';
-
-
 import { NumericFormat } from 'react-number-format';
 import { IoArrowBack } from 'react-icons/io5';
 import { Fragment, useEffect, useState } from 'react';
@@ -15,6 +13,7 @@ import CustomPIN from '../../components/reusable-components/pinInput';
 import { getUserById } from '../../services/users';
 import { transferPost } from '../../services/transactions';
 import Swal from 'sweetalert2';
+import TransferLayout from '../../layout/transfer';
 
 const Confirmation = () => {
 
@@ -106,7 +105,10 @@ const Confirmation = () => {
             }
         } 
     
-
+   
+        const handleButtonClicked = () => {
+            navigate(`/transfer/to/${ localStorage.getItem("recipient")}`)
+          };
     return (
         <Fragment>
             <Modal
@@ -152,13 +154,12 @@ const Confirmation = () => {
 
             <AfterLoginLayout
             >
-
-                <div className="transfer-container ">
-                    <div className="content-container ">
+ <TransferLayout>
+ <div className="stack-transfer">
                         <Row bsPrefix="margin-box" >
                             <Col md={12}>
-                                <div className="back-icon d-flex flex-nowrap"><Link to={"/transfer/input"}>
-                                    <IoArrowBack className="button-back" style={{ justifyContent: "center", alignItems: "center" }} /></Link>
+                                <div className="back-icon d-flex flex-nowrap">
+                                    <IoArrowBack className="button-back " onClick={handleButtonClicked} style={{ justifyContent: "center", alignItems: "center" }} />
                                     <h2 className='text-title p-balance-mobile-receiver'>Confirmation</h2>
                                 </div>
                                 <h5 className='text-title p-balance-dekstop'>Transfer To</h5>
@@ -217,13 +218,12 @@ const Confirmation = () => {
                             </div>
                         </div>
                         <div className="d-flex flex-row-reverse mt-4">
-                            <div className="d-flex flex-row justify-content-end custom-button-home" style={{ width: "60%" }}>
+                            <div className="d-flex flex-row justify-content-end custom-button-home mb-3" style={{ width: "60%" }}>
                                 <Button onClick={handleShow} variant="primary custom-button-home" className='mx-2' style={{ backgroundColor: "#6379F4" }}>Continue</Button>
                             </div>
                         </div>
-                    </div>
-                </div>
-
+                 </div>
+                </TransferLayout>
             </AfterLoginLayout>
 
         </Fragment>

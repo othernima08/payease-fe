@@ -69,6 +69,10 @@ const Transfer = () => {
             navigate(`/home`)
     }
 
+
+    const handleButtonClicked = () => {
+        navigate(`/home`)
+      };
    
     return (
         <AfterLoginLayout
@@ -78,9 +82,9 @@ const Transfer = () => {
                     <Row bsPrefix="margin-box" >
                         <Col md={12}>
                             <div className="back-icon d-flex flex-nowrap">
-                            <Link to={"/home"}>
-                                <IoArrowBack className="button-back" style={{ justifyContent: "center", alignItems: "center" }} />
-</Link>
+                            
+                                <IoArrowBack onClick={handleButtonClicked} className="button-back" style={{ justifyContent: "center", alignItems: "center" }} />
+
                                 <h2 className='text-title p-balance-mobile-receiver'>Find Receiver</h2>
                             </div>
                             <h2 className='text-title p-balance-dekstop'>Search Receiver</h2>

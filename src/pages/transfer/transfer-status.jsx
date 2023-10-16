@@ -79,16 +79,7 @@ const TransferStatus = () => {
             <div className="transfer-container ">
                 <div className="content-container ">
                     <div id='content'>
-                        <Row bsPrefix="margin-box" >
-                            <Col md={12}>
-                                <div className="back-icon">
-                                    <IoArrowBack />
-                                </div>
-
-                                <h2 className='text-title p-balance-mobile-receiver'>Confirmation</h2>
-                            </Col>
-                        </Row>
-
+                
 
                         <div className="d-flex img-success-mobile mb-1 mt-2 flex-column">
                             <img src="/src/assets/pin-image/success.png" style={{ width: "10%" }} alt="" className=' mb-3' />
@@ -157,11 +148,11 @@ const TransferStatus = () => {
                         </div>
                     </div>
 
-                    <div className="d-flex flex-row-reverse mt-4">
+                    <div className="d-flex flex-row-reverse mt-4 mb-3">
                         <div className="d-flex flex-row custom-button-home" style={{ width: "60%" }}>
                             <Button variant="primary custom-button-tf" className='mx-3' style={{ width: "60px", marginRight: "4px", backgroundColor: "rgba(99, 121, 244, 0.15)" }}><i class="bi bi-share" style={{ color: "black" }}></i></Button>
                             <Button onClick={exportPDF} variant="primary custom-button-tf" className='mx-2' style={{ backgroundColor: "rgba(99, 121, 244, 0.15)", color: "#6379F4", width: "200px" }}><i class="bi bi-download mx-2"></i>Download PDF</Button>
-                            <Button variant="primary custom-button-home-tf" className='mx-2' style={{ backgroundColor: "#6379F4" }} onClick={() => {navigate("/home")}}>Back to Home</Button>
+                            <Button variant="primary custom-button-home-tf" className='mx-2 w-100' style={{ backgroundColor: "#6379F4" }} onClick={() => {navigate("/home")}}>Back to Home</Button>
                         </div>
                     </div>
 
