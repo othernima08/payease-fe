@@ -8,6 +8,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { getUserById, deletePhoneNumberService } from "../../../services/users";
+import DeleteConfirmationModal from "../../../modal/confirmationDelete";
 
 const ManagePhoneNumber = () => {
   const [userPhoneNumber, setUserPhoneNumber] = useState("");
@@ -113,20 +114,12 @@ const ManagePhoneNumber = () => {
         </Row>
       </Container>
 
-      <Modal show={showDeleteConfirmation} onHide={handleCancelDelete} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Delete Phone Number Confirmation</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{deleteConfirmationMessage}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCancelDelete}>
-            No
-          </Button>
-          <Button variant="primary" onClick={handleDeletePhoneNumber}>
-            Yes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <DeleteConfirmationModal
+        show={showDeleteConfirmation}
+        handleCancelDelete={handleCancelDelete}
+        handleDeletePhoneNumber={handleDeletePhoneNumber}
+        deleteConfirmationMessage={deleteConfirmationMessage}
+      />
     </AfterLoginLayout>
   );
 };

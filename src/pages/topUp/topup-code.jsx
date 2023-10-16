@@ -30,9 +30,6 @@ const PaymentCode = () => {
     )
   }
 
-
-
-
   useEffect(() => {
     const virtualAccountId = localStorage.getItem("selectedBankId");
     const fetchData = async () => {
@@ -49,6 +46,12 @@ const PaymentCode = () => {
     };
     fetchData();
   }, []);
+
+  const clearLocalStorage = () => {
+    localStorage.removeItem("amount");
+    localStorage.removeItem("paymentCode");
+    localStorage.removeItem("selectedBankId");
+  };
 
   return (
     <AfterLoginLayout>
@@ -172,6 +175,7 @@ const PaymentCode = () => {
                   variant="primary custom-button-home"
                   className="mx-2"
                   style={{ backgroundColor: "#6379F4" }}
+                  onClick={clearLocalStorage} 
                 >
                   Next
                 </Button>

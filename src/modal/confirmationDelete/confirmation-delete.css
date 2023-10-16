@@ -1,0 +1,9 @@
+.custom-yes-button {
+    background-color: #5564E0;
+    border-color: #5564E0;
+}
+
+.custom-yes-button:hover {
+    background-color: #4754c9;
+    border-color: #4754c9;
+}

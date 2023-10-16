@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import './profilepage.css'
 import { editImage } from "../../services/users";
 import editIcon from "../../assets/profile-image/edit.png"
-import { getUserById } from "../../services/users";
+// import { getUserById } from "../../services/users";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { IoArrowBackSharp } from "react-icons/io5";
 // import NotificationCard from "../reusable-components/notificationCard";
 
 function ProfilePageComponent() {
@@ -44,13 +46,13 @@ function ProfilePageComponent() {
             if (file) {
                 const formData = new FormData();
                 formData.append("file", file);
-                console.log(userId);
+                //console.log(userId);
                 const id = localStorage.getItem("id");
 
                 const response = await editImage(id, file);
 
                 if (response.data.success) {
-                    console.log(response);
+                    //console.log(response);
                     navigate("/profile")
 
                 } else {
@@ -63,12 +65,14 @@ function ProfilePageComponent() {
             console.error('Error:', error);
         }
     };
+    
     useEffect(() => {
         handleData();
         // handleEditImage();
     }, [userId]);
 
     const [showModal, setShowModal] = useState(false);
+
     const openModal = () => {
         setShowModal(true);
     };
@@ -77,9 +81,13 @@ function ProfilePageComponent() {
         setShowModal(false);
     };
 
-
     return (
         <Container className="profilepage-container">
+            <Row bsPrefix='profile-head-container'>
+                <div className="profile-back-icon" onClick={() => navigate("/home")}>
+                    <IoArrowBackSharp />
+                </div>
+            </Row>
             <Row>
                 <Col className="d-flex justify-content-center"
                     style={{
@@ -108,17 +116,20 @@ function ProfilePageComponent() {
             </Row>
             <Row>
                 <Col className="d-flex justify-content-center">
-                    <div style={{ width: "60%" }}>
-                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/profile/profile-information")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
-                            Personal Information
+                    <div className="button-profile-container">
+                        <Button className="button-profile" type="submit" size="lg" onClick={() => navigate("/profile/profile-information")} >
+                            <p style={{ margin: 0 }}>Personal Information</p>
+                            <p style={{ margin: 0 }}><AiOutlineArrowRight /></p>
                         </Button>
-                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/profile/change-password")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
-                            Change Password
+                        <Button className="button-profile" type="submit" size="lg" onClick={() => navigate("/profile/change-password")}  >
+                            <p style={{ margin: 0 }}>Change Password</p>
+                            <p style={{ margin: 0 }}><AiOutlineArrowRight /></p>
                         </Button>
-                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => navigate("/profile/change-pin-1")} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
-                            Change PIN
+                        <Button className="button-profile" type="submit" size="lg" onClick={() => navigate("/profile/change-pin-1")} >
+                            <p style={{ margin: 0 }}>Change PIN</p>
+                            <p style={{ margin: 0 }}><AiOutlineArrowRight /></p>
                         </Button>
-                        <Button className="d-grid gap-4 mt-3" type="submit" size="lg" onClick={() => logout()} style={{ backgroundColor: "#DADADA", color: "#88888F", borderColor: "#DADADA", width: "100%", textAlign: "left" }} >
+                        <Button className="button-profile" type="submit" size="lg" onClick={() => logout()} >
                             Logout
                         </Button>
                     </div>

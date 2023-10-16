@@ -16,31 +16,35 @@ const PaymentPoint = () => {
   const handlePaymentProcess = async () => {
     try {
       const response = await topUpPayment(paymentCode);
-      if (response.success === false) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: response.data.message,
-        });
-      }  else if (response.success === true) {
+      const statusRes = response.data.success;
+      if (statusRes === true) {
         Swal.fire({
           icon: 'success',
           title: 'Payment Successful',
-          text: `Response Message: ${response.message}`,
-        }).then(() => {
-          setPaymentCode('');
+          text: `Response Message: ${response.data.message}`,
         });
+
       } else {
+        const errorMsg = response.data.message;
+        if (response.data.error && response.data.error.paymentCode) {
+          errorMsg = response.data.error.paymentCode; 
+        }
         Swal.fire({
           icon: 'error',
-          title: 'Error',
-          text: 'An error occurred while processing the payment. Please try again later.',
+          title: 'Payment Failed',
+          html: errorMsg,
+        }).then(() => {
+          setPaymentCode('');
         });
       }
     } catch (error) {
       console.error(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An error occurred while processing the payment. Please try again later.',
+      });
     }
-    setPaymentCode('');
   };
 
   return (
@@ -57,7 +61,7 @@ const PaymentPoint = () => {
         />
       </div>
       <div className="payment-point-button-container">
-        <button
+      <button
           className="payment-point-process-button"
           disabled={!paymentCode}
           onClick={handlePaymentProcess}

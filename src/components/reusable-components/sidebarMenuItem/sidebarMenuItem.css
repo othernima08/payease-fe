@@ -37,7 +37,7 @@
 
 .active-indicator {
     height: 48px;
-    width: 10px;
+    width: 6px;
     background-color: #6379F4;
     position: absolute;
     margin-left: -24px;

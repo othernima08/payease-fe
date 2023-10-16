@@ -20,6 +20,32 @@
     font-size: 24px;
 }
 
+.button-profile-container {
+    width: 70%;
+}
+
+.profile-back-icon {
+    display: none;
+}
+
+.button-profile {
+    background-color: #DADADA;
+    color: #88888F;
+    border-color: #DADADA;
+    width: 100%;
+    text-align: left;
+    margin: 8px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button-profile:hover {
+    background-color:#6379F4;
+    color: #ffffff;
+    border-color: #6379F4;
+}
+
 @media only screen and (max-width: 768px) {
     .profilepage-container {
         padding-top: 30px;
@@ -33,7 +59,18 @@
         z-index: 1000;
         overflow-y: scroll;
     }
-    
+
+    .profile-back-icon {
+        display: block;
+    }
+
+    .button-profile-container {
+        width: 100%;
+    }
+
+    .button-profile {
+        font-size: 14px;
+    }
 }
 
 .modal-image-preview {
