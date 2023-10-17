@@ -87,7 +87,11 @@ const PaymentMethod = () => {
             <Card.Body className="bank-card-row">
               <div className="bank-card-col">
                 <img className="bank-logo" src={bank.profile_picture_url} alt={bank.name} />
+                <div style={{display: "flex", flexDirection: "column"}}>
                 <h4 className="card-titles">{bank.name}</h4>
+                <p className="va-card-numbers">{bank.number}</p>
+                </div>
+                
               </div>
               <div className="bank-card-col">
                 <label className="radio-label">

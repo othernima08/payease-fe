@@ -11,3 +11,16 @@
     right: 1% !important;
     width: 30% !important;
 }
+
+.notif-title {
+    font-family: "Nunito-Bold", sans-serif;
+    font-size: 18px;
+    color: #4D4B57;
+}
+
+.notif-see-all {
+    font-family: "Nunito-Regular", sans-serif;
+    font-size: 14px;
+    color: #7A7886;
+    cursor: pointer;
+}

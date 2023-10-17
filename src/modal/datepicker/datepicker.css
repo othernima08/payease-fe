@@ -100,3 +100,16 @@ input.date-input {
 .nice-dates-day.-selected:not(:hover) *, .nice-dates-day.-selected.-disabled *{
     color: #3A3D42 !important;
 }
+
+.label-date {
+    font-family: "Nunito-Regular",sans-serif;
+    color: #7A7886;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.date-input {
+    font-family: "Nunito-Bold",sans-serif;
+    font-size: 16px;
+    color: #4D4B57;
+}
