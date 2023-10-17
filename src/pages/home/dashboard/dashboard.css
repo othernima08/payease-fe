@@ -1,6 +1,6 @@
-.dashboard-card {
+.dashboard-card-nya {
     background-color: #6379F4;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 100%;
     margin-bottom: 20px;
     outline: none;
@@ -72,7 +72,7 @@
 
 /* CSS container transaction */
 .transaction-summary {
-  width: 95%;
+  width: 55%;
   background-color: white;
   box-shadow: 0px 0px 20px 4px #ebebeb;
   border-radius: 25px !important;
@@ -119,12 +119,13 @@
 
 /* CSS untuk container history */
 .history-container {
-  width: 95%;
+  width: 45% !important;
   background-color: white;
   box-shadow: 0px 0px 20px 4px #ebebeb;
   border-radius: 25px !important;
-  margin-top: 20px;
-  padding: 20px;
+ margin-top: 20px;
+ margin-left: 20px;
+  padding: 20px; 
   overflow: hidden;
 }
 
@@ -195,19 +196,27 @@
 .history-amount.red {
   color: red;
 }
+  .history-container {
+    width: 100%;
+    /* margin-bottom: 20px; */
+  }
 
 
-@media only screen and (min-width: 426px) {
+@media only screen and (min-width: 769px) {
   .buttons-section-mobile {
-    display: none;
+    display: none !important;
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 769px)  {
+  .mobile-display{
+    margin-right: 5px;
+    justify-content: center;
+  }
   .sidebar-container,
   .footer-container,
   .transaction-summary {
-    display: none;
+    display: none !important;
   }
   
   .buttons-section {
@@ -281,6 +290,7 @@
     position: relative; 
     margin: 0 !important; 
     border-radius: 20px;
+    text-align: center;
   }
 
   .dashboard-body {
@@ -320,8 +330,9 @@
   }
 
   .history-container {
-    width: 100%;
+    width: 100% !important;
     margin-bottom: 20px;
+  
   }
 }
 

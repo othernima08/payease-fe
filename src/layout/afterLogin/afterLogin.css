@@ -4,3 +4,19 @@
     max-width: 100vw;
     padding: 0;
 }
+
+
+@media only screen and (min-width: 426px) and (max-width: 790px){
+
+    .mobile-see{
+        display: none !important;
+    }
+
+    .mobile-see-content{
+        width: 100%;
+        display: flex !important;
+        flex-direction: column;
+        /* justify-content: center !important; */
+        align-items: center !important;
+    }
+}
