@@ -49,8 +49,8 @@ const CustomSidebar = () => {
     }
 
     return (
-        <Container bsPrefix='sidebar-container'>
-            <section>
+        <Container bsPrefix='sidebar-container flex-column flex-wrap'>
+            <section className='responsive-view'>
                 <MenuItem
                     menu={{
                         index: 1,
