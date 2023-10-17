@@ -59,7 +59,7 @@ const InputAmount = () => {
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
-            if (inAMount === '' || parseFloat(inAMount) > tampilUserSender.balance ||parseFloat(inAMount) < 0) {
+            if (inAMount === '' || parseFloat(inAMount) > tampilUserSender.balance ||parseFloat(inAMount) <= 0) {
 
                 Swal.fire({
                     icon: "error",

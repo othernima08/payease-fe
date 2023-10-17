@@ -117,6 +117,9 @@ const Confirmation = () => {
         const handleButtonClicked = () => {
             navigate(`/transfer/to/${ localStorage.getItem("recipient")}`)
           };
+
+
+          const pengurangan = tampilUserSender.balance - amount;
     return (
         <Fragment>
             <Modal
@@ -203,7 +206,7 @@ const Confirmation = () => {
 
                                 <div className='d-flex flex-column p-2'>
                                     <div className='p-auth opacity-75'>Balance Left</div>
-                                    <div >{`Rp ${parseFloat(tampilUserSender.balance).toLocaleString('id-ID')}`}</div>
+                                    <div >{`Rp ${parseFloat(pengurangan).toLocaleString('id-ID')}` }</div>
                                 </div>
                             </div>
                         </div>
