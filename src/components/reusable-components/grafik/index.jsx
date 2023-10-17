@@ -97,7 +97,7 @@ const Grafik = () => {
         <Card className="chart-card">
           <Card.Body>
             <div className="chart-container">
-              <Bar options={chartOptions} data={prepareChartData(dailyData)} />
+              <Bar options={{chartOptions,  aspectRatio: 1, }} data={prepareChartData(dailyData)} />
             </div>
           </Card.Body>
         </Card>

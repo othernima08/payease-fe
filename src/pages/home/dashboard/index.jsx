@@ -105,10 +105,11 @@ const Dashboard = () => {
     <React.Fragment>
       {isLoading ? <LoadingScreen /> :
         <AfterLoginLayout>
-          <Container fluid className="balance">
+        
+          <Container  className="balance">
             <Row>
               <Col md={12}>
-                <Card className="dashboard-card">
+                <Card className="dashboard-card-nya">
                   <Card.Body className="dashboard-body">
                     <div className="balance-section">
                       <Card.Title bsPrefix="balance-title">Balance</Card.Title>
@@ -149,6 +150,8 @@ const Dashboard = () => {
               </Col>
             </Row>
           </Container>
+         
+          <div className="d-flex flex-row  ">
           <Container className="transaction-summary">
             <Row>
               <Col md={6} className="summary-column lefts">
@@ -174,7 +177,7 @@ const Dashboard = () => {
             <Grafik />
           </Container>
 
-          <Container className="history-container">
+          <Container className="history-container mobile-display">
             <div className="history-title">
               <p className="prgph1">Transaction History</p>
               <p className="prgph2" onClick={() => { navigate("/home/history") }}>See all</p>
@@ -192,6 +195,7 @@ const Dashboard = () => {
               />
             ))}
           </Container>
+          </div>
         </AfterLoginLayout>
       }
     </React.Fragment>

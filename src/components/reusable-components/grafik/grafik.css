@@ -1,7 +1,11 @@
 /* CSS untuk card chart */
 .chart-card {
+    display: flex;
+    flex-direction: column;
     background-color: transparent; 
     border: none; 
     border-radius: 0% !important;
     box-shadow: none !important;
   }
+
+
