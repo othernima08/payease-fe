@@ -2,7 +2,7 @@
     color: #626468;
     display: flex;
     align-items: center;
-    padding: 12px 24px; 
+    padding: 12px; 
     width: 100%;
     font-family: 'Nunito-Regular', sans-serif;
 }
@@ -11,7 +11,7 @@
     color: #6379F4;
     display: flex;
     align-items: center;
-    padding: 12px 24px; 
+    padding: 12px; 
     width: 100%;
     font-family: 'Nunito-Regular', sans-serif;
 }
@@ -43,12 +43,21 @@
     margin-left: -24px;
 }
 
-@media only screen and (max-width: 832px) {
+@media only screen and (max-width: 1000px) {
+    .menu-title  {
+        font-size: 16px;
+        margin-left: 8px;
+    }
+
+    .menu-icon {
+        font-size: 20px;
+    }
+
     .sidebar-menu-container {
-        padding: 12px 0px; 
+        padding: 12px 8px; 
     }
 
     .active-sidebar-menu-container {
-        padding: 12px 0px; 
+        padding: 12px 8px; 
     }
 }

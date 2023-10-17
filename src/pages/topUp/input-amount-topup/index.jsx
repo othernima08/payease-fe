@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./input-amount-topup.css";
 import AfterLoginLayout from "../../../layout/afterLogin";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
@@ -6,11 +6,37 @@ import { NumericFormat } from 'react-number-format';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { getUserById } from '../../../services/users';
+import Swal from 'sweetalert2';
 
 const InputAmountTopUp = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [amount, setAmount] = useState('');
   const navigate = useNavigate();
+  const userId = localStorage.getItem('id');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getUserById(userId);
+        const user = response.data.data;
+        if (!user.phoneNumber) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Phone Number Not Found',
+            text: 'You cannot access this page because your phone number is not available. Please add your phone number first.',
+          }).then(() => {
+            navigate('/home');
+          });
+        } else {
+          setPhoneNumber(user.phoneNumber);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, [userId, navigate]);
 
   const handleFocus = () => {
     setIsFocused(!isFocused);

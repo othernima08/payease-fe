@@ -5,10 +5,12 @@ import NotificationCard from '../../components/reusable-components/notificationC
 import Modal from 'react-bootstrap/Modal';
 import './popup.css'
 import { getTopFiveUserTransactionHistory } from '../../services/transactions';
+import { useNavigate } from 'react-router';
 
 const NotificationModal = (props) => {
     const { handleCloseNotif, showNotif } = props;
     const [data, setData] = useState([])
+    const navigate = useNavigate()
 
     const handleGetData = async () => {
         try {
@@ -35,6 +37,14 @@ const NotificationModal = (props) => {
             size="md"
         >
             <Modal.Body>
+                <section style={{display:'flex', alignItems: "center", justifyContent: "space-between"}}>
+                    <p className="notif-title">
+                        Notification
+                    </p>
+                    <p className="notif-see-all" onClick={() => {navigate("/home/notification")}}>
+                        See all
+                    </p>
+                </section>
                 {( data.length != 0) ? data?.map(item => (
                     <NotificationCard
                         key={item.id}

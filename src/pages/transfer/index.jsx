@@ -108,8 +108,8 @@ const Transfer = () => {
                     </InputGroup>
                 </div>
                 <div className="content">
-                   
-                        {/* {tampilUsers.length > 0 ? (
+
+                    {/* {tampilUsers.length > 0 ? (
                             result.map(p => (
                                 <ReceiverCard
                                     key={p.id}
@@ -125,26 +125,26 @@ const Transfer = () => {
                             <div>Loading...</div>
                         )} */}
 
-                        {isSearching ? (
-                            result.length > 0 ? (
-                                result.map(p => (
-                                    <ReceiverCard
-                                       isMatch={true}
-                                        key={p.id}
-                                        email={p.email}
-                                        firstName={p.first_Name}
-                                        lastName={p.last_Name}
-                                        phoneNumber={p.phone_Number}
-                                        userPic={p.shared_Url != null ? p.shared_Url: blank}
-                                        id={p.id}
-                                    />
-                                ))
-                            ) : (
+                    {isSearching ? (
+                        result.length > 0 ? (
+                            result.map(p => (
                                 <ReceiverCard
+                                    isMatch={true}
+                                    key={p.id}
+                                    email={p.email}
+                                    firstName={p.first_Name}
+                                    lastName={p.last_Name}
+                                    phoneNumber={p.phone_Number}
+                                    userPic={p.shared_url != null ? p.shared_url : blank}
+                                    id={p.id}
+                                />
+                            ))
+                        ) : (
+                            <ReceiverCard
                                 isMatch={false}
                             />
-                            ) 
-                        ) : null}
+                        )
+                    ) : null}
 
 
 
