@@ -5,7 +5,7 @@ import profileimg from "../../assets/images/blank.jpg"
 import { useNavigate } from 'react-router-dom';
 import './profilepage.css'
 import { editImage, getUserById } from "../../services/users";
-
+import Swal from "sweetalert2";
 import editIcon from "../../assets/profile-image/edit.png"
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { IoArrowBackSharp } from "react-icons/io5";
@@ -52,20 +52,38 @@ function ProfilePageComponent() {
                 const response = await editImage(id, file);
 
                 if (response.data.success) {
-                    //console.log(response);
-                    navigate("/profile")
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Edit Image Successful',
+                        text: 'Image Updated..'
+                    });
+                    navigate("/home")
 
                 } else {
+                    const errorMsg = response.data.message;
+                    if (response.data.error && response.data.error.amount) {
+                        errorMsg = response.data.error.amount;
+                    }
+                    Swal.fire({
+                        icon: 'Failled',
+                        title: 'Edit Image Failled',
+                        text: errorMsg
+                    });
                     console.error("Error:", response.data.message);
                 }
             } else {
+                Swal.fire({
+                    icon: 'Failled',
+                    title: 'Edit Image Failled',
+                    text: 'You have to input the Image..'
+                });
                 console.error("Pilih file terlebih dahulu.");
             }
         } catch (error) {
             console.error('Error:', error);
         }
     };
-    
+
     useEffect(() => {
         handleData();
         // handleEditImage();
@@ -82,7 +100,7 @@ function ProfilePageComponent() {
     };
 
 
-    console.log(detail,"ini data yang mau d tampilin")
+    console.log(detail, "ini data yang mau d tampilin")
     return (
         <Container className="profilepage-container">
             <Row bsPrefix='profile-head-container'>
@@ -99,16 +117,16 @@ function ProfilePageComponent() {
                     }}>
                     <Image src={detail.sharedUrl
                         != null ? detail.sharedUrl
-                        : profileimg} alt='profile...'  className="image-profile"/>
+                        : profileimg} alt='profile...' className="image-profile" />
                 </Col>
             </Row>
             <Row>
                 <Col className="d-flex justify-content-center align-items-center ">
                     <div style={{ alignItems: "center" }}>
                         <div className="d-flex flex-row justify-content-center mt-2 ">
-                        <img src={editIcon} className="mt-1" style={{width:"10%", height:"10%"}}/>
+                            <img src={editIcon} className="mt-1" style={{ width: "10%", height: "10%" }} />
                             <p className="profile-edit mx-2" onClick={openModal}>Edit  </p>
-                         
+
                         </div>
                         {/* <p>{}</p> */}
                         <p className="profile-name">{detail.firstName} {detail.lastName}</p>
