@@ -161,4 +161,7 @@ p.va-card-numbers{
     background-color: #5564E8;
   }
 
+  .bank-card-col {
+    margin-right: 0px;
+  }
 }
