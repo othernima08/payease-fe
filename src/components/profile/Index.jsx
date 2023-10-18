@@ -124,7 +124,7 @@ function ProfilePageComponent() {
                 <Col className="d-flex justify-content-center align-items-center ">
                     <div style={{ alignItems: "center" }}>
                         <div className="d-flex flex-row justify-content-center mt-2 ">
-                            <img src={editIcon} className="mt-1" style={{ width: "10%", height: "10%" }} />
+                            <img src={editIcon} className="mt-1" style={{ width: "20px", height: "20px" }} />
                             <p className="profile-edit mx-2" onClick={openModal}>Edit  </p>
 
                         </div>

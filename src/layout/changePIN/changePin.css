@@ -2,6 +2,7 @@
     background-color: #ffffff;
     padding: 32px;
     height: 100%;
+    min-height: 100vh;
     box-shadow: 0px 0px 20px 4px #ebebeb;
     border-radius: 25px;
 }

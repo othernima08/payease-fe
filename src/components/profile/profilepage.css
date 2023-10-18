@@ -2,23 +2,27 @@
     background-color: #ffffff;
     padding: 24px;
     height: 100%;
+    min-height: 100vh;
     box-shadow: 0px 0px 20px 4px #ebebeb;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-margin-bottom: 100px;
+    justify-content: center;
+    margin-bottom: 100px;
 }
 
-.profile-edit{
+.profile-edit {
     font-size: 18px;
     color: #7A7886;
 }
-.profile-name{
+
+.profile-name {
     margin-top: 4px;
     margin-bottom: 4px;
     font-size: 24px;
 }
-.profile-number{
+
+.profile-number {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,14 +44,14 @@ margin-bottom: 100px;
     border-color: #DADADA;
     width: 100%;
     text-align: left;
-    margin: 8px 0px;
+    margin: 12px 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .button-profile:hover {
-    background-color:#6379F4;
+    background-color: #6379F4;
     color: #ffffff;
     border-color: #6379F4;
 }
@@ -67,6 +71,7 @@ margin-bottom: 100px;
         background-color: #FAFCFF;
         z-index: 1000;
         overflow-y: scroll;
+        justify-content: flex-start;
     }
 
     .profile-back-icon {
@@ -89,7 +94,7 @@ margin-bottom: 100px;
 }
 
 
-.image-profile{
+.image-profile {
     display: inline-block;
     width: 100px;
     height: 100px;
@@ -97,7 +102,8 @@ margin-bottom: 100px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-} 
+}
+
 /* 
 .diprofile-info{
 

@@ -118,21 +118,21 @@ const ChangePassword = () => {
     return (
         <AfterLoginLayout
             children={
-                <Container bsPrefix='change-password-container'>
-                    <Row bsPrefix='change-password-head-container'>
+                <Container bsPrefix='change-password-after-login-container'>
+                    <Row bsPrefix='change-password-after-login-head-container'>
                         <Col md={12}>
-                            <div className="change-password-back-icon" onClick={() => navigate("/profile")}>
+                            <div className="change-password-after-login-back-icon" onClick={() => navigate("/profile")}>
                                 <IoArrowBackSharp />
                             </div>
-                            <h2 className="change-password-title">Change password</h2>
+                            <h2 className="change-password-after-login-title">Change password</h2>
                         </Col>
                         <Col md={12}>
-                            <p className="change-password-description">You must enter your current password and then type your new password twice.</p>
+                            <p className="change-password-after-login-description">You must enter your current password and then type your new password twice.</p>
                         </Col>
                     </Row>
-                    <Container bsPrefix="change-password-form-container">
-                        <Form className='change-password-form'>
-                            <section className='change-password-input-container'>
+                    <Container bsPrefix="change-password-after-login-form-container">
+                        <Form className='change-password-after-login-form'>
+                            <section className='change-password-after-login-input-container'>
                                 <section className='input-container'>
                                     <IconContext.Provider value={{ color: `${cpFieldOnFocus ? '#6379F4' : '#CBCBCB'} `, className: "global-class-name" }}>
                                         <p className='input-icon'><BiLockAlt /></p>
@@ -154,7 +154,7 @@ const ChangePassword = () => {
                             </section>
 
                             <section className="d-grid gap-4 mt-5">
-                                <Button type="button" size="lg" className='change-password-button' style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} disabled={confirmPassword === "" || newPassword === "" || currentPassword === ""} onClick={handleChangePassword}>
+                                <Button type="button" size="lg" className='change-password-after-login-button' style={{ backgroundColor: "#6379F4", borderColor: "#6379F4" }} disabled={confirmPassword === "" || newPassword === "" || currentPassword === ""} onClick={handleChangePassword}>
                                     Change Password
                                 </Button>
                             </section>
