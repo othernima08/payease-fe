@@ -10,12 +10,13 @@ import { ButtonGroup } from "react-bootstrap";
 import { IoArrowBack } from "react-icons/io5";
 import LayoutAuth from "../../layout/auth";
 import { getVirtualAccountById } from "../../services/transactions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 const PaymentCode = () => {
   const [virtualAccountData, setVirtualAccountData] = useState(null);
 
+  const navigate = useNavigate();
   const exportPDF = () => {
     const input = document.getElementById("content")
     html2canvas(input, { logging: true, letterRendering: 1, useCORS: true, scale: 2  }).then(
@@ -53,22 +54,25 @@ const PaymentCode = () => {
     localStorage.removeItem("selectedBankId");
   };
 
+  const handleButtonClicked = () => {
+    navigate(`/top-up/payment-method`)
+  };
   return (
     <AfterLoginLayout>
       <div className="transfer-container  ">
         <div className="content-container ">
           <div id="content">
-            <Row bsPrefix="margin-box">
-              <Col md={12}>
-                <div className="back-icon">
-                  <IoArrowBack />
-                </div>
+          <Row bsPrefix="margin-box-cek" >
+                        <Col md={12}>
+                            <div className=" back-icon d-flex flex-nowrap"> 
+                                <IoArrowBack className="button-back" onClick={handleButtonClicked} style={{ justifyContent: "center", alignItems: "center" }}
+                                />
 
-                <h2 className="text-title p-balance-mobile-receiver">
-                  Confirmation
-                </h2>
-              </Col>
-            </Row>
+                                <h2 className='text-title'>Confirmation</h2>
+                              
+                            </div>
+                        </Col>
+                    </Row>
             <div className="d-flex img-success-mobile mb-1 mt-2 flex-column">
               <h3 className="text-title ">Payment Code</h3>
 
@@ -174,7 +178,7 @@ const PaymentCode = () => {
                 <Button
                   variant="primary custom-button-home"
                   className="mx-2"
-                  style={{ backgroundColor: "#6379F4" }}
+                  style={{ backgroundColor: "#6379F4", marginBottom:"20px" }}
                   onClick={clearLocalStorage} 
                 >
                   Next
