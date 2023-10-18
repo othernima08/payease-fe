@@ -119,7 +119,7 @@ const AddPhoneNumber = () => {
                 }}
               >
                 <div className="icon-telp">
-                  <FiPhone /> +62
+                  <FiPhone />
                 </div>
               </IconContext.Provider>
               <input

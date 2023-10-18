@@ -60,14 +60,12 @@ function ProfilePageComponent() {
                     navigate("/home")
 
                 } else {
-                    const errorMsg = response.data.message;
-                    if (response.data.error && response.data.error.amount) {
-                        errorMsg = response.data.error.amount;
-                    }
+                    const erormsg = response.data.message;
+                    
                     Swal.fire({
                         icon: 'Failled',
                         title: 'Edit Image Failled',
-                        text: errorMsg
+                        text: erormsg
                     });
                     console.error("Error:", response.data.message);
                 }

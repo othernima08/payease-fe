@@ -27,7 +27,7 @@ const LandingPage4 = () => {
                         <Card.Body>
                             <Card.Title>Jessica Mera</Card.Title>
                             <Card.Text>
-                                “I use Zwallet to manage all financial needs. It’s super easy to use and it’s 100% free app”
+                                “I use PayEase to manage all financial needs. It’s super easy to use and it’s 100% free app”
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -38,7 +38,7 @@ const LandingPage4 = () => {
                         <Card.Body>
                             <Card.Title>Robert Chandler</Card.Title>
                             <Card.Text>
-                                “Since I’m using this app, I’m not going to move to another similar app. Thank you Zwallet!”
+                                “Since I’m using this app, I’m not going to move to another similar app. Thank you PayEase!”
                             </Card.Text>
                         </Card.Body>
                     </Card>
