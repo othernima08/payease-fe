@@ -18,7 +18,7 @@ const PaymentCode = () => {
 
   const exportPDF = () => {
     const input = document.getElementById("content")
-    html2canvas(input, { logging: true, letterRendering: 1, useCORS: true }).then(
+    html2canvas(input, { logging: true, letterRendering: 1, useCORS: true, scale: 2  }).then(
       canvas => {
         const imgWidth = 208;
         const imgHeight = canvas.height * imgWidth / canvas.width;
