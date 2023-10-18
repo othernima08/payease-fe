@@ -89,6 +89,7 @@ Before you begin, ensure you have met the following requirements:
 
 - Web browser (e.g., Chrome, Firefox) to view the frontend.
 - Code editor for running/ edit the frontend.
+- Node JS.
 
 ### Installation
 
@@ -102,7 +103,10 @@ Before you begin, ensure you have met the following requirements:
    ```sh
    cd payease-fe
 
-3. Open the index.html file in your web browser to preview the first page of payease frontend.
+3. Install the depedencies or library:
+
+   ```sh
+   npm install --force
 
 ## Usage
 
