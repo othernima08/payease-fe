@@ -48,8 +48,8 @@ const TransferStatus = () => {
 
 
     const exportPDF = () => {
-        const input = document.getElementById("content")
-        html2canvas(input, { logging: true, letterRendering: 1, useCORS: true }).then(
+        const input = document.getElementById("content-toprint")
+        html2canvas(input, { logging: true, letterRendering: 1, useCORS: true,   scale: 2  }).then(
             canvas => {
                 const imgWidth = 208;
                 const imgHeight = canvas.height * imgWidth / canvas.width;
@@ -85,7 +85,7 @@ const TransferStatus = () => {
         >
             <div className="transfer-container ">
                 <div className="content-container ">
-                    <div id='content'>
+                    <div id='content-toprint'>
                 
 
                         <div className="d-flex img-success-mobile mb-1 mt-2 flex-column">
